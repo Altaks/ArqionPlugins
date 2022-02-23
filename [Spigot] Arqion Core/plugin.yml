@@ -1,0 +1,99 @@
+name : HeleCore
+author : NoWay_y
+version : 1.0
+main : fr.nowayy.helecore.Main
+api-version : 1.15
+commands:
+  setspawn:
+    description: definit un point de spawn
+    permission: admin.helecore.setspawn
+  spawn:
+    description: teleporte le joueur au spawn
+    usage: Mauvaise utilisation de la commande ! (/spawn)
+  kit:
+    description: affiche les kits disponibles (sans argument.s) / give le kit (avec argument)
+  createkit:
+    description: cree un kit
+    permission: admin.helecore.createkit
+    permission-message: Vous n'avez pas la permission de creer un kit !
+  delkit:
+    description: supprime un kit cree
+    permission: admin.helecore.deletekit
+    permission-message: Vous n'avez pas la permission de supprimer un kit !
+  save:
+    description: enregistre la creation d'un kit
+    permission: admin.helecore.savekit
+    permission-message: Vous n'avez pas la permission de faire ceci !
+  gamemode:
+    description: Change le mode de jeu d'un joueur
+    aliases: gm
+    permission: smod.helecore.gamemode
+  flyspeed:
+    description: Change la vitesse de vol d'un joueur
+    permission: smod.helecore.flyspeed
+  walkspeed:
+    description: Change la vitesse de marche d'un joueur 
+    permission : smod.helecore.walkspeed
+  home:
+    description: Teleporte un joueur a son home
+  sethome:
+    description: definit un point de home
+  delhome:
+    description: Supprime un home
+  homes:
+    description: Liste des homes
+  fly:
+    description: Autorise le vol
+    permission: smod.helecore.fly
+  announce:
+    description: Fait une annonce a tous les joueurs connectes
+    aliases: bc, broadcast
+    permission: resp.helecore.announce
+  godmod:
+    description: Rend invulnerable un joueur
+    permission : smod.helecore.godmod
+    aliases: god
+  openec:
+    description: Ouvre l'ender-chest du joueur
+    permission : mod.helecore.openec
+  openinv:
+    description: Ouvre l'inventaire d'un joueur
+    permission: mod.helecore.openinv
+  worldannounce:
+    description: Fait une annonce sur un monde specifie
+    permission : smod.helecore.worldannounce
+  heal:
+    description: Soigne le joueur
+    permission : help.helecore.heal
+  feed:
+    description: Nourrit le joueur
+    permission : help.helecore.feed
+  playerinfo:
+    description: Donne les infos du joueur
+    permission : mod.helecore.playerinfo
+  speed:
+    description: Change la vitesse en fonction de la position
+    permission : smod.helecore.speed
+  killall:
+    description: tue les entitees
+    permission : smod.helecore.killall
+  enchant:
+    description: Enchante l'item en main
+    permission : mod.helecore.enchant
+    aliases: enchantment
+  craft:
+    description: Ouvre la table de craft
+    permission : grade.helecore.craft
+  furnace:
+    description: Ouvre un four
+    permission : grade.helecore.furnace
+  warps:
+    description: Ouvre l'inventaire des warps
+  setwarp:
+    description: Definit un warp
+    permission : resp.helecore.setwarp
+  delwarp:
+    description: Supprime un warp
+    permission : resp.helecore.delwarp
+  warp:
+    description: Teleporte a un warp en arg

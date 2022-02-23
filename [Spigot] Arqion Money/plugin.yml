@@ -1,0 +1,21 @@
+name: ArqionMoney
+version: "1.0.0"
+main: fr.altaks.helemoney.Main
+author: Altaks
+api: Spigot
+api-version: 1.15
+commands:
+  adminmoney:
+    description: "Permet de gerer la monnaie d'un joueur"
+    permission: admin.money.cmd
+  adminbank:
+    description: "Permet de gerer la monnaie de la banque d'un joueur"
+    permission: admin.bank.cmd
+  deposit:
+    description: "Permet de deposer de l'argent dans votre banque"
+  withdraw:
+    description: "Permet de retirer de l'argent de votre banque"
+  money:
+    description: "Permet de voir sa monnaie"
+  bank:
+    description: "Permet d'acceder au menu d'amelioration de sa banque"

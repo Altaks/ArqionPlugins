@@ -1,0 +1,6 @@
+name: HeleSwitcher
+author: Altaks
+version: "1.0.0"
+main: fr.altaks.heleswitcher.Main
+api: Spigot
+api-version: 1.15

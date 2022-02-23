@@ -1,0 +1,5 @@
+name: Arkio
+version: "1.0.0"
+main: fr.altaks.helenia.Main
+author: Altaks
+api: BungeeCord

@@ -1,0 +1,14 @@
+name: ArqionPets
+version: "1.0.0"
+main: fr.altaks.arqionpets.Main
+api: Spigot
+api-version: 1.15
+commands:
+  giveitem:
+    permission: op
+    description: for admins only
+  spawnpet:
+    permission: op
+    description: for admins only
+  pet:
+    description: Permet d'ouvrir le menu des pets

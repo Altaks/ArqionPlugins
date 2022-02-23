@@ -1,0 +1,12 @@
+name: HeleLogin
+author: Altaks
+version: "1.0.0"
+main: fr.altaks.heleloginbungee.Main
+api: BungeeCord
+commands:
+  logpasschange:
+    description: "Permet de changer le mot de passe de connexion d'un joueur du serveur"
+    permission: "admin.logpasschange"
+  logpasssee:
+    description: "Permet de voir le mot de passe de connexion d'un joueur du serveur"
+    permission: "admin.logpasssee"

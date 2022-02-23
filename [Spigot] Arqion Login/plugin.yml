@@ -1,0 +1,10 @@
+name: ArqionLogin
+version: "1.0.0"
+author: Altaks
+main: fr.altaks.helelogin.Main
+api: Spigot
+commands:
+  register:
+    description: "Vous permet d'enregister votre compte sur le serveur"
+  login:
+    description: "Vous permet de vous connecter a votre compte sur le serveur"

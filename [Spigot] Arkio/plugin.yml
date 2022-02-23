@@ -1,0 +1,17 @@
+name: Arkio
+version: "1.0.0"
+author: Altaks
+main: fr.altaks.helenia.Main
+api: Spigot
+api-version: 1.15
+commands:
+  mute:
+    description: "Permet de rendre un joueur muet"
+    permission: helenia.mute
+  tempmute: 
+    description: "Permet de rendre un joueur muet temporairement"
+    permission: helenia.tempmute
+  unmute:
+    description: "Permet de rendre a un joueur sas capacite d'ecrire dans le chat"
+    permission: helenia.unmute
+

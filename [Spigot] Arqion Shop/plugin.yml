@@ -1,0 +1,9 @@
+name: ArqionShop
+version: "1.0.0"
+author: Altaks
+main: fr.altaks.heleshop.Main
+api-version: 1.15
+api: Spigot
+commands:
+  shop:
+    description: "Permet d'acceder a la boutique"

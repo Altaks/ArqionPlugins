@@ -1,0 +1,37 @@
+Hostiles:
+  - ZOMBIE
+  - SKELETON
+  - CREEPER
+  - SPIDER
+  - SLIME
+  - GHAST
+  - PIG_ZOMBIE
+  - ENDERMAN
+  - CAVE_SPIDER
+  - SILVERFISH
+  - BLAZE
+  - MAGMA_CUBE
+  - ENDER_DRAGON
+  - WITCH
+  
+Animals:
+  - PIG
+  - SHEEP
+  - COW
+  - CHICKEN
+  - SQUID
+  - WOLF
+  - MUSHROOM_COW
+  - OCELOT
+  - BAT
+  - HORSE
+  - DONKEY
+  
+Minecart:
+  - MINECART
+  - MINECART_HOPPER
+  - MINECART_FURNACE
+  - MINECART_COMMAND
+  
+Arrows:
+  - ARROW

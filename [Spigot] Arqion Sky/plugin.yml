@@ -1,0 +1,21 @@
+name: ArqionSky
+version: "1.0.0"
+main: fr.altaks.helesky.Main
+author: Altaks
+api: Spigot
+api-version: 1.15
+dependencies: WorldEdit
+commands:
+  island:
+    description: "Permet de gerer tout ce qui est lie a l'ile"
+    aliases: ["is"]
+  adminsky:
+    description: "Permet de gerer tout ce qui est lie aux iles des joueurs"
+    permission: "helesky.adminsky"
+  debugisland:
+    permission: "helesky.debugisland"
+  testcommand:
+    permission: op
+  giveitems:
+    permission: op
+  
