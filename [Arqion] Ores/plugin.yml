@@ -1,0 +1,10 @@
+name : ArqionOres
+author : NoWay_y
+version : 1.0
+api : spigot
+api-version : 1.15
+main : fr.nowayy.ores.Main
+commands:
+  giveitem:
+    description: Gives all the custom ores of the game
+    permission: ores.give

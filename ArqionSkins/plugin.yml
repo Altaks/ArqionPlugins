@@ -1,0 +1,6 @@
+name: AriqonSkins
+authors: [NoWay_y, Altaks]
+version: 1.0
+api: spigot
+api-version: 1.15
+main: fr.nowayy.arqionskins.Main

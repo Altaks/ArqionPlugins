@@ -1,0 +1,22 @@
+name: ArqionBox
+author: NoWay_y
+version: "1.0"
+main: fr.nowayy.arqionbox.Main
+api: spigot
+api-version: 1.15
+commands:
+  box:
+    description: Box
+    permission: "arqion.box"
+  debugbox:
+    description: Debug de box
+    permission: "arqion.debugbox"
+  adminbox:
+    description: "dd"
+    permission: "arqion.adminbox"
+  key:
+    description: Key buying GUI
+    permission: "arqion.key"
+  itemdataline:
+    description: oof
+    permission: "arqion.itemdataline"
