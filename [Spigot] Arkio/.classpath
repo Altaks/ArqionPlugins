@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="D:/Personnel/Développement/Java - Network - BungeeCord/spigot 1.15.2 - ne pas utiliser.jar"/>
+	<classpathentry kind="lib" path="C:/Users/NoWay_y/OneDrive/Bureau/localhosts/1.15.2/spigot-1.15.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
