@@ -28,7 +28,6 @@ public class Main extends JavaPlugin {
 			e.printStackTrace();
 		}
 		
-		System.out.println("blpoup");
 		
 		
 	}
