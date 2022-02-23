@@ -1,5 +1,14 @@
 /.metadata/
 
 .classpath
-**/.classpath
-**\.classpath
+[Spigot] ArqionSwitcher/.classpath
+[Spigot] Arqion Sky/.classpath
+[Spigot] Arqion Shop/.classpath
+[Spigot] Arqion Pets/.classpath
+[Spigot] Arqion Money/.classpath
+[Spigot] Arqion Login/.classpath
+[Spigot] Arqion Core/.classpath
+[Spigot] Arqion BitCoins/.classpath
+[Spigot] Arkio/.classpath
+[Bungee] Arqion Login/.classpath
+[Bungee] Arkio/.classpath
