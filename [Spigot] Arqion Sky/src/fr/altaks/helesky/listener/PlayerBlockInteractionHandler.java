@@ -24,9 +24,9 @@ public class PlayerBlockInteractionHandler implements Listener {
 		
 		// si c'est par un joueur
 			// tester si c'est un joueur qui a une ile
-				// si oui tester la distance entre lui et son île
+				// si oui tester la distance entre lui et son ï¿½le
 					// si il est a moins de (100 + (25 * tier)) / 2 de son anchor alors c'est bon
-					// si non il ne peut pas build et il en est informé
+					// si non il ne peut pas build et il en est informï¿½
 				// si non refuser le build dans tous les cas
 		// sinon rien
 		
@@ -38,13 +38,13 @@ public class PlayerBlockInteractionHandler implements Listener {
 			
 			double distance = event.getBlock().getLocation().distance(anchor);
 			if(distance > ((100 + (25 * island.getTier())) / 2)) {
-				// le bloc est en dehors du rayon de l'île
+				// le bloc est en dehors du rayon de l'ï¿½le
 				event.setCancelled(true);
-				player.sendMessage(Main.PREFIX + "§c Vous ne pouvez pas casser de bloc sur un terrain ou une île qui ne vous appartient pas !");
+				player.sendMessage(Main.PREFIX + "Â§c Vous ne pouvez pas casser de bloc sur un terrain ou une Ã®le qui ne vous appartient pas !");
 				return;
 			}
 		} else {
-			player.sendMessage(Main.PREFIX + "§c Vous ne pouvez pas casser de bloc sur un terrain ou une île qui ne vous appartient pas !");
+			player.sendMessage(Main.PREFIX + "Â§c Vous ne pouvez pas casser de bloc sur un terrain ou une Ã®le qui ne vous appartient pas !");
 			event.setCancelled(true);
 			return;
 		}
@@ -55,9 +55,9 @@ public class PlayerBlockInteractionHandler implements Listener {
 		
 		// si c'est par un joueur
 			// tester si c'est un joueur qui a une ile
-				// si oui tester la distance entre lui et son île
+				// si oui tester la distance entre lui et son ï¿½le
 					// si il est a moins de (100 + (25 * tier)) / 2 de son anchor alors c'est bon
-					// si non il ne peut pas build et il en est informé
+					// si non il ne peut pas build et il en est informï¿½
 				// si non refuser le build dans tous les cas
 		// sinon rien
 		
@@ -69,13 +69,13 @@ public class PlayerBlockInteractionHandler implements Listener {
 			
 			double distance = event.getBlock().getLocation().distance(anchor);
 			if(distance > ((100 + (25 * island.getTier())) / 2)) {
-				// le bloc est en dehors du rayon de l'île
+				// le bloc est en dehors du rayon de l'ï¿½le
 				event.setCancelled(true);
-				player.sendMessage(Main.PREFIX + "§c Vous ne pouvez pas placer de bloc sur un terrain ou une île qui ne vous appartient pas !");
+				player.sendMessage(Main.PREFIX + "Â§c Vous ne pouvez pas placer de bloc sur un terrain ou une Ã®le qui ne vous appartient pas !");
 				return;
 			}
 		} else {
-			player.sendMessage(Main.PREFIX + "§c Vous ne pouvez pas placer de bloc sur un terrain ou une île qui ne vous appartient pas !");
+			player.sendMessage(Main.PREFIX + "Â§c Vous ne pouvez pas placer de bloc sur un terrain ou une Ã®le qui ne vous appartient pas !");
 			event.setCancelled(true);
 			return;
 		}

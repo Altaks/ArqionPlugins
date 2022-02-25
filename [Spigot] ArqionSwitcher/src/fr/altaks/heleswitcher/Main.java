@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
 	
-	public static final ItemStack compass = ItemStackBuilder.buildItemStack(Material.COMPASS, "§6Serveurs", new ArrayList<String>(Collections.singletonList("Utilises moi pour accéder aux différents serveurs !")));
+	public static final ItemStack compass = ItemStackBuilder.buildItemStack(Material.COMPASS, "Â§6Serveurs", new ArrayList<String>(Collections.singletonList("Utilises moi pour accÃ©der aux diffÃ©rents serveurs !")));
 	
 	@Override
 	public void onEnable() {

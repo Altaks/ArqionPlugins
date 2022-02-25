@@ -44,7 +44,7 @@ public class WitherInteractListener implements Listener {
 	
 		// check le type de l'oeuf
 		// si wither alors check si le player a une ile
-		// si le player a une ile, check si l'ile a déjà un wither
+		// si le player a une ile, check si l'ile a dï¿½jï¿½ un wither
 		// sinon ajouter le wither dans la hashmap
 		
 		if(event.hasItem() && event.hasBlock()) {
@@ -54,7 +54,7 @@ public class WitherInteractListener implements Listener {
 						return;
 					}
 					
-					// check si joueur a une île
+					// check si joueur a une ï¿½le
 					
 					Player player = event.getPlayer();
 					if(main.hasIsland(player.getUniqueId())) {
@@ -63,7 +63,7 @@ public class WitherInteractListener implements Listener {
 						Island island = main.getPlayerIsland(player.getUniqueId());
 						
 						if(main.hasWither(island.getId())) {
-							player.sendMessage(Main.PREFIX + "Votre île possède déjà un wither !");
+							player.sendMessage(Main.PREFIX + "Votre Ã®le possÃ¨de dÃ©jÃ  un wither !");
 							event.setCancelled(true);
 							return;
 						}
@@ -78,15 +78,15 @@ public class WitherInteractListener implements Listener {
 								event.setCancelled(true);
 							}
 							
-							// check distance entre île et wither
+							// check distance entre ï¿½le et wither
 							
 							if((wither.getLocation().distance(island.getAnchor()) > (100 + (25 * island.getTier()) / 2))) {
-								player.sendMessage(Main.PREFIX + "Vous ne pouvez pas poser de wither en dehors de votre île !");
+								player.sendMessage(Main.PREFIX + "Vous ne pouvez pas poser de wither en dehors de votre Ã®le !");
 								event.setCancelled(true);
 								return;
 							}
 
-							// retirer tous les trucs chiants : bossbar, ia, bruit, déplacement, changer l'age etc
+							// retirer tous les trucs chiants : bossbar, ia, bruit, dï¿½placement, changer l'age etc
 							wither.getBossBar().removeAll();
 							wither.setAI(false);
 							wither.setPersistent(true);
@@ -100,10 +100,10 @@ public class WitherInteractListener implements Listener {
 							int durability = 100;
 							ItemMeta meta = item.getItemMeta();
 							String line = meta.getLore().get(2);
-							if(!line.startsWith("§6Durabilité : ")) System.out.println("Oeuf de wither invalide");
-							line = line.replace("§6Durabilité : §a", "");
+							if(!line.startsWith("Â§6DurabilitÃ© : ")) System.out.println("Oeuf de wither invalide");
+							line = line.replace("Â§6DurabilitÃ© : Â§a", "");
 							
-							durability = line.replace(".", "").replace("§7", "").replace("§a", "").length() * 2;
+							durability = line.replace(".", "").replace("Â§7", "").replace("Â§a", "").length() * 2;
 							
 							// ajouter wither a la hashmap
 							LevelingWither witherObj = new LevelingWither(wither.getUniqueId(), durability);
@@ -112,7 +112,7 @@ public class WitherInteractListener implements Listener {
 						}, 20 * 2 /* 2 secondes */);
 						player.getInventory().setItemInMainHand(null);
 					} else {
-						player.sendMessage(Main.PREFIX + "§cVous n'avez pas d'île, vous ne pouvez pas faire apparaître de wither !");
+						player.sendMessage(Main.PREFIX + "Â§cVous n'avez pas d'Ã®le, vous ne pouvez pas faire apparaÃ®tre de wither !");
 						event.setCancelled(true);
 						return;
 					}
@@ -156,7 +156,7 @@ public class WitherInteractListener implements Listener {
 					
 					File file = new File(main.getIslandDirectory() + File.separator + main.getWitherIsland(levelingWither).getId() + ".yml");
 					try {
-						// écriture du data du wither
+						// ï¿½criture du data du wither
 						FileConfiguration yml = YamlConfiguration.loadConfiguration(file);
 						yml.set("witherData", null);
 						
@@ -164,14 +164,14 @@ public class WitherInteractListener implements Listener {
 						yml.save(file);
 						
 					} catch (IOException e) {
-						Main.LOGGER.warning(Main.ERROR_PREFIX + "§cUne erreur est survenue lors de la suppresion du wither de l'île §6#" + main.getWitherIsland(levelingWither).getId());
+						Main.LOGGER.warning(Main.ERROR_PREFIX + "Â§cUne erreur est survenue lors de la suppresion du wither de l'Ã®le Â§6#" + main.getWitherIsland(levelingWither).getId());
 						e.printStackTrace();
 					}
 					
 					main.getIslandIdFromWither().remove(levelingWither);
 					
 				} else {
-					player.sendMessage(Main.PREFIX + "§cVous ne pouvez pas retirer le wither d'amélioration si vous n'êtes pas le propriétaire de l'île !");
+					player.sendMessage(Main.PREFIX + "Â§cVous ne pouvez pas retirer le wither d'amÃ©lioration si vous n'Ãªtes pas le propriÃ©taire de l'Ã®le !");
 					event.setCancelled(true);
 				}
 				
@@ -207,11 +207,11 @@ public class WitherInteractListener implements Listener {
 					}
 				}
 				if(levelingWither == null) return;
-				// récup l'ile et check si l'add xp va passer un level
+				// rï¿½cup l'ile et check si l'add xp va passer un level
 				
 				Island island = main.getWitherIsland(levelingWither);
 
-				// ajouter l'xp a l'île
+				// ajouter l'xp a l'ï¿½le
 				if(island.itemWillMakeLevelUp(item, amount)) {
 					main.getIslandIdFromWither().remove(levelingWither);
 					levelingWither.setDurability(levelingWither.getDurability() - 1);

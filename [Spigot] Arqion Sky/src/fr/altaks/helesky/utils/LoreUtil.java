@@ -13,7 +13,7 @@ import fr.altaks.helesky.core.islandcore.IslandTier;
 
 public class LoreUtil {
 	
-	public static final String loreDelimitation = "§7\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB";
+	public static final String loreDelimitation = "ï¿½7\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB";
 
 	public static final String[] getModifiedLore(String...lines){
 		List<String> list = new ArrayList<String>();
@@ -34,9 +34,9 @@ public class LoreUtil {
 		list.add("");
 
 		
-		list.add("§cNiveau : §6" + island.getLevel());
-		list.add("§cMembres : §6" + island.getMembersId().size());
-		list.add("§cVisiteurs : §6" + ((island.getVisitors().size() > 0) ? island.getVisitors().size() : "§6Aucun"));
+		list.add("ï¿½cNiveau : ï¿½6" + island.getLevel());
+		list.add("ï¿½cMembres : ï¿½6" + island.getMembersId().size());
+		list.add("ï¿½cVisiteurs : ï¿½6" + ((island.getVisitors().size() > 0) ? island.getVisitors().size() : "ï¿½6Aucun"));
 
 		list.add("");
 		list.add(loreDelimitation);
@@ -51,8 +51,8 @@ public class LoreUtil {
 		list.add(loreDelimitation);
 		list.add("");
 		
-		list.add("§6Taille de l'île : §e" + tier.getSizeAdding() + "x" + tier.getSizeAdding());
-		list.add("§6Prix :§e " + MoneyUtil.formatAmount(tier.getPrice()));
+		list.add("ï¿½6Taille de l'ï¿½le : ï¿½e" + tier.getSizeAdding() + "x" + tier.getSizeAdding());
+		list.add("ï¿½6Prix :ï¿½e " + MoneyUtil.formatAmount(tier.getPrice()));
 		
 		list.add("");
 		list.add(loreDelimitation);
@@ -67,17 +67,17 @@ public class LoreUtil {
 		list.add(loreDelimitation);
 		list.add("");
 		
-		list.add("§6Propriétaire : §b" + Bukkit.getOfflinePlayer(island.getOwnerId()).getName());
+		list.add("ï¿½6Propriï¿½taire : ï¿½b" + Bukkit.getOfflinePlayer(island.getOwnerId()).getName());
 		
-		StringJoiner joiner = new StringJoiner("§e, ");
+		StringJoiner joiner = new StringJoiner("ï¿½e, ");
 		for(UUID id : island.getMembersId()) {
 			
 			String pseudo = Bukkit.getOfflinePlayer(id).getName();
 			joiner.add(pseudo);
 			
 		}
-		list.add("§6Coéquipiers : §e" + joiner.toString());
-		list.add("§6Niveau : §e" + island.getLevel() + " §7("+ island.getXp() + " / " + island.getNecessaryXpForNextLevel() + ") " + island.getXp()/island.getNecessaryXpForNextLevel() * 100 + "% ");
+		list.add("ï¿½6Coï¿½quipiers : ï¿½e" + joiner.toString());
+		list.add("ï¿½6Niveau : ï¿½e" + island.getLevel() + " ï¿½7("+ island.getXp() + " / " + island.getNecessaryXpForNextLevel() + ") " + island.getXp()/island.getNecessaryXpForNextLevel() * 100 + "% ");
 		
 		list.add("");
 		list.add(loreDelimitation);
@@ -95,12 +95,12 @@ public class LoreUtil {
 		durability /= 2;
 		
 		StringBuilder durabilityBuilder = new StringBuilder();
-		durabilityBuilder.append("§a");
+		durabilityBuilder.append("ï¿½a");
 		for(int i = 0; i < durability; i++) durabilityBuilder.append("|");
-		durabilityBuilder.append("§7");
+		durabilityBuilder.append("ï¿½7");
 		for(int i = 0; i < 50 - durability; i++) durabilityBuilder.append(".");
 		
-		list.add("§6Durabilité : " + durabilityBuilder.toString()); // TODO : générer les duras automatisés ||||||||||||||||||||||||||||||||||||||||||||||||||
+		list.add("ï¿½6Durabilitï¿½ : " + durabilityBuilder.toString()); // TODO : gï¿½nï¿½rer les duras automatisï¿½s ||||||||||||||||||||||||||||||||||||||||||||||||||
 		
 		list.add("");
 		list.add(loreDelimitation);
@@ -117,7 +117,7 @@ public class LoreUtil {
 		list.add(loreDelimitation);
 		list.add("");
 				
-		list.add("§6Durabilité : §a||||||||||||||||||||||||||||||||||||||||||||||||||"); // TODO : générer les duras automatisés ||||||||||||||||||||||||||||||||||||||||||||||||||
+		list.add("Â§6DurabilitÃ© : Â§a||||||||||||||||||||||||||||||||||||||||||||||||||"); // TODO : gÃ©nÃ©rer les duras automatisï¿½s ||||||||||||||||||||||||||||||||||||||||||||||||||
 		
 		list.add("");
 		list.add(loreDelimitation);

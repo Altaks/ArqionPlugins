@@ -51,8 +51,8 @@ public class IslandManager {
 			this.lastZ += 1_500;
 			this.lastX = 0;
 		} else if(getLastZ() + 1_500 > (10 * 1_500)) {
-			Main.LOGGER.warning(Main.ERROR_PREFIX + "La map comprend trop d'îles, veuillez prévenir le staff !");
-			Bukkit.getPlayer(owner).sendMessage(Main.ERROR_PREFIX + "La map comprend trop d'îles, veuillez prévenir le staff !");
+			Main.LOGGER.warning(Main.ERROR_PREFIX + "La map comprend trop d'Ã®les, veuillez prÃ©venir le staff !");
+			Bukkit.getPlayer(owner).sendMessage(Main.ERROR_PREFIX + "La map comprend trop d'Ã®les, veuillez prÃ©venir le staff !");
 		} else {
 			this.lastX += 1_500;
 		}
@@ -89,7 +89,7 @@ public class IslandManager {
 		Bukkit.getScheduler().runTaskAsynchronously(main, () -> {
 
 			this.lastId += 1;
-			Island island = new Island(location, type.getRelativeHome(location.clone()), type.getRelativeHome(location.clone()), 0, 0, "Île de " + player.getName(), owner, new ArrayList<UUID>(), new ArrayList<UUID>(), this.lastId,1, true);
+			Island island = new Island(location, type.getRelativeHome(location.clone()), type.getRelativeHome(location.clone()), 0, 0, "ï¿½le de " + player.getName(), owner, new ArrayList<UUID>(), new ArrayList<UUID>(), this.lastId,1, true);
 			
 			this.main.getIslandsFromId().put(island.getId(), island);
 			this.main.getIslandIDFromUUID().put(player.getUniqueId(), island.getId());
@@ -118,11 +118,11 @@ public class IslandManager {
 				entity.remove();
 			} else {
 				// ((Player)entity).teleport(Main.spawn);
-				((Player)entity).sendMessage(Main.PREFIX + "§cVotre île a été détruite par son propriétaire !");
+				((Player)entity).sendMessage(Main.PREFIX + "Â§cVotre Ã®le a Ã©tÃ© dÃ©truite par son propriÃ©taire !");
 			}
 		});
 	
-		// TODO : A smoother : ça fait lag le serv
+		// TODO : A smoother : ï¿½a fait lag le serv
 		for (int x = Math.min(pos1.getBlockX(), pos2.getBlockX()); x <= Math.max(pos1.getBlockX(), pos2.getBlockX()); x++) {
 			for (int y = Math.min(pos1.getBlockY(), pos2.getBlockY()); y <= Math.max(pos1.getBlockY(), pos2.getBlockY()); y++) {
 				for (int z = Math.min(pos1.getBlockZ(), pos2.getBlockZ()); z <= Math.max(pos1.getBlockZ(), pos2.getBlockZ()); z++) {
@@ -156,7 +156,7 @@ public class IslandManager {
 		File islandFile = new File(main.getIslandDirectory() + File.separator + island.getId() + ".yml");
 		if(islandFile.exists()) {
 			islandFile.delete();
-			Main.LOGGER.info(Main.PREFIX + "L'île #" + island.getId() + " a été détruite par son propriétaire");
+			Main.LOGGER.info(Main.PREFIX + "L'Ã®le #" + island.getId() + " a Ã©tÃ© dÃ©truite par son propriÃ©taire");
 		}
 		
 		int id = main.getIslandIDFromUUID().get(island.getOwnerId());

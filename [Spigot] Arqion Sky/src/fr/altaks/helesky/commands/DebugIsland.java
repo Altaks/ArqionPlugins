@@ -34,11 +34,11 @@ public class DebugIsland implements HeleCommand {
 			if(main.hasIsland(player.getUniqueId())) {
 				Island island = main.getPlayerIsland(player.getUniqueId());
 				
-				player.sendMessage("Index d'île :" + island.getId());
-				player.sendMessage("Nom d'île :" + island.getName());
+				player.sendMessage("Index d'Ã®le :" + island.getId());
+				player.sendMessage("Nom d'Ã®le :" + island.getName());
 				player.sendMessage("Niveau : " + island.getLevel() + " niveau(x) et " + island.getXp() + " xp");
 				player.sendMessage("Tier : " +island.getTier());
-				player.sendMessage("Propriétaire " + Bukkit.getOfflinePlayer(island.getOwnerId()).getName());
+				player.sendMessage("PropriÃ©taire " + Bukkit.getOfflinePlayer(island.getOwnerId()).getName());
 				
 				StringJoiner members = new StringJoiner(",");
 				for(UUID id : island.getMembersId()) {
@@ -54,7 +54,7 @@ public class DebugIsland implements HeleCommand {
 				
 				player.sendMessage("Warp actif : " + (island.isWarpEnabled() ? "Oui" : "Non") );
 				
-			} else player.sendMessage("Vous n'avez pas d'île");
+			} else player.sendMessage("Vous n'avez pas d'Ã®le");
 		}
 		return false;
 	}

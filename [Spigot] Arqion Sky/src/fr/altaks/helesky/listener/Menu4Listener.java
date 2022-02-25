@@ -37,7 +37,7 @@ public class Menu4Listener implements Listener {
 				return;
 			}
 			
-			if(event.getView().getTitle().equals("§6Amélioration d'Île")) {
+			if(event.getView().getTitle().equals("Â§6Amï¿½lioration d'Ã®le")) {
 				event.setCancelled(true);
 				
 				Material clickedType = event.getCurrentItem().getType();
@@ -49,7 +49,7 @@ public class Menu4Listener implements Listener {
 				// si non -> refus
 				
 				if(!main.hasIsland(player.getUniqueId())) {
-					player.sendMessage(Main.PREFIX + "§cVous ne pouvez pas acheter d'amélioration, vous n'avez pas d'île actuellement !");
+					player.sendMessage(Main.PREFIX + "Â§cVous ne pouvez pas acheter d'amÃ©lioration, vous n'avez pas d'Ã®le actuellement !");
 					player.closeInventory();
 					return;
 				} 
@@ -81,19 +81,19 @@ public class Menu4Listener implements Listener {
 								// achat
 								island.setTier(island.getTier() + 1);
 								main.getMoneyManager().removeMoneyToPlayer(player.getUniqueId(), selectedTier.getPrice());
-								player.sendMessage(Main.PREFIX + "Vous venez d'acheter le tier " + selectedTier.getTier() + " pour votre île pour un total de " + MoneyUtil.formatAmount(selectedTier.getPrice()));
+								player.sendMessage(Main.PREFIX + "Vous venez d'acheter le tier " + selectedTier.getTier() + " pour votre Ã®le pour un total de " + MoneyUtil.formatAmount(selectedTier.getPrice()));
 								return;
 							} else {
 								// pas assez d'argent
-								player.sendMessage(Main.PREFIX + "Vous n'avez pas l'argent nécessaire à cet achat");
+								player.sendMessage(Main.PREFIX + "Vous n'avez pas l'argent nÃ©cessaire Ã  cet achat");
 								return;
 							}
 						} catch (SQLException e) {
-							player.sendMessage(Main.PREFIX + "§cUne erreur s'est produite, veuillez en informer le staff au plus vite");
+							player.sendMessage(Main.PREFIX + "Â§cUne erreur s'est produite, veuillez en informer le staff au plus vite");
 							e.printStackTrace();
 						}
 					} else {
-						player.sendMessage(Main.PREFIX + "Le tier séléctionné est inférieur au tier actuel de votre île !");
+						player.sendMessage(Main.PREFIX + "Le tier sÃ©lÃ©ctionnÃ© est infÃ©rieur au tier actuel de votre Ã®le !");
 						return;
 					}
 					

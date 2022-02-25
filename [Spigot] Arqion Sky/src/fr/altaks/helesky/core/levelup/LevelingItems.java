@@ -69,21 +69,21 @@ public enum LevelingItems {
 class SymbolItems {
 	
 	public static final ItemStack 
-						Aluminium = new ItemManager.ItemBuilder(Material.IRON_INGOT, 1,  "§7Aluminium").build(),
-						Copper = new ItemManager.ItemBuilder(Material.GOLD_INGOT, 1,  "§6Cuivre").build(),
-						Cobalt = new ItemManager.ItemBuilder(Material.LAPIS_LAZULI, 1,  "§9Cobalt").build(),
-						Ardium = new ItemManager.ItemBuilder(Material.GOLD_INGOT, 1,  "§cArdium").build(),
-						Helen = new ItemManager.ItemBuilder(Material.REDSTONE, 1,  "§5Helen").build();
+						Aluminium = new ItemManager.ItemBuilder(Material.IRON_INGOT, 1,  "Â§7Aluminium").build(),
+						Copper = new ItemManager.ItemBuilder(Material.GOLD_INGOT, 1,  "Â§6Cuivre").build(),
+						Cobalt = new ItemManager.ItemBuilder(Material.LAPIS_LAZULI, 1,  "Â§9Cobalt").build(),
+						Ardium = new ItemManager.ItemBuilder(Material.GOLD_INGOT, 1,  "Â§bPlatinium").build(),
+						Helen = new ItemManager.ItemBuilder(Material.REDSTONE, 1,  "Â§cActinium").build();
 	
 	public static final ItemStack 
-						Coal = new ItemManager.ItemBuilder(Material.COAL, 1,  "§rCharbon").build(),
-						Lapis = new ItemManager.ItemBuilder(Material.LAPIS_LAZULI, 1,  "§rLapis-lazuli").build(),
-						Redstone = new ItemManager.ItemBuilder(Material.REDSTONE, 1,  "§rRedstone").build(),
-						Quartz = new ItemManager.ItemBuilder(Material.QUARTZ, 1,  "§rQuartz").build(),
-						Iron = new ItemManager.ItemBuilder(Material.IRON_INGOT, 1,  "§rFer").build(),
-						Gold = new ItemManager.ItemBuilder(Material.GOLD_INGOT, 1,  "§rOr").build(),
-						Diamond = new ItemManager.ItemBuilder(Material.DIAMOND, 1,  "§rDiamant").build(),
-						Emerald = new ItemManager.ItemBuilder(Material.EMERALD, 1,  "§rÉmeraude").build();
+						Coal = new ItemManager.ItemBuilder(Material.COAL, 1,  "Â§rCharbon").build(),
+						Lapis = new ItemManager.ItemBuilder(Material.LAPIS_LAZULI, 1,  "Â§rLapis-lazuli").build(),
+						Redstone = new ItemManager.ItemBuilder(Material.REDSTONE, 1,  "Â§rRedstone").build(),
+						Quartz = new ItemManager.ItemBuilder(Material.QUARTZ, 1,  "Â§rQuartz").build(),
+						Iron = new ItemManager.ItemBuilder(Material.IRON_INGOT, 1,  "Â§rFer").build(),
+						Gold = new ItemManager.ItemBuilder(Material.GOLD_INGOT, 1,  "Â§rOr").build(),
+						Diamond = new ItemManager.ItemBuilder(Material.DIAMOND, 1,  "Â§rDiamant").build(),
+						Emerald = new ItemManager.ItemBuilder(Material.EMERALD, 1,  "Â§rÃ‰meraude").build();
 	
 	public static List<ItemStack> customItems = Arrays.asList(Aluminium, Copper, Cobalt, Ardium, Helen), normalItems = Arrays.asList(Coal, Lapis, Redstone, Quartz, Iron, Gold, Diamond, Emerald);
 

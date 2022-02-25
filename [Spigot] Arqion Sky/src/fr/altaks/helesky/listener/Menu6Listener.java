@@ -20,7 +20,7 @@ public class Menu6Listener implements Listener {
 				event.setCancelled(true);
 				return;
 			}
-			if(event.getView().getTitle().equalsIgnoreCase("§8Podium des îles \u00BB")) {
+			if(event.getView().getTitle().equalsIgnoreCase("Â§8Podium des Ã®les \u00BB")) {
 				event.setCancelled(true);
 			}
 		}

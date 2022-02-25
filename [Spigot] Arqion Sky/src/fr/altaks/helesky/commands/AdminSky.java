@@ -50,7 +50,7 @@ public class AdminSky implements HeleCommand {
 						
 						OfflinePlayer target = Bukkit.getOfflinePlayer(targetname);
 						if(target == null) {
-							sender.sendMessage(Main.PREFIX + "§cLe joueur ciblé n'est jamais venu sur le serveur");
+							sender.sendMessage(Main.PREFIX + "Â§cLe joueur ciblÃ© n'est jamais venu sur le serveur");
 							return true;
 						}
 
@@ -60,11 +60,11 @@ public class AdminSky implements HeleCommand {
 						if(island.getMembersId().contains(target.getUniqueId())) {
 					
 							if(target.isOnline()) {
-								target.getPlayer().sendMessage(Main.PREFIX + "Vous avez maintenant la propriété de l'île : §e" + island.getName());
+								target.getPlayer().sendMessage(Main.PREFIX + "Vous avez maintenant la propriÃ©tÃ© de l'Ã®le : Â§e" + island.getName());
 							}
 							OfflinePlayer lastOwner = Bukkit.getOfflinePlayer(island.getOwnerId());
 							if(lastOwner.isOnline()) {
-								lastOwner.getPlayer().sendMessage(Main.PREFIX + "Le joueur " + target.getName() + " est maintenant propriétaire de votre île !");
+								lastOwner.getPlayer().sendMessage(Main.PREFIX + "Le joueur " + target.getName() + " est maintenant propriÃ©taire de votre Ã®le !");
 							}
 									
 							island.getMembersId().add(island.getOwnerId());
@@ -73,11 +73,11 @@ public class AdminSky implements HeleCommand {
 							
 							return true;
 						} else {
-							sender.sendMessage(Main.PREFIX + "Le futur propriétaire doit préalablement faire partie des membres de l'île !");
+							sender.sendMessage(Main.PREFIX + "Le futur propriÃ©taire doit prÃ©alablement faire partie des membres de l'Ã®le !");
 							return true;
 						}
 					} catch (NumberFormatException e) {
-						sender.sendMessage(Main.ERROR_PREFIX + "Le format de l'id de l'île est incorrect !");
+						sender.sendMessage(Main.ERROR_PREFIX + "Le format de l'id de l'Ã®le est incorrect !");
 						return true;
 					}
 					
@@ -85,7 +85,7 @@ public class AdminSky implements HeleCommand {
 					
 					OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
 					if(target == null) {
-						sender.sendMessage(Main.PREFIX + "§cLe joueur ciblé n'est jamais venu sur le serveur");
+						sender.sendMessage(Main.PREFIX + "Â§cLe joueur ciblÃ© n'est jamais venu sur le serveur");
 						return true;
 					}
 					
@@ -96,43 +96,43 @@ public class AdminSky implements HeleCommand {
 						TextComponentUtil delimiter = new TextComponentUtil(LoreUtil.loreDelimitation);
 						((Player)sender).spigot().sendMessage(delimiter.build());
 						
-						TextComponentUtil idcomp = new TextComponentUtil("\nId d'île : #" + island.getId() + "\n");
+						TextComponentUtil idcomp = new TextComponentUtil("\nId d'Ã®le : #" + island.getId() + "\n");
 						((Player)sender).spigot().sendMessage(idcomp.build());
 
-						TextComponentUtil namecomp = new TextComponentUtil("Nom de l'île : " + island.getName() + "\n");
+						TextComponentUtil namecomp = new TextComponentUtil("Nom de l'Ã®le : " + island.getName() + "\n");
 						((Player)sender).spigot().sendMessage(namecomp.build());
 						
-						TextComponentUtil ownercomp = new TextComponentUtil("Propriétaire de l'île : " + Bukkit.getOfflinePlayer(island.getOwnerId()).getName() + "\n");
+						TextComponentUtil ownercomp = new TextComponentUtil("PropriÃ©taire de l'Ã®le : " + Bukkit.getOfflinePlayer(island.getOwnerId()).getName() + "\n");
 						((Player)sender).spigot().sendMessage(ownercomp.build());
 						
-						StringJoiner joiner = new StringJoiner("§6, ");
+						StringJoiner joiner = new StringJoiner("Â§6, ");
 						for(UUID id : island.getMembersId()) {
-							joiner.add("§e" + Bukkit.getOfflinePlayer(id).getName());
+							joiner.add("Â§e" + Bukkit.getOfflinePlayer(id).getName());
 						}
 							
-						TextComponentUtil memberscomp = new TextComponentUtil("Membres de l'île : " + joiner.toString() + "\n");
+						TextComponentUtil memberscomp = new TextComponentUtil("Membres de l'Ã®le : " + joiner.toString() + "\n");
 						((Player)sender).spigot().sendMessage(memberscomp.build());
 
-						TextComponentUtil sizecomp = new TextComponentUtil("Taille de l'île : " + (100+(25*(island.getTier())))+"\n");
+						TextComponentUtil sizecomp = new TextComponentUtil("Taille de l'Ã®le : " + (100+(25*(island.getTier())))+"\n");
 						((Player)sender).spigot().sendMessage(sizecomp.build());
 						
 						String coords = "("+island.getHome().getBlockX()+"/"+island.getHome().getBlockY()+"/"+island.getHome().getBlockZ()+")";
-						TextComponentUtil coordscomp = new TextComponentUtil("Emplacement de l'île : " + coords + "\n")
-								.setHover_showText("§eCliquez ici pour vous vous rendre au home de l'île")
+						TextComponentUtil coordscomp = new TextComponentUtil("Emplacement de l'Ã®le : " + coords + "\n")
+								.setHover_showText("Â§eCliquez ici pour vous vous rendre au home de l'Ã®le")
 								.setClick_runCommand("/tp " + sender.getName() + " "+island.getHome().getBlockX()+" "+island.getHome().getBlockY()+" "+island.getHome().getBlockZ());
 						((Player)sender).spigot().sendMessage(coordscomp.build());
 
 						
-						TextComponentUtil warpcomp = new TextComponentUtil("Warp d'île : " + ((island.isWarpEnabled() ? "§aOui" : "§cNon")) +"\n");
+						TextComponentUtil warpcomp = new TextComponentUtil("Warp d'Ã®le : " + ((island.isWarpEnabled() ? "Â§aOui" : "Â§cNon")) +"\n");
 						if(island.isWarpEnabled()) {
-							warpcomp.setHover_showText("§eCliquez ici pour vous vous rendre au warp de l'île")
+							warpcomp.setHover_showText("Â§eCliquez ici pour vous vous rendre au warp de l'Ã®le")
 									.setClick_runCommand("/tp " + sender.getName() + " "+island.getWarp().getBlockX()+" "+island.getWarp().getBlockY()+" "+island.getWarp().getBlockZ());
 						}
 						((Player)sender).spigot().sendMessage(warpcomp.build());
 						
-						StringJoiner bannedjoiner = new StringJoiner("§6, ");
+						StringJoiner bannedjoiner = new StringJoiner("Â§6, ");
 						for(UUID id : island.getBannedIds()) {
-							bannedjoiner.add("§e" + Bukkit.getOfflinePlayer(id).getName());
+							bannedjoiner.add("Â§e" + Bukkit.getOfflinePlayer(id).getName());
 						}
 						TextComponentUtil bannedscomp = new TextComponentUtil("Bannis : " + bannedjoiner.toString()+"\n");
 						((Player)sender).spigot().sendMessage(bannedscomp.build());
@@ -141,7 +141,7 @@ public class AdminSky implements HeleCommand {
 							
 						return true;
 					} else {
-						sender.sendMessage(Main.PREFIX + "Ce joueur n'a pas d'île");
+						sender.sendMessage(Main.PREFIX + "Ce joueur n'a pas d'Ã®le");
 						return true;
 					}
 					
@@ -153,7 +153,7 @@ public class AdminSky implements HeleCommand {
 					
 					OfflinePlayer target = Bukkit.getOfflinePlayer(targetname);
 					if(target == null) {
-						sender.sendMessage(Main.ERROR_PREFIX + "§cCe joueur n'est jamais venu sur le serveur ! ");
+						sender.sendMessage(Main.ERROR_PREFIX + "Â§cCe joueur n'est jamais venu sur le serveur ! ");
 						return true;
 					}
 					
@@ -164,10 +164,10 @@ public class AdminSky implements HeleCommand {
 							if(operation.equalsIgnoreCase("add")) {
 								if(!island.getMembersId().contains(target.getUniqueId())) {
 									island.getMembersId().add(target.getUniqueId());
-									sender.sendMessage(Main.PREFIX + "Joueur ajouté avec succès !");
+									sender.sendMessage(Main.PREFIX + "Joueur ajoutÃ© avec succÃ¨s !");
 									return true;
 								} else {
-									sender.sendMessage(Main.ERROR_PREFIX + "Ce joueur fait déjà partie de l'équipe de cette île !");
+									sender.sendMessage(Main.ERROR_PREFIX + "Ce joueur fait dÃ©jÃ  partie de l'Ã©quipe de cette Ã®le !");
 									return true;
 								}
 							} else if(operation.equalsIgnoreCase("remove")) {
@@ -176,20 +176,20 @@ public class AdminSky implements HeleCommand {
 									island.getMembersId().remove(target.getUniqueId());
 									main.getIslandIDFromUUID().remove(target.getUniqueId());
 									
-									sender.sendMessage(Main.PREFIX + "Joueur retiré avec succès !");
+									sender.sendMessage(Main.PREFIX + "Joueur retirÃ© avec succÃ¨s !");
 									return true;
 								} else {
-									sender.sendMessage(Main.ERROR_PREFIX + "Ce joueur ne fait pas partie de l'équipe de cette île !");
+									sender.sendMessage(Main.ERROR_PREFIX + "Ce joueur ne fait pas partie de l'Ã©quipe de cette Ã®le !");
 									return true;
 								}
 							} else return false;
 						} else {
-							sender.sendMessage(Main.ERROR_PREFIX + "Aucune île possède cet identifiant !");
+							sender.sendMessage(Main.ERROR_PREFIX + "Aucune Ã®le possÃ¨de cet identifiant !");
 							return true;
 						}
 						
 					} catch (NumberFormatException e) {
-						sender.sendMessage(Main.ERROR_PREFIX + "§cVous devez entrer une valeur correcte pour l'ID de l'île");
+						sender.sendMessage(Main.ERROR_PREFIX + "Â§cVous devez entrer une valeur correcte pour l'ID de l'Ã®le");
 						e.printStackTrace();
 					}
 					
@@ -197,7 +197,7 @@ public class AdminSky implements HeleCommand {
 					
 					OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
 					if(target == null) {
-						sender.sendMessage(Main.ERROR_PREFIX + "§cCe joueur n'est jamais venu sur le serveur ! ");
+						sender.sendMessage(Main.ERROR_PREFIX + "Â§cCe joueur n'est jamais venu sur le serveur ! ");
 						return true;
 					}
 					
@@ -206,11 +206,11 @@ public class AdminSky implements HeleCommand {
 						Island island = main.getPlayerIsland(target.getUniqueId());
 						main.getIslandManager().deleteIsland(island);
 						
-						sender.sendMessage(Main.PREFIX + "§cL'île a été détruite !");
+						sender.sendMessage(Main.PREFIX + "Â§cL'Ã®le a Ã©tÃ© dÃ©truite !");
 						return true;
 						
 					} else {
-						sender.sendMessage(Main.ERROR_PREFIX + "§cCe joueur n'a pas d'île ! ");
+						sender.sendMessage(Main.ERROR_PREFIX + "!cCe joueur n'a pas d'Ã®le ! ");
 						return true;
 					}
 					
@@ -218,7 +218,7 @@ public class AdminSky implements HeleCommand {
 					
 					OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
 					if(target == null) {
-						sender.sendMessage(Main.ERROR_PREFIX + "§cCe joueur n'est jamais venu sur le serveur ! ");
+						sender.sendMessage(Main.ERROR_PREFIX + "Â§cCe joueur n'est jamais venu sur le serveur ! ");
 						return true;
 					}
 					
@@ -229,15 +229,15 @@ public class AdminSky implements HeleCommand {
 						
 						if(loc.distance(island.getAnchor()) <= 100 + (25 * island.getTier())) {
 							island.setHome(loc);
-							sender.sendMessage(Main.PREFIX + "§6Le home de l'île a été changé");
+							sender.sendMessage(Main.PREFIX + "Â§6Le home de l'Ã®le a Ã©tÃ© changÃ©");
 							return true;
 						} else {
-							sender.sendMessage(Main.PREFIX + "§6L'emplacement ne fait pas partie de l'île !");
+							sender.sendMessage(Main.PREFIX + "Â§6L'emplacement ne fait pas partie de l'Ã®le !");
 							return true;
 						}
 						
 					} else {
-						sender.sendMessage(Main.ERROR_PREFIX + "§cCe joueur n'a pas d'île ! ");
+						sender.sendMessage(Main.ERROR_PREFIX + "Â§cCe joueur n'a pas d'Ã®le ! ");
 						return true;
 					}
 					
@@ -245,7 +245,7 @@ public class AdminSky implements HeleCommand {
 					
 					OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
 					if(target == null) {
-						sender.sendMessage(Main.ERROR_PREFIX + "§cCe joueur n'est jamais venu sur le serveur ! ");
+						sender.sendMessage(Main.ERROR_PREFIX + "Â§cCe joueur n'est jamais venu sur le serveur ! ");
 						return true;
 					}
 					
@@ -257,15 +257,15 @@ public class AdminSky implements HeleCommand {
 						if(loc.distance(island.getAnchor()) <= 100 + (25 * island.getTier())) {
 							island.setWarp(loc);
 							island.setWarpEnabled(true);
-							sender.sendMessage(Main.PREFIX + "§6Le warp de l'île a été changé");
+							sender.sendMessage(Main.PREFIX + "Â§6Le warp de l'Ã®le a Ã©tÃ© changÃ©");
 							return true;
 						} else {
-							sender.sendMessage(Main.PREFIX + "§6L'emplacement ne fait pas partie de l'île !");
+							sender.sendMessage(Main.PREFIX + "Â§6L'emplacement ne fait pas partie de l'Ã®le !");
 							return true;
 						}
 						
 					} else {
-						sender.sendMessage(Main.ERROR_PREFIX + "§cCe joueur n'a pas d'île ! ");
+						sender.sendMessage(Main.ERROR_PREFIX + "Â§cCe joueur n'a pas d'Ã®le ! ");
 						return true;
 					}
 					
@@ -273,7 +273,7 @@ public class AdminSky implements HeleCommand {
 					
 					OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
 					if(target == null) {
-						sender.sendMessage(Main.ERROR_PREFIX + "§cCe joueur n'est jamais venu sur le serveur ! ");
+						sender.sendMessage(Main.ERROR_PREFIX + "Â§cCe joueur n'est jamais venu sur le serveur ! ");
 						return true;
 					}
 					
@@ -281,10 +281,10 @@ public class AdminSky implements HeleCommand {
 						
 						Island island = main.getPlayerIsland(target.getUniqueId());
 						island.setWarpEnabled(false);
-						sender.sendMessage(Main.PREFIX + "§cLe warp de cette île a été désactivé !");
+						sender.sendMessage(Main.PREFIX + "Â§cLe warp de cette Ã®le a Ã©tÃ© dÃ©sactivÃ© !");
 						return true;
 					} else {
-						sender.sendMessage(Main.ERROR_PREFIX + "§cCe joueur n'a pas d'île ! ");
+						sender.sendMessage(Main.ERROR_PREFIX + "Â§cCe joueur n'a pas d'Ã®le ! ");
 						return true;
 					}
 					
@@ -292,7 +292,7 @@ public class AdminSky implements HeleCommand {
 					
 					OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
 					if(target == null) {
-						sender.sendMessage(Main.ERROR_PREFIX + "§cCe joueur n'est jamais venu sur le serveur ! ");
+						sender.sendMessage(Main.ERROR_PREFIX + "Â§cCe joueur n'est jamais venu sur le serveur ! ");
 						return true;
 					}
 					
@@ -303,7 +303,7 @@ public class AdminSky implements HeleCommand {
 						sender.sendMessage(Main.PREFIX + "Vous voila sur le home de " + island.getName());
 						return true;
 					} else {
-						sender.sendMessage(Main.ERROR_PREFIX + "§cCe joueur n'a pas d'île ! ");
+						sender.sendMessage(Main.ERROR_PREFIX + "Â§cCe joueur n'a pas d'Ã®le ! ");
 						return true;
 					}
 					
@@ -311,7 +311,7 @@ public class AdminSky implements HeleCommand {
 					
 					OfflinePlayer target = Bukkit.getOfflinePlayer(args[2]);
 					if(target == null) {
-						sender.sendMessage(Main.ERROR_PREFIX + "§cCe joueur n'est jamais venu sur le serveur ! ");
+						sender.sendMessage(Main.ERROR_PREFIX + "Â§cCe joueur n'est jamais venu sur le serveur ! ");
 						return true;
 					}
 					
@@ -325,13 +325,13 @@ public class AdminSky implements HeleCommand {
 								if(args.length >= 4) {
 									try {
 										island.setLevel(Integer.parseInt(args[3]));
-										sender.sendMessage(Main.PREFIX + "§cLe niveau de l'île a bien été changé !");
+										sender.sendMessage(Main.PREFIX + "Â§cLe niveau de l'Ã®le a bien Ã©tÃ© changÃ© !");
 									} catch (NumberFormatException e) {
-										sender.sendMessage(Main.PREFIX + "§cVous devez entrer une valeur correcte !");
+										sender.sendMessage(Main.PREFIX + "Â§cVous devez entrer une valeur correcte !");
 										return true;
 									}
 								} else {
-									sender.sendMessage(Main.ERROR_PREFIX + "§cVous n'avez pas spécifié de valeur !");
+									sender.sendMessage(Main.ERROR_PREFIX + "Â§cVous n'avez pas spÃ©cifiÃ© de valeur !");
 									return true;
 								}
 								
@@ -340,13 +340,13 @@ public class AdminSky implements HeleCommand {
 								if(args.length > 3) {
 									try {
 										island.setLevel(island.getLevel() + Integer.parseInt(args[3]));
-										sender.sendMessage(Main.PREFIX + "§cLe niveau de l'île a bien été changé !");
+										sender.sendMessage(Main.PREFIX + "Â§cLe niveau de l'Ã®le a bien Ã©tÃ© changÃ© !");
 									} catch (NumberFormatException e) {
-										sender.sendMessage(Main.PREFIX + "§cVous devez entrer une valeur correcte !");
+										sender.sendMessage(Main.PREFIX + "Â§cVous devez entrer une valeur correcte !");
 										return true;
 									}
 								} else {
-									sender.sendMessage(Main.ERROR_PREFIX + "§cVous n'avez pas spécifié de valeur !");
+									sender.sendMessage(Main.ERROR_PREFIX + "Â§cVous n'avez pas spÃ©cifiÃ© de valeur !");
 									return true;
 								}
 								
@@ -355,13 +355,13 @@ public class AdminSky implements HeleCommand {
 								if(args.length > 3) {
 									try {
 										island.setLevel(island.getLevel() - Integer.parseInt(args[3]));
-										sender.sendMessage(Main.PREFIX + "§cLe niveau de l'île a bien été changé !");
+										sender.sendMessage(Main.PREFIX + "Â§cLe niveau de l'Ã®le a bien Ã©tÃ© changÃ© !");
 									} catch (NumberFormatException e) {
-										sender.sendMessage(Main.PREFIX + "§cVous devez entrer une valeur correcte !");
+										sender.sendMessage(Main.PREFIX + "Â§cVous devez entrer une valeur correcte !");
 										return true;
 									}
 								} else {
-									sender.sendMessage(Main.ERROR_PREFIX + "§cVous n'avez pas spécifié de valeur !");
+									sender.sendMessage(Main.ERROR_PREFIX + "Â§cVous n'avez pas spÃ©cifiÃ© de valeur !");
 									return true;
 								}
 								
@@ -373,10 +373,10 @@ public class AdminSky implements HeleCommand {
 							
 							default: return false;
 						}
-						sender.sendMessage(Main.PREFIX + "§cL'île à maintenant " + island.getLevel() + " niveaux");						
+						sender.sendMessage(Main.PREFIX + "Â§cL'Ã®le a maintenant " + island.getLevel() + " niveaux");						
 						return true;
 					} else {
-						sender.sendMessage(Main.ERROR_PREFIX + "§cCe joueur n'a pas d'île ! ");
+						sender.sendMessage(Main.ERROR_PREFIX + "Â§cCe joueur n'a pas d'Ã®le ! ");
 						return true;
 					}
 					

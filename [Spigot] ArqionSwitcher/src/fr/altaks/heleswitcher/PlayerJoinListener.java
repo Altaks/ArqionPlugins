@@ -35,7 +35,7 @@ public class PlayerJoinListener implements Listener {
 		if(event.hasBlock()) return;
 		if(event.getItem().equals(Main.compass) && !event.getAction().equals(Action.PHYSICAL)) {
 			
-			Inventory inv = Bukkit.createInventory(null, 9, "ง8Serveurs");
+			Inventory inv = Bukkit.createInventory(null, 9, "ยง8Serveurs");
 			
 			inv.setItem(1, Servers.Lobby.getSymbol());
 			inv.setItem(2, Servers.Server1.getSymbol());

@@ -22,7 +22,7 @@ public class InventoryClickListener implements Listener {
 		
 		Player player = (Player) event.getWhoClicked();
 		
-		if (event.getView().getTitle().equals("ง8Serveurs")) {
+		if (event.getView().getTitle().equals("ยง8Serveurs")) {
 		
 			final ItemStack itemStack = event.getCurrentItem();
 			

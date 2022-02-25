@@ -38,27 +38,27 @@ public class Menu2Listener implements Listener {
 				return;
 			}
 			
-			if(event.getView().getTitle().matches("§8Warps du serveur §7\\([0-9]*\\/[0-9]*\\)")) {
+			if(event.getView().getTitle().matches("Â§8Warps du serveur Â§7\\([0-9]*\\/[0-9]*\\)")) {
 				
 				Material clickedType = event.getCurrentItem().getType();
 				event.setCancelled(true);
 				
 				if(clickedType == Material.PAPER) {
 					
-					// obtenir le nom de l'île
+					// obtenir le nom de l'ï¿½le
 					String islandname = event.getCurrentItem().getItemMeta().getDisplayName();
 						
 					// recup l'ile avec la hashmap
 					Island targetIsland = main.getIslandsFromId().values().stream().filter(island -> island.getName().equals(islandname)).collect(Collectors.toList()).get(0);
 					if(targetIsland == null) {
-						player.sendMessage(Main.PREFIX + "§cL'île a désactivé son warp pendant que vous la cherchiez");
+						player.sendMessage(Main.PREFIX + "Â§cL'Ã®le a dÃ©sactivÃ© son warp pendant que vous la cherchiez");
 					}
 					
 					// tp le joueur au warp de l'ile
 					if(targetIsland.isWarpEnabled()) {
 						player.teleport(targetIsland.getWarp());
 					} else {
-						player.sendMessage(Main.PREFIX + "§cL'île a désactivé son warp pendant que vous la cherchiez");
+						player.sendMessage(Main.PREFIX + "Â§cL'Ã®le a dÃ©sactivÃ© son warp pendant que vous la cherchiez");
 					}
 					return;
 
@@ -68,13 +68,13 @@ public class Menu2Listener implements Listener {
 						// previous
 						
 						Bukkit.getScheduler().runTaskAsynchronously(main, () -> {
-							int page = Integer.parseInt(event.getView().getTitle().replace("§8Warps du serveur §7(", "").replace(")","").split("/")[0]) -1 ;
-							Inventory inv = Bukkit.createInventory(null, 6*9, "§8Warps du serveur §7("+page+"/"+ (int) this.main.getIslandsFromId().values().size() / 36+")");
+							int page = Integer.parseInt(event.getView().getTitle().replace("Â§8Warps du serveur Â§7(", "").replace(")","").split("/")[0]) -1 ;
+							Inventory inv = Bukkit.createInventory(null, 6*9, "Â§8Warps du serveur Â§7("+page+"/"+ (int) this.main.getIslandsFromId().values().size() / 36+")");
 							
-							ItemStack infobook = new ItemManager.ItemBuilder(Material.BOOK, 1, "§cInformations").setLore("§eNombre total de warps : " + this.main.getIslandsFromId().values().size()).build();
+							ItemStack infobook = new ItemManager.ItemBuilder(Material.BOOK, 1, "Â§cInformations").setLore("Â§eNombre total de warps : " + this.main.getIslandsFromId().values().size()).build();
 							
-							ItemStack previousarrow = new ItemManager.ItemBuilder(Material.ARROW, 1, "§ePage précédente").build();
-							ItemStack nextarrow = new ItemManager.ItemBuilder(Material.ARROW, 1, "§cPage suivante").build();
+							ItemStack previousarrow = new ItemManager.ItemBuilder(Material.ARROW, 1, "Â§ePage prï¿½cï¿½dente").build();
+							ItemStack nextarrow = new ItemManager.ItemBuilder(Material.ARROW, 1, "Â§cPage suivante").build();
 
 							int slot = 9;
 							
@@ -105,13 +105,13 @@ public class Menu2Listener implements Listener {
 					} else if(event.getSlot() == 53) {
 						// next
 						Bukkit.getScheduler().runTaskAsynchronously(main, () -> {
-							int page = Integer.parseInt(event.getView().getTitle().replace("§8Warps du serveur §7(", "").replace(")","").split("/")[0]) -1 ;
-							Inventory inv = Bukkit.createInventory(null, 6*9, "§8Warps du serveur §7("+page+"/"+ (int) this.main.getIslandsFromId().values().size() / 36+")");
+							int page = Integer.parseInt(event.getView().getTitle().replace("Â§8Warps du serveur ï¿½7(", "").replace(")","").split("/")[0]) -1 ;
+							Inventory inv = Bukkit.createInventory(null, 6*9, "Â§8Warps du serveur ï¿½7("+page+"/"+ (int) this.main.getIslandsFromId().values().size() / 36+")");
 							
-							ItemStack infobook = new ItemManager.ItemBuilder(Material.BOOK, 1, "§cInformations").setLore("§eNombre total de warps : " + this.main.getIslandsFromId().values().size()).build();
+							ItemStack infobook = new ItemManager.ItemBuilder(Material.BOOK, 1, "Â§cInformations").setLore("Â§eNombre total de warps : " + this.main.getIslandsFromId().values().size()).build();
 							
-							ItemStack previousarrow = new ItemManager.ItemBuilder(Material.ARROW, 1, "§ePage précédente").build();
-							ItemStack nextarrow = new ItemManager.ItemBuilder(Material.ARROW, 1, "§cPage suivante").build();
+							ItemStack previousarrow = new ItemManager.ItemBuilder(Material.ARROW, 1, "Â§ePage prï¿½cï¿½dente").build();
+							ItemStack nextarrow = new ItemManager.ItemBuilder(Material.ARROW, 1, "Â§cPage suivante").build();
 
 							int slot = 9;
 							

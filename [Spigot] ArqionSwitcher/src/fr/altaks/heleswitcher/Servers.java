@@ -8,8 +8,8 @@ import org.bukkit.inventory.ItemStack;
 
 public enum Servers {
 	
-	Lobby("lobby", ItemStackBuilder.buildItemStack(Material.BEDROCK, "Lobby", new ArrayList<String>(Collections.singletonList("§eCliques ici pour accéder au Lobby !")))),
-	Server1("server-1", ItemStackBuilder.buildItemStack(Material.GRASS_BLOCK, "Lobby",new ArrayList<String>(Collections.singletonList("§eCliques ici pour accéder au Serveur 1!"))));
+	Lobby("lobby", ItemStackBuilder.buildItemStack(Material.BEDROCK, "Lobby", new ArrayList<String>(Collections.singletonList("Â§eCliques ici pour accÃ©der au Lobby !")))),
+	Server1("server-1", ItemStackBuilder.buildItemStack(Material.GRASS_BLOCK, "Lobby",new ArrayList<String>(Collections.singletonList("Â§eCliques ici pour accÃ©der au Serveur 1!"))));
 	
 	private String id;
 	private ItemStack symbol;

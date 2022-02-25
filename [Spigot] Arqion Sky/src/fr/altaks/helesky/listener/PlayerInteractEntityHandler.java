@@ -43,13 +43,13 @@ public class PlayerInteractEntityHandler implements Listener {
 					double distance = entityLoc.distance(anchor);
 					
 					if(distance > ((100 + (25 * island.getTier())) / 2)) {
-						player.sendMessage(Main.PREFIX + "§cVous ne pouvez pas attaquer des animaux qui ne sont pas les vôtres !");
+						player.sendMessage(Main.PREFIX + "Â§cVous ne pouvez pas attaquer des animaux qui ne sont pas les vÃ´tres !");
 						event.setCancelled(true);
 						return;
 					}
 					
 				} else {
-					player.sendMessage(Main.PREFIX + "§cVous ne pouvez pas attaquer des animaux qui ne sont pas les vôtres !");
+					player.sendMessage(Main.PREFIX + "Â§cVous ne pouvez pas attaquer des animaux qui ne sont pas les vÃ´tres !");
 					event.setCancelled(true);
 					return;
 				}

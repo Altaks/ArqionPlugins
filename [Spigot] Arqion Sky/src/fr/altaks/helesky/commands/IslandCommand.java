@@ -59,19 +59,19 @@ public class IslandCommand implements HeleCommand {
 					
 
 					Island island = main.getIslandsFromId().get(main.getIslandIDFromUUID().get(player.getUniqueId()));
-					Inventory inv = Bukkit.createInventory(null, 5 * 9, "§cHeleSky \u00BB");
+					Inventory inv = Bukkit.createInventory(null, 5 * 9, "Â§cHeleSky \u00BB");
 					
 					// l'ile existe et le joueur est link a une ile
-					ItemStack book = new ItemManager.ItemBuilder(Material.BOOK, 1, "§cInformations").setLore(LoreUtil.getInformationBookModifiedLore(island)).build();
+					ItemStack book = new ItemManager.ItemBuilder(Material.BOOK, 1, "Â§cInformations").setLore(LoreUtil.getInformationBookModifiedLore(island)).build();
 
 					Bukkit.getScheduler().runTaskAsynchronously(main, () -> {
 						
-						ItemStack grass = new ItemManager.ItemBuilder(Material.GRASS_BLOCK, 1, "§3Se téléporter").build();
-						ItemStack bed = new ItemManager.ItemBuilder(Material.RED_BED, 1, "§cDéfinir le point de spawn de l’île").build();
-						ItemStack goldNugget = new ItemManager.ItemBuilder(Material.GOLD_NUGGET, 1, "§cTop 5 levels").addSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build();
-						ItemStack sign = new ItemManager.ItemBuilder(Material.OAK_SIGN, 1, "§cDéfinir le point de warp de l’île").build();
+						ItemStack grass = new ItemManager.ItemBuilder(Material.GRASS_BLOCK, 1, "Â§3Se tÃ©lÃ©porter").build();
+						ItemStack bed = new ItemManager.ItemBuilder(Material.RED_BED, 1, "Â§cDÃ©finir le point de spawn de l'Ã®le").build();
+						ItemStack goldNugget = new ItemManager.ItemBuilder(Material.GOLD_NUGGET, 1, "Â§cTop 5 levels").addSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build();
+						ItemStack sign = new ItemManager.ItemBuilder(Material.OAK_SIGN, 1, "Â§cDÃ©finir le point de warp de l'Ã®le").build();
 						
-						ItemStack head = new ItemManager.SkullBuilder(1, "§cGestion des joueurs").setOwner(player.getName()).build();
+						ItemStack head = new ItemManager.SkullBuilder(1, "Â§cGestion des joueurs").setOwner(player.getName()).build();
 
 						inv.setItem(4, book);
 						
@@ -93,7 +93,7 @@ public class IslandCommand implements HeleCommand {
 					player.openInventory(inv);
 					return true;
 				} else {
-					sender.sendMessage(Main.PREFIX + "§6Vous pouvez vous créer une île en utilisant la commande §7/is create");
+					sender.sendMessage(Main.PREFIX + "Â§6Vous pouvez vous crÃ©er une Ã®le en utilisant la commande Â§7/is create");
 					return true;
 				}
 				
@@ -107,20 +107,20 @@ public class IslandCommand implements HeleCommand {
 					if(!main.getIslandIDFromUUID().containsKey(player.getUniqueId())) {
 						 
 
-						Inventory inv = Bukkit.createInventory(null, 9 * 3, "§cHeleSky \u00BB Création d'île");
+						Inventory inv = Bukkit.createInventory(null, 9 * 3, "Â§cHeleSky \u00BB CrÃ©ation d'Ã®le");
 						
 						Bukkit.getScheduler().runTaskAsynchronously(main, () -> {
-							ItemStack dirt = new ItemBuilder(Material.GRASS_BLOCK, 1, "§6Thème terrestre")
-									.setLore(LoreUtil.getModifiedLore("§6Dirt, Dirt, Dirt, OhOh It’s my dirt", "§6Hummmm my big dirt !")).build();
+							ItemStack dirt = new ItemBuilder(Material.GRASS_BLOCK, 1, "Â§6ThÃ¨me terrestre")
+									.setLore(LoreUtil.getModifiedLore("Â§6Dirt, Dirt, Dirt, OhOh It's my dirt", "Â§6Hummmm my big dirt !")).build();
 							
-							ItemStack water = new ItemBuilder(Material.WATER_BUCKET, 1, "§6Thème aquatique")
-									.setLore(LoreUtil.getModifiedLore("§9L’eau sa mouille, OMG !")).build();
+							ItemStack water = new ItemBuilder(Material.WATER_BUCKET, 1, "Â§6ThÃ¨me aquatique")
+									.setLore(LoreUtil.getModifiedLore("Â§9L'eau sa mouille, OMG !")).build();
 							
-							ItemStack fire = new ItemBuilder(Material.RED_NETHER_BRICKS, 1, "§6Thème de feu")
-									.setLore(LoreUtil.getModifiedLore("§4Ouh pinaise, le feu ça brûle !")).build();
+							ItemStack fire = new ItemBuilder(Material.RED_NETHER_BRICKS, 1, "Â§6ThÃ¨me de feu")
+									.setLore(LoreUtil.getModifiedLore("Â§4Ouh pinaise, le feu Ã§a brÃ»le !")).build();
 							
-							ItemStack air = new ItemBuilder(Material.FEATHER, 1, "§6Thème aérien")
-									.setLore(LoreUtil.getModifiedLore("§dI believe I can FLYYY")).build();
+							ItemStack air = new ItemBuilder(Material.FEATHER, 1, "Â§6ThÃ¨me aÃ©rien")
+									.setLore(LoreUtil.getModifiedLore("Â§dI believe I can FLYYY")).build();
 							
 							inv.setItem(10, dirt);
 							inv.setItem(12, water);
@@ -139,7 +139,7 @@ public class IslandCommand implements HeleCommand {
 						player.openInventory(inv);
 						return true;
 					} else {
-						player.sendMessage(Main.ERROR_PREFIX + "Vous faites déjà partie d'une île !");
+						player.sendMessage(Main.ERROR_PREFIX + "Vous faites dÃ©jÃ  partie d'une ï¿½le !");
 						return true;
 					}
 				
@@ -150,26 +150,26 @@ public class IslandCommand implements HeleCommand {
 						Island island = main.getIslandsFromId().get(main.getIslandIDFromUUID().get(player.getUniqueId()));
 						
 						if(!island.getOwnerId().equals(player.getUniqueId())) {
-							player.sendMessage(Main.ERROR_PREFIX + "Vous n'êtes pas propriétaire de l'île");
+							player.sendMessage(Main.ERROR_PREFIX + "Vous n'Ãªtes pas propriÃ©taire de l'Ã®le");
 							return true;
 						} 
 
-						Inventory inv = Bukkit.createInventory(null, 9 * 4, "§6Amélioration d'Île");
+						Inventory inv = Bukkit.createInventory(null, 9 * 4, "Â§6AmÃ©lioration d'Ã®le");
 						
 						Bukkit.getScheduler().runTaskAsynchronously(main, () -> {
 							
-							ItemBuilder paper = new ItemBuilder(Material.PAPER, 1, "§6Taille actuelle :§e " + (100+(25*island.getTier())) +" x "+(100+(25*island.getTier())));
+							ItemBuilder paper = new ItemBuilder(Material.PAPER, 1, "Â§6Taille actuelle :Â§e " + (100+(25*island.getTier())) +" x "+(100+(25*island.getTier())));
 							
-							ItemBuilder gold_nugget = new ItemBuilder(Material.GOLD_NUGGET, 1, "§6Tier 1")
+							ItemBuilder gold_nugget = new ItemBuilder(Material.GOLD_NUGGET, 1, "Â§6Tier 1")
 									.setLore(LoreUtil.getTierInformationLore(IslandTier.Tier1)).addItemFlags(ItemFlag.HIDE_ENCHANTS);
 							
-							ItemBuilder gold_ingot = new ItemBuilder(Material.GOLD_INGOT, 1, "§6Tier 2")
+							ItemBuilder gold_ingot = new ItemBuilder(Material.GOLD_INGOT, 1, "Â§6Tier 2")
 									.setLore(LoreUtil.getTierInformationLore(IslandTier.Tier2)).addItemFlags(ItemFlag.HIDE_ENCHANTS);
 							
-							ItemBuilder gold_block = new ItemBuilder(Material.GOLD_BLOCK, 1, "§6Tier 3")
+							ItemBuilder gold_block = new ItemBuilder(Material.GOLD_BLOCK, 1, "Â§6Tier 3")
 									.setLore(LoreUtil.getTierInformationLore(IslandTier.Tier3)).addItemFlags(ItemFlag.HIDE_ENCHANTS);
 							
-							ItemBuilder nether_star = new ItemBuilder(Material.NETHER_STAR, 1, "§6Tier 4")
+							ItemBuilder nether_star = new ItemBuilder(Material.NETHER_STAR, 1, "Â§6Tier 4")
 									.setLore(LoreUtil.getTierInformationLore(IslandTier.Tier4)).addItemFlags(ItemFlag.HIDE_ENCHANTS);
 							
 							switch (island.getTier()) {
@@ -205,7 +205,7 @@ public class IslandCommand implements HeleCommand {
 						
 						return true;
 					} else {
-						player.sendMessage(Main.PREFIX + "Vous n'avez pas d'île !");
+						player.sendMessage(Main.PREFIX + "Vous n'avez pas d'Ã®le !");
 						return true;
 					}
 				
@@ -216,22 +216,22 @@ public class IslandCommand implements HeleCommand {
 							player.teleport(island.getHome());
 							return true;
 						} catch (NullPointerException e) {
-							sender.sendMessage(Main.PREFIX + "Votre île n'a pas été trouvée, vous devez posséder/faire partie d'une île pour y accéder.");
+							sender.sendMessage(Main.PREFIX + "Votre Ã®le n'a pas Ã©tÃ© trouvÃ©e, vous devez possÃ©der/faire partie d'une Ã®le pour y accÃ©der.");
 							return true;
 							
 						}
 					} else {
-						player.sendMessage(Main.ERROR_PREFIX + "§cVous n'avez pas d'île !");
+						player.sendMessage(Main.ERROR_PREFIX + "Â§cVous n'avez pas d'Ã®le !");
 						return true;
 					}
 				} else if(args[0].equalsIgnoreCase("warp")) {
 					
 					if(args.length > 1) {
-						// joueur défini
+						// joueur dï¿½fini
 						String targetname = args[1];
 						OfflinePlayer target = Bukkit.getPlayer(targetname);
 						if(target == null) {
-							sender.sendMessage(Main.ERROR_PREFIX + "Le joueur nommé n'est jamais venu sur le serveur ...");
+							sender.sendMessage(Main.ERROR_PREFIX + "Le joueur nommÃ© n'est jamais venu sur le serveur ...");
 							return true;
 						}
 						
@@ -240,31 +240,31 @@ public class IslandCommand implements HeleCommand {
 							Island island = main.getPlayerIsland(target.getUniqueId());
 							
 							if(!island.isWarpEnabled()) {
-								sender.sendMessage(Main.PREFIX + "Le warp de cette île est malheureusement désactivé !");
+								sender.sendMessage(Main.PREFIX + "Le warp de cette Ã®le est malheureusement dÃ©sactivÃ© !");
 								return true;
 							}
 							
 							if(island.getBannedIds().contains(player.getUniqueId())) {
-								sender.sendMessage(Main.PREFIX + "§cVous avez été banni de cette île !");
+								sender.sendMessage(Main.PREFIX + "Â§cVous avez Ã©tÃ© banni de cette Ã®le !");
 								return true;
 							}
 							
 							player.teleport(island.getWarp());
 							return true;
 						} else {
-							sender.sendMessage(Main.ERROR_PREFIX + "Le joueur nommé n'a pas d'île associée !");
+							sender.sendMessage(Main.ERROR_PREFIX + "Le joueur nommÃ© n'a pas d'Ã®le associÃ©e !");
 							return true;
 						}
 						
 					} else {
 
 						int page = 0;
-						Inventory inv = Bukkit.createInventory(null, 6*9, "§8Warps du serveur §7("+page+"/"+ (int) this.main.getIslandsFromId().values().size() / 36+")");
+						Inventory inv = Bukkit.createInventory(null, 6*9, "Â§8Warps du serveur Â§7("+page+"/"+ (int) this.main.getIslandsFromId().values().size() / 36+")");
 						
 						Bukkit.getScheduler().runTaskAsynchronously(main, () -> {
 							
-							ItemStack infobook = new ItemBuilder(Material.BOOK, 1, "§cInformations").setLore("§eNombre total de warps : " + this.main.getIslandsFromId().values().size()).build();
-							ItemStack nextarrow = new ItemBuilder(Material.ARROW, 1, "§cPage suivante").build();
+							ItemStack infobook = new ItemBuilder(Material.BOOK, 1, "Â§cInformations").setLore("Â§eNombre total de warps : " + this.main.getIslandsFromId().values().size()).build();
+							ItemStack nextarrow = new ItemBuilder(Material.ARROW, 1, "Â§cPage suivante").build();
 
 							int slot = 9;
 							
@@ -302,10 +302,10 @@ public class IslandCommand implements HeleCommand {
 				} else if(args[0].equalsIgnoreCase("level")) {
 					
 					if(main.hasIsland(player.getUniqueId())) {
-						sender.sendMessage(Main.PREFIX + "Actuellement, votre île est de niveau §e" + main.getPlayerIsland(player.getUniqueId()).getLevel() + "§6 !");
+						sender.sendMessage(Main.PREFIX + "Actuellement, votre Ã®le est de niveau Â§e" + main.getPlayerIsland(player.getUniqueId()).getLevel() + "Â§6 !");
 						return true;
 					} else {
-						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'île !");
+						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'Ã®le !");
 						return true;
 					}
 				} else if(args[0].equalsIgnoreCase("sethome")) {
@@ -314,14 +314,14 @@ public class IslandCommand implements HeleCommand {
 						Island island = main.getPlayerIsland(player.getUniqueId());
 						if(island.getOwnerId().equals(player.getUniqueId())) { // si c'est l'owner
 							island.setHome(player.getLocation());
-							player.sendMessage(Main.PREFIX + "Le home de votre île à bien été déplacé !");
+							player.sendMessage(Main.PREFIX + "Le home de votre Ã®le a bien Ã©tÃ© dÃ©placÃ© !");
 							return true;
 						} else {
-							player.sendMessage(Main.PREFIX + "Vous devez être propriétaire de l'île pour en déplacer le home !");
+							player.sendMessage(Main.PREFIX + "Vous devez Ãªtre propriÃ©taire de l'Ã®le pour en dÃ©placer le home !");
 							return true;
 						}
 					} else {
-						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'île !");
+						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'Ã®le !");
 						return true;
 					}
 					
@@ -331,14 +331,14 @@ public class IslandCommand implements HeleCommand {
 						if(island.getOwnerId().equals(player.getUniqueId())) { // si c'est l'owner
 							island.setWarp(player.getLocation());
 							island.setWarpEnabled(true);
-							player.sendMessage(Main.PREFIX + "Le warp de votre île à bien été déplacé !");
+							player.sendMessage(Main.PREFIX + "Le warp de votre Ã®le a bien Ã©tÃ© dÃ©placÃ© !");
 							return true;
 						} else {
-							player.sendMessage(Main.PREFIX + "Vous devez être propriétaire de l'île pour en déplacer le warp !");
+							player.sendMessage(Main.PREFIX + "Vous devez Ãªtre propriÃ©taire de l'Ã®le pour en dÃ©placer le warp !");
 							return true;
 						}
 					} else {
-						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'île !");
+						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'Ã®le !");
 						return true;
 					}
 					
@@ -348,11 +348,11 @@ public class IslandCommand implements HeleCommand {
 						Island island = main.getPlayerIsland(player.getUniqueId());
 						if(island.getOwnerId().equals(player.getUniqueId())) { // si c'est l'owner
 							island.setName(ChatColor.translateAlternateColorCodes('&', args[1]));
-							player.sendMessage(Main.PREFIX + "Le nom de votre île a bien été changé en : " + island.getName());
+							player.sendMessage(Main.PREFIX + "Le nom de votre Ã®le a bien Ã©tÃ© changÃ© en : " + island.getName());
 							return true;
 						}
 					} else {
-						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'île !");
+						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'Ã®le !");
 						return true;
 					}
 					
@@ -374,14 +374,14 @@ public class IslandCommand implements HeleCommand {
 							island.setOwnerId(target.getUniqueId());
 							
 							if(target.isOnline()) {
-								Bukkit.getPlayer(target.getUniqueId()).sendMessage(Main.PREFIX + "Vous devenez propriétaire de l'île : §e" + island.getName());
+								Bukkit.getPlayer(target.getUniqueId()).sendMessage(Main.PREFIX + "Vous devenez propriÃ©taire de l'Ã®le : Â§e" + island.getName());
 							}
 				
-							player.sendMessage(Main.PREFIX + "L'île " + island.getName() + " appartient dorénavent à " + target.getName());
+							player.sendMessage(Main.PREFIX + "L'Ã®le " + island.getName() + " appartient dorÃ©navent Ã  " + target.getName());
 							return true;
 						}
 					} else {
-						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'île !");
+						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'Ã®le !");
 						return true;
 					}
 				} else if(args[0].equalsIgnoreCase("team")) {
@@ -389,10 +389,10 @@ public class IslandCommand implements HeleCommand {
 						
 						Island island = main.getPlayerIsland(player.getUniqueId());
 						
-						StringJoiner joiner = new StringJoiner("§6, §e");
+						StringJoiner joiner = new StringJoiner("Â§6, Â§e");
 						String owner_pseudo = Bukkit.getOfflinePlayer(island.getOwnerId()).getName();
 						
-						joiner.add("§6 " + owner_pseudo);
+						joiner.add("Â§6 " + owner_pseudo);
 						
 						for(UUID id : island.getMembersId()) {
 							
@@ -401,10 +401,10 @@ public class IslandCommand implements HeleCommand {
 							
 						}
 						
-						sender.sendMessage(Main.PREFIX + "Votre île comporte les joueurs : " + joiner.toString());
+						sender.sendMessage(Main.PREFIX + "Votre Ã®le comporte les joueurs : " + joiner.toString());
 						return true;
 					} else {
-						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'île !");
+						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'Ã®le !");
 						return true;
 					}
 				} else if(args[0].equalsIgnoreCase("delwarp")) {
@@ -413,11 +413,11 @@ public class IslandCommand implements HeleCommand {
 						Island island = main.getPlayerIsland(player.getUniqueId());
 						if(island.getOwnerId().equals(player.getUniqueId())) { // si c'est l'owner
 							island.setWarpEnabled(false);
-							sender.sendMessage(Main.PREFIX + "Le warp de votre île a bien été désactivé");
+							sender.sendMessage(Main.PREFIX + "Le warp de votre Ã®le a bien Ã©tÃ© dÃ©sactivÃ©");
 							return true;
 						}
 					} else {
-						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'île !");
+						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'Ã®le !");
 						return true;
 					}
 					
@@ -430,25 +430,25 @@ public class IslandCommand implements HeleCommand {
 							island.getMembersId().remove(player.getUniqueId());
 							main.getIslandIDFromUUID().remove(player.getUniqueId());
 							player.teleport(Main.spawn);
-							sender.sendMessage(Main.PREFIX + "Vous avez quitté l'île qui vous était associée !");
+							sender.sendMessage(Main.PREFIX + "Vous avez quittÃ© l'Ã®le qui vous Ã©tait associÃ©e !");
 							return true;
 						} else {
-							sender.sendMessage(Main.PREFIX + "Vous êtes le propriétaire de votre île, vous ne pouvez pas la quitter !");
+							sender.sendMessage(Main.PREFIX + "Vous Ãªtes le propriÃ©taire de votre Ã®le, vous ne pouvez pas la quitter !");
 							return true;
 						}
 					} else {
-						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'île !");
+						sender.sendMessage(Main.ERROR_PREFIX + "Vous n'avez pas d'Ã®le !");
 						return true;
 					}
 				} else if(args[0].equalsIgnoreCase("top")) {
 
-					Inventory inv = Bukkit.createInventory(null, 3 * 9, "§8Podium des îles \u00BB");
+					Inventory inv = Bukkit.createInventory(null, 3 * 9, "Â§8Podium des Ã®les \u00BB");
 
 					Bukkit.getScheduler().runTaskAsynchronously(main, () -> {
 						
 						Island[] islands = getTopIslands();
 						
-						ItemStack paper = new ItemBuilder(Material.PAPER,1,"Place non occupée").setLore("§rIl n'y a pas encore assez d'îles pour ","§rque cette place du classement soit occupée").build();
+						ItemStack paper = new ItemBuilder(Material.PAPER,1,"Place non occupÃ©e").setLore("Â§rIl n'y a pas encore assez d'Ã®les pour ","Â§rque cette place du classement soit occupÃ©e").build();
 						
 						switch (islands.length) {
 							case 5:
@@ -487,11 +487,11 @@ public class IslandCommand implements HeleCommand {
 				} else if(args[0].equalsIgnoreCase("invite") && args.length > 1) {
 					
 					if(!main.getIslandIDFromUUID().containsKey(player.getUniqueId())) {
-						sender.sendMessage(Main.PREFIX + "Vous n'avez pas d'île !");
+						sender.sendMessage(Main.PREFIX + "Vous n'avez pas d'Ã®le !");
 						return true;
 					}
 					if(!main.getPlayerIsland(player.getUniqueId()).getOwnerId().equals(player.getUniqueId())) {
-						sender.sendMessage(Main.PREFIX + "Vous n'êtes pas propriétaire de l'île !");
+						sender.sendMessage(Main.PREFIX + "Vous n'Ãªtes pas propriÃ©taire de l'Ã®le !");
 						return true;
 					}
 					
@@ -501,24 +501,24 @@ public class IslandCommand implements HeleCommand {
 					Player target = Bukkit.getPlayer(targetpseudo);
 					
 					if(island.getMembersId().size() >= Main.maxPlayerPerIsland) {
-						sender.sendMessage(Main.PREFIX + "§cVotre île comprend trop de membres, vous ne pouvez pas inviter quelqu'un de supplémentaire !");
+						sender.sendMessage(Main.PREFIX + "Â§cVotre Ã®le comprend trop de membres, vous ne pouvez pas inviter quelqu'un de supplÃ©mentaire !");
 						return true;
 					}
 
 					if(target == null) {
-						sender.sendMessage(Main.PREFIX + "§cLe joueur ciblé n'est pas présent sur le serveur !");
+						sender.sendMessage(Main.PREFIX + "Â§cLe joueur ciblÃ© n'est pas prÃ©sent sur le serveur !");
 						return true;
 					}
 					
 					if(island.getMembersId().contains(target.getUniqueId())) {
-						sender.sendMessage(Main.PREFIX + "§cCe joueur fait déjà partie de l'île !");
+						sender.sendMessage(Main.PREFIX + "Â§cCe joueur fait dÃ©jÃ  partie de l'Ã®le !");
 						return true;
 					}
 					
-					TextComponentUtil mainComp = new TextComponentUtil(Main.PREFIX + "§6Vous avez été invité sur l'île " + island.getName() + "\n");
-					TextComponentUtil acceptComp = new TextComponentUtil("§a§l[Accepter]").setClick_runCommand("/is joinaccept").setHover_showText("§aCliquez ici pour accepter");
-					TextComponentUtil midComp = new TextComponentUtil("§r  |  §r");
-					TextComponentUtil denyComp = new TextComponentUtil("§c§l[Refuser]").setClick_runCommand("/is joindeny").setHover_showText("§cCliquez ici pour accepter");;
+					TextComponentUtil mainComp = new TextComponentUtil(Main.PREFIX + "Â§6Vous avez Ã©tÃ© invitÃ© sur l'Ã®le " + island.getName() + "\n");
+					TextComponentUtil acceptComp = new TextComponentUtil("Â§aÂ§l[Accepter]").setClick_runCommand("/is joinaccept").setHover_showText("Â§aCliquez ici pour accepter");
+					TextComponentUtil midComp = new TextComponentUtil("Â§r  |  Â§r");
+					TextComponentUtil denyComp = new TextComponentUtil("Â§cÂ§l[Refuser]").setClick_runCommand("/is joindeny").setHover_showText("Â§cCliquez ici pour refuser");
 					
 					TextComponent total = mainComp.addExtra(acceptComp.build()).addExtra(midComp.build()).addExtra(denyComp.build()).build();
 					
@@ -532,16 +532,16 @@ public class IslandCommand implements HeleCommand {
 						
 						Player owner = Bukkit.getPlayer(main.getPendingInvites().get(player.getUniqueId()).getOwnerId());
 						if(owner != null) {
-							owner.sendMessage(Main.PREFIX + "La requête envoyée à " + player.getDisplayName() + " a été acceptée");
+							owner.sendMessage(Main.PREFIX + "La requÃªte envoyÃ©e Ã  " + player.getDisplayName() + " a Ã©tÃ© acceptÃ©e");
 						}
 						
 						main.getPendingInvites().remove(player.getUniqueId());
 						main.getPlayerIsland(owner.getUniqueId()).getMembersId().add(player.getUniqueId());
 						main.getIslandIDFromUUID().put(player.getUniqueId(), main.getPlayerIsland(owner.getUniqueId()).getId());
-						player.sendMessage(Main.PREFIX + "La requête a bien été acceptée !");
+						player.sendMessage(Main.PREFIX + "La requÃªte a bien Ã©tÃ© acceptÃ©e !");
 						return true;
 					} else {
-						player.sendMessage(Main.PREFIX + "§cVous n'avez pas de d'invitation en attente !");
+						player.sendMessage(Main.PREFIX + "Â§cVous n'avez pas de d'invitation en attente !");
 						return true;
 					}
 					
@@ -551,14 +551,14 @@ public class IslandCommand implements HeleCommand {
 						
 						Player owner = Bukkit.getPlayer(main.getPendingInvites().get(player.getUniqueId()).getOwnerId());
 						if(owner != null) {
-							owner.sendMessage(Main.PREFIX + "La requête envoyée à " + player.getDisplayName() + " a été refusée");
+							owner.sendMessage(Main.PREFIX + "La requÃªte envoyÃ©e Ã  " + player.getDisplayName() + " a Ã©tÃ© refusÃ©e");
 						}
 						
 						main.getPendingInvites().remove(player.getUniqueId());
-						player.sendMessage(Main.PREFIX + "La requête a bien été refusée !");
+						player.sendMessage(Main.PREFIX + "La requÃªte a bien Ã©tÃ© refusÃ©e !");
 						return true;
 					} else {
-						player.sendMessage(Main.PREFIX + "§cVous n'avez pas de d'invitation en attente !");
+						player.sendMessage(Main.PREFIX + "Â§cVous n'avez pas d'invitation en attente !");
 						return true;
 					}
 					
@@ -569,7 +569,7 @@ public class IslandCommand implements HeleCommand {
 						String targetname = args[1];
 						OfflinePlayer target = Bukkit.getOfflinePlayer(targetname);
 						if(target == null) {
-							player.sendMessage(Main.PREFIX + "§cLe joueur cible n'est jamais venu sur le serveur");
+							player.sendMessage(Main.PREFIX + "Â§cLe joueur cible n'est jamais venu sur le serveur");
 							return true;
 						}
 						
@@ -581,40 +581,40 @@ public class IslandCommand implements HeleCommand {
 							main.getIslandIDFromUUID().remove(target.getUniqueId());
 							
 							if(target.isOnline()) {							
-								target.getPlayer().sendMessage(Main.PREFIX + "§6Vous avez été renvoyé de l'île " + island.getName()+ " !");
+								target.getPlayer().sendMessage(Main.PREFIX + "Â§6Vous avez Ã©tÃ© renvoyÃ© de l'Ã®le " + island.getName()+ " !");
 								target.getPlayer().teleport(Main.spawn);
 								return true;
 							}
-							player.sendMessage(Main.PREFIX + "Le joueur " + target.getName() + " a effectivement été éjecté de votre île");
+							player.sendMessage(Main.PREFIX + "Le joueur " + target.getName() + " a effectivement Ã©tÃ© ejectÃ© de votre Ã®le");
 							return true;
 							
 						} else if(island.getCooperatorsId().contains(target.getUniqueId())) {
-							// cooperator donc kick + tp a son île s'il en a une
+							// cooperator donc kick + tp a son ï¿½le s'il en a une
 							
 							island.getCooperatorsId().remove(target.getUniqueId());
 							
 							if(target.isOnline()) {							
-								target.getPlayer().sendMessage(Main.PREFIX + "§6Vous avez été renvoyé de l'île " + island.getName()+ " !");
+								target.getPlayer().sendMessage(Main.PREFIX + "Â§6Vous avez Ã©tÃ© renvoyÃ© de l'Ã®le " + island.getName()+ " !");
 								if(main.hasIsland(target.getUniqueId())) {
 									target.getPlayer().teleport(main.getPlayerIsland(target.getUniqueId()).getHome());
 								} else target.getPlayer().teleport(Main.spawn);
 								return true;
 							}
-							player.sendMessage(Main.PREFIX + "Le joueur " + target.getName() + " a effectivement été éjecté de votre île");
+							player.sendMessage(Main.PREFIX + "Le joueur " + target.getName() + " a effectivement Ã©tÃ© ejectÃ© de votre Ã®le");
 							return true;
 						} else if(island.getVisitors().contains(target)) {
 							if(target.isOnline()) {
 								target.getPlayer().teleport(Main.spawn);
-								target.getPlayer().sendMessage(Main.PREFIX + "§6Vous avez été renvoyé de l'île " + island.getName()+ " !");
+								target.getPlayer().sendMessage(Main.PREFIX + "Â§6Vous avez Ã©tÃ© renvoyÃ© de l'Ã®le " + island.getName()+ " !");
 							}
 							return true;
 						} else {
-							player.sendMessage(Main.PREFIX + "§cCe joueur n'a aucun lien avec votre île");
+							player.sendMessage(Main.PREFIX + "Â§cCe joueur n'a aucun lien avec votre Ã®le");
 							return true;
 						}
 						
 					} else {
-						player.sendMessage(Main.PREFIX + "§cVous n'êtes pas propriétaire de l'île !");
+						player.sendMessage(Main.PREFIX + "Â§cVous n'ï¿½tes pas propriÃ©taire de l'Ã®le !");
 						return true;
 					}
 					
@@ -631,7 +631,7 @@ public class IslandCommand implements HeleCommand {
 						String targetname = args[1];
 						OfflinePlayer target = Bukkit.getOfflinePlayer(targetname);
 						if(target == null) {
-							player.sendMessage(Main.PREFIX + "§cLe joueur cible n'est jamais venu sur le serveur");
+							player.sendMessage(Main.PREFIX + "Â§cLe joueur cible n'est jamais venu sur le serveur");
 							return true;
 						}
 						
@@ -646,13 +646,13 @@ public class IslandCommand implements HeleCommand {
 						
 						if(target.isOnline()) {
 							target.getPlayer().teleport(Main.spawn);
-							target.getPlayer().sendMessage(Main.PREFIX + "§cVous avez été banni de l'île " + island.getName() + " !");
+							target.getPlayer().sendMessage(Main.PREFIX + "Â§cVous avez Ã©tÃ© banni de l'Ã®le " + island.getName() + " !");
 						}
 						
-						player.sendMessage(Main.PREFIX + "§6Le joueur §e" + target.getName() + "§6 a bien été banni de votre île !");
+						player.sendMessage(Main.PREFIX + "Â§6Le joueur Â§e" + target.getName() + "Â§6 a bien Ã©tÃ© banni de votre Ã®le !");
 						return true;
 					} else {
-						player.sendMessage(Main.PREFIX + "§cVous n'avez pas d'île !");
+						player.sendMessage(Main.PREFIX + "Â§cVous n'avez pas d'Ã®e !");
 						return true;
 					}
 					
@@ -665,7 +665,7 @@ public class IslandCommand implements HeleCommand {
 						String targetname = args[1];
 						OfflinePlayer target = Bukkit.getOfflinePlayer(targetname);
 						if(target == null) {
-							player.sendMessage(Main.PREFIX + "§cLe joueur cible n'est jamais venu sur le serveur");
+							player.sendMessage(Main.PREFIX + "Â§cLe joueur cible n'est jamais venu sur le serveur");
 							return true;
 						}
 						
@@ -673,13 +673,13 @@ public class IslandCommand implements HeleCommand {
 							
 							island.getBannedIds().remove(target.getUniqueId());
 							if(target.isOnline()) {
-								target.getPlayer().sendMessage(Main.PREFIX + "§cVous avez été débanni de l'île " + island.getName() + " !");
+								target.getPlayer().sendMessage(Main.PREFIX + "Â§cVous avez Ã©tÃ© dÃ©banni de l'Ã®le " + island.getName() + " !");
 							}
-							player.sendMessage(Main.PREFIX + "Le joueur " + target.getName() + " a bien été débanni de l'île !");
+							player.sendMessage(Main.PREFIX + "Le joueur " + target.getName() + " a bien Ã©tÃ© dÃ©banni de l'Ã®le !");
 							return true;
 							
 						} else {
-							player.sendMessage(Main.PREFIX + "§cLe joueur cible n'est pas banni de votre île !");
+							player.sendMessage(Main.PREFIX + "Â§cLe joueur cible n'est pas banni de votre Ã®le !");
 							return true;
 						}
 						
@@ -693,16 +693,16 @@ public class IslandCommand implements HeleCommand {
 						
 							Island island = main.getPlayerIsland(player.getUniqueId());
 							
-							StringJoiner joiner = new StringJoiner("§6, ");
+							StringJoiner joiner = new StringJoiner("Â§6, ");
 							
 							for(UUID id : island.getBannedIds()) {
 								
 								String pseudo = Bukkit.getOfflinePlayer(id).getName();
-								joiner.add("§e"+pseudo);
+								joiner.add("ï¿½e"+pseudo);
 								
 							}
 							
-							sender.sendMessage(Main.PREFIX + "Votre île comporte les bannissements : " + joiner.toString());
+							sender.sendMessage(Main.PREFIX + "Votre Ã®le comporte les bannissements : " + joiner.toString());
 
 						});
 						return true;
@@ -714,16 +714,16 @@ public class IslandCommand implements HeleCommand {
 						
 						Island island = main.getPlayerIsland(player.getUniqueId());
 						
-						StringJoiner joiner = new StringJoiner("§6, ");
+						StringJoiner joiner = new StringJoiner("ï¿½6, ");
 						
 						for(UUID id : island.getCooperatorsId()) {
 							
 							String pseudo = Bukkit.getOfflinePlayer(id).getName();
-							joiner.add("§e"+pseudo);
+							joiner.add("ï¿½e"+pseudo);
 							
 						}
 						
-						sender.sendMessage(Main.PREFIX + "Cette île comporte les coopérateurs : " + joiner.toString());
+						sender.sendMessage(Main.PREFIX + "Cette Ã®le comporte les coopÃ©rateurs : " + joiner.toString());
 
 					});
 					return true;
@@ -738,7 +738,7 @@ public class IslandCommand implements HeleCommand {
 							
 							OfflinePlayer target = Bukkit.getOfflinePlayer(targetname);
 							if(target == null) {
-								player.sendMessage(Main.PREFIX + "§cLe joueur cible n'est jamais venu sur le serveur");
+								player.sendMessage(Main.PREFIX + "Â§cLe joueur cible n'est jamais venu sur le serveur");
 								return true;
 							}
 							
@@ -747,28 +747,28 @@ public class IslandCommand implements HeleCommand {
 							if(operation.equalsIgnoreCase("remove")) {
 								island.getCooperatorsId().remove(target.getUniqueId());
 								if(target.isOnline()) {
-									target.getPlayer().sendMessage(Main.PREFIX + "§6Vous n'êtes plus coopérateur de l'île " + island.getName() + " !");
+									target.getPlayer().sendMessage(Main.PREFIX + "Â§6Vous n'ï¿½tes plus coopÃ©rateur de l'Ã®le " + island.getName() + " !");
 								}
-								sender.sendMessage(Main.PREFIX + "§6Le joueur " + target.getName() + " a perdu son rôle de coopérateur de votre île");
+								sender.sendMessage(Main.PREFIX + "Â§6Le joueur " + target.getName() + " a perdu son rÃ´le de coopÃ©rateur de votre Ã®le");
 								return true;
 								
 							} else if(operation.equalsIgnoreCase("add")) {
 								island.getCooperatorsId().add(target.getUniqueId());
 								
 								if(target.isOnline()) {
-									target.getPlayer().sendMessage(Main.PREFIX + "§6Vous êtes dorénavent coopérateur de l'île " + island.getName() + " !");
+									target.getPlayer().sendMessage(Main.PREFIX + "Â§6Vous Ãªtes dorÃ©navent coopÃ©rateur de l'Ã®le " + island.getName() + " !");
 								}
-								sender.sendMessage(Main.PREFIX + "§6Le joueur " + target.getName() + " est maintenant coopérateur de votre île");
+								sender.sendMessage(Main.PREFIX + "Â§6Le joueur " + target.getName() + " est maintenant coopÃ©rateur de votre Ã®le");
 								return true;
 								
 							} else return false;
 							
 						} else {
-							player.sendMessage(Main.PREFIX + "§cVous n'êtes pas le propriétaire de l'île");
+							player.sendMessage(Main.PREFIX + "Â§cVous n'Ãªtes pas le propriÃ©taire de l'Ã®le");
 							return true;
 						}
 					} else {
-						player.sendMessage(Main.PREFIX + "§cVous n'avez pas d'île !");
+						player.sendMessage(Main.PREFIX + "Â§cVous n'avez pas d'Ã®le !");
 						return true;
 					}
 				} else if(args[0].equalsIgnoreCase("deleteconfirm")) {
@@ -782,7 +782,7 @@ public class IslandCommand implements HeleCommand {
 						return true;
 						
 					} else {
-						sender.sendMessage(Main.PREFIX + "§cVous n'avez pas de demande de destruction en attente...");
+						sender.sendMessage(Main.PREFIX + "Â§cVous n'avez pas de demande de destruction en attente...");
 						return true;
 					}
 					
@@ -791,11 +791,11 @@ public class IslandCommand implements HeleCommand {
 					if(main.getPendingDeletions().contains(player.getUniqueId())) {
 						
 						main.getPendingDeletions().remove(player.getUniqueId());
-						sender.sendMessage(Main.PREFIX + "§cVotre demande de destruction a bien été refusée");
+						sender.sendMessage(Main.PREFIX + "Â§cVotre demande de destruction a bien Ã©tÃ© annulÃ©e");
 						return true;
 						
 					} else {
-						sender.sendMessage(Main.PREFIX + "§cVous n'avez pas de demande de destruction en attente...");
+						sender.sendMessage(Main.PREFIX + "Â§cVous n'avez pas de demande de destruction en attente...");
 						return true;
 					}
 					
@@ -805,10 +805,10 @@ public class IslandCommand implements HeleCommand {
 						
 						if(main.getPlayerIsland(player.getUniqueId()).getOwnerId().equals(player.getUniqueId())) {
 							
-							TextComponentUtil mainComp = new TextComponentUtil(Main.PREFIX + "§cVoulez vous vraiment détruire votre île ? §7( §7Cette §7action §7est §7irreversible §7:/ §7) \n");
-							TextComponentUtil acceptComp = new TextComponentUtil("§a§l[Accepter]").setClick_runCommand("/is deleteconfirm").setHover_showText("§aCliquez ici pour accepter");
-							TextComponentUtil midComp = new TextComponentUtil("§r  |  §r");
-							TextComponentUtil denyComp = new TextComponentUtil("§c§l[Refuser]").setClick_runCommand("/is deletedeny").setHover_showText("§cCliquez ici pour refuser");;
+							TextComponentUtil mainComp = new TextComponentUtil(Main.PREFIX + "Â§cVoulez vous vraiment dÃ©truire votre Ã®le ? Â§7( Â§7Cette Â§7action Â§7est Â§7irreversible Â§7:/ Â§7) \n");
+							TextComponentUtil acceptComp = new TextComponentUtil("Â§aÂ§l[Accepter]").setClick_runCommand("/is deleteconfirm").setHover_showText("Â§aCliquez ici pour accepter");
+							TextComponentUtil midComp = new TextComponentUtil("Â§r  |  Â§r");
+							TextComponentUtil denyComp = new TextComponentUtil("Â§cÂ§l[Refuser]").setClick_runCommand("/is deletedeny").setHover_showText("Â§cCliquez ici pour refuser");;
 							
 							TextComponent total = mainComp.addExtra(acceptComp.build()).addExtra(midComp.build()).addExtra(denyComp.build()).build();
 							main.getPendingDeletions().add(player.getUniqueId());
@@ -816,11 +816,11 @@ public class IslandCommand implements HeleCommand {
 							return true;
 							
 						} else {
-							sender.sendMessage(Main.PREFIX + "§cVous n'êtes pas propriétaire de l'île !");
+							sender.sendMessage(Main.PREFIX + "Â§cVous n'Ãªtes pas propriÃ©taire de l'Ã®le !");
 							return true;
 						}
 					} else {
-						sender.sendMessage(Main.PREFIX + "§cVous n'avez pas d'île !");
+						sender.sendMessage(Main.PREFIX + "Â§cVous n'avez pas d'Ã®le !");
 						return true;
 					}
 					

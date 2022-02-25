@@ -41,7 +41,7 @@ import fr.altaks.helesky.test.TestClass;
 
 public class Main extends JavaPlugin {
 	
-	public static final String PREFIX = "§7[§6HeleSky§7]§r \u00BB ", ERROR_PREFIX = "§7[§6HeleSky§7]§c \u00BB ";
+	public static final String PREFIX = "ï¿½7[ï¿½6HeleSkyï¿½7]ï¿½r \u00BB ", ERROR_PREFIX = "Â§7[Â§6HeleSkyÂ§7]Â§c \u00BB ";
 	protected static boolean debugMode = false;
 	public static final Logger LOGGER = Bukkit.getLogger();
 	
@@ -85,7 +85,7 @@ public class Main extends JavaPlugin {
 		checkAndLoadFiles();
 		moneyManager = new MoneyUtil(this);
 		
-		// préparation du système de génération des îles
+		// prÃ©paration du systÃ¨me de gÃ©nÃ©ration des Ã®les
 		int lastX = 1_500, lastZ = 1_500, lastId = 0;
 		if(miscDataYml.isSet("lastX") && miscDataYml.isSet("lastY") && miscDataYml.isSet("lastId")) {
 		
@@ -106,13 +106,13 @@ public class Main extends JavaPlugin {
 		
 		// load islands
 		loadIslands();
-		System.out.println(Main.PREFIX + "Iles chargées [" + this.islandsFromId.size() + " iles]");
+		System.out.println(Main.PREFIX + "Iles chargÃ©es [" + this.islandsFromId.size() + " iles]");
 		loadUUIDLinkData();
-		System.out.println(Main.PREFIX + "Données des joueurs chargées [" + this.islandIDFromUUID.size() + " joueurs]");
+		System.out.println(Main.PREFIX + "DonnÃ©es des joueurs chargÃ©es [" + this.islandIDFromUUID.size() + " joueurs]");
 		
 		// Load des wither depuis les fichiers depuis la ligne witherdata
 		loadWitherData();
-		System.out.println(Main.PREFIX + "Données des withers chargées [" + this.witherFromIslandId.size() + " joueurs]");
+		System.out.println(Main.PREFIX + "DonnÃ©es des withers chargï¿½es [" + this.witherFromIslandId.size() + " joueurs]");
 		
 		// chargement des commandes
 		for(HeleCommand command : commands) {
@@ -158,7 +158,7 @@ public class Main extends JavaPlugin {
 			withersToRemove.forEach(wither -> {
 				File file = new File(islandDirectory + File.separator + this.getWitherIsland(wither).getId() + ".yml");
 				try {
-					// écriture du data du wither
+					// ï¿½criture du data du wither
 					FileConfiguration yml = YamlConfiguration.loadConfiguration(file);
 					yml.set("witherData", null);
 					
@@ -166,7 +166,7 @@ public class Main extends JavaPlugin {
 					yml.save(file);
 					
 				} catch (IOException e) {
-					LOGGER.warning(Main.ERROR_PREFIX + "§cUne erreur est survenue lors de la suppresion du wither de l'île §6#" + this.getWitherIsland(wither).getId());
+					LOGGER.warning(Main.ERROR_PREFIX + "Â§cUne erreur est survenue lors de la suppresion du wither de l'Ã®le Â§6#" + this.getWitherIsland(wither).getId());
 					e.printStackTrace();
 				}
 				
@@ -252,13 +252,13 @@ public class Main extends JavaPlugin {
 		moneyManager.finish();
 		
 		saveAllIslands();
-		System.out.println(Main.PREFIX + "Iles sauvegardées [" + this.islandsFromId.size() + " iles]");
+		System.out.println(Main.PREFIX + "Iles sauvegardÃ©es [" + this.islandsFromId.size() + " iles]");
 		saveIslandManagerData();
-		System.out.println(Main.PREFIX + "Data du gestionnaire des îles sauvegardé");
+		System.out.println(Main.PREFIX + "Data du gestionnaire des Ã®les sauvegardÃ©");
 		saveUUIDLinkData();
-		System.out.println(Main.PREFIX + "Data des joueurs sauvegardé [" + this.islandIDFromUUID.size() + " joueurs]");
+		System.out.println(Main.PREFIX + "Data des joueurs sauvegardÃ© [" + this.islandIDFromUUID.size() + " joueurs]");
 
-		// check de l'état des withers
+		// check de l'ï¿½tat des withers
 		List<LevelingWither> withersToRemove = new ArrayList<>();
 		
 		this.witherFromIslandId.keySet().forEach(levelingWither -> {
@@ -274,7 +274,7 @@ public class Main extends JavaPlugin {
 		withersToRemove.forEach(wither -> {
 			File file = new File(islandDirectory + File.separator + this.getWitherIsland(wither).getId() + ".yml");
 			try {
-				// écriture du data du wither
+				// ï¿½criture du data du wither
 				FileConfiguration yml = YamlConfiguration.loadConfiguration(file);
 				yml.set("witherData", null);
 				
@@ -282,7 +282,7 @@ public class Main extends JavaPlugin {
 				yml.save(file);
 				
 			} catch (IOException e) {
-				LOGGER.warning(Main.ERROR_PREFIX + "§cUne erreur est survenue lors de la suppresion du wither de l'île §6#" + this.getWitherIsland(wither).getId());
+				LOGGER.warning(Main.ERROR_PREFIX + "Â§cUne erreur est survenue lors de la suppresion du wither de l'Ã®le Â§6#" + this.getWitherIsland(wither).getId());
 				e.printStackTrace();
 			}
 			
@@ -294,7 +294,7 @@ public class Main extends JavaPlugin {
 		
 		saveMiscDataYml();
 		saveUUIDLinkYml();
-		System.out.println(Main.PREFIX + "Fichiers enregistrés");
+		System.out.println(Main.PREFIX + "Fichiers enregistrÃ©s");
 		
 		
 	}
@@ -304,7 +304,7 @@ public class Main extends JavaPlugin {
 			File file = new File(islandDirectory + File.separator + entry.getValue() + ".yml");
 			
 			try {
-				// écriture du data du wither
+				// ï¿½criture du data du wither
 				FileConfiguration yml = YamlConfiguration.loadConfiguration(file);
 				yml.set("witherData", entry.getKey().toString());
 				
@@ -312,7 +312,7 @@ public class Main extends JavaPlugin {
 				yml.save(file);
 				
 			} catch (IOException e) {
-				LOGGER.warning(Main.ERROR_PREFIX + "§cUne erreur est survenue lors de la sauvegarde de du wither de l'île §6#" +entry.getValue());
+				LOGGER.warning(Main.ERROR_PREFIX + "Â§cUne erreur est survenue lors de la sauvegarde de du wither de l'Ã®le Â§6#" +entry.getValue());
 				e.printStackTrace();
 			}
 		}
@@ -357,7 +357,7 @@ public class Main extends JavaPlugin {
 					file.createNewFile();
 				}
 				
-				// écriture de l'ile
+				// ï¿½criture de l'ile
 				FileConfiguration yml = YamlConfiguration.loadConfiguration(file);
 				yml.set("data", entry.getValue().toString());
 				
@@ -365,7 +365,7 @@ public class Main extends JavaPlugin {
 				yml.save(file);
 				
 			} catch (IOException e) {
-				LOGGER.warning(Main.ERROR_PREFIX + "§cUne erreur est survenue lors de la sauvegarde de l'île §6#" +entry.getKey() + "§c du joueur §6" + entry.getValue().getOwnerId());
+				LOGGER.warning(Main.ERROR_PREFIX + "Â§cUne erreur est survenue lors de la sauvegarde de l'Ã®le Â§6#" +entry.getKey() + "Â§c du joueur Â§6" + entry.getValue().getOwnerId());
 				e.printStackTrace();
 			}
 		}

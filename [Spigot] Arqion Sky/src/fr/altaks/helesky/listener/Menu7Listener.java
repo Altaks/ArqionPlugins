@@ -40,10 +40,10 @@ public class Menu7Listener implements Listener {
 				return;
 			}
 			
-			if(event.getView().getTitle().startsWith("§cHeleSky - Gestion ") && !event.getView().getTitle().equals("§cHeleSky - Gestion Joueurs")) {
+			if(event.getView().getTitle().startsWith("Â§cHeleSky - Gestion ") && !event.getView().getTitle().equals("Â§cHeleSky - Gestion Joueurs")) {
 				event.setCancelled(true);
 				
-				String targetpseudo = event.getView().getTitle().replace("§cHeleSky - Gestion ","");
+				String targetpseudo = event.getView().getTitle().replace("Â§cHeleSky - Gestion ","");
 				
 				Material clickedType = event.getCurrentItem().getType(); 
 				switch (clickedType) {
@@ -79,28 +79,28 @@ public class Menu7Listener implements Listener {
 					case ARROW:
 						if(main.hasIsland(player.getUniqueId())) {
 							Island island = main.getPlayerIsland(player.getUniqueId());								
-							Inventory inv = Bukkit.createInventory(null, 6 * 9, "§8HeleSky - Gestion Joueurs");
+							Inventory inv = Bukkit.createInventory(null, 6 * 9, "Â§8HeleSky - Gestion Joueurs");
 							
 							for(int slot : new int[] {0,1,2,3,4,5,6,7,8,9,45,46,47,48,49,50,51,52,53,18,27,36,17,26,35,44}) {
 								inv.setItem(slot, ItemManager.PrebuiltItems.inventoryFillingGlassPane);
 							}
 							
-							ItemStack returnArrow = new ItemManager.ItemBuilder(Material.ARROW, 1,   "§cRetour").build();
+							ItemStack returnArrow = new ItemManager.ItemBuilder(Material.ARROW, 1,   "Â§cRetour").build();
 							inv.setItem(53, returnArrow);
 
 							ArrayDeque<ItemStack> members = new ArrayDeque<ItemStack>(), cooperators = new ArrayDeque<ItemStack>(), visitors = new ArrayDeque<ItemStack>();
 							for(UUID memberid : island.getMembersId()) {
 								OfflinePlayer member = Bukkit.getOfflinePlayer(memberid);
-								ItemStack linkeditem = new ItemManager.SkullBuilder(1, "§c[Équipe] \u00BB " + member.getName()).setOwner(member.getName()).build();
+								ItemStack linkeditem = new ItemManager.SkullBuilder(1, "Â§c[Ã©quipe] \u00BB " + member.getName()).setOwner(member.getName()).build();
 								members.add(linkeditem);
 							}
 							for(UUID coopid : island.getCooperatorsId()) {
 								OfflinePlayer cooperator = Bukkit.getOfflinePlayer(coopid);
-								ItemStack linkeditem = new ItemManager.SkullBuilder(1, "§c[Coop] \u00BB " + cooperator.getName()).setOwner(cooperator.getName()).build();
+								ItemStack linkeditem = new ItemManager.SkullBuilder(1, "Â§c[Coop] \u00BB " + cooperator.getName()).setOwner(cooperator.getName()).build();
 								cooperators.add(linkeditem);
 							}
 							for(Player visitor : island.getVisitors()) {
-								ItemStack visitoritem = new ItemManager.SkullBuilder(1, "§c[Visiteur] \u00BB " + visitor.getName()).setOwner(visitor.getName()).build();
+								ItemStack visitoritem = new ItemManager.SkullBuilder(1, "Â§c[Visiteur] \u00BB " + visitor.getName()).setOwner(visitor.getName()).build();
 								cooperators.add(visitoritem);
 							}
 							

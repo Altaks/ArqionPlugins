@@ -32,7 +32,7 @@ public class Menu3Listener implements Listener {
 				return;
 			}
 			
-			if(event.getView().getTitle().equals("§cHeleSky \u00BB Création d'île")) {
+			if(event.getView().getTitle().equals("Â§cHeleSky \u00BB CrÃ©ation d'Ã®le")) {
 				event.setCancelled(true);
 				
 				Material material = event.getCurrentItem().getType();

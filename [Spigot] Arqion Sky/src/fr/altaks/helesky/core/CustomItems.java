@@ -8,7 +8,7 @@ import fr.altaks.helesky.utils.LoreUtil;
 
 public class CustomItems {
 	
-	public static final ItemStack witherSpawnEgg = new ItemManager.ItemBuilder(Material.WITHER_SKELETON_SPAWN_EGG, 1, "§dWither d'amélioration").setLore(LoreUtil.getBaseLevelingWitherData()).build();
+	public static final ItemStack witherSpawnEgg = new ItemManager.ItemBuilder(Material.WITHER_SKELETON_SPAWN_EGG, 1, "Â§dWither d'amÃ©lioration").setLore(LoreUtil.getBaseLevelingWitherData()).build();
 	
 
 }
