@@ -36,8 +36,6 @@ public abstract class EquipablePet implements Listener {
 		this.yml = YamlConfiguration.loadConfiguration(file);
 	}
 	
-	abstract void init();
-	
 	public void loadPlayerInfos() {
 		for(String uuid : yml.getKeys(false)) {
 			PetRarity rarity = PetRarity.COMMUN;
@@ -72,7 +70,11 @@ public abstract class EquipablePet implements Listener {
 		this.player_has_equiped.add(player);
 	}
 	
-	abstract void desequip();
+	abstract void init();
+	
+	public void desequip(Player player) {
+		this.player_has_equiped.remove(player);
+	}
 	
 	public String getPetName() {
 		return this.petname;
@@ -87,8 +89,8 @@ public abstract class EquipablePet implements Listener {
 		
 		COMMUN("§2[Commun]"), 
 		RARE("§9[Rare]"), 
-		EPIC("§5[�pique]"), 
-		LEGENDARY("§6[L�gendaire]");
+		EPIC("§5[Épique]"), 
+		LEGENDARY("§6[Légendaire]");
 		
 		private String label;
 		
