@@ -13,7 +13,7 @@ import fr.nowayy.ores.listener.CrushingHammerListener;
 
 public class Main extends JavaPlugin {
 	
-	public static final String PREFIX = "§7[§6ArqionOres§7] §r";
+	public static final String PREFIX = "Â§7[Â§6ArqionOresÂ§7]Â§r";
 	
 	public HashMap<UUID, HashMap<Location, Integer>> cobbleGeneratorUpgrades = new HashMap<UUID, HashMap<Location, Integer>>();
 	

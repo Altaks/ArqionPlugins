@@ -38,7 +38,7 @@ public class CompressorListener implements Listener {
         
         if(tileSkull.gameProfile.getProperties().get("textures").iterator().next().getValue().equals("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTQ4MzM3ZjdlZGUxNWMzYjJmOGRjNmE2M2JkOTI4NzRjZGY3NGVjODYyYjQxMThjN2UzNTU1OWNlOGI0ZCJ9fX0=")) {
 
-        	Inventory compressorInv = Bukkit.createInventory(null, 9 * 4, "ง8Compressor");
+        	Inventory compressorInv = Bukkit.createInventory(null, 9 * 4, "ยง8Compressor");
     		
     		for(int x = 0; x < compressorInv.getSize(); x++) compressorInv.setItem(x, PrebuiltItems.inventoryFillingGlassPane);
     		for(int y : new int[] {13, 14, 15, 22, 23, 24}) compressorInv.setItem(y, new ItemManager.ItemBuilder(Material.WHITE_STAINED_GLASS, 1).build());
@@ -53,7 +53,7 @@ public class CompressorListener implements Listener {
 	public void onInteract(InventoryClickEvent event) {
 		Inventory clickedInv = event.getClickedInventory();
 		
-		if(event.getView().getTitle().equals("ง8Compressor")) {
+		if(event.getView().getTitle().equals("ยง8Compressor")) {
 			if(event.getView().getTopInventory().equals(clickedInv)) {
 				if(!(event.getSlot() == 10 || event.getSlot() == 11 || event.getSlot() == 19 || event.getSlot() == 20)) {
 					event.setCancelled(true);

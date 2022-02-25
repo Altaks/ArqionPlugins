@@ -6,26 +6,26 @@ import org.bukkit.inventory.ItemStack;
 
 public class Items {
 
-	public final ItemStack  hammerItem = new ItemManager.ItemBuilder(Material.STONE_PICKAXE, 1, "ง3Crushing Hammer")
+	public final ItemStack  hammerItem = new ItemManager.ItemBuilder(Material.STONE_PICKAXE, 1, "ยง3Crushing Hammer")
 									.setLore("Casser Casser Casser").build(),
-							rockBreaker = new ItemManager.ItemBuilder(Material.OBSERVER, 1, "ง3Rock Breaker").addFakeEnchant()
+							rockBreaker = new ItemManager.ItemBuilder(Material.OBSERVER, 1, "ยง3Rock Breaker").addFakeEnchant()
 									.setLore("").build(),
-							compressor = new ItemManager.SkullBuilder(1, "ง1Compressor").setBase64Texture(
+							compressor = new ItemManager.SkullBuilder(1, "ยง1Compressor").setBase64Texture(
 									"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTQ4MzM3ZjdlZGUxNWMzYjJmOGRjNmE2M2JkOTI4NzRjZGY3NGVjODYyYjQxMThjN2UzNTU1OWNlOGI0ZCJ9fX0=")
 									.setLore("").build(),
-							cobbleGen = new ItemManager.SkullBuilder(1, "ง1Cobblestone Generator").setBase64Texture(
+							cobbleGen = new ItemManager.SkullBuilder(1, "ยง1Cobblestone Generator").setBase64Texture(
 									"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGVmZGVlYjEyODJlMWQxM2Y1NmYwNjc0Nzc0OGE0NjM0MTM3Yzg2NjQyODA4NzAyMzdjOTc3ZDA0NGExODNiNiJ9fX0=")
 									.setLore("").build(),
 							cobbleGenT1 = new ItemManager.ItemBuilder(Material.PAPER, 1,
-									"ง6Cobblestone Generator Upgrade ง7[ง6Tier Iง7]").addFakeEnchant().build(),
+									"ยง6Cobblestone Generator Upgrade ยง7[ยง6Tier Iยง7]").addFakeEnchant().build(),
 							cobbleGenT2 = new ItemManager.ItemBuilder(Material.PAPER, 1,
-									"ง6Cobblestone Generator Upgrade ง7[ง6Tier IIง7]").addFakeEnchant().build(),
+									"ยง6Cobblestone Generator Upgrade ยง7[ยง6Tier IIยง7]").addFakeEnchant().build(),
 							cobbleGenT3 = new ItemManager.ItemBuilder(Material.PAPER, 1,
-									"ง6Cobblestone Generator Upgrade ง7[ง6Tier IIIง7]").addFakeEnchant().build(),
+									"ยง6Cobblestone Generator Upgrade ยง7[ยง6Tier IIIยง7]").addFakeEnchant().build(),
 							cobbleGenT4 = new ItemManager.ItemBuilder(Material.PAPER, 1,
-									"ง6Cobblestone Generator Upgrade ง7[ง6Tier IVง7]").addFakeEnchant().build(),
+									"ยง6Cobblestone Generator Upgrade ยง7[ยง6Tier IVยง7]").addFakeEnchant().build(),
 							cobbleGenT5 = new ItemManager.ItemBuilder(Material.PAPER, 1,
-									"ง6Cobblestone Generator Upgrade ง7[ง6Tier Vง7]").addFakeEnchant().build(),
+									"ยง6Cobblestone Generator Upgrade ยง7[ยง6Tier Vยง7]").addFakeEnchant().build(),
 							
 							compressCobble = new ItemManager.ItemBuilder(Material.COBBLESTONE, 1, "Compressed Cobblestone").addFakeEnchant().build(),
 							cable = new ItemManager.ItemBuilder(Material.LEAD, 1, "Cable").addFakeEnchant(Enchantment.SILK_TOUCH, 5).build();
