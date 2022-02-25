@@ -4,7 +4,6 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Deque;
-import java.util.HashMap;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -25,23 +24,21 @@ import fr.altaks.arqionpets.listeners.ItemStackBurningListener;
 import fr.altaks.arqionpets.listeners.PetInfuserInteractionListener;
 import fr.altaks.arqionpets.listeners.PetMenuInteractionListener;
 import fr.altaks.arqionpets.listeners.RecipeGive;
-import fr.altaks.arqionpets.pets.EquipablePet;
 import fr.altaks.arqionpets.task.PetLocationUpdateTask;
 
 public class Main extends JavaPlugin {
 	
-	public static final String PREFIX = "§7[§bArqionPets§7] \u00BB §r";
+	public static final String PREFIX = "ï¿½7[ï¿½bArqionPetsï¿½7] \u00BB ï¿½r";
 	public static boolean debugMode = false;
 	
 	private Deque<SpawnPet.PetPlayerCouple> petsArmorstand = new ArrayDeque<SpawnPet.PetPlayerCouple>();
 	private List<Player> hasPetEquiped = new ArrayList<Player>();
-	private HashMap<Player, EquipablePet> pets = new HashMap<>();
 	
 	private Collection<NamespacedKey> recipeskeys = new ArrayList<NamespacedKey>();
 	
 	public Listener[] listeners = {
 			new ItemStackBurningListener(), new PetInfuserInteractionListener(), new PetMenuInteractionListener(this), new RecipeGive(this), new EntityDropItemsListener()
-	};
+	};				 
 	
 	@Override
 	public void onEnable() {
@@ -136,10 +133,6 @@ public class Main extends JavaPlugin {
 
 	public Collection<NamespacedKey> getRecipeskeys() {
 		return recipeskeys;
-	}
-
-	public HashMap<Player, EquipablePet> getPets() {
-		return pets;
 	}
 
 }
