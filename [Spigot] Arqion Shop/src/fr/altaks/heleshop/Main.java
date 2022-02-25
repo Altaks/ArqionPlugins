@@ -20,7 +20,7 @@ import fr.altaks.heleshop.manager.ShopMenu;
 
 public class Main extends JavaPlugin {
 	
-	public static final String PREFIX = "§7[§cHeleShop§7]§r \u00BB ";
+	public static final String PREFIX = "Â§7[Â§cHeleShopÂ§7]Â§r \u00BB ";
 	private File shopConfigFile = new File(getDataFolder() + File.separator + "shopconfig.yml");
 	private FileConfiguration shopConfigYml;
 	private MoneyUtil moneyUtil;
@@ -48,7 +48,7 @@ public class Main extends JavaPlugin {
 		try {
 			shopMenus = FileManager.read(shopConfigYml);
 		} catch (Exception e) {
-			LOGGER.warning(PREFIX + "§cshopconfig.yml défecteux !");
+			LOGGER.warning(PREFIX + "Â§cshopconfig.yml dÃ©fecteux !");
 			e.printStackTrace();
 		}
 		

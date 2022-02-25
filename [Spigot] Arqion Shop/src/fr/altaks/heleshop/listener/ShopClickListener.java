@@ -29,7 +29,7 @@ public class ShopClickListener implements Listener {
 	@EventHandler
 	public void onShopClickEvent(InventoryClickEvent event) {
 		
-		if(event.getView().getTitle().equals("§eBoutique \u00BB")) {
+		if(event.getView().getTitle().equals("ï¿½eBoutique \u00BB")) {
 			if(event.getClickedInventory() == null) return;
 			if(event.getClickedInventory().getHolder() == null) {
 				
@@ -96,7 +96,7 @@ public class ShopClickListener implements Listener {
 					if(event.getClickedInventory() == null) return;
 					if(event.getClickedInventory().getHolder() == null) {
 						
-						// En fonction de l'objet clické et de l'action, Acheter ou vendre.
+						// En fonction de l'objet clickï¿½ et de l'action, Acheter ou vendre.
 						event.setCancelled(true);
 						List<ShopItem> itemlist = main.getShopMenus().get(menu);
 						
@@ -114,7 +114,7 @@ public class ShopClickListener implements Listener {
 											main.getMoneyUtil().removeMoneyToPlayer(player.getUniqueId(), item.getBuyingPrice());
 											player.getInventory().addItem(item.getRealItem().clone());
 										} else {
-											player.sendMessage(Main.PREFIX + "§cVous n'avez pas assez d'argent pour acheter ceci ! §r(Argent nécessaire : " + MoneyUtil.formatAmount(item.getBuyingPrice())+")");
+											player.sendMessage(Main.PREFIX + "Â§cVous n'avez pas assez d'argent pour acheter ceci ! Â§r(Argent nÃ©cessaire : " + MoneyUtil.formatAmount(item.getBuyingPrice())+")");
 										}
 										break;
 									case SHIFT_LEFT:
@@ -126,7 +126,7 @@ public class ShopClickListener implements Listener {
 											temp.setAmount(64);
 											player.getInventory().addItem(temp);
 										} else {
-											player.sendMessage(Main.PREFIX + "§cVous n'avez pas assez d'argent pour acheter ceci ! §r(Argent nécessaire : " + MoneyUtil.formatAmount(item.getBuyingPrice())+")");
+											player.sendMessage(Main.PREFIX + "Â§cVous n'avez pas assez d'argent pour acheter ceci ! Â§r(Argent nÃ©cessaire : " + MoneyUtil.formatAmount(item.getBuyingPrice())+")");
 										}
 										break;
 									case RIGHT:
@@ -135,7 +135,7 @@ public class ShopClickListener implements Listener {
 											main.getMoneyUtil().addMoneyToPlayer(player.getUniqueId(), item.getSellingPrice());
 											player.getInventory().removeItem(item.getRealItem().clone());
 										} else {
-											player.sendMessage(Main.PREFIX+"§cVous n'avez pas assez d'objets à vendre !");
+											player.sendMessage(Main.PREFIX+"Â§cVous n'avez pas assez d'objets Ã  vendre !");
 										}
 										
 										break;
@@ -148,7 +148,7 @@ public class ShopClickListener implements Listener {
 											temp.setAmount(64);
 											player.getInventory().removeItem(temp);
 										} else {
-											player.sendMessage(Main.PREFIX+"§cVous n'avez pas assez d'objets à vendre !");
+											player.sendMessage(Main.PREFIX+"Â§cVous n'avez pas assez d'objets Ã  vendre !");
 										}
 										break;
 									
@@ -156,7 +156,7 @@ public class ShopClickListener implements Listener {
 										break;
 									}
 								} catch (SQLException e) {
-									player.sendMessage(Main.PREFIX + "§cUne erreur critique est survenue, veuillez prévenir le staff au plus vite afin qu'il règle ce problème");
+									player.sendMessage(Main.PREFIX + "Â§cUne erreur critique est survenue, veuillez prÃ©venir le staff au plus vite afin qu'il rÃ¨gle ce problï¿½me");
 								}
 								
 								return;

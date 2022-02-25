@@ -15,13 +15,13 @@ import fr.altaks.heleshop.utils.ItemBuilder;
 
 public class Shop implements CommandExecutor {
 	
-	private final ItemStack 	tools = new ItemBuilder(Material.IRON_SWORD,1,(short)0,"§rArmes/Outils").addItemFlag(ItemFlag.HIDE_ATTRIBUTES).build(),
-								food = new ItemBuilder(Material.APPLE, 1, (short)0, "§rNourritures").build(), 
-								potions = new ItemBuilder(Material.BREWING_STAND, 1, (short)0, "§rPotions").build(),
-								loots = new ItemBuilder(Material.BONE, 1, (short)0, "§rButins").build(),
-								terrain_blocks = new ItemBuilder(Material.DIRT, 1, (short)0, "§rBlocs de terrain").build(),
-								building_blocks = new ItemBuilder(Material.BRICKS, 1, (short)0, "§rBlocs de construction").build(),
-								seeds = new ItemBuilder(Material.WHEAT_SEEDS, 1, (short)0, "§rGraines/Pousses").build();
+	private final ItemStack 	tools = new ItemBuilder(Material.IRON_SWORD,1,(short)0,"Â§rArmes/Outils").addItemFlag(ItemFlag.HIDE_ATTRIBUTES).build(),
+								food = new ItemBuilder(Material.APPLE, 1, (short)0, "Â§rNourritures").build(), 
+								potions = new ItemBuilder(Material.BREWING_STAND, 1, (short)0, "Â§rPotions").build(),
+								loots = new ItemBuilder(Material.BONE, 1, (short)0, "Â§rButins").build(),
+								terrain_blocks = new ItemBuilder(Material.DIRT, 1, (short)0, "Â§rBlocs de terrain").build(),
+								building_blocks = new ItemBuilder(Material.BRICKS, 1, (short)0, "Â§rBlocs de construction").build(),
+								seeds = new ItemBuilder(Material.WHEAT_SEEDS, 1, (short)0, "Â§rGraines/Pousses").build();
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -29,7 +29,7 @@ public class Shop implements CommandExecutor {
 			
 			Player player = (Player)sender;
 			
-			Inventory inv = Bukkit.createInventory(null, 5*9, "§eBoutique \u00BB");
+			Inventory inv = Bukkit.createInventory(null, 5*9, "Â§eBoutique \u00BB");
 			
 			inv.setItem(10, tools);
 			inv.setItem(12, food);

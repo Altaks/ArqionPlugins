@@ -11,7 +11,7 @@ import fr.altaks.heleshop.utils.ItemBuilder;
 
 public class ShopItem {
 	
-	public static final ItemStack barrier = new ItemBuilder(Material.BARRIER, 1, (short)0, "§cQuitter").build(), glasspane = new ItemBuilder(Material.GRAY_STAINED_GLASS_PANE, 1, (short)0, " ").build(), returnArrow = new ItemBuilder(Material.ARROW,1, (short)0, "§cRetour en arrière").build();
+	public static final ItemStack barrier = new ItemBuilder(Material.BARRIER, 1, (short)0, "ï¿½cQuitter").build(), glasspane = new ItemBuilder(Material.GRAY_STAINED_GLASS_PANE, 1, (short)0, " ").build(), returnArrow = new ItemBuilder(Material.ARROW,1, (short)0, "ï¿½cRetour en arriï¿½re").build();
 	
 	private ItemStack loredItem, realItem;
 	private double sellingPrice, buyingPrice;
@@ -24,13 +24,13 @@ public class ShopItem {
 		ItemMeta meta = item.getItemMeta();
 		meta.setLore(
 				Arrays.asList(
-						"§r\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF",
-						"§aPrix de vente : " + MoneyUtil.formatAmount(selling_price),
-						"§cPrix d'achat   : " + MoneyUtil.formatAmount(buying_price),
-						"§r\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF",
-						"§7Pour acheter : Clic gauche (x1) | Maj. + Clic gauche (x64)",
-						"§7Pour vendre  : Clic droit    (x1) | Maj. + Clic droit    (x64)",
-						"§r\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF"
+						"Â§r\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF",
+						"Â§aPrix de vente : " + MoneyUtil.formatAmount(selling_price),
+						"Â§cPrix d'achat   : " + MoneyUtil.formatAmount(buying_price),
+						"Â§r\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF",
+						"Â§7Pour acheter : Clic gauche (x1) | Maj. + Clic gauche (x64)",
+						"Â§7Pour vendre  : Clic droit    (x1) | Maj. + Clic droit    (x64)",
+						"Â§r\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF"
 				)
 		);
 		item.setItemMeta(meta);

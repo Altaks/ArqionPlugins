@@ -2,13 +2,13 @@ package fr.altaks.heleshop.manager;
 
 public enum ShopMenu {
 	
-	TOOLS("outils","§eBoutique \u00BB Armes/Outils"),
-	FOOD("nourriture","§eBoutique \u00BB Nourritures"),
-	POTIONS("potions","§eBoutique \u00BB Potions"),
-	LOOTS("butins","§eBoutique \u00BB Butins"),
-	TERRAIN_BLOCKS("blocks_terrain","§eBoutique \u00BB Blocs de terrain"),
-	BUILDING_BLOCKS("blocks_build","§eBoutique \u00BB Blocs de construction"),
-	SEEDS("graines","§eBoutique \u00BB Graines/Pousses");
+	TOOLS("outils","Â§eBoutique \u00BB Armes/Outils"),
+	FOOD("nourriture","Â§eBoutique \u00BB Nourritures"),
+	POTIONS("potions","Â§eBoutique \u00BB Potions"),
+	LOOTS("butins","Â§eBoutique \u00BB Butins"),
+	TERRAIN_BLOCKS("blocks_terrain","Â§eBoutique \u00BB Blocs de terrain"),
+	BUILDING_BLOCKS("blocks_build","Â§eBoutique \u00BB Blocs de construction"),
+	SEEDS("graines","Â§eBoutique \u00BB Graines/Pousses");
 	
 	public String id, title;
 	

@@ -17,7 +17,7 @@ public class MoneyUtil {
 	
 	private DatabaseManager dbManager;
 	private Main main;
-	public static final String API_PREFIX = "§7[§eHeleMoney§7]§r \u00BB ";
+	public static final String API_PREFIX = "Â§7[Â§eHeleMoneyÂ§7]Â§r \u00BB ";
 	
 	public MoneyUtil(Main main) {
 		dbManager = new DatabaseManager();
@@ -29,18 +29,18 @@ public class MoneyUtil {
 	}
 	
 	/**
-	 * Permet d'acquerir la connexion a la bdd, faire attention aux requêtes envoyées merci
-	 * @return l'objet Connection lié a la bdd
-	 * @throws SQLException : Erreur pouvant intervenir a cause d'une erreur interne de la BDD ou d'une erreur de requête
+	 * Permet d'acquerir la connexion a la bdd, faire attention aux requï¿½tes envoyï¿½es merci
+	 * @return l'objet Connection liï¿½ a la bdd
+	 * @throws SQLException : Erreur pouvant intervenir a cause d'une erreur interne de la BDD ou d'une erreur de requï¿½te
 	 */
 	public Connection getDBConnection() throws SQLException {
 		return this.dbManager.getActivatedConnection().getConnection();
 	}
 	
 	/**
-	 * Permet de formatter les montants (en double) vers des montants formattés (en String)
+	 * Permet de formatter les montants (en double) vers des montants formattï¿½s (en String)
 	 * @param amount : le montant 
-	 * @return le string formatté; un 200.0d devient "200,00 €"
+	 * @return le string formattï¿½; un 200.0d devient "200,00ï¿½"
 	 */
 	public static String formatAmount(double amount) {
 		NumberFormat format = NumberFormat.getCurrencyInstance(Locale.FRANCE);
@@ -48,8 +48,8 @@ public class MoneyUtil {
 	}
 	
 	/**
-	 * Permet d'ajouter le montant défini a la monnaie du joueur
-	 * @param playerid : UUID du joueur ciblé
+	 * Permet d'ajouter le montant dï¿½fini a la monnaie du joueur
+	 * @param playerid : UUID du joueur ciblï¿½
 	 * @param amount : montant du versement
 	 */
 	public void addMoneyToPlayer(UUID playerid, double amount) {
@@ -63,14 +63,14 @@ public class MoneyUtil {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
-				Bukkit.getLogger().info("§cAn error has occured while adding money to a player ("+ playerid +")");
+				Bukkit.getLogger().info("Â§cAn error has occured while adding money to a player ("+ playerid +")");
 			}
 		});
 	}
 	
 	/**
-	 * Permet de retirer le montant défnini a la monnaie du joueur
-	 * @param playerid : UUID du joueur ciblé
+	 * Permet de retirer le montant dï¿½fnini a la monnaie du joueur
+	 * @param playerid : UUID du joueur ciblï¿½
 	 * @param amount : montant du retrait
 	 */
 	public void removeMoneyToPlayer(UUID playerid, double amount) {
@@ -85,15 +85,15 @@ public class MoneyUtil {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
-				Bukkit.getLogger().info("§cAn error has occured while removing money to a player ("+ playerid +")");
+				Bukkit.getLogger().info("Â§cAn error has occured while removing money to a player ("+ playerid +")");
 			}
 			
 		});
 	}
 	
 	/**
-	 * Permet de réinitialiser la monnaie du joueur
-	 * @param playerid : UUID du joueur ciblé
+	 * Permet de rï¿½initialiser la monnaie du joueur
+	 * @param playerid : UUID du joueur ciblï¿½
 	 */
 	public void resetMoneyOfPlayer(UUID playerid) {
 		Bukkit.getScheduler().runTaskAsynchronously(main, () -> {
@@ -104,7 +104,7 @@ public class MoneyUtil {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
-				Bukkit.getLogger().info("§cAn error has occured while removing money to a player ("+ playerid +")");
+				Bukkit.getLogger().info("Â§cAn error has occured while removing money to a player ("+ playerid +")");
 			}
 			
 		});
@@ -112,10 +112,10 @@ public class MoneyUtil {
 	}
 	
 	/**
-	 * Permet d'assigner la monnaie du joueur ciblé
+	 * Permet d'assigner la monnaie du joueur ciblï¿½
 	 * @param id : UUID du joueur
-	 * @param newAmount : Montant qui sera la nouvelle quantité totale de monnaie du joueur
-	 * @throws SQLException : Erreur pouvant intervenir a cause d'une erreur interne de la BDD ou d'une erreur de requête
+	 * @param newAmount : Montant qui sera la nouvelle quantitï¿½ totale de monnaie du joueur
+	 * @throws SQLException : Erreur pouvant intervenir a cause d'une erreur interne de la BDD ou d'une erreur de requï¿½te
 	 */
 	public void setMoneyOfPlayer(UUID id, double newAmount) throws SQLException {
 		
@@ -129,10 +129,10 @@ public class MoneyUtil {
 	}
 	
 	/**
-	 * Permet de récupérer la quantité d'argent possédé par le joueur
+	 * Permet de rï¿½cupï¿½rer la quantitï¿½ d'argent possï¿½dï¿½ par le joueur
 	 * @param id : UUID du joueur
-	 * @return Quantité de monnaie du joueur
-	 * @throws SQLException : Erreur pouvant intervenir a cause d'une erreur interne de la BDD ou d'une erreur de requête
+	 * @return Quantitï¿½ de monnaie du joueur
+	 * @throws SQLException : Erreur pouvant intervenir a cause d'une erreur interne de la BDD ou d'une erreur de requï¿½te
 	 */
 	public double getMoneyOfPlayer(UUID id) throws SQLException {
 		
@@ -149,9 +149,9 @@ public class MoneyUtil {
 	
 	/**
 	 * Permet d'obtenir l'identifiant (index) correspondant au tiers de la banque du joueur
-	 * @param id : UUID du joueur ciblé
+	 * @param id : UUID du joueur ciblï¿½
 	 * @return identifiant du tier de la banque du joueur
-	 * @throws SQLException : Erreur pouvant intervenir a cause d'une erreur interne de la BDD ou d'une erreur de requête
+	 * @throws SQLException : Erreur pouvant intervenir a cause d'une erreur interne de la BDD ou d'une erreur de requï¿½te
 	 */
 	public int getBankTier(UUID id) throws SQLException {
 		
@@ -168,8 +168,8 @@ public class MoneyUtil {
 	
 	/**
 	 * Permet de mettre a jour le niveau actuel de la banque du joueur, ne prend pas en compte le niveau actuel (update sans condition)s
-	 * @param playerid : UUID du joueur ciblé
-	 * @param banktier : ID du tier de banque souhaité
+	 * @param playerid : UUID du joueur ciblï¿½
+	 * @param banktier : ID du tier de banque souhaitï¿½
 	 */
 	public void updateBankTier(UUID playerid, int banktier) {
 		Bukkit.getScheduler().runTaskAsynchronously(main, () -> {
@@ -186,7 +186,7 @@ public class MoneyUtil {
 			} catch (SQLException e) {
 				
 				e.printStackTrace();
-				Bukkit.getLogger().info("§cAn error has occured while changing bank tier of a player ("+ playerid +")");
+				Bukkit.getLogger().info("Â§cAn error has occured while changing bank tier of a player ("+ playerid +")");
 				
 			}
 			
@@ -194,8 +194,8 @@ public class MoneyUtil {
 	}
 	
 	/**
-	 * Permet d'ajouter de la monnaie dans la banque du joueur, prend en compte la capacité maximale. Lance une HeleMoneyException en cas de capacité de banque trop faible
-	 * @param playerid : UUID du joueur ciblé
+	 * Permet d'ajouter de la monnaie dans la banque du joueur, prend en compte la capacitï¿½ maximale. Lance une HeleMoneyException en cas de capacitï¿½ de banque trop faible
+	 * @param playerid : UUID du joueur ciblï¿½
 	 * @param amount : Montant du versement
 	 */
 	public void addMoneyToPlayerBank(UUID playerid, double amount) {
@@ -213,14 +213,14 @@ public class MoneyUtil {
 				
 			} catch (SQLException | HeleMoneyException e) {
 				e.printStackTrace();
-				Bukkit.getLogger().info("§cAn error has occured while adding money to a player ("+ playerid +")");
+				Bukkit.getLogger().info("Â§cAn error has occured while adding money to a player ("+ playerid +")");
 			}
 		});
 	}
 	
 	/**
-	 * Permet de retirer de la monnaie dans la banque du joueur, ne prend pas en compte l'argent actuel du joueur, attention a empêcher les cas de dette !
-	 * @param playerid : UUID du joueur ciblé
+	 * Permet de retirer de la monnaie dans la banque du joueur, ne prend pas en compte l'argent actuel du joueur, attention a empï¿½cher les cas de dette !
+	 * @param playerid : UUID du joueur ciblï¿½
 	 * @param amount : Montant du retrait
 	 */
 	public void removeMoneyToPlayerBank(UUID playerid, double amount) {
@@ -235,15 +235,15 @@ public class MoneyUtil {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
-				Bukkit.getLogger().info("§cAn error has occured while removing money to a player ("+ playerid +")");
+				Bukkit.getLogger().info("Â§cAn error has occured while removing money to a player ("+ playerid +")");
 			}
 			
 		});
 	}
 	
 	/**
-	 * Permet de réinitialiser la monnaie dans la banque d'un joueur
-	 * @param playerid : UUID du joueur ciblé
+	 * Permet de rï¿½initialiser la monnaie dans la banque d'un joueur
+	 * @param playerid : UUID du joueur ciblï¿½
 	 */
 	public void resetMoneyOfPlayerBank(UUID playerid) {
 		Bukkit.getScheduler().runTaskAsynchronously(main, () -> {
@@ -254,7 +254,7 @@ public class MoneyUtil {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
-				Bukkit.getLogger().info("§cAn error has occured while removing money to a player ("+ playerid +")");
+				Bukkit.getLogger().info("Â§cAn error has occured while removing money to a player ("+ playerid +")");
 			}
 			
 		});
@@ -263,9 +263,9 @@ public class MoneyUtil {
 	
 	/**
 	 * Permet d'assigner la monnaie dans la banque du joueur
-	 * @param id : UUID du joueur ciblé
-	 * @param newAmount : Quantité d'argent qui sera affectée a la banque du joueur
-	 * @throws SQLException : : Erreur pouvant intervenir a cause d'une erreur interne de la BDD ou d'une erreur de requête
+	 * @param id : UUID du joueur ciblï¿½
+	 * @param newAmount : Quantitï¿½ d'argent qui sera affectï¿½e a la banque du joueur
+	 * @throws SQLException : : Erreur pouvant intervenir a cause d'une erreur interne de la BDD ou d'une erreur de requï¿½te
 	 */
 	public void setMoneyOfPlayerBank(UUID id, double newAmount) throws SQLException {
 		
@@ -279,10 +279,10 @@ public class MoneyUtil {
 	}
 	
 	/**
-	 * Permet d'obtenir la monnaie située dans la banque d'un joueur
+	 * Permet d'obtenir la monnaie situï¿½e dans la banque d'un joueur
 	 * @param id : UUID du joueur
-	 * @return Monnaie située dans la banque du joueur (double)
-	 * @throws SQLException : Erreur pouvant intervenir a cause d'une erreur interne de la BDD ou d'une erreur de requête
+	 * @return Monnaie situï¿½e dans la banque du joueur (double)
+	 * @throws SQLException : Erreur pouvant intervenir a cause d'une erreur interne de la BDD ou d'une erreur de requï¿½te
 	 */
 	public double getMoneyOfPlayerBank(UUID id) throws SQLException {
 		
