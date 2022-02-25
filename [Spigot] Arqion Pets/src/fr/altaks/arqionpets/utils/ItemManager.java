@@ -50,11 +50,11 @@ public class ItemManager {
     
     public static class PrebuiltItems {
         
-        public static final ItemStack previousArrow = new ItemBuilder(Material.ARROW, 1, "§cPrevious").build();
-        public static final ItemStack nextArrow = new ItemBuilder(Material.ARROW, 1, "§cNext").build();
+        public static final ItemStack previousArrow = new ItemBuilder(Material.ARROW, 1, "Â§cPrevious").build();
+        public static final ItemStack nextArrow = new ItemBuilder(Material.ARROW, 1, "Â§cNext").build();
         public static final ItemStack inventoryFillingGlassPane = new ItemBuilder(Material.BLACK_STAINED_GLASS_PANE, 1, " ").build();
         
-        public static final ItemStack hubAndLobbyCompass = new ItemBuilder(Material.COMPASS, 1, "§6Teleport").build();
+        public static final ItemStack hubAndLobbyCompass = new ItemBuilder(Material.COMPASS, 1, "Â§6Teleport").build();
         
     }
     
@@ -69,7 +69,7 @@ public class ItemManager {
                 if(firstMeta.hasDisplayName() ^ secondMeta.hasDisplayName()) return false;
  
             }
-            // vérif si les un des deux a un meta et pas l'autre
+            // vÂ§rif si les un des deux a un meta et pas l'autre
             if(firstItem.hasItemMeta() ^ secondItem.hasItemMeta()) return false;
         } else return false;
         return true;
@@ -95,7 +95,7 @@ public class ItemManager {
                 if(firstMeta.hasDisplayName() ^ secondMeta.hasDisplayName()) return false;
  
             }
-            // vérif si les un des deux a un meta et pas l'autre
+            // vÂ§rif si les un des deux a un meta et pas l'autre
             if(firstItem.hasItemMeta() ^ secondItem.hasItemMeta()) return false;
         } else return false;
         return true;
@@ -121,7 +121,7 @@ public class ItemManager {
                 if(firstMeta.hasDisplayName() ^ secondMeta.hasDisplayName()) return false;
  
             }
-            // vérif si les un des deux a un meta et pas l'autre
+            // vÂ§rif si les un des deux a un meta et pas l'autre
             if(firstItem.hasItemMeta() ^ secondItem.hasItemMeta()) return false;
             
             ItemBuilder firstBuilder = new ItemBuilder(firstItem);
@@ -362,7 +362,7 @@ public class ItemManager {
         }
         
         public ItemBuilder removeItemName() {
-            this.meta.setDisplayName("§4 ");
+            this.meta.setDisplayName("Â§4 ");
             return this;
         }
         

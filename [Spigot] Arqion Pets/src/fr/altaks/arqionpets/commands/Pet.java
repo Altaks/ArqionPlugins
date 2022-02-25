@@ -26,11 +26,11 @@ public class Pet implements CommandExecutor {
 
 			Player player = (Player) sender;
 
-			Inventory inv = Bukkit.createInventory(null, 6 * 9, "§8Pets \u00BB");
+			Inventory inv = Bukkit.createInventory(null, 6 * 9, "Â§8Pets \u00BB");
 
 			for(int i = 0; i < inv.getSize(); i++) inv.setItem(i,ItemManager.PrebuiltItems.inventoryFillingGlassPane);
 
-			if(main.getHasPetEquiped().contains(player)) inv.setItem(13, new ItemManager.ItemBuilder(Material.LIME_DYE, 1, "§cPet équipé").build());
+			if(main.getHasPetEquiped().contains(player)) inv.setItem(13, new ItemManager.ItemBuilder(Material.LIME_DYE, 1, "Â§cPet Ã©quipÃ©").build());
 
 			inv.setItem(29, PluginItems.bat_pet);
 			inv.setItem(30, PluginItems.silverfish_pet);

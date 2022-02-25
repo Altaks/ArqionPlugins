@@ -83,12 +83,12 @@ public abstract class EquipablePet implements Listener {
 	}
 
 	
-	static enum PetRarity {
+	public static enum PetRarity {
 		
-		COMMUN("�2[Commun]"), 
-		RARE("�9[Rare]"), 
-		EPIC("�5[�pique]"), 
-		LEGENDARY("�6[L�gendaire]");
+		COMMUN("§2[Commun]"), 
+		RARE("§9[Rare]"), 
+		EPIC("§5[�pique]"), 
+		LEGENDARY("§6[L�gendaire]");
 		
 		private String label;
 		

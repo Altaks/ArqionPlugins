@@ -16,6 +16,7 @@ import org.bukkit.util.Vector;
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PluginItems;
 import fr.altaks.arqionpets.commands.SpawnPet.PetPlayerCouple;
+import fr.altaks.arqionpets.pets.EquipablePet;
 import fr.altaks.arqionpets.pets.EquipablePet.PetRarity;
 import fr.altaks.arqionpets.utils.ItemManager;
 
@@ -33,7 +34,7 @@ public class PetMenuInteractionListener implements Listener {
 		if(event.getClickedInventory() == null) return;
 		if(event.getClickedInventory().getType() != InventoryType.CHEST) return;
 		if(!event.getClickedInventory().equals(event.getView().getTopInventory())) return;
-		if(!event.getView().getTitle().equalsIgnoreCase("�8Pets \u00BB")) return;
+		if(!event.getView().getTitle().equalsIgnoreCase("§8Pets \u00BB")) return;
 		if(event.getCurrentItem() == null) return;
 		if(ItemManager.PrebuiltItems.inventoryFillingGlassPane.isSimilar(event.getCurrentItem())) {
 			event.setCancelled(true);
@@ -59,7 +60,7 @@ public class PetMenuInteractionListener implements Listener {
 					ArmorStand armorstand = (ArmorStand) player.getWorld().spawnEntity(player.getLocation().add(1.5d, -0.4d, 1.5d).setDirection(new Vector()), EntityType.ARMOR_STAND);
 					
 					armorstand.setGravity(false);
-					armorstand.setCustomName("�e\u00BB "+ petname +" �e\u00AB");
+					armorstand.setCustomName("§e\u00BB "+ petname +" §e\u00AB");
 					armorstand.setCustomNameVisible(true);
 					armorstand.setBasePlate(false);
 					armorstand.setInvulnerable(true);
@@ -69,7 +70,7 @@ public class PetMenuInteractionListener implements Listener {
 					main.getPetsArmorstand().addLast(new PetPlayerCouple(player, armorstand));
 					main.getHasPetEquiped().add(player);
 					
-					player.getOpenInventory().getTopInventory().setItem(13, new ItemManager.ItemBuilder(Material.LIME_DYE, 1, "�cPet �quip�").build());
+					player.getOpenInventory().getTopInventory().setItem(13, new ItemManager.ItemBuilder(Material.LIME_DYE, 1, "§cPet équipé").build());
 					return;
 				}
 				
@@ -77,7 +78,7 @@ public class PetMenuInteractionListener implements Listener {
 		}
 	}
 	
-	public PetRarity getRarityFromLore(ItemStack head) {
+	public EquipablePet.PetRarity getRarityFromLore(ItemStack head) {
 		
 		String lore = head.getItemMeta().getLore().get(0);
 		for(PetRarity rarity : PetRarity.values()) {

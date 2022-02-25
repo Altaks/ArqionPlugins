@@ -28,7 +28,7 @@ import fr.altaks.arqionpets.task.PetLocationUpdateTask;
 
 public class Main extends JavaPlugin {
 	
-	public static final String PREFIX = "�7[�bArqionPets�7] \u00BB �r";
+	public static final String PREFIX = "§7[§bArqionPets§7] \u00BB §r";
 	public static boolean debugMode = false;
 	
 	private Deque<SpawnPet.PetPlayerCouple> petsArmorstand = new ArrayDeque<SpawnPet.PetPlayerCouple>();

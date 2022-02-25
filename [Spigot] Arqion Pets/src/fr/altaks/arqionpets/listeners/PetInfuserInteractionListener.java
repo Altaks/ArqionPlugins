@@ -35,7 +35,7 @@ public class PetInfuserInteractionListener implements Listener {
 		if(tileSkull.gameProfile == null) return;
 		if(tileSkull.gameProfile.getProperties().get("textures").iterator().next().getValue().equals("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzQxMjY1ZDU3ZDM3MDZjMGI0MjhmMWIyNDMwNDRkNTBkODQxNDkyNmFjYjM3NTJiOGNiOWY1Yjg1YmNkZDA5NiJ9fX0=")) {
 			
-			Inventory inv = Bukkit.createInventory(null, 6 * 9, "ง8Pet Infuser \u00BB");
+			Inventory inv = Bukkit.createInventory(null, 6 * 9, "ยง8Pet Infuser \u00BB");
 			
 			for(int i = 0; i < inv.getSize(); i++) inv.setItem(i, ItemManager.PrebuiltItems.inventoryFillingGlassPane);
 			for(int i : Arrays.asList(10, 11, 12, 19, 20, 21, 28, 29, 30, 25, 41)) inv.setItem(i, null);
@@ -51,7 +51,7 @@ public class PetInfuserInteractionListener implements Listener {
 		if(event.getClickedInventory() == null) return;
 		if(event.getClickedInventory().getType() != InventoryType.CHEST) return;
 		if(event.getClickedInventory().equals(event.getView().getTopInventory())) return;
-		if(event.getView().getTitle() != "ง8Pet Infuser \u00BB") return;
+		if(event.getView().getTitle() != "ยง8Pet Infuser \u00BB") return;
 		if(event.getCurrentItem() == null) return;
 		if(event.getCurrentItem().equals(ItemManager.PrebuiltItems.inventoryFillingGlassPane)) {
 			event.setCancelled(true);
