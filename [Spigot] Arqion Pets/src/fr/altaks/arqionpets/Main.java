@@ -4,6 +4,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Deque;
+import java.util.HashMap;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -24,6 +25,7 @@ import fr.altaks.arqionpets.listeners.ItemStackBurningListener;
 import fr.altaks.arqionpets.listeners.PetInfuserInteractionListener;
 import fr.altaks.arqionpets.listeners.PetMenuInteractionListener;
 import fr.altaks.arqionpets.listeners.RecipeGive;
+import fr.altaks.arqionpets.pets.EquipablePet;
 import fr.altaks.arqionpets.task.PetLocationUpdateTask;
 
 public class Main extends JavaPlugin {
@@ -33,6 +35,8 @@ public class Main extends JavaPlugin {
 	
 	private Deque<SpawnPet.PetPlayerCouple> petsArmorstand = new ArrayDeque<SpawnPet.PetPlayerCouple>();
 	private List<Player> hasPetEquiped = new ArrayList<Player>();
+	
+	private HashMap<String, EquipablePet> pets_from_name = new HashMap<>();
 	
 	private Collection<NamespacedKey> recipeskeys = new ArrayList<NamespacedKey>();
 	
@@ -58,6 +62,13 @@ public class Main extends JavaPlugin {
 		
 		new PetLocationUpdateTask(this).runTaskTimerAsynchronously(this, 0, 1);
 		loadCrafts();
+		
+		for(EquipablePet petclass : new EquipablePet[] {}) {
+			
+			this.pets_from_name.put(petclass.getHeadName(), petclass);
+			if(petclass.isListener()) Bukkit.getPluginManager().registerEvents(petclass, this);
+			
+		}
 	}
 	
 	@Override
