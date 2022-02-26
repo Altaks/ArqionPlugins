@@ -53,7 +53,7 @@ public class PetMenuInteractionListener implements Listener {
 					// déséquiper le pet
 					main.getHasPetEquiped().remove(player);
 
-					main.getPets_from_name().get(PluginItems.ender_drag_pet.getItemMeta().getDisplayName()).disablePetForPlayer(player);
+					main.getPets_from_name().get(PluginItems.parrot_pet.getItemMeta().getDisplayName()).disablePetForPlayer(player);
 					
 					player.getOpenInventory().getTopInventory().setItem(13, ItemManager.PrebuiltItems.inventoryFillingGlassPane);
 					return;
@@ -73,7 +73,7 @@ public class PetMenuInteractionListener implements Listener {
 					main.getHasPetEquiped().add(player);
 					
 					// active pet for player
-					main.getPets_from_name().get(PluginItems.ender_drag_pet.getItemMeta().getDisplayName()).enablePetForPlayer(player);
+					main.getPets_from_name().get(PluginItems.parrot_pet.getItemMeta().getDisplayName()).enablePetForPlayer(player);
 					
 					player.getOpenInventory().getTopInventory().setItem(13, new ItemManager.ItemBuilder(Material.LIME_DYE, 1, "§cPet équipé").build());
 					return;

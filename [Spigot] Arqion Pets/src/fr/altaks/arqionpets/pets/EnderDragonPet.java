@@ -112,7 +112,6 @@ public class EnderDragonPet implements EquipablePet {
 						
 			if(player.getGameMode() == GameMode.SURVIVAL) player.setAllowFlight(false);
 			
-			// TODO : retirer les effets de popo
 			if(player.hasPotionEffect(PotionEffectType.INCREASE_DAMAGE)) player.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
 		}
 	}
@@ -128,11 +127,13 @@ public class EnderDragonPet implements EquipablePet {
 	}
 	
 	public void addPetForPlayer(Player player, PetRarity rarity) {
+		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet Ender dragon !");
 		getYml().set(player.getUniqueId().toString(), rarity.getId());
 		saveYml();
 	}
 	
 	public void removePetForPlayer(Player player) {
+		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet Ender Dragon !");
 		getYml().set(player.getUniqueId().toString(), null);
 		saveYml();
 	}
