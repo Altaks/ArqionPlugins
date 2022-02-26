@@ -2,59 +2,60 @@ package fr.nowayy.helecore.utils;
 
 public enum Messages {
 	
-	Enabling_Plugin					("Le plugin a été activé"),
-	Disabling_Plugin				("Le plugin a été désactivé"),
+	Enabling_Plugin					("Le plugin a Ã©tÃ© activÃ©"),
+	Disabling_Plugin				("Le plugin a Ã©tÃ© dÃ©sactivÃ©"),
 	
-	FlySpeed_ChangingYourself		("§aVous volez désormais à : §e{@FlySpeed}"),
-	FlySpeed_ChangingOther			("§aLe joueur §6{@target} §avole désormais à la vitesse §e{@FlySpeed}"),
+	FlySpeed_ChangingYourself		("Â§aVous volez dÃ©sormais Ã  : Â§e{@FlySpeed}"),
+	FlySpeed_ChangingOther			("Â§aLe joueur Â§6{@target} Â§avole dÃ©sormais Ã  la vitesse Â§e{@FlySpeed}"),
 	
-	WalkSpeed_ChangingYourself		("§aVous marchez désormais à la vitesse : §e{@WalkSpeed}"),
-	WalkSpeed_ChangingOther			("Le joueur §6{@target} §amarche désormais à la vitesse de : §e{@WalkSpeed}"),
+	WalkSpeed_ChangingYourself		("Â§aVous marchez dÃ©sormais Ã  la vitesse : Â§e{@WalkSpeed}"),
+	WalkSpeed_ChangingOther			("Le joueur Â§6{@target} Â§amarche dÃ©sormais Ã  la vitesse de : Â§e{@WalkSpeed}"),
 	
-	Speed_ChangingError				("§cVous ne pouvez pas utiliser cette valeur en tant que multiplicateur de vitesse !"),
+	Speed_ChangingError				("Â§cVous ne pouvez pas utiliser cette valeur en tant que multiplicateur de vitesse !"),
 	
-	Error_PlayerNotFound			("§cLe joueur §6{@target} §cn'est pas connecté !"),
-	Error_HomeDontExists			("§cLe home §e{@Home} §cn'existe pas !"),
-	Error_WarpDontExists			("§cLe warp §e{@WarpName} §cn'existe pas !"),
-	Error_WorldDontExists			("§cLe monde §e{@WorldName} n'existe pas !"),
-	Error_EmptyHandToEnchant		("§cVous ne pouvez pas enchanter votre main !"),
-	Error_ArgumentsMissing			("§cIl manque le nom du warp !"),
-	Error_NoWarps					("§cIl n'y a aucun warp de créé !"),
+	Error_PlayerNotFound			("Â§cLe joueur Â§6{@target} Â§cn'est pas connectÃ© !"),
+	Error_HomeDontExists			("Â§cLe home Â§e{@Home} Â§cn'existe pas !"),
+	Error_WarpDontExists			("Â§cLe warp Â§e{@WarpName} Â§cn'existe pas !"),
+	Error_WorldDontExists			("Â§cLe monde Â§e{@WorldName} Â§cn'existe pas !"),
+	Error_EmptyHandToEnchant		("Â§cVous ne pouvez pas enchanter votre main !"),
+	Error_ArgumentsMissing			("Â§cIl manque le nom du warp !"),
+	Error_NoWarps					("Â§cIl n'y a aucun warp de crÃ©Ã© !"),
 	
-	Home_TeleportYourself			("§aVous venez d'être téléporté au home §e{@HomeName}"),
-	Home_TeleportOther				("§aVous venez de téléporter §6{@target} §aau home §e{@HomeName}"),
+	Home_TeleportYourself			("Â§aVous venez d'Ãªtre tÃ©lÃ©portÃ© au home Â§e{@HomeName}"),
+	Home_TeleportOther				("Â§aVous venez de tÃ©lÃ©porter Â§6{@target} Â§aau home Â§e{@HomeName}"),
 	
-	Home_Set						("§aLe home §e{@HomeName} §avient d'être défini sur votre position."),
-	Home_Del						("§aLe home §e{@HomeName} §avient d'être supprimé."),
-	Warp_Set						("§aLe warp §e{@WarpName} §avient d'être défini sur votre position."),
-	Warp_Del						("§aLe warp §e{@WarpName} §avient d'être supprimé."),
+	Home_Set						("Â§aLe home Â§e{@HomeName} Â§avient d'Ãªtre dÃ©fini sur votre position."),
+	Home_Del						("Â§aLe home Â§e{@HomeName} Â§avient d'Ãªtre supprimÃ©."),
+	Warp_Set						("Â§aLe warp Â§e{@WarpName} Â§avient d'Ãªtre dÃ©fini sur votre position."),
+	Warp_Del						("Â§aLe warp Â§e{@WarpName} Â§avient d'Ãªtre supprimÃ©."),
 	
-	Fly_ChangeStateToOnYourself		("§aVous pouvez désormais voler !"),
-	Fly_ChangeStateToOnOther		("§aLe joueur §6{@target} §apeut désormais voler !"),
-	Fly_ChangeStateToOffYourself	("§aVous ne pouvez plus voler !"),
-	Fly_ChangeStateToOffOther		("§aLe joueur §6{@target} §ane peut plus voler !"),
+	Fly_ChangeStateToOnYourself		("Â§aVous pouvez dÃ©sormais voler !"),
+	Fly_ChangeStateToOnOther		("Â§aLe joueur Â§6{@target} Â§apeut dÃ©sormais voler !"),
+	Fly_ChangeStateToOffYourself	("Â§aVous ne pouvez plus voler !"),
+	Fly_ChangeStateToOffOther		("Â§aLe joueur Â§6{@target} Â§ane peut plus voler !"),
 	
-	GodMod_ChangeState_ToOnYourself	("§aVous êtes désormais invulnérable !"),
-	GodMod_ChangeState_ToOnOther	("§aLe joueur §6{@target} §aest désormais invulnérable !"),
-	GodMod_ChangeState_ToOffYourself("§aVous n'êtes plus invulnérable !"),
-	GodMod_ChangeState_ToOffOther	("§aLe joueur §6{@target} §an'est plus invulnérable !"),
+	GodMod_ChangeState_ToOnYourself	("Â§aVous Ãªtes dÃ©sormais invulnÃ©rable !"),
+	GodMod_ChangeState_ToOnOther	("Â§aLe joueur Â§6{@target} Â§aest dÃ©sormais invulnÃ©rable !"),
+	GodMod_ChangeState_ToOffYourself("Â§aVous n'Ãªtes plus invulnÃ©rable !"),
+	GodMod_ChangeState_ToOffOther	("Â§aLe joueur Â§6{@target} Â§an'est plus invulnÃ©rable !"),
 	
-	PlayerInfo_CannotInspect		("§cVous ne pouvez pas inspecter le joueur §e{@target}"),
+	PlayerInfo_CannotInspect		("Â§cVous ne pouvez pas inspecter le joueur ï¿½Â§{@target}"),
 	
-	Heal_Yourself					("§aVous avez été guéri !"),
-	Heal_Other						("§aLe joueur §6{@target} §aa été guéri"),
-	Heal_ErrorFullHealth			("§cVous ne pouvez pas guérir §6{@target} §ccar sa vie est déjà pleine !"),
+	Heal_Yourself					("Â§aVous avez Ã©tÃ© guÃ©ri !"),
+	Heal_Other						("Â§aLe joueur Â§6{@target} Â§aa Ã©tÃ© guÃ©ri"),
+	Heal_ErrorFullHealth			("Â§cVous ne pouvez pas guÃ©rir Â§6{@target} Â§ccar sa vie est dÃ©jÃ  pleine !"),
 	
-	Feed_Yourself					("§aVous avez été nourri !"),
-	Feed_Other						("§aLe joueur §6{@target} §aa été nourri !"),
-	Feed_ErrorFullFood				("§cVous ne pouvez pas nourrir §6{@target} §ccar il est déjà rassasié !"),
+	Feed_Yourself					("Â§aVous avez Ã©tÃ© nourri !"),
+	Feed_Other						("Â§aLe joueur Â§6{@target} Â§aa Ã©tÃ© nourri !"),
+	Feed_ErrorFullFood				("Â§cVous ne pouvez pas nourrir Â§6{@target} Â§ccar il est dÃ©jÃ  rassasiÃ© !"),
 	
-	KillAll_HostilesEntities		(""),
-	KillAll_AnimalsEntities			(""),
-	KillAll_MinecartEntities		(""),
-	KillAll_ArrowEntities			(""),
+	KillAll_All						("Â§aToutes les entitÃ©s ont Ã©tÃ© tuÃ©es."),
+	KillAll_HostilesEntities		("Â§aToutes les entitÃ©s hostiles ont Ã©tÃ© tuÃ©es."),
+	KillAll_AnimalsEntities			("Â§aTous les animaux ont Ã©tÃ© tuÃ©s."),
+	KillAll_MinecartEntities		("Â§aTous les minecarts ont Ã©tÃ© dÃ©truits."),
+	KillAll_ArrowEntities			("Â§aToutes les flÃ¨ches au sol ont disparues;"),
 	
-	NonPlayerSender_Error			("§cCette commande ne peut être exécutée que par un joueur !");
+	NonPlayerSender_Error			("Â§cCette commande ne peut Ãªtre exÃ©cutÃ©e que par un joueur !");
 	
 	
 	

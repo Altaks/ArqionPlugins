@@ -69,8 +69,8 @@ public class GamemodeCommand implements TabExecutor {
 				
 			} else {
 				sender.sendMessage(!((Player) sender).equals(target)
-								? Main.prefix + "Vous êtes maintenant en GameMode" + chosen_gM.toString().toLowerCase()
-								: Main.prefix + "Le mode de jeu de " + target.getDisplayName() + "est maintenant : " + chosen_gM.toString().toLowerCase());
+								? Main.prefix + "Vous Ãªtes maintenant en GameMode" + chosen_gM.toString().toLowerCase()
+								: Main.prefix + target.getDisplayName() + "est maintenant en " + chosen_gM.toString().toLowerCase());
 			}
 			return true;
 			

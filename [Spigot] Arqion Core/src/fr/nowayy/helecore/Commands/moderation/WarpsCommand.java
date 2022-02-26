@@ -48,7 +48,7 @@ public class WarpsCommand implements TabExecutor {
 			
 			Player target = (Player) sender;
 			WarpsManager manager = new WarpsManager(main, target);
-			StringJoiner joiner = new StringJoiner("§e, §6");
+			StringJoiner joiner = new StringJoiner("ï¿½e, ï¿½6");
 			
 			Arrays.asList(manager.getWarpsList()).forEach(e -> {
 				joiner.add(e);
@@ -57,7 +57,7 @@ public class WarpsCommand implements TabExecutor {
 			if (joiner.length() == 0) {
 				sender.sendMessage(Main.Error_Prefix + Messages.Error_NoWarps.toString());
 			}else {
-				target.sendMessage(Main.prefix + "§6" + joiner.toString());
+				target.sendMessage(Main.prefix + "ï¿½6" + joiner.toString());
 				return true;
 			}
 			
@@ -73,7 +73,6 @@ public class WarpsCommand implements TabExecutor {
 					target.teleport(warp);
 				} catch(NullPointerException | IllegalArgumentException e) {
 					sender.sendMessage(Main.Error_Prefix + Messages.Error_WarpDontExists.toString().replace("{@WarpName}", args[0]));
-					System.out.println("[HeleError] Une erreur est survenue lors de la récupération du warp '" + args[0] + "'.");
 					return true;
 				}
 			} else sender.sendMessage(Main.Error_Prefix + Messages.Error_ArgumentsMissing.toString());
@@ -90,7 +89,7 @@ public class WarpsCommand implements TabExecutor {
 			try{
 				manager.setWarp(target.getLocation(), warpName);
 			} catch(NullPointerException e) {
-				System.out.println("[HeleError] Une erreur est survenue lors de la création du warp \"" + warpName+ "\".");
+				e.printStackTrace();
 			}
 			target.sendMessage(Main.prefix + Messages.Warp_Set.toString().replace("{@WarpName}", warpName));
 			return true;
@@ -105,7 +104,7 @@ public class WarpsCommand implements TabExecutor {
 				try {
 					manager.delWarp(warpName);
 				} catch(NullPointerException e) {
-					System.out.println("[HeleError] Une erreur est survenue lors de la suppression du warp \"" + warpName +"\".");
+					e.printStackTrace();
 					return true;
 				}
 				sender.sendMessage(Main.Error_Prefix + Messages.Warp_Del.toString().replace("{@WarpName}", warpName));

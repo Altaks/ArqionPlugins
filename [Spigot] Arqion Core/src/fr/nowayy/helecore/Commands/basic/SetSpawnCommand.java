@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 import fr.nowayy.helecore.Main;
+import fr.nowayy.helecore.utils.Messages;
 
 public class SetSpawnCommand implements CommandExecutor {
 	
@@ -44,9 +45,9 @@ public class SetSpawnCommand implements CommandExecutor {
 					e.printStackTrace();
 				}
 				
-				p.sendMessage("§r[§8Hele§cCore§r] §aLe point de spawn a été défini sur votre position.");
+				p.sendMessage(Main.prefix + "ï¿½aLe point de spawn a Ã©tÃ© dÃ©fini sur votre position.");
 				
-			} else sender.sendMessage("§r[§8Hele§cCore§r] §cCette commande ne peut être exécutée que par un joueur !");
+			} else sender.sendMessage(Main.prefix + Messages.NonPlayerSender_Error);
 			
 		}
 		

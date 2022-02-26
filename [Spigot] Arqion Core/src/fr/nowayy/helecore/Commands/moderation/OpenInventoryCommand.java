@@ -29,12 +29,12 @@ public class OpenInventoryCommand implements CommandExecutor, Listener {
 			
 			try {
 				target = Bukkit.getPlayer(args[0]);
-				Inventory inv = Bukkit.createInventory(null, 45, "ง6Inventaire");
+				Inventory inv = Bukkit.createInventory(null, 45, "ยง6Inventaire");
 				inv.setContents(target.getInventory().getContents());
 				
 
-				ItemStack health = new ItemBuilder(Material.RED_DYE, (int) target.getHealth(), "งe"+target.getHealth() +"/"+target.getMaxHealth()).build();
-				ItemStack food = new ItemBuilder(Material.COOKED_BEEF, (int) target.getFoodLevel(), "งe"+target.getFoodLevel()+"/20").build();
+				ItemStack health = new ItemBuilder(Material.RED_DYE, (int) target.getHealth(), "ยงe"+target.getHealth() +"/"+target.getMaxHealth()).build();
+				ItemStack food = new ItemBuilder(Material.COOKED_BEEF, (int) target.getFoodLevel(), "ยงe"+target.getFoodLevel()+"/20").build();
 				inv.setItem(43, health);
 				inv.setItem(44, food);
 				
@@ -51,7 +51,7 @@ public class OpenInventoryCommand implements CommandExecutor, Listener {
 	public void onInteract(InventoryClickEvent e) {
 		ItemStack current = e.getCurrentItem();
 		Inventory inv = e.getInventory();
-		if(((Command) inv).getName().equalsIgnoreCase("ง6Inventaire")) {
+		if(((Command) inv).getName().equalsIgnoreCase("ยง6Inventaire")) {
 			if (current == null) return;
 			e.setCancelled(false);
 			switch(e.getSlot()) {

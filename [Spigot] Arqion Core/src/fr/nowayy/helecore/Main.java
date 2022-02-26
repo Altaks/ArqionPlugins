@@ -45,9 +45,9 @@ import net.minecraft.server.v1_15_R1.NBTTagCompound;
 
 public class Main extends JavaPlugin {
 	
-	public static final String prefix = "§r[§8Hele§cCore§r] ";
-	public static final String Error_Prefix = "§r[§8Hele§cError§r] ";
-	public static final String Announce_Prefix = "§r[§8Hele§cAnnonce§r] ";
+	public static final String prefix = "Â§r[Â§8ArqionÂ§cCoreÂ§r] ";
+	public static final String Error_Prefix = "Â§r[Â§8Arqionï¿½cErrorÂ§r] ";
+	public static final String Announce_Prefix = "Â§r[Â§8HeleÂ§cAnnonceÂ§r] ";
 	
 	@Override
 	public void onEnable() {

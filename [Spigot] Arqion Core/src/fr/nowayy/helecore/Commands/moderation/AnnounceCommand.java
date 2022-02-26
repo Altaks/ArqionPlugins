@@ -20,7 +20,7 @@ public class AnnounceCommand implements CommandExecutor {
 			StringJoiner joiner = new StringJoiner(" ");
 			Arrays.asList(args).forEach(part -> joiner.add(part));
 			Bukkit.getOnlinePlayers().forEach(player ->{
-				player.sendMessage(Main.Announce_Prefix +"ง3"+ joiner.toString());
+				player.sendMessage(Main.Announce_Prefix +"ยง3"+ joiner.toString());
 			});
 			return true;
 		}

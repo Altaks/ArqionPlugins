@@ -52,23 +52,23 @@ public class PlayerInfoCommand implements CommandExecutor {
 			
 			// Main Informations
 			Arrays.asList(new TextComponent[]{
-				new TextComponentUtil("\n§6\u25AA "+"Pseudonyme : §e" + target.getName()).setClick_suggestCommand(target.getName()).build(),
-				new TextComponentUtil("\n§6\u25AA "+"Identifiant: §e" + target.getUniqueId()).setClick_suggestCommand(target.getUniqueId().toString()).build(),
-				new TextComponentUtil("\n§6\u25AA "+"Déjà venu  : §e" + (target.hasPlayedBefore() ? "oui" : "non")).build(),
-				new TextComponentUtil("\n§6\u25AA "+"Date de la dernière déconnexion: §e" + Date.from(Instant.ofEpochMilli(target.getLastPlayed())).toGMTString()).setClick_suggestCommand(new String( Date.from(Instant.ofEpochMilli(target.getLastPlayed())).toGMTString())).build(),
-				new TextComponentUtil("\n§6\u25AA "+"Date de la première connexion: §e" + Date.from(Instant.ofEpochMilli(target.getFirstPlayed())).toGMTString()).setClick_suggestCommand(new String( Date.from(Instant.ofEpochMilli(target.getFirstPlayed())).toGMTString())).build()
+				new TextComponentUtil("\nÂ§6\u25AA "+"Pseudonyme : Â§e" + target.getName()).setClick_suggestCommand(target.getName()).build(),
+				new TextComponentUtil("\nÂ§6\u25AA "+"Identifiant: Â§e" + target.getUniqueId()).setClick_suggestCommand(target.getUniqueId().toString()).build(),
+				new TextComponentUtil("\nÂ§6\u25AA "+"DÃ©jÃ  venu  : Â§e" + (target.hasPlayedBefore() ? "oui" : "non")).build(),
+				new TextComponentUtil("\nÂ§6\u25AA "+"Date de la derniÃ¨re dÃ©connexion: Â§e" + Date.from(Instant.ofEpochMilli(target.getLastPlayed())).toGMTString()).setClick_suggestCommand(new String( Date.from(Instant.ofEpochMilli(target.getLastPlayed())).toGMTString())).build(),
+				new TextComponentUtil("\nÂ§6\u25AA "+"Date de la premiÃ¨re connexion: Â§e" + Date.from(Instant.ofEpochMilli(target.getFirstPlayed())).toGMTString()).setClick_suggestCommand(new String( Date.from(Instant.ofEpochMilli(target.getFirstPlayed())).toGMTString())).build()
 			}).forEach(part -> informations.addExtra(part));
 			
 			if(target.isOnline()) {
 				Player locked = target.getPlayer();
 				
 				Arrays.asList(new TextComponent[] {
-						new TextComponentUtil("\n§6\u25AA "+"Adresse IP : §e" + locked.getAddress().getHostString() + " §6| Port : §e" + locked.getAddress().getPort()).setClick_suggestCommand(locked.getAddress().toString().replace("/", "")).build(),
-						new TextComponentUtil("\n§6\u25AA "+"Coordonnées : §e[" + locked.getWorld().getName() + "/" + locked.getLocation().getBlockX() + "/" + locked.getLocation().getBlockY() + "/" + locked.getLocation().getBlockZ() + "]")
+						new TextComponentUtil("\nÂ§6\u25AA "+"Adresse IP : Â§e" + locked.getAddress().getHostString() + " Â§6| Port : Â§e" + locked.getAddress().getPort()).setClick_suggestCommand(locked.getAddress().toString().replace("/", "")).build(),
+						new TextComponentUtil("\nÂ§6\u25AA "+"CoordonnÃ©es : Â§e[" + locked.getWorld().getName() + "/" + locked.getLocation().getBlockX() + "/" + locked.getLocation().getBlockY() + "/" + locked.getLocation().getBlockZ() + "]")
 									.setClick_suggestCommand("[" + locked.getWorld().getName() + "/" + locked.getLocation().getBlockX() + "/" + locked.getLocation().getBlockY() + "/" + locked.getLocation().getBlockZ() + "]")
 									.build(),
-						new TextComponentUtil("\n§6\u25AA "+"Nom d'affichage §e: " + ((locked.getCustomName() == null) ? "inexistant" : locked.getCustomName())).build(),
-						new TextComponentUtil("\n§6\u25AA "+"Vol activé : §e" + (locked.getAllowFlight() ? "oui" : "non")).build()
+						new TextComponentUtil("\nÂ§6\u25AA "+"Nom d'affichage Â§e: " + ((locked.getCustomName() == null) ? "inexistant" : locked.getCustomName())).build(),
+						new TextComponentUtil("\nÂ§6\u25AA "+"Vol activÃ© : Â§e" + (locked.getAllowFlight() ? "oui" : "non")).build()
 				}).forEach(text -> informations.addExtra(text));
 			}
 			

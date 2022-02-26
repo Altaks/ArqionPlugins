@@ -27,7 +27,7 @@ public class KitCommand implements CommandExecutor {
 		
 			if (cmd.getName().equalsIgnoreCase("kit") && sender instanceof Player) {
 				if (args.length == 0) {
-					sender.sendMessage(Main.prefix + "§cMauvaise uilisation de la commande (/kit <kit souhaité>)!");
+					sender.sendMessage(Main.prefix + "Â§cMauvaise uilisation de la commande (/kit <kit souhaitÃ©>)!");
 					return false;
 				}
 				
@@ -35,7 +35,7 @@ public class KitCommand implements CommandExecutor {
 				this.kits_yml = YamlConfiguration.loadConfiguration(kits_file);
 				
 				if (!kits_file.exists()) {
-						sender.sendMessage(Main.prefix + "§6Ce kit n'existe pas !");
+						sender.sendMessage(Main.prefix + "Â§6Ce kit n'existe pas !");
 						return false;
 					}
 				

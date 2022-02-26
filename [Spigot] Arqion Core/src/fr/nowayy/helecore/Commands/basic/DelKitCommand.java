@@ -29,11 +29,11 @@ public class DelKitCommand implements CommandExecutor {
 			if (kits_file.exists()) {
 			
 				kits_file.delete();
-				sender.sendMessage(Main.prefix + "§aLe kit §5" + args[0].toString() + " §aa été supprimé.");
+				sender.sendMessage(Main.prefix + "Â§aLe kit Â§5" + args[0].toString() + " Â§aa Ã©tÃ© supprimÃ©.");
 			
 				return true;
 			} else {
-				sender.sendMessage(Main.Error_Prefix + "§cLe kit §5" + args[0].toString() + " §cn'existe pas !");
+				sender.sendMessage(Main.Error_Prefix + "Â§cLe kit Â§5" + args[0].toString() + " Â§cn'existe pas !");
 				return false;
 			}
 			

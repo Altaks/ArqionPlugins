@@ -123,13 +123,13 @@ public class HomeCommand implements TabExecutor {
 			} else return false;
 			
 			HomesManager manager = new HomesManager(main, target);
-			StringJoiner joiner = new StringJoiner("งe, ง6");
+			StringJoiner joiner = new StringJoiner("ยงe, ยง6");
 			
 			Arrays.asList(manager.getHomesList()).forEach(e -> {
 				joiner.add(e);
 			});
 			
-			sender.sendMessage(Main.prefix + "ง6" +joiner.toString());
+			sender.sendMessage(Main.prefix + "ยง6" +joiner.toString());
 			return true;
 		}
 		

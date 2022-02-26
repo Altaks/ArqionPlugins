@@ -43,8 +43,8 @@ public class SpawnCommand implements CommandExecutor {
 					
 					Location spawn = new Location(world, x, y, z, pitch, yaw);
 					p.teleport(spawn);
-					p.sendMessage("§r[§8Hele§cCore§r] §aVous avez été téléporté au spawn du serveur !");
-				} else sender.sendMessage("§r[§8Hele§cCore§r] §cAfin de vous téléporter au spawn, exétutez la commande '/spawn'");
+					p.sendMessage(Main.prefix + "Â§aVous avez Ã©tÃ© tÃ©lÃ©portÃ© au spawn");
+				} else sender.sendMessage(Main.prefix + "cPour vous tÃ©lÃ©porter au spawn, exÃ©tutez la commande '/spawn'");
 				
 
 			}

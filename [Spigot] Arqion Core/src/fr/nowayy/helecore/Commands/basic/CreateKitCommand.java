@@ -29,20 +29,20 @@ public class CreateKitCommand implements CommandExecutor {
 	
 		if (cmd.getName().equalsIgnoreCase("createkit") && sender instanceof Player) {
 			
-			if (args.length == 0) sender.sendMessage(Main.prefix + "§cMauvaise utilisation de la commande ! (/createkit <nom du kit>)");
+			if (args.length == 0) sender.sendMessage(Main.prefix + "Â§cMauvaise utilisation de la commande ! (/createkit <nom du kit>)");
 			
 			Player p = (Player) sender;
 			
-			p.sendMessage(Main.prefix + "§aVous pouvez désormais créer le kit §5" + args[0].toString() + " §aPour confirmer la création du kit, faites §5/save " + args[0].toString());
+			p.sendMessage(Main.prefix + "Â§aVous pouvez dÃ©sormais crÃ©er le kit Â§5" + args[0].toString() + " ï¿½aPour confirmer la crÃ©ation du kit, faites Â§5/save " + args[0].toString());
 			
 			return true;
 		
 		
 		} else if (cmd.getName().equalsIgnoreCase("save") && sender instanceof Player) {
-			if (args.length == 0) sender.sendMessage(Main.prefix + "§cMauvaise utilisation de la commande ! (/save <nom du kit>)");
+			if (args.length == 0) sender.sendMessage(Main.prefix + "Â§cMauvaise utilisation de la commande ! (/save <nom du kit>)");
 			
 			if(kits_file.exists()) {
-				sender.sendMessage(Main.prefix + "§4Ce kit existe déjà");
+				sender.sendMessage(Main.prefix + "Â§4Ce kit existe dÃ©jÃ ");
 				return false;
 			}
 			
@@ -55,7 +55,7 @@ public class CreateKitCommand implements CommandExecutor {
 			}
 			main.registerKit(p, kits_yml, kits_file);
 
-			p.sendMessage(Main.prefix + "§cLe kit §5" + args[0] + "§c a été sauvegardé !");
+			p.sendMessage(Main.prefix + "Â§cLe kit Â§5" + args[0] + "Â§c a Ã©tÃ© sauvegardÃ© !");
 			
 			
 			try {
