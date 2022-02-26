@@ -6,9 +6,7 @@ import org.bukkit.event.Listener;
 public interface EquipablePet extends Listener {
 	
 	public abstract String getPetFileName();
-	
-	public abstract int getMenuSlot();
-	
+		
 	/**
 	 * Mettre en place le BukkitRunnable correspondant au fonctionnement du pet
 	 */

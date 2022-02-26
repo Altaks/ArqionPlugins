@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+import org.bukkit.GameMode;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -17,18 +18,18 @@ import org.bukkit.scheduler.BukkitRunnable;
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PluginItems;
 
-public class SilverfishPet implements EquipablePet {
-	
+public class EnderDragonPet implements EquipablePet {
+
 	private List<Player> players_who_enabled = new ArrayList<Player>();
 	private HashMap<UUID, PetRarity> pets_rarity = new HashMap<UUID, EquipablePet.PetRarity>();
 	
 	private Main main;
 	
-	public SilverfishPet(Main main) {
+	public EnderDragonPet(Main main) {
 		this.main = main;
 		
 		// check if file exist if not, create
-		File file = new File(main.getDataFolder() + File.separator + "silverfish_pet_owners.yml");
+		File file = new File(main.getDataFolder() + File.separator + "edrag_pet_owners.yml");
 		if(!file.exists()) {
 			try {
 				file.createNewFile();
@@ -40,7 +41,7 @@ public class SilverfishPet implements EquipablePet {
 	}
 	
 	public String getPetFileName() {
-		return "silverfish_pet_owners";
+		return "edrag_pet_owners";
 	}
 
 	@Override
@@ -53,24 +54,27 @@ public class SilverfishPet implements EquipablePet {
 				
 				for(Player player : players_who_enabled) {
 					
-					PetRarity rarity = Main.debugMode ? PetRarity.LEGENDARY : pets_rarity.get(player.getUniqueId());
+						PetRarity rarity = Main.debugMode ? PetRarity.LEGENDARY : pets_rarity.get(player.getUniqueId());					
 					
-					switch (rarity) {
-						case LEGENDARY:
-							if(!player.hasPotionEffect(PotionEffectType.FAST_DIGGING)) 	player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 1_000_000, 3));
-							if(!player.hasPotionEffect(PotionEffectType.SPEED)) 		player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1_000_000, 2));
-							return;
-						case EPIC:
-							if(!player.hasPotionEffect(PotionEffectType.FAST_DIGGING)) 	player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 1_000_000, 2));
-							if(!player.hasPotionEffect(PotionEffectType.SPEED)) 		player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1_000_000, 1));
-							return;
-						case RARE:
-						case COMMON:
-							if(!player.hasPotionEffect(PotionEffectType.FAST_DIGGING)) 	player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 1_000_000, 1));
-							return;
-					default:
-						return;
-					}
+						switch (rarity) {
+						
+							case LEGENDARY:
+								
+								if(!player.hasPotionEffect(PotionEffectType.INCREASE_DAMAGE)) player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 1_000_000, 2));
+								
+							case EPIC:
+								
+								if(!player.hasPotionEffect(PotionEffectType.INCREASE_DAMAGE)) player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 1_000_000, 1));
+								
+								if(!player.getAllowFlight()) {
+									player.setAllowFlight(true);
+								}
+								
+								break;
+								
+						default:
+							break;
+						}
 					
 				}
 				
@@ -80,7 +84,7 @@ public class SilverfishPet implements EquipablePet {
 
 	@Override
 	public String getHeadName() {
-		return PluginItems.silverfish_pet.getItemMeta().getDisplayName();
+		return PluginItems.ender_drag_pet.getItemMeta().getDisplayName();
 	}
 
 	@Override
@@ -94,7 +98,7 @@ public class SilverfishPet implements EquipablePet {
 			// le joueur possède le pet
 			
 			players_who_enabled.add(player);
-			player.sendMessage(Main.PREFIX + "§eVous venez d'équiper votre silverfish");
+			player.sendMessage(Main.PREFIX + "§eVous venez d'équiper votre Ender dragon");
 			
 		}
 	}
@@ -104,27 +108,12 @@ public class SilverfishPet implements EquipablePet {
 		if(players_who_enabled.contains(player) || Main.debugMode) {
 			// faire en sorte que le joueur déséquipe son pet
 			players_who_enabled.remove(player);
-			player.sendMessage(Main.PREFIX + "§eVous venez de déséquiper votre silverfish");
-			
-			PetRarity rarity = Main.debugMode ? PetRarity.LEGENDARY : pets_rarity.get(player.getUniqueId());
+			player.sendMessage(Main.PREFIX + "§eVous venez déséquiper votre Ender dragon");
+						
+			if(player.getGameMode() == GameMode.SURVIVAL) player.setAllowFlight(false);
 			
 			// TODO : retirer les effets de popo
-			switch (rarity) {
-				case LEGENDARY:
-					if(player.hasPotionEffect(PotionEffectType.FAST_DIGGING)) 	player.removePotionEffect(PotionEffectType.FAST_DIGGING);
-					if(player.hasPotionEffect(PotionEffectType.SPEED)) 			player.removePotionEffect(PotionEffectType.SPEED);
-					return;
-				case EPIC:
-					if(player.hasPotionEffect(PotionEffectType.FAST_DIGGING)) 	player.removePotionEffect(PotionEffectType.FAST_DIGGING);
-					if(player.hasPotionEffect(PotionEffectType.SPEED)) 			player.removePotionEffect(PotionEffectType.SPEED);
-					return;
-				case RARE:
-				case COMMON:
-					if(player.hasPotionEffect(PotionEffectType.FAST_DIGGING)) 	player.removePotionEffect(PotionEffectType.FAST_DIGGING);
-					return;
-			default:
-				return;
-			}
+			if(player.hasPotionEffect(PotionEffectType.INCREASE_DAMAGE)) player.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
 		}
 	}
 	
