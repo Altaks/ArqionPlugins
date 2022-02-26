@@ -33,7 +33,7 @@ public class CreateKitCommand implements CommandExecutor {
 			
 			Player p = (Player) sender;
 			
-			p.sendMessage(Main.prefix + "§aVous pouvez désormais créer le kit §5" + args[0].toString() + " �aPour confirmer la création du kit, faites §5/save " + args[0].toString());
+			p.sendMessage(Main.prefix + "§aVous pouvez désormais créer le kit §5" + args[0].toString() + " §aPour confirmer la création du kit, faites §5/save " + args[0].toString());
 			
 			return true;
 		
