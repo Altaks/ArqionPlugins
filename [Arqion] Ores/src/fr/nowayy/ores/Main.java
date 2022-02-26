@@ -24,7 +24,7 @@ public class Main extends JavaPlugin {
 	}
 	
 	public void registerEvents() {
-		Bukkit.getPluginManager().registerEvents(new CompressorListener(), this);
+		Bukkit.getPluginManager().registerEvents(new CompressorListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new CrushingHammerListener(), this);
 		getCommand("giveitem").setExecutor(new GiveOresCommand());
 	}

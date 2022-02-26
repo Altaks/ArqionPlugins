@@ -28,7 +28,9 @@ public class Items {
 									"§6Cobblestone Generator Upgrade §7[§6Tier V§7]").addFakeEnchant().build(),
 							
 							compressCobble = new ItemManager.ItemBuilder(Material.COBBLESTONE, 1, "Compressed Cobblestone").addFakeEnchant().build(),
-							cable = new ItemManager.ItemBuilder(Material.LEAD, 1, "Cable").addFakeEnchant(Enchantment.SILK_TOUCH, 5).build();
+							cable = new ItemManager.ItemBuilder(Material.LEAD, 1, "Cable").addFakeEnchant(Enchantment.SILK_TOUCH, 5).build(),
+							compressFeather = new ItemManager.ItemBuilder(Material.FEATHER, 1, "Compressed Feather").build(),
+							compressSlimeBlock = new ItemManager.ItemBuilder(Material.SLIME_BLOCK, 1, "Compressed Slime Block").build();
 	
 							
 

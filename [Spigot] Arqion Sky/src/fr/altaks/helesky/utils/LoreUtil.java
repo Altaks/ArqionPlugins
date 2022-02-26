@@ -13,7 +13,7 @@ import fr.altaks.helesky.core.islandcore.IslandTier;
 
 public class LoreUtil {
 	
-	public static final String loreDelimitation = "�7\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB";
+	public static final String loreDelimitation = "§7\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB\u25CF\u25CB";
 
 	public static final String[] getModifiedLore(String...lines){
 		List<String> list = new ArrayList<String>();
@@ -34,9 +34,10 @@ public class LoreUtil {
 		list.add("");
 
 		
-		list.add("�cNiveau : �6" + island.getLevel());
-		list.add("�cMembres : �6" + island.getMembersId().size());
-		list.add("�cVisiteurs : �6" + ((island.getVisitors().size() > 0) ? island.getVisitors().size() : "�6Aucun"));
+		list.add(""
+				+ "§cNiveau : §6" + island.getLevel());
+		list.add("§cMembres : §6" + island.getMembersId().size());
+		list.add("§cVisiteurs : §6" + ((island.getVisitors().size() > 0) ? island.getVisitors().size() : "§6Aucun"));
 
 		list.add("");
 		list.add(loreDelimitation);
@@ -51,8 +52,8 @@ public class LoreUtil {
 		list.add(loreDelimitation);
 		list.add("");
 		
-		list.add("�6Taille de l'�le : �e" + tier.getSizeAdding() + "x" + tier.getSizeAdding());
-		list.add("�6Prix :�e " + MoneyUtil.formatAmount(tier.getPrice()));
+		list.add("§6Taille de l'île : §e" + tier.getSizeAdding() + "x" + tier.getSizeAdding());
+		list.add("§6Prix :§e " + MoneyUtil.formatAmount(tier.getPrice()));
 		
 		list.add("");
 		list.add(loreDelimitation);
@@ -67,7 +68,7 @@ public class LoreUtil {
 		list.add(loreDelimitation);
 		list.add("");
 		
-		list.add("�6Propri�taire : �b" + Bukkit.getOfflinePlayer(island.getOwnerId()).getName());
+		list.add("§6Propri�taire : §b" + Bukkit.getOfflinePlayer(island.getOwnerId()).getName());
 		
 		StringJoiner joiner = new StringJoiner("�e, ");
 		for(UUID id : island.getMembersId()) {
@@ -76,8 +77,8 @@ public class LoreUtil {
 			joiner.add(pseudo);
 			
 		}
-		list.add("�6Co�quipiers : �e" + joiner.toString());
-		list.add("�6Niveau : �e" + island.getLevel() + " �7("+ island.getXp() + " / " + island.getNecessaryXpForNextLevel() + ") " + island.getXp()/island.getNecessaryXpForNextLevel() * 100 + "% ");
+		list.add("§6Coéquipiers : §e" + joiner.toString());
+		list.add("§6Niveau : §e" + island.getLevel() + " §7("+ island.getXp() + " / " + island.getNecessaryXpForNextLevel() + ") " + island.getXp()/island.getNecessaryXpForNextLevel() * 100 + "% ");
 		
 		list.add("");
 		list.add(loreDelimitation);
@@ -95,12 +96,12 @@ public class LoreUtil {
 		durability /= 2;
 		
 		StringBuilder durabilityBuilder = new StringBuilder();
-		durabilityBuilder.append("�a");
+		durabilityBuilder.append("§a");
 		for(int i = 0; i < durability; i++) durabilityBuilder.append("|");
-		durabilityBuilder.append("�7");
+		durabilityBuilder.append("§7");
 		for(int i = 0; i < 50 - durability; i++) durabilityBuilder.append(".");
 		
-		list.add("�6Durabilit� : " + durabilityBuilder.toString()); // TODO : g�n�rer les duras automatis�s ||||||||||||||||||||||||||||||||||||||||||||||||||
+		list.add("§6Durabilité : " + durabilityBuilder.toString()); // TODO : générer les duras automatisés ||||||||||||||||||||||||||||||||||||||||||||||||||
 		
 		list.add("");
 		list.add(loreDelimitation);
@@ -117,7 +118,7 @@ public class LoreUtil {
 		list.add(loreDelimitation);
 		list.add("");
 				
-		list.add("§6Durabilité : §a||||||||||||||||||||||||||||||||||||||||||||||||||"); // TODO : générer les duras automatis�s ||||||||||||||||||||||||||||||||||||||||||||||||||
+		list.add("§6Durabilité : §a||||||||||||||||||||||||||||||||||||||||||||||||||"); // TODO : générer les duras automatisés ||||||||||||||||||||||||||||||||||||||||||||||||||
 		
 		list.add("");
 		list.add(loreDelimitation);
