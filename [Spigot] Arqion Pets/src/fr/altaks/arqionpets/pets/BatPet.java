@@ -128,7 +128,6 @@ public class BatPet implements EquipablePet {
 			
 			PetRarity rarity = Main.debugMode ? PetRarity.LEGENDARY : pets_rarity.get(player.getUniqueId());
 			
-			// TODO : retirer les effets de popo
 			switch (rarity) {
 				case LEGENDARY:
 					if(player.hasPotionEffect(PotionEffectType.SPEED)) 				player.removePotionEffect(PotionEffectType.SPEED);
@@ -155,11 +154,13 @@ public class BatPet implements EquipablePet {
 	}
 	
 	public void addPetForPlayer(Player player, PetRarity rarity) {
+		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet chauve-souris !");
 		getYml().set(player.getUniqueId().toString(), rarity.getId());
 		saveYml();
 	}
 	
 	public void removePetForPlayer(Player player) {
+		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet chauve-souris !");
 		getYml().set(player.getUniqueId().toString(), null);
 		saveYml();
 	}

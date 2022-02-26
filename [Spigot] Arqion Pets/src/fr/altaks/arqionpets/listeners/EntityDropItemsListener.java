@@ -51,7 +51,7 @@ public class EntityDropItemsListener implements Listener {
 		
 		if(((LivingEntity) event.getEntity()).getHealth() - event.getDamage() <= 0 && event.getEntityType() == EntityType.WITHER) {
 		
-			if(event.getEntity().getName().equalsIgnoreCase("§5Wither converti")) {
+			if(event.getEntity().getName().equalsIgnoreCase("Â§5Wither converti")) {
 				
 				// TODO faire le drop
 				event.setCancelled(true);
@@ -63,19 +63,19 @@ public class EntityDropItemsListener implements Listener {
 				
 				if(dropRate <= 2.5) {
 					
-					cloned_pet_core.setLore("§r§6[Legendary]");
+					cloned_pet_core.setLore("Â§rÂ§6[LÃ©gendaire]");
 					
 				} else if(dropRate <= 10) {
 					
-					cloned_pet_core.setLore("§r§5[Epique]");
+					cloned_pet_core.setLore("Â§rÂ§5[Ã‰pique]");
 					
 				} else if(dropRate <= 25) {
 					
-					cloned_pet_core.setLore("§r§9[Rare]");
+					cloned_pet_core.setLore("Â§rÂ§9[Rare]");
 					
 				} else if(dropRate <= 62.5) {
 					
-					cloned_pet_core.setLore("§r§a[Commun]");
+					cloned_pet_core.setLore("Â§rÂ§a[Commun]");
 				}
 				
 				event.getEntity().getWorld().dropItem(event.getEntity().getLocation(), cloned_pet_core.build());

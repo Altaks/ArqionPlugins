@@ -117,11 +117,13 @@ public class SlimePet implements EquipablePet {
 	}
 	
 	public void addPetForPlayer(Player player, PetRarity rarity) {
+		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet slime !");
 		getYml().set(player.getUniqueId().toString(), rarity.getId());
 		saveYml();
 	}
 	
 	public void removePetForPlayer(Player player) {
+		player.sendMessage(Main.PREFIX + "§cVous venez de perdre le pet slime !");
 		getYml().set(player.getUniqueId().toString(), null);
 		saveYml();
 	}
