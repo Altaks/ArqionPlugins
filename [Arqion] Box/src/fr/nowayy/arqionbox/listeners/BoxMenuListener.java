@@ -34,12 +34,12 @@ public class BoxMenuListener implements Listener {
 		
 		// on verif si c'est le bon inv
 		
-		if(event.getView().getTitle().equals("§cArqionBox - §cBox")) {
+		if(event.getView().getTitle().equals("Â§cArqionBox - Â§cBox")) {
 			if(event.getView().getTopInventory().equals(clickedInv)) {
 			
 				// cancel l'event
 				event.setCancelled(true);
-				// on verif si il clique sur une des clés
+				// on verif si il clique sur une des clï¿½s
 				ItemStack clickedItem = event.getCurrentItem();
 				for(BoxType box : BoxType.values()) {
 					if(box.getSymbolItem().equals(clickedItem)){
@@ -54,7 +54,7 @@ public class BoxMenuListener implements Listener {
 							ItemStack mirrorItem = item.getItem().clone();
 							
 							ItemMeta meta = mirrorItem.getItemMeta();
-							meta.setLore(Arrays.asList("§eTaux d'obtention : §6" + (item.getDropRate()/10) + "%"));
+							meta.setLore(Arrays.asList("Â§eTaux d'obtention : Â§6" + (item.getDropRate()/10) + "%"));
 											
 							mirrorItem.setItemMeta(meta);
 							itemToShow.addLast(mirrorItem);
@@ -85,7 +85,7 @@ public class BoxMenuListener implements Listener {
 			
 		}
 		
-		// on verif si le joueur a cliqué sur l'inv du haut
+		// on verif si le joueur a cliquï¿½ sur l'inv du haut
 		
 		
 	

@@ -31,7 +31,7 @@ import fr.nowayy.arqionbox.util.ItemBuilder;
 public class Main extends JavaPlugin {
 	
 	public static boolean debugMode = false;
-	public static final String PREFIX = "§7[§cArqion§rBox§7] \u00BB§r ";
+	public static final String PREFIX = "Â§7[Â§cArqionÂ§rBoxÂ§7] \u00BBÂ§r ";
 	
 	private MoneyUtil moneyUtil;
 	private static HashMap<BoxType, List<BoxItem>> boxDrops = new HashMap<BoxType, List<BoxItem>>();
@@ -94,7 +94,7 @@ public class Main extends JavaPlugin {
 		int n = 0;
 		for(BoxItem boxitem : boxitems){
 			
-			// récup l'item dans la main
+			// rï¿½cup l'item dans la main
 			ItemStack item = boxitem.getItem();
 			
 			// nom : material / amount / nbt 

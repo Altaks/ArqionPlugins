@@ -32,17 +32,17 @@ public class KeyShopListener implements Listener {
 		
 		// on verif si c'est le bon inv
 		
-		if(!event.getView().getTitle().equals("§cArqionBox - §cClés")) {
+		if(!event.getView().getTitle().equals("ï¿½Â§ArqionBox - Â§cClÃ©s")) {
 			return;
 		}
 		
-		// on verif si le joueur a cliqué sur l'inv du haut
+		// on verif si le joueur a cliquï¿½ sur l'inv du haut
 		
 		if(event.getView().getTopInventory().equals(inv)) {
 			
 			// cancel l'event
 			event.setCancelled(true);
-			// on verif si il clique sur une des clés
+			// on verif si il clique sur une des clï¿½s
 			ItemStack clickedItem = event.getCurrentItem();
 			for(BoxType box : BoxType.values()) {
 				if(main.getDisplayKey(box).equals(clickedItem)){
@@ -52,11 +52,11 @@ public class KeyShopListener implements Listener {
 							
 							main.getMoneyUtil().removeMoneyToPlayer(player.getUniqueId(), box.getPrice());
 							player.getInventory().addItem(box.getKeyItem());
-							player.sendMessage(Main.PREFIX + "§aVous venez d'acheter une clé pour la box §6" + box.getName() + " §apour le prix de §6" + MoneyUtil.formatAmount(box.getPrice()));
+							player.sendMessage(Main.PREFIX + "Â§aVous venez d'acheter une clÃ© pour la box Â§6" + box.getName() + " Â§apour le prix de Â§6" + MoneyUtil.formatAmount(box.getPrice()));
 							player.closeInventory();
 							
 						} else {
-							player.sendMessage(Main.PREFIX + "§cVous n'avez pas l'argent nécessaire pour cet achat §7("+ box.getPrice() + "€)");
+							player.sendMessage(Main.PREFIX + "Â§cVous n'avez pas l'argent nÃ©cessaire pour cet achat Â§7("+ box.getPrice() + "â‚¬)");
 							return;
 						}
 					} catch (SQLException e) {
@@ -68,11 +68,11 @@ public class KeyShopListener implements Listener {
 			// si oui,
 				// on verif sa thune
 				// si il a la thune:
-					// on lui retire la thune de la clé
-					// on lui give la clé
+					// on lui retire la thune de la clï¿½
+					// on lui give la clï¿½
 					// on ferme l'inv
 				// sinon:
-					// le prévenir qu'il est fauché
+					// le prï¿½venir qu'il est fauchï¿½
 			
 		}
 		

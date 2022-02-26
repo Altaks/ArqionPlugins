@@ -28,7 +28,7 @@ public class AdminBoxCommand implements CommandExecutor {
 			
 			if(args.length == 0){
 				
-				Inventory inv = Bukkit.createInventory(null, 5 * 9, "§cArqionBox - §cAdminBox");
+				Inventory inv = Bukkit.createInventory(null, 5 * 9, "Â§cArqionBox - Â§cAdminBox");
 			
 				Bukkit.getScheduler().runTaskAsynchronously(main, () -> {
 					
@@ -73,8 +73,8 @@ public class AdminBoxCommand implements CommandExecutor {
 					keyToGive.setAmount(amount);
 					
 					target.getInventory().addItem(keyToGive);
-					target.sendMessage(Main.PREFIX + "§aVous venez de recevoir §6" + amount + " §a clés pour la box §6" + box.getName()+ " §a.");
-					sender.sendMessage(Main.PREFIX + "§aVous venez de donner §6" + amount + " §aclés pour la box §6" + box.getName()+ " §aà §6" + target.getDisplayName() + "§a.");
+					target.sendMessage(Main.PREFIX + "Â§aVous venez de recevoir Â§6" + amount + " Â§a clÃ©s pour la box Â§6" + box.getName()+ " Â§a.");
+					sender.sendMessage(Main.PREFIX + "Â§aVous venez de donner Â§6" + amount + " Â§aclÃ©s pour la box Â§6" + box.getName()+ " Â§aÃ  Â§6" + target.getDisplayName() + "Â§a.");
 					return true;
 				}
 				

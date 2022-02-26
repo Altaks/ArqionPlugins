@@ -35,12 +35,12 @@ public class AdminBoxMenuListener implements Listener {
 		
 		// on verif si c'est le bon inv
 		
-		if(event.getView().getTitle().equals("§cArqionBox - §cAdminBox")) {
+		if(event.getView().getTitle().equals("Â§cArqionBox - Â§cAdminBox")) {
 			if(event.getView().getTopInventory().equals(clickedInv)) {
 			
 				// cancel l'event
 				event.setCancelled(true);
-				// on verif si il clique sur une des clés
+				// on verif si il clique sur une des clï¿½s
 				ItemStack clickedItem = event.getCurrentItem();
 				for(BoxType box : BoxType.values()) {
 					if(box.getSymbolItem().equals(clickedItem)){
@@ -55,7 +55,7 @@ public class AdminBoxMenuListener implements Listener {
 							ItemStack mirrorItem = item.getItem().clone();
 							
 							ItemMeta meta = mirrorItem.getItemMeta();
-							meta.setLore(Arrays.asList("§eTaux d'obtention : §6" + (item.getDropRate()/10) + "%"));
+							meta.setLore(Arrays.asList("Â§eTaux d'obtention : Â§6" + (item.getDropRate()/10) + "%"));
 											
 							mirrorItem.setItemMeta(meta);
 							itemToShow.addLast(mirrorItem);
@@ -90,7 +90,7 @@ public class AdminBoxMenuListener implements Listener {
 			}
 			
 			event.setCancelled(true);
-			// recup l'item cliqué
+			// recup l'item cliquï¿½
 			ItemStack clickedItem = event.getCurrentItem();
 			if(clickedItem == null) return;
 			// recup la box
@@ -120,7 +120,7 @@ public class AdminBoxMenuListener implements Listener {
 				}
 			}
 			if(boxItemToFind == null) {
-				player.sendMessage(Main.PREFIX + "L'item modifié est introuvable dans la box !");
+				player.sendMessage(Main.PREFIX + "L'item modifiÃ© est introuvable dans la box !");
 				return;
 			}
 			
@@ -152,7 +152,7 @@ public class AdminBoxMenuListener implements Listener {
 			}
 			
 			if(boxItemToFind.getDropRate() > 1000 || boxItemToFind.getDropRate() < 0) {
-				player.sendMessage(Main.PREFIX + "§cVous ne pouvez pas dépasser les limites de probabilité !");
+				player.sendMessage(Main.PREFIX + "Â§cVous ne pouvez pas dÃ©passer les limites de probabilitÃ© !");
 				return;
 			}
 			
@@ -164,7 +164,7 @@ public class AdminBoxMenuListener implements Listener {
 			ItemStack mirrorItem = boxItemToFind.getItem().clone();
 					
 			ItemMeta meta = mirrorItem.getItemMeta();
-			meta.setLore(Arrays.asList("§eTaux d'obtention : §6" + (boxItemToFind.getDropRate()/10) + "%"));
+			meta.setLore(Arrays.asList("Â§eTaux d'obtention : Â§6" + (boxItemToFind.getDropRate()/10) + "%"));
 			mirrorItem.setItemMeta(meta);
 			
 			clickedInv.setItem(event.getSlot(), mirrorItem);
@@ -197,7 +197,7 @@ public class AdminBoxMenuListener implements Listener {
 			
 			List<BoxItem> currentItems = main.getBoxDrops().get(boxtype);
 			
-			// ajout des items : répertorié
+			// ajout des items : rï¿½pertoriï¿½
 			for(ItemStack invitem : closedInv.getContents()) {
 				if(invitem == null) continue;
 				boolean found = false;
@@ -261,7 +261,7 @@ public class AdminBoxMenuListener implements Listener {
 					ItemStack mirrorItem = boxitem.getItem().clone();
 					
 					ItemMeta meta = mirrorItem.getItemMeta();
-					meta.setLore(Arrays.asList("§eTaux d'obtention : §6" + (boxitem.getDropRate()/10) + "%"));
+					meta.setLore(Arrays.asList("Â§eTaux d'obtention : Â§6" + (boxitem.getDropRate()/10) + "%"));
 									
 					mirrorItem.setItemMeta(meta);
 					itemsToShow.addLast(mirrorItem);

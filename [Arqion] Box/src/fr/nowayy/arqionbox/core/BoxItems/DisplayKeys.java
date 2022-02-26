@@ -11,28 +11,28 @@ import fr.nowayy.arqionbox.util.ItemBuilder;
 
 public class DisplayKeys {
 	
-	public static final ItemStack 	displaydonatorBoxKey = new ItemBuilder(Material.NETHER_STAR, 1, "§8Donator Key")
+	public static final ItemStack 	displaydonatorBoxKey = new ItemBuilder(Material.NETHER_STAR, 1, "Â§8Donator Key")
 											.addUnsafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS)
-											.setLore("§r§6Prix : §e" + MoneyUtil.formatAmount(BoxType.DONATOR.getPrice())).build(),
+											.setLore("Â§rÂ§6Prix : Â§e" + MoneyUtil.formatAmount(BoxType.DONATOR.getPrice())).build(),
 									
-									displayspawnerBoxKey = new ItemBuilder(Material.PANDA_SPAWN_EGG, 1, "§5Spawner Key")
+									displayspawnerBoxKey = new ItemBuilder(Material.PANDA_SPAWN_EGG, 1, "Â§5Spawner Key")
 											.addUnsafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS)
-											.setLore("§r§6Prix : §e" + MoneyUtil.formatAmount(BoxType.SPAWNER.getPrice()), "").build(),
+											.setLore("Â§rÂ§6Prix : Â§e" + MoneyUtil.formatAmount(BoxType.SPAWNER.getPrice()), "").build(),
 											
-									displayemeraldBoxKey = new ItemBuilder(Material.EMERALD, 1, "§aEmerald Key")
-											.setLore("§r§6Prix : §e" + MoneyUtil.formatAmount(BoxType.EMERALD.getPrice()), "")
+									displayemeraldBoxKey = new ItemBuilder(Material.EMERALD, 1, "Â§aEmerald Key")
+											.setLore("Â§rÂ§6Prix : Â§e" + MoneyUtil.formatAmount(BoxType.EMERALD.getPrice()), "")
 											.addUnsafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
 											
-									displaydiamondBoxKey = new ItemBuilder(Material.DIAMOND, 1, "§bDiamond Key")
-											.setLore("§r§6Prix : §e" + MoneyUtil.formatAmount(BoxType.DIAMOND.getPrice()), "")
+									displaydiamondBoxKey = new ItemBuilder(Material.DIAMOND, 1, "Â§bDiamond Key")
+											.setLore("Â§rÂ§6Prix : Â§e" + MoneyUtil.formatAmount(BoxType.DIAMOND.getPrice()), "")
 											.addUnsafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
 											
-									displaygoldBoxKey = new ItemBuilder(Material.GOLD_NUGGET, 1, "§6Golden Key")
-											.setLore("§r§6Prix : §e" + MoneyUtil.formatAmount(BoxType.GOLD.getPrice()), "")
+									displaygoldBoxKey = new ItemBuilder(Material.GOLD_NUGGET, 1, "Â§6Golden Key")
+											.setLore("Â§rÂ§6Prix : Â§e" + MoneyUtil.formatAmount(BoxType.GOLD.getPrice()), "")
 											.addUnsafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
 											
-									displayironBoxKey = new ItemBuilder(Material.IRON_NUGGET, 1, "§7Iron Key")
-											.setLore("§r§6Prix : §e" + MoneyUtil.formatAmount(BoxType.IRON.getPrice()), "")
+									displayironBoxKey = new ItemBuilder(Material.IRON_NUGGET, 1, "Â§7Iron Key")
+											.setLore("Â§rÂ§6Prix : Â§e" + MoneyUtil.formatAmount(BoxType.IRON.getPrice()), "")
 											.addUnsafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build();
 
 }

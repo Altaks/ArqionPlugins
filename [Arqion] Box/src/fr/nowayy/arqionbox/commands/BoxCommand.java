@@ -24,7 +24,7 @@ public class BoxCommand implements CommandExecutor {
 		
 		if(cmd.getName().equalsIgnoreCase("box") && sender instanceof Player) {
 			
-			Inventory inv = Bukkit.createInventory(null, 5 * 9, "§cArqionBox - §cBox");
+			Inventory inv = Bukkit.createInventory(null, 5 * 9, "Â§cArqionBox - Â§cBox");
 			
 			Bukkit.getScheduler().runTaskAsynchronously(main, () -> {
 				

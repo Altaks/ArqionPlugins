@@ -47,13 +47,13 @@ public class ArmorStandListener implements Listener{
 				if(box.getArmorStandID().equals(entity.getUniqueId())) {
 					
 					if(!player.getInventory().containsAtLeast(box.getKeyItem(), 1)){
-						player.sendMessage(Main.PREFIX + "§cVous devez vous munir d'une " + box.getKeyItem().getItemMeta().getDisplayName() + " pour ouvrir la box " + box.getName() + " !");
+						player.sendMessage(Main.PREFIX + "Â§cVous devez vous munir d'une " + box.getKeyItem().getItemMeta().getDisplayName() + " pour ouvrir la box " + box.getName() + " !");
 						return;
 					}
 					
 					player.getInventory().removeItem(box.getKeyItem());
 					
-					Inventory inv = Bukkit.createInventory(null, 9*5, "§8Box " + box.getName() + " \u00BB");
+					Inventory inv = Bukkit.createInventory(null, 9*5, "Â§8Box " + box.getName() + " \u00BB");
 					
 					for (int i = 0; i < inv.getSize(); i++) {
 						if(inv.getItem(i) != null) {
@@ -63,8 +63,8 @@ public class ArmorStandListener implements Listener{
 						} else inv.setItem(i, BoxItems.invFiller);
 					}	
 					
-					ItemStack redstoneBlock = new ItemBuilder(Material.REDSTONE_BLOCK, 1, "§4Quitter").build();
-					ItemStack redstoneTorch = new ItemBuilder(Material.REDSTONE_TORCH, 1, "§9Prix : ").addUnsafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build();
+					ItemStack redstoneBlock = new ItemBuilder(Material.REDSTONE_BLOCK, 1, "Â§4Quitter").build();
+					ItemStack redstoneTorch = new ItemBuilder(Material.REDSTONE_TORCH, 1, "Â§9Prix : ").addUnsafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build();
 					
 					// 13 31 44
 					
@@ -72,7 +72,7 @@ public class ArmorStandListener implements Listener{
 					inv.setItem(31, redstoneTorch);
 					inv.setItem(44, redstoneBlock);
 					
-					// 19 à 25
+					// 19 ï¿½ 25
 					
 					ArrayDeque<ItemStack> deque = new ArrayDeque<ItemStack>();
 					
@@ -126,11 +126,11 @@ public class ArmorStandListener implements Listener{
 		
 		if(event.getClickedInventory() == null) return;
 		if(event.getClickedInventory().equals(event.getView().getTopInventory())){
-			if(event.getView().getTitle().startsWith("§8Box ")) {
+			if(event.getView().getTitle().startsWith("Â§8Box ")) {
 				
 				if(event.getCurrentItem() != null){
 					event.setCancelled(true);
-					if(event.getCurrentItem().getType() == Material.REDSTONE_BLOCK && event.getCurrentItem().getItemMeta().getDisplayName().equals("§4Quitter")) {
+					if(event.getCurrentItem().getType() == Material.REDSTONE_BLOCK && event.getCurrentItem().getItemMeta().getDisplayName().equals("Â§4Quitter")) {
 						event.getWhoClicked().closeInventory();
 					}
 				} 	
@@ -155,7 +155,7 @@ public class ArmorStandListener implements Listener{
 						ItemStack mirrorItem = item.getItem().clone();
 						
 						ItemMeta meta = mirrorItem.getItemMeta();
-						meta.setLore(Arrays.asList("§eTaux d'obtention : §6" + (item.getDropRate()/10) + "%"));
+						meta.setLore(Arrays.asList("Â§eTaux d'obtention : Â§6" + (item.getDropRate()/10) + "%"));
 										
 						mirrorItem.setItemMeta(meta);
 						itemToShow.addLast(mirrorItem);

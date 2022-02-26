@@ -12,12 +12,12 @@ import fr.nowayy.arqionbox.core.BoxItems.BoxItems;
 
 public enum BoxType {
 	
-	SPAWNER(BoxItems.spawnerBoxSymbol, BoxItems.spawnerBoxKey, UUID.fromString("d926543c-f34a-4bea-b0e7-51ad032b2490"),"spawnerbox.yml", "spawner", "§5Spawner", 1_000_000.0d),
-	DONATOR(BoxItems.donatorBoxSymbol, BoxItems.donatorBoxKey, UUID.fromString("2f8901f1-73de-42f4-b084-5ee58e259823"),"donatorbox.yml", "donator", "§8Donator", Double.MAX_VALUE),
-	EMERALD(BoxItems.emeraldBoxSymbol, BoxItems.emeraldBoxKey, UUID.fromString("94a487e0-9b98-4957-b4f8-ccb82cdc909c"),"emeraldbox.yml", "emerald", "§aEmerald", 500_000.0d),
-	DIAMOND(BoxItems.diamondBoxSymbol, BoxItems.diamondBoxKey, UUID.fromString("7f668b17-0d78-4d71-a1ab-4b6206bb8b02"),"diamondbox.yml","diamond", "§bDiamond", 200_000.0d),
-	GOLD(BoxItems.goldBoxSymbol, BoxItems.goldBoxKey, UUID.fromString("753dc76d-f15c-4cfa-8654-9927a5309ffe"),"goldbox.yml", "gold", "§6Gold", 100_000.0d),
-	IRON(BoxItems.ironBoxSymbol, BoxItems.ironBoxKey, UUID.fromString("e7a60e55-4ddb-4f3a-87f2-c907ac95888b"),"ironbox.yml", "iron", "§7Iron", 50_000.0d);
+	SPAWNER(BoxItems.spawnerBoxSymbol, BoxItems.spawnerBoxKey, UUID.fromString("d926543c-f34a-4bea-b0e7-51ad032b2490"),"spawnerbox.yml", "spawner", "Â§5Spawner", 1_000_000.0d),
+	DONATOR(BoxItems.donatorBoxSymbol, BoxItems.donatorBoxKey, UUID.fromString("2f8901f1-73de-42f4-b084-5ee58e259823"),"donatorbox.yml", "donator", "Â§8Donator", Double.MAX_VALUE),
+	EMERALD(BoxItems.emeraldBoxSymbol, BoxItems.emeraldBoxKey, UUID.fromString("94a487e0-9b98-4957-b4f8-ccb82cdc909c"),"emeraldbox.yml", "emerald", "Â§aEmerald", 500_000.0d),
+	DIAMOND(BoxItems.diamondBoxSymbol, BoxItems.diamondBoxKey, UUID.fromString("7f668b17-0d78-4d71-a1ab-4b6206bb8b02"),"diamondbox.yml","diamond", "Â§bDiamond", 200_000.0d),
+	GOLD(BoxItems.goldBoxSymbol, BoxItems.goldBoxKey, UUID.fromString("753dc76d-f15c-4cfa-8654-9927a5309ffe"),"goldbox.yml", "gold", "Â§6Gold", 100_000.0d),
+	IRON(BoxItems.ironBoxSymbol, BoxItems.ironBoxKey, UUID.fromString("e7a60e55-4ddb-4f3a-87f2-c907ac95888b"),"ironbox.yml", "iron", "Â§7Iron", 50_000.0d);
 
 	private ItemStack symbol, key;
 	private UUID armorstandID;

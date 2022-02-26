@@ -16,7 +16,7 @@ import fr.nowayy.arqionbox.util.ItemBuilder;
 
 public class KeyCommand implements CommandExecutor {
 	
-	private String delimiter = "§7---------- §bArqionbox §7----------";
+	private String delimiter = "Â§7---------- Â§bArqionbox Â§7----------";
 	private Main main;
 	
 	public KeyCommand(Main main) {
@@ -28,7 +28,7 @@ public class KeyCommand implements CommandExecutor {
 		
 		if(cmd.getName().equalsIgnoreCase("key") && sender instanceof Player) {
 			
-			Inventory inv = Bukkit.createInventory(null, 5 * 9, "§cArqionBox - §cClés");
+			Inventory inv = Bukkit.createInventory(null, 5 * 9, "ï¿½Â§ArqionBox - Â§cClÃ©s");
 			
 			Bukkit.getScheduler().runTaskAsynchronously(main, () -> {
 				
@@ -40,7 +40,7 @@ public class KeyCommand implements CommandExecutor {
 					} else inv.setItem(i, BoxItems.invFiller);
 				}
 				
-				ItemStack paper = new ItemBuilder(Material.PAPER, 1, "§4Informations").setLore(delimiter, "","§cCes clés vous servent", "§ca ouvrir les box au /warp box","", delimiter).build();
+				ItemStack paper = new ItemBuilder(Material.PAPER, 1, "Â§Informations").setLore(delimiter, "","Â§cCes clÃ©s vous servent", "Â§ca ouvrir les box au /warp box","", delimiter).build();
 				
 				inv.setItem(10, DisplayKeys.displayironBoxKey);
 				inv.setItem(16, DisplayKeys.displaygoldBoxKey);
