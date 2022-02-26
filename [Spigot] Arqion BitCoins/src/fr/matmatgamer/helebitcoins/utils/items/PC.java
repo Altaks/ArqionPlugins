@@ -11,7 +11,7 @@ import fr.matmatgamer.helebitcoins.utils.ItemBuilder;
 public class PC {
 
 	public String getName() {
-		return "§6Ordinateur De Controle";
+		return "Â§6Ordinateur De Controle";
 	}
 	
 	public Material Matos() {
@@ -27,9 +27,9 @@ public class PC {
 		String[] lore = {
 				Main.ItemMarkerBTC,
 				"",
-				"§dGérez vos machines avec moi,",
-				"§dGérez vos bitcoins avec moi,",
-				"§dAvec moi, faites votre business !",
+				"Â§dGÃ©rez vos machines avec moi,",
+				"Â§dGÃ©rez vos bitcoins avec moi,",
+				"Â§dAvec moi, faites votre business !",
 				"",
 				Main.ItemMarkerBTC
 				};

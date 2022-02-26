@@ -41,7 +41,7 @@ public class CommandAbitcoins implements CommandExecutor {
 		if(sender instanceof Player) {
 			Player player = (Player) sender;
 			
-			Inventory inv = Bukkit.createInventory(null, 36, Main.prefix + "ง4Menu give - ADMIN");
+			Inventory inv = Bukkit.createInventory(null, 36, Main.prefix + "ยง4Menu give - ADMIN");
 			
 			inv.setItem(10, Serveurs.getItem());
 			inv.setItem(11, AllimSolaire.getItem());

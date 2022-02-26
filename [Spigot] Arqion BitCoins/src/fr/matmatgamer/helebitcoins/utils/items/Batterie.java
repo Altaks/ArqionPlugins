@@ -11,7 +11,7 @@ import fr.matmatgamer.helebitcoins.utils.ItemBuilder;
 public class Batterie {
 
 	public String getName() {
-		return "§6Batterie";
+		return "Â§6Batterie";
 	}
 	
 	public Material Matos() {
@@ -27,8 +27,8 @@ public class Batterie {
 		String[] lore = {
 				Main.ItemMarkerBTC,
 				"",
-				"§dSans moi, où est votre énergie ?",
-				"§dSans moi, votre business ne marchera pas !",
+				"Â§dSans moi, oï¿½ est votre ï¿½nergie ?",
+				"Â§dSans moi, votre business ne marchera pas !",
 				"",
 				Main.ItemMarkerBTC
 				};

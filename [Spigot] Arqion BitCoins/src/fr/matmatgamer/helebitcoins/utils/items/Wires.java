@@ -11,7 +11,7 @@ import fr.matmatgamer.helebitcoins.utils.ItemBuilder;
 public class Wires {
 
 	public String getName() {
-		return "§6Cables";
+		return "Â§6Cables";
 	}
 	
 	public Material Matos() {
@@ -23,9 +23,9 @@ public class Wires {
 		String[] lore = {
 				Main.ItemMarkerBTC,
 				"",
-				"§dCraftez vos machines avec moi,",
-				"§dReliez vos machines avec moi",
-				"§dFaites vivre vos machines avec moi",
+				"Â§dCraftez vos machines avec moi,",
+				"Â§dReliez vos machines avec moi",
+				"Â§dFaites vivre vos machines avec moi",
 				"",
 				Main.ItemMarkerBTC
 				};

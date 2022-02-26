@@ -56,22 +56,22 @@ public class PCInterface implements Listener {
 						if(configuration.get(i + ".owner").equals(player.getUniqueId().toString())) {
 							e.setCancelled(true);
 							
-							Inventory inv = Bukkit.createInventory(null, 27, Main.prefix + "§8- §4Menu de contrôle");
+							Inventory inv = Bukkit.createInventory(null, 27, Main.prefix + "Â§8- Â§4Menu de contrï¿½le");
 							
 							
 							String OnOff;
 							
-							if(configuration2.get("Génération").equals("True")){
-								OnOff = "§aOn";
+							if(configuration2.get("GÃ©nÃ©ration").equals("True")){
+								OnOff = "Â§aOn";
 							} else {
-								OnOff = "§4Off";
+								OnOff = "Â§4Off";
 							}
 							
 							try {
-								inv.setItem(10, new ItemBuilder(Material.BARRIER).setNBT("{ID:OnOff}").setName("§4On§c/§4Off")
-										.setLore("§cArrête ou démarre la production de BitCoins.", "§cL'énergie se génère toujours !","", "§cProduction: " + OnOff).build());
+								inv.setItem(10, new ItemBuilder(Material.BARRIER).setNBT("{ID:OnOff}").setName("Â§4OnÂ§c/Â§4Off")
+										.setLore("Â§cArrÃªte ou dÃ©marre la production de BitCoins.", "Â§cL'Ã©nergie se gÃ©nÃ¨re toujours !","", "Â§cProduction: " + OnOff).build());
 								for (int slot : new int[] {13, 16}) {
-									inv.setItem(slot, new ItemBuilder(Material.BEDROCK).setNBT("{ID:Soon}").setName("§c§l§nSoon").build());								
+									inv.setItem(slot, new ItemBuilder(Material.BEDROCK).setNBT("{ID:Soon}").setName("Â§cÂ§lÂ§nSoon").build());								
 									}
 								
 							} catch (Exception e1) {
@@ -103,15 +103,15 @@ public class PCInterface implements Listener {
 		File file = new File(main.getDataFolder(), "Players/" + player.getUniqueId() + ".yml");
 		YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
 		
-		if(e.getView().getTitle().equals(Main.prefix + "§8- §4Menu de contrôle")) {
+		if(e.getView().getTitle().equals(Main.prefix + "Â§8- Â§4Menu de contrÃ´le")) {
 			
 			if(e.getCurrentItem().getType().equals(Material.BARRIER)){
-				if(configuration.get("Génération").equals("True")){
-					configuration.set("Génération", "False");
-					player.sendMessage(Main.prefix + "§cVous venez de désactiver la génération de BitCoins.");
+				if(configuration.get("GÃ©nÃ©ration").equals("True")){
+					configuration.set("GÃ©nÃ©ration", "False");
+					player.sendMessage(Main.prefix + "Â§cVous venez de dÃ©sactiver la gÃ©nÃ©ration de BitCoins.");
 				} else {
-					configuration.set("Génération", "True");
-					player.sendMessage(Main.prefix + "§cVous venez d'activer la génération de BitCoins.");
+					configuration.set("GÃ©nÃ©ration", "True");
+					player.sendMessage(Main.prefix + "Â§cVous venez d'activer la gÃ©nÃ©ration de BitCoins.");
 				}
 				player.closeInventory();
 

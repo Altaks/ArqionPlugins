@@ -11,7 +11,7 @@ import fr.matmatgamer.helebitcoins.utils.ItemBuilder;
 public class AllimEssence {
 
 	public String getName() {
-		return "§6Alimentation à pétrole";
+		return "Â§6Alimentation Ã  pÃ©trole";
 	}
 	
 	public Material Matos() {
@@ -28,8 +28,8 @@ public class AllimEssence {
 		String[] lore = {
 				Main.ItemMarkerBTC,
 				"",
-				"§dAlimentez moi,",
-				"§dEt vous verrez votre production augmenter !",
+				"Â§dAlimentez moi,",
+				"Â§dEt vous verrez votre production augmenter !",
 				"",
 				Main.ItemMarkerBTC
 				};

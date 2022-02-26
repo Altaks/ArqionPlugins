@@ -11,7 +11,7 @@ import fr.matmatgamer.helebitcoins.utils.ItemBuilder;
 public class AluminiumIngot {
 
 	public String getName() {
-		return "§7Aluminium Ingot";
+		return "Â§7Aluminium Ingot";
 	}
 	
 	public Material Matos() {
@@ -22,11 +22,11 @@ public class AluminiumIngot {
 		
 		String[] lore = {
 				Main.ItemMarkerOres,
-				"       §d§l->    §7Aluminium",
-				"                §6Copper",
-				"                 §5Cobalt",
-				"                 §bArdium",
-				"                  §9Helen",
+				"       Â§dÂ§l->    Â§7Aluminium",
+				"                Â§6Copper",
+				"                 Â§5Cobalt",
+				"                 Â§bArdium",
+				"                  Â§9Helen",
 				Main.ItemMarkerOres
 				};
 		return lore;

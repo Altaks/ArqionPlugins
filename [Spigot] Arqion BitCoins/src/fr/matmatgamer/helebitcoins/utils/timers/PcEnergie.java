@@ -25,7 +25,7 @@ public class PcEnergie extends BukkitRunnable {
 		File file = new File(main.getDataFolder(), "Players/" + player.getUniqueId() + ".yml");
 		YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
 		
-		if(configuration.get("Génération").equals("True")) {
+		if(configuration.get("GÃ©nÃ©ration").equals("True")) {
 	
 			int energie = configuration.getInt("PC.energie");
 			if(energie >= 10) {
@@ -40,7 +40,7 @@ public class PcEnergie extends BukkitRunnable {
 					e.printStackTrace();
 				}
 			} else {
-				configuration.set("Génération", "False");
+				configuration.set("GÃ©nÃ©ration", "False");
 				
 				try {
 					configuration.save(file);

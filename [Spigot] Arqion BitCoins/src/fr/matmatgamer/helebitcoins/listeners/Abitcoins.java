@@ -40,7 +40,7 @@ public class Abitcoins implements Listener {
 		
 		if(current == null) return;
 		
-		if(e.getView().getTitle().equals(Main.prefix + "ง4Menu give - ADMIN")) {
+		if(e.getView().getTitle().equals(Main.prefix + "ยง4Menu give - ADMIN")) {
 			
 			e.setCancelled(true);
 			Inventory inv = player.getInventory();

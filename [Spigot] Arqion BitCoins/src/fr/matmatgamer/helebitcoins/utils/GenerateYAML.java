@@ -40,7 +40,7 @@ public class GenerateYAML {
 		if(!file.exists()) {
 			YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
 			
-			for (String str : new String[] {"Génération", "CablageEnCour", "PC.placed", "PC.batterie"}) {
+			for (String str : new String[] {"GÃ©nÃ©ration", "CablageEnCour", "PC.placed", "PC.batterie"}) {
 				configuration.set(str, "False");
 			}
 			configuration.set("Bitcoins", 0);

@@ -27,7 +27,7 @@ public class CommandBitcoins implements CommandExecutor {
 			File file = new File(main.getDataFolder(), "Players/" + player.getUniqueId() + ".yml");
 			YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
 			
-			player.sendMessage(Main.prefix + " §6Vous possédez actuellement §b" + configuration.get("Bitcoins") + "§6 BitCoins sur votre compte.");
+			player.sendMessage(Main.prefix + " Â§6Vous possï¿½dez actuellement Â§b" + configuration.get("Bitcoins") + "Â§6 BitCoins sur votre compte.");
 		}
 		
 		return false;

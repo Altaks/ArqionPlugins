@@ -25,12 +25,12 @@ public class CommandAbtc implements CommandExecutor {
 		
 		if (args.length == 0 || args[0].equals("help")){
 			
-			sender.sendMessage("§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c- §4Admin - HELP §c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=\n\n\n"
-					+ "§c/abtc infos <joueur> §9-> §7Montre combien le joueur <joueur> a de bitcoins\n\n"
-					+ "§c/abtc give <joueur> <nombre> §9-> §7give <nombre> bitcoins au joueur <joueur>\n\n"
-					+ "§c/abtc take <joueur> <nombre> §9-> §7retire <nombre> bitcoins au joueur <joueur>\n\n"
-					+ "§c/abtc reset <joueur> §9-> §7remet les bitcoins au joueur <joueur> à 0\n\n\n"
-					+ "§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c- §4Admin - HELP §c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=§c-§6=");
+			sender.sendMessage("Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c- Â§4Admin - HELP Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=\n\n\n"
+					+ "Â§c/abtc infos <joueur> Â§9-> Â§7Montre combien le joueur <joueur> a de bitcoins\n\n"
+					+ "Â§c/abtc give <joueur> <nombre> Â§9-> Â§7give <nombre> bitcoins au joueur <joueur>\n\n"
+					+ "Â§c/abtc take <joueur> <nombre> Â§9-> Â§7retire <nombre> bitcoins au joueur <joueur>\n\n"
+					+ "Â§c/abtc reset <joueur> Â§9-> Â§7remet les bitcoins au joueur <joueur>  0\n\n\n"
+					+ "Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c- Â§4Admin - HELP Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=Â§c-Â§6=");
 		}
 		else if (args[0].equals("give")) {
 			if(args.length != 1) {
@@ -38,14 +38,14 @@ public class CommandAbtc implements CommandExecutor {
 				Player player = Bukkit.getPlayer(args[1]);
 				
 				if (!player.isOnline()) {
-					sender.sendMessage(Main.prefix + " §4Le joueur doit être en ligne !");
+					sender.sendMessage(Main.prefix + " Â§4Le joueur doit Ãªtre en ligne !");
 					return false;
 				}
 				
 				File file = new File(main.getDataFolder(), "Players/" + player.getUniqueId().toString() + ".yml");
 				
 				if(!file.exists()) {
-					sender.sendMessage(Main.prefix + " §4Ce joueur ne s'est jamais connecté !");
+					sender.sendMessage(Main.prefix + " Â§4Ce joueur ne s'est jamais connectï¿½ !");
 					return false;
 				}
 				
@@ -64,15 +64,15 @@ public class CommandAbtc implements CommandExecutor {
 						e.printStackTrace();
 					}
 					
-					sender.sendMessage(Main.prefix + " §b" + given + " §6BitCoins ont été donnés à §9" + player.getName() + "§6. Il possède maintenant §b" + now + " §6BitCoins");
-					player.sendMessage(Main.prefix + " §b" + given + " §6BitCoins vous ont été donnés par un §4Haut-Staff§6. Vous possédez maintenant §b" + now + " §6BitCoins");
+					sender.sendMessage(Main.prefix + " Â§b" + given + " Â§6BitCoins ont ï¿½tï¿½ donnï¿½s ï¿½ Â§9" + player.getName() + "Â§6. Il possï¿½de maintenant Â§b" + now + " Â§6BitCoins");
+					player.sendMessage(Main.prefix + " Â§b" + given + " Â§6BitCoins vous ont ï¿½tï¿½ donnï¿½s par un Â§4Haut-StaffÂ§6. Vous possï¿½dez maintenant Â§b" + now + " Â§6BitCoins");
 				} else {
-					sender.sendMessage(Main.prefix + " §4Veuillez spécifier un nombre de BitCoins !");
+					sender.sendMessage(Main.prefix + " Â§4Veuillez spï¿½cifier un nombre de BitCoins !");
 					return false;
 				}
 				
 			} else {
-				sender.sendMessage(Main.prefix + " §4Pseudo du joueur ?");
+				sender.sendMessage(Main.prefix + " Â§4Pseudo du joueur ?");
 			}
 		}
 		else if (args[0].equals("take")) {
@@ -80,14 +80,14 @@ public class CommandAbtc implements CommandExecutor {
 				Player player = main.getServer().getPlayer(args[1]);
 				
 				if (!player.isOnline()) {
-					sender.sendMessage(Main.prefix + " §4Le joueur doit être en ligne !");
+					sender.sendMessage(Main.prefix + " Â§4Le joueur doit ï¿½tre en ligne !");
 					return false;
 				}
 				
 				File file = new File(main.getDataFolder(), "Players/" + player.getUniqueId() + ".yml");
 				
 				if(!file.exists()) {
-					sender.sendMessage(Main.prefix + " §4Ce joueur ne s'est jamais connecté !");
+					sender.sendMessage(Main.prefix + " Â§4Ce joueur ne s'est jamais connectï¿½ !");
 					return false;
 				}
 				
@@ -110,15 +110,15 @@ public class CommandAbtc implements CommandExecutor {
 						e.printStackTrace();
 					}
 					
-					sender.sendMessage(Main.prefix + " §b" + taken + " §6BitCoins ont été retiré à §9" + player.getName() + "§6. Il posséde maintenant §b" + now + " §6BitCoins");
-					player.sendMessage(Main.prefix + " §b" + taken + " §6BitCoins vous ont été retiré par un §4Haut-Staff§6. Vous possedez maintenant §b" + now + " §6BitCoins");
+					sender.sendMessage(Main.prefix + " Â§b" + taken + " Â§6BitCoins ont Ã©tÃ© retirÃ© Ã  Â§9" + player.getName() + "Â§6. Il possÃ¨de maintenant Â§b" + now + " Â§6BitCoins");
+					player.sendMessage(Main.prefix + " Â§b" + taken + " Â§6BitCoins vous ont Ã©tÃ© retirÃ©s par un Â§4Haut-StaffÂ§6. Vous possedez maintenant Â§b" + now + " Â§6BitCoins");
 				} else {
-					sender.sendMessage(Main.prefix + " §4Veuillez spécifier un nombre de BitCoins !");
+					sender.sendMessage(Main.prefix + " Â§4Veuillez spÃ©cifier un nombre de BitCoins !");
 					return false;
 				}
 				
 			} else {
-				sender.sendMessage(Main.prefix + " §4Pseudo du joueur ?");
+				sender.sendMessage(Main.prefix + " Â§4Pseudo du joueur ?");
 			}
 		}
 		else if (args[0].equals("reset")) {
@@ -126,14 +126,14 @@ public class CommandAbtc implements CommandExecutor {
 				Player player = main.getServer().getPlayer(args[1]);
 				
 				if (!player.isOnline()) {
-					sender.sendMessage(Main.prefix + " §4Le joueur doit être en ligne !");
+					sender.sendMessage(Main.prefix + " Â§4Le joueur doit Ãªtre en ligne !");
 					return false;
 				}
 				
 				File file = new File(main.getDataFolder(), "Players/" + player.getUniqueId() + ".yml");
 				
 				if(!file.exists()) {
-					sender.sendMessage(Main.prefix + " §4Ce joueur ne s'est jamais connecté !");
+					sender.sendMessage(Main.prefix + " Â§4Ce joueur ne s'est jamais connectÃ© !");
 					return false;
 				}
 				
@@ -147,8 +147,8 @@ public class CommandAbtc implements CommandExecutor {
 					e.printStackTrace();
 				}
 				
-				sender.sendMessage(Main.prefix + " §6Les BitCoins de§9 " + player.getName() + " §6ont été remis a 0");
-				player.sendMessage(Main.prefix + " §6Vos BitCoins ont été remis à 0 par un §4Haut-Staff§6.");
+				sender.sendMessage(Main.prefix + " Â§6Les BitCoins deÂ§9 " + player.getName() + " Â§6ont Ã©tÃ© remis a 0");
+				player.sendMessage(Main.prefix + " Â§6Vos BitCoins ont Ã©tÃ© remis Ã  0 par un Â§4Haut-StaffÂ§6.");
 			}
 		}
 		else if (args[0].equals("infos")) {
@@ -156,14 +156,14 @@ public class CommandAbtc implements CommandExecutor {
 				Player player = main.getServer().getPlayer(args[1]);
 				
 				if (!player.isOnline()) {
-					sender.sendMessage(Main.prefix + " §4Le joueur doit être en ligne !");
+					sender.sendMessage(Main.prefix + " Â§4Le joueur doit Ãªtre en ligne !");
 					return false;
 				}
 				
 				File file = new File(main.getDataFolder(), "Players/" + player.getUniqueId() + ".yml");
 				
 				if(!file.exists()) {
-					sender.sendMessage(Main.prefix + " §4Ce joueur ne s'est jamais connecté !");
+					sender.sendMessage(Main.prefix + " Â§4Ce joueur ne s'est jamais connectÃ© !");
 					return false;
 				}
 				
@@ -171,7 +171,7 @@ public class CommandAbtc implements CommandExecutor {
 				
 				float pBitcoins = Float.valueOf(configuration.get("Bitcoins").toString());
 				
-				sender.sendMessage(Main.prefix + " §9" + player.getName() + " §6possède §b" + pBitcoins + " §6BitCoins.");
+				sender.sendMessage(Main.prefix + " Â§9" + player.getName() + " Â§6possÃ¨de Â§b" + pBitcoins + " Â§6BitCoins.");
 			}
 		}
 		

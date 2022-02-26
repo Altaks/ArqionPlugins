@@ -44,7 +44,7 @@ public class BitcoinsPlaceMachine implements Listener {
 		
 		if(item.getItemMeta().getDisplayName().equals(Wrench.getName()) || item.getItemMeta().getDisplayName().equals(Wires.getName()) || item.getItemMeta().getDisplayName().equals(Essence2.getName())) {
 			e.setCancelled(true);
-			player.sendMessage(Main.prefix + "§6Cet item ne peut pas être placé !");
+			player.sendMessage(Main.prefix + "Â§6Cet item ne peut pas Ãªtre placÃ© !");
 		}
 		
 		if(item.getItemMeta().getDisplayName().equals(PC.getName())) {
@@ -64,7 +64,7 @@ public class BitcoinsPlaceMachine implements Listener {
 			
 			if(notPlaced.equals("True")) {
 				e.setCancelled(true);
-				player.sendMessage(Main.prefix + "§6Vous avez déjà un ordinateur de contrôle !");
+				player.sendMessage(Main.prefix + "Â§6Vous avez dÃ©jÃ  un ordinateur de contrÃ´le !");
 				return;
 			}
 			
@@ -79,7 +79,7 @@ public class BitcoinsPlaceMachine implements Listener {
 				error.printStackTrace();
 			}
 
-			 player.sendMessage(Main.prefix + "§6Vous venez de placer un ordinateur de contrôle.");
+			 player.sendMessage(Main.prefix + "Â§6Vous venez de placer un ordinateur de contrÃ´le.");
 			
 		}
 		
@@ -113,7 +113,7 @@ public class BitcoinsPlaceMachine implements Listener {
 			}
 			if(allPlaced == "True") {
 				e.setCancelled(true);
-				player.sendMessage(Main.prefix + "§6Vous avez atteint la limite d'Alimentation à essence !");
+				player.sendMessage(Main.prefix + "Â§6Vous avez atteint la limite d'Alimentation Ã  essence !");
 				return;
 			}
 			String key = "AllimEssence." + number; 
@@ -129,7 +129,7 @@ public class BitcoinsPlaceMachine implements Listener {
 				error.printStackTrace();
 			}
 			
-			player.sendMessage(Main.prefix + "§6Vous venez de placer une Alimentation à essence");
+			player.sendMessage(Main.prefix + "Â§6Vous venez de placer une Alimentation ï¿½ essence");
 			
 			
 		}
@@ -164,7 +164,7 @@ public class BitcoinsPlaceMachine implements Listener {
 			}
 			if(allPlaced == "True") {
 				e.setCancelled(true);
-				player.sendMessage(Main.prefix + "§6Vous avez atteint la limite d'Alimentation Solaire !");
+				player.sendMessage(Main.prefix + "Â§6Vous avez atteint la limite d'Alimentation Solaire !");
 				return;
 			}
 			
@@ -179,7 +179,7 @@ public class BitcoinsPlaceMachine implements Listener {
 				error.printStackTrace();
 			}
 			
-			player.sendMessage(Main.prefix + "§6Vous venez de placer une Alimentation Solaire !");
+			player.sendMessage(Main.prefix + "Â§6Vous venez de placer une Alimentation Solaire !");
 			
 			
 		}
@@ -214,7 +214,7 @@ public class BitcoinsPlaceMachine implements Listener {
 			}
 			if(allPlaced == "True") {
 				e.setCancelled(true);
-				player.sendMessage(Main.prefix + "§6Vous avez atteint la limite de serveurs !");
+				player.sendMessage(Main.prefix + "Â§6Vous avez atteint la limite de serveurs !");
 				return;
 			}
 			
@@ -229,7 +229,7 @@ public class BitcoinsPlaceMachine implements Listener {
 				error.printStackTrace();
 			}
 			
-			player.sendMessage(Main.prefix + "§6Vous venez de placer un serveur.");
+			player.sendMessage(Main.prefix + "Â§6Vous venez de placer un serveur.");
 			
 			
 		}
@@ -265,7 +265,7 @@ public class BitcoinsPlaceMachine implements Listener {
 			}
 			if(allPlaced == "True") {
 				e.setCancelled(true);
-				player.sendMessage(Main.prefix + "§6Vous avez atteint la limite de Batterie !");
+				player.sendMessage(Main.prefix + "Â§6Vous avez atteint la limite de Batterie !");
 				return;
 			}
 			
@@ -280,7 +280,7 @@ public class BitcoinsPlaceMachine implements Listener {
 				error.printStackTrace();
 			}
 			
-			player.sendMessage(Main.prefix + "§6Vous venez de placer une Batterie.");
+			player.sendMessage(Main.prefix + "Â§6Vous venez de placer une Batterie.");
 			
 			
 		}

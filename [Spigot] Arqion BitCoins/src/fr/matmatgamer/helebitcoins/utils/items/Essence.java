@@ -11,7 +11,7 @@ import fr.matmatgamer.helebitcoins.utils.ItemBuilder;
 public class Essence {
 
 	public String getName() {
-		return "§6Bidon D'Essence §8*5L*";
+		return "Â§6Bidon D'Essence Â§8*5L*";
 	}
 	
 	public Material Matos() {
@@ -23,8 +23,8 @@ public class Essence {
 		String[] lore = {
 				Main.ItemMarkerBTC,
 				"",
-				"§dAttention, je suis inflammable,",
-				"§dMais, avec moi votre production augmentera.",
+				"Â§dAttention, je suis inflammable,",
+				"Â§dMais, avec moi votre production augmentera.",
 				"",
 				Main.ItemMarkerBTC
 				};

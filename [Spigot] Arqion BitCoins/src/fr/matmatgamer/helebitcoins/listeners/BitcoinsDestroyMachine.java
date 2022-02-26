@@ -103,7 +103,7 @@ public class BitcoinsDestroyMachine implements Listener {
 								player.sendMessage("Prends une wrench stp !");
 							}
 						} else {
-							player.sendMessage("Ce n'est pas à toi !");
+							player.sendMessage("Ce n'est pas Ã  toi !");
 						}
 						break;
 					}
@@ -217,7 +217,7 @@ public class BitcoinsDestroyMachine implements Listener {
 								player.sendMessage("Prends une wrench stp !");
 							}
 						} else {
-							player.sendMessage("Ce n'est pas à toi !");
+							player.sendMessage("Ce n'est pas Ã  toi !");
 						}
 						break;
 					}
@@ -274,7 +274,7 @@ public class BitcoinsDestroyMachine implements Listener {
 								player.sendMessage("Prends une wrench stp !");
 							}
 						} else {
-							player.sendMessage("Ce n'est pas à toi !");
+							player.sendMessage("Ce n'est pas Ã  toi !");
 						}
 						break;
 					}

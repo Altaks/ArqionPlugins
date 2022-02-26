@@ -30,7 +30,7 @@ public class CommandCancelCablage implements CommandExecutor {
 		YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
 		
 		if(configuration.get("CablageEnCour").equals("False")) {
-			player.sendMessage(Main.prefix + "§cVous n'avez pas de cablage en cours");
+			player.sendMessage(Main.prefix + "Â§cVous n'avez pas de cablage en cours");
 			return false;
 		}
 		
@@ -46,7 +46,7 @@ public class CommandCancelCablage implements CommandExecutor {
 			e.printStackTrace();
 		}
 		
-		player.sendMessage(Main.prefix + "§cCablage annulé !");
+		player.sendMessage(Main.prefix + "Â§cCablage annulï¿½ !");
 		return true;
 	}
 		return false;

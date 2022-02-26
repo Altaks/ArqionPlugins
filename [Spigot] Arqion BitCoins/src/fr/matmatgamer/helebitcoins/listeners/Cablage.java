@@ -76,7 +76,7 @@ public class Cablage implements Listener {
 								configuration2.set("CablageEnCour.loc", e.getClickedBlock().getLocation());
 								configuration2.set("CablageEnCour.type", "Serveurs");
 								configuration2.set("CablageEnCour.machineNum", ServerId);
-								player.sendMessage(Main.prefix + "§cPremière machine en mémoire. Veuillez maintenant cliquer sur une Batterie. Vous pouvez annuler a tout moment en faisant §9/cancelCablage");
+								player.sendMessage(Main.prefix + "Â§cPremiÃ¨re machine en mÃ©moire. Veuillez maintenant cliquer sur une Batterie. Vous pouvez annuler a tout moment en faisant Â§9/cancelCablage");
 							} else {
 								
 								if(configuration2.get("CablageEnCour.type").equals("Batterie")) {
@@ -85,7 +85,7 @@ public class Cablage implements Listener {
 										configuration2.set(str, null);
 									}
 									configuration2.set("CablageEnCour", "False");
-									player.sendMessage(Main.prefix + "§cLa machine a été relié avec succès !");
+									player.sendMessage(Main.prefix + "ï¿½cLa machine a ï¿½tï¿½ reliï¿½ avec succï¿½s !");
 								}
 							}
 						}
@@ -131,7 +131,7 @@ public class Cablage implements Listener {
 								
 								configuration2.set("CablageEnCour.loc", e.getClickedBlock().getLocation());
 								configuration2.set("CablageEnCour.type", "PC");
-								player.sendMessage(Main.prefix + "§cPremière machine en mémoire. Veuillez maintenant cliquer sur une Batterie. Vous pouvez annuler à tout moment en faisant §9/cancelCablage");
+								player.sendMessage(Main.prefix + "Â§cPremiÃ¨re machine en mÃ©moire. Veuillez maintenant cliquer sur une Batterie. Vous pouvez annuler Ã  tout moment en faisant Â§9/cancelCablage");
 							} else {
 								if(configuration2.get("CablageEnCour.type").equals("Batterie")) {
 									configuration2.set("PC.batterie", configuration2.get("CablageEnCour.machineNum"));
@@ -139,7 +139,7 @@ public class Cablage implements Listener {
 										configuration2.set(str, null);
 									}
 									configuration2.set("CablageEnCour", "False");
-									player.sendMessage(Main.prefix + "§cLa machine a été relié avec succès !");
+									player.sendMessage(Main.prefix + "Â§cLa machine a Ã©tÃ© reliÃ© avec succÃ¨s !");
 								}
 							}
 						}
@@ -192,7 +192,7 @@ public class Cablage implements Listener {
 								configuration2.set("CablageEnCour.loc", e.getClickedBlock().getLocation());
 								configuration2.set("CablageEnCour.type", "AllimEssence");
 								configuration2.set("CablageEnCour.machineNum", AllimEssenceId);
-								player.sendMessage(Main.prefix + "§cPremiére machine en mémoire. Veuillez maintenant cliqué sur une Batterie. Vous pouvez annuler a tout moment en faisant §9/cancelCablage");
+								player.sendMessage(Main.prefix + "Â§cPremiÃ¨re machine en mÃ©moire. Veuillez maintenant cliquÃ© sur une Batterie. Vous pouvez annuler a tout moment en faisant Â§9/cancelCablage");
 							} else {
 								
 								if(configuration2.get("CablageEnCour.type").equals("Batterie")) {
@@ -201,7 +201,7 @@ public class Cablage implements Listener {
 										configuration2.set(str, null);
 									}
 									configuration2.set("CablageEnCour", "False");
-									player.sendMessage(Main.prefix + "§cLa machine a été relié avec succès !");
+									player.sendMessage(Main.prefix + "Â§cLa machine a Ã©tÃ© reliÃ© avec succÃ¨s !");
 								}
 							}
 						}
@@ -254,7 +254,7 @@ public class Cablage implements Listener {
 								configuration2.set("CablageEnCour.loc", e.getClickedBlock().getLocation());
 								configuration2.set("CablageEnCour.type", "AllimSolaire");
 								configuration2.set("CablageEnCour.machineNum", AllimSolaireId);
-								player.sendMessage(Main.prefix + "§cPremière machine en mémoire. Veuillez maintenant cliquer sur une Batterie. Vous pouvez annuler à tout moment en faisant §9/cancelCablage");
+								player.sendMessage(Main.prefix + "Â§cPremiÃ¨re machine en mÃ©moire. Veuillez maintenant cliquer sur une Batterie. Vous pouvez annuler Ã  tout moment en faisant Â§ï¿½9/cancelCablage");
 							} else {
 								
 								if(configuration2.get("CablageEnCour.type").equals("Batterie")) {
@@ -264,7 +264,7 @@ public class Cablage implements Listener {
 										configuration2.set(str, null);
 									}
 									configuration2.set("CablageEnCour", "False");
-									player.sendMessage(Main.prefix + "§cLa machine a été relié avec succés !");
+									player.sendMessage(Main.prefix + "Â§cLa machine a Ã©tÃ© reliÃ© avec succÃ¨s !");
 								}
 							}
 						}
@@ -313,7 +313,7 @@ public class Cablage implements Listener {
 							configuration2.set("CablageEnCour.loc", e.getClickedBlock().getLocation());
 							configuration2.set("CablageEnCour.type", "Batterie");
 							configuration2.set("CablageEnCour.machineNum", Batterieid);
-							player.sendMessage(Main.prefix + "§cPremière machine en mémoire. Veuillez maintenant cliquer sur une autre (Pc, Générateur à essence, Allimentation Solaire, Serveurs). Vous pouvez annuler a tout moment en faisant §9/cancelCablage");
+							player.sendMessage(Main.prefix + "Â§cPremiÃ¨re machine en mÃ©moire. Veuillez maintenant cliquer sur une autre (Pc, GÃ©nÃ©rateur Ã  essence, Allimentation Solaire, Serveurs). Vous pouvez annuler a tout moment en faisant Â§9/cancelCablage");
 						} else {
 							
 							for (String str : new String[] {"Serveurs", "PC", "AllimEssence, AllimSolaire"}) {
@@ -323,7 +323,7 @@ public class Cablage implements Listener {
 										configuration2.set(str2, null);
 									}
 									configuration2.set("CablageEnCour", "False");
-									player.sendMessage(Main.prefix + "§cLa machine a été relié avec succès !");
+									player.sendMessage(Main.prefix + "Â§cLa machine a Ã©tÃ© reliÃ©e avec succÃ¨s !");
 								}
 							}
 						

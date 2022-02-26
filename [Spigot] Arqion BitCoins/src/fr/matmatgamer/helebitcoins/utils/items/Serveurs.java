@@ -11,7 +11,7 @@ import fr.matmatgamer.helebitcoins.utils.ItemBuilder;
 public class Serveurs {
 
 	public String getName() {
-		return "§6Serveur";
+		return "Â§6Serveur";
 	}
 	
 	public Material Matos() {
@@ -27,8 +27,8 @@ public class Serveurs {
 		String[] lore = {
 				Main.ItemMarkerBTC,
 				"",
-				"§dAlimentez moi,",
-				"§dEt je vous donnerais des BitCoins.",
+				"Â§dAlimentez moi,",
+				"Â§dEt je vous donnerais des BitCoins.",
 				"",
 				Main.ItemMarkerBTC
 				};

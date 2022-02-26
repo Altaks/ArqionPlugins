@@ -16,7 +16,7 @@ import fr.matmatgamer.helebitcoins.utils.items.Tablette;
 @SuppressWarnings("deprecation")
 public class TabletteListener implements Listener{
 
-	private String invName = "§0§l§ke§0DA§0§l§ke§0R§0§l§kee§0K W§0§l§ke§0EB§0§l§ke";
+	private String invName = "Â§0Â§lÂ§keÂ§0DAÂ§0Â§lÂ§keÂ§0RÂ§0Â§lÂ§keeÂ§0K WÂ§0Â§lÂ§keÂ§0EBÂ§0Â§lÂ§ke";
 	
 	@EventHandler
 	private void onClick(PlayerInteractEvent e) {
@@ -27,9 +27,9 @@ public class TabletteListener implements Listener{
 		if(item.getType().equals(new Tablette().Matos()) && item.getItemMeta().getDisplayName().equals(new Tablette().getName())) {
 			Inventory inv = Bukkit.createInventory(null, 27, invName);
 			
-			inv.setItem(10, new ItemBuilder(Material.DIRT, 1).setName("§cDIRT").setLore("test1 1", "test2 2", "test3 3", "test4 4", "§65 5", "test6 6").build());
+			inv.setItem(10, new ItemBuilder(Material.DIRT, 1).setName("Â§cDIRT").setLore("test1 1", "test2 2", "test3 3", "test4 4", "Â§65 5", "test6 6").build());
 			for (int slot : new int[] {11, 12, 13, 14, 15, 16}) {
-				inv.setItem(slot, new ItemBuilder(Material.BEDROCK, 1).setName("§cItem Indisponible").build());
+				inv.setItem(slot, new ItemBuilder(Material.BEDROCK, 1).setName("Â§cItem Indisponible").build());
 			}
 			ItemStack glassPane = new ItemBuilder(Material.BLACK_STAINED_GLASS_PANE, 1).setName(" ").hideAttributes().build();
 			for (int j = 0; j < inv.getSize(); j++) {
@@ -53,10 +53,10 @@ public class TabletteListener implements Listener{
 		if(e.getView().getTitle().equals(invName)) {
 			e.setCancelled(true);
 			if(item.getType().equals(Material.BEDROCK)) {
-				player.sendMessage("§4Cet item ne peut pas être acheté !");
+				player.sendMessage("Â§4Cet item ne peut pas Ãªtre achetÃ© !");
 				return;
 			}
-			String LorePrice = item.getItemMeta().getLore().get(4).replace("§6", "").split(" ")[0];
+			String LorePrice = item.getItemMeta().getLore().get(4).replace("Â§6", "").split(" ")[0];
 			int Price = Integer.valueOf(LorePrice);
 			Bukkit.broadcastMessage(""+Price);
 		}

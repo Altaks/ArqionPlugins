@@ -11,7 +11,7 @@ import fr.matmatgamer.helebitcoins.utils.ItemBuilder;
 public class AdminWrench {
 
 	public String getName() {
-		return "§6Admin Wrench";
+		return "Â§6Admin Wrench";
 	}
 	
 	public Material Matos() {
@@ -23,11 +23,11 @@ public class AdminWrench {
 		String[] lore = {
 				Main.ItemMarkerBTC,
 				"",
-				"§dCassez toutes les machines avec moi,",
-				"§dN'aura jamais été aussi simple !",
+				"Â§dCassez toutes les machines avec moi,",
+				"Â§dN'aura jamais Ã©tÃ© aussi simple !",
 				"",
-				"            §4§l§nItem Admin",
-				"§cÊtre en créatif pour utiliser cet item.",
+				"            Â§4Â§lÂ§nItem Admin",
+				"Â§cÃªtre en crÃ©atif pour utiliser cet item.",
 				"",
 				Main.ItemMarkerBTC
 				};

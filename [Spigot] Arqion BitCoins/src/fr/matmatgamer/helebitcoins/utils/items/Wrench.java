@@ -11,7 +11,7 @@ import fr.matmatgamer.helebitcoins.utils.ItemBuilder;
 public class Wrench {
 
 	public String getName() {
-		return "§6Wrench";
+		return "Â§6Wrench";
 	}
 	
 	public Material Matos() {
@@ -23,8 +23,8 @@ public class Wrench {
 		String[] lore = {
 				Main.ItemMarkerBTC,
 				"",
-				"§dCassez vos machines avec moi,",
-				"§dN'aura jamais été aussi simple !",
+				"Â§dCassez vos machines avec moi,",
+				"Â§dN'aura jamais Ã©tÃ© aussi simple !",
 				"",
 				Main.ItemMarkerBTC
 				};

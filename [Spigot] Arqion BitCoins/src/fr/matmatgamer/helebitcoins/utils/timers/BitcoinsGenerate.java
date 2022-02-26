@@ -28,7 +28,7 @@ public class BitcoinsGenerate extends BukkitRunnable {
 		File file = new File(main.getDataFolder(), "Players/" + player.getUniqueId() + ".yml");
 		YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
 		
-		if(configuration.get("Génération").equals("True")) {
+		if(configuration.get("GÃ©nÃ©ration").equals("True")) {
 		
 			for (int j = 0; j < Serveurs.LimitePerPlayer(); j++) {
 				if(configuration.get("Serveurs." + j + ".placed").equals("True")) {

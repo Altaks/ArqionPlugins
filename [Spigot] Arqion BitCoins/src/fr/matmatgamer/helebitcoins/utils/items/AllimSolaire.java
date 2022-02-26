@@ -11,7 +11,7 @@ import fr.matmatgamer.helebitcoins.utils.ItemBuilder;
 public class AllimSolaire {
 
 	public String getName() {
-		return "§6Alimentation Solaire";
+		return "Â§6Alimentation Solaire";
 	}
 	
 	public Material Matos() {
@@ -27,9 +27,9 @@ public class AllimSolaire {
 		String[] lore = {
 				Main.ItemMarkerBTC,
 				"",
-				"§dLe jour, je suis utile.",
-				"§dLa nuit, je suis inutile.",
-				"§dCependant, je vous serais important.",
+				"Â§dLe jour, je suis utile.",
+				"Â§dLa nuit, je suis inutile.",
+				"Â§dCependant, je vous serais important.",
 				"",
 				Main.ItemMarkerBTC
 				};

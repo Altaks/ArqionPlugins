@@ -11,7 +11,7 @@ import fr.matmatgamer.helebitcoins.utils.ItemBuilder;
 public class Tablette {
 
 	public String getName() {
-		return "§6Tablette";
+		return "Â§6Tablette";
 	}
 	
 	public Material Matos() {
@@ -23,8 +23,8 @@ public class Tablette {
 		String[] lore = {
 				Main.ItemMarkerBTC,
 				"",
-				"§dAvec moi, accédez à des choses,",
-				"§dAvec moi, dépensez vos BitCoins.",
+				"Â§dAvec moi, accÃ©dez Ã  des choses,",
+				"Â§dAvec moi, dÃ©pensez vos BitCoins.",
 				"",
 				Main.ItemMarkerBTC
 				};

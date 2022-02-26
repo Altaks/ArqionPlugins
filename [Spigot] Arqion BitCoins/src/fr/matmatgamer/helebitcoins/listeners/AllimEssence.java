@@ -49,7 +49,7 @@ public class AllimEssence implements Listener{
 				for (int j = 0; j < allimEssence.LimitePerPlayer(); j++) {
 					if(configuration.isSet("AllimEssence." + j + ".id") && configuration.getLocation("AllimEssence." + j + ".co").equals(block.getLocation())) {
 						int ess = configuration.getInt("AllimEssence." + j + ".StockEssence");
-						player.sendMessage("§6Ce générateur contient " + ess/1000 + "L/50L.");
+						player.sendMessage("Â§6Ce gÃ©nÃ©rateur contient " + ess/1000 + "L/50L.");
 						break;
 					}
 				}
@@ -69,13 +69,13 @@ public class AllimEssence implements Listener{
 							} catch (IOException e1) {
 								e1.printStackTrace();
 							}
-							player.sendMessage("§9+5L. §6Ce générateur contient maintenant " + ess/1000 + "L/50L.");
+							player.sendMessage("Â§9+5L. Â§6Ce gÃ©nÃ©rateur contient maintenant " + ess/1000 + "L/50L.");
 							if(!player.getGameMode().equals(GameMode.CREATIVE)) {
 								player.setItemInHand(new BidonEssenceVide().getItem());
 							}
 							break;
 						} else {
-							player.sendMessage(Main.prefix + " §4Ce générateur est trop plein pour y rajouter 5L d'essence. (§9" + ess/1000 + "/50§4)");
+							player.sendMessage(Main.prefix + " Â§4Ce gÃ©nÃ©rateur est trop plein pour y rajouter 5L d'essence. (Â§9" + ess/1000 + "/50Â§4)");
 						}
 					}
 				}

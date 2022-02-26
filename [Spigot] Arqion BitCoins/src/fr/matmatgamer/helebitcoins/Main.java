@@ -19,14 +19,14 @@ import fr.matmatgamer.helebitcoins.utils.Crafts;
 
 public class Main extends JavaPlugin {
 
-	public static final String prefix = "§c[§6BitCoins§c] ";
+	public static final String prefix = "Â§c[Â§6BitCoinsÂ§c] ";
 	public static final String DebugPrefix = "[HeleBitcoins] ";
-	public static final String ItemMarkerBTC = "§b=§9-§b=§9-§b=§9-§b=§9-§6§l BitCoins §9-§b=§9-§b=§9-§b=§9-§b=";
-	public static final String ItemMarkerOres = "§b=§9-§b=§9-§b=§9-§b=§9-§6§l HeleMinerais §9-§b=§9-§b=§9-§b=§9-§b=";
+	public static final String ItemMarkerBTC = "Â§b=Â§9-Â§b=Â§9-Â§b=Â§9-Â§b=Â§9-Â§6Â§l BitCoins Â§9-Â§b=Â§9-Â§b=Â§9-Â§b=Â§9-Â§b=";
+	public static final String ItemMarkerOres = "Â§b=Â§9-Â§b=Â§9-Â§b=Â§9-Â§b=Â§9-Â§6Â§l HeleMinerais Â§9-Â§b=Â§9-Â§b=Â§9-Â§b=Â§9-Â§b=";
 	
 	@Override
 	public void onEnable() {
-		System.out.println(Main.DebugPrefix + "Plugin allumé avec succès.");
+		System.out.println(Main.DebugPrefix + "Plugin allumÃ© avec succÃ¨s.");
 		registerEvents();
 		
 		Crafts Crafts = new Crafts(this);
@@ -36,7 +36,7 @@ public class Main extends JavaPlugin {
 
 	@Override
 	public void onDisable() {
-		System.out.println(Main.DebugPrefix + "Plugin éteint avec succès.");
+		System.out.println(Main.DebugPrefix + "Plugin Ã©teint avec succÃ¨s.");
 	}
 	
 	public void registerEvents() {
