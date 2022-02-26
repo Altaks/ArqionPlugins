@@ -48,10 +48,12 @@ public class PetMenuInteractionListener implements Listener {
 		
 		for(ItemStack item : Arrays.asList(PluginItems.bat_pet, PluginItems.silverfish_pet, PluginItems.parrot_pet, PluginItems.phantom_pet, PluginItems.slime_pet, PluginItems.pig_pet, PluginItems.ender_drag_pet, PluginItems.chicken_pet)) {
 			if(petname.equals(item.getItemMeta().getDisplayName())) {
-				// si non �quip� : 
+				// si non équipé : 
 				if(main.getHasPetEquiped().contains(player)) {
-					// d�s�quiper le pet
+					// déséquiper le pet
 					main.getHasPetEquiped().remove(player);
+
+					main.getPets_from_name().get(PluginItems.silverfish_pet.getItemMeta().getDisplayName()).disablePetForPlayer(player);
 					
 					player.getOpenInventory().getTopInventory().setItem(13, ItemManager.PrebuiltItems.inventoryFillingGlassPane);
 					return;
@@ -70,6 +72,9 @@ public class PetMenuInteractionListener implements Listener {
 					main.getPetsArmorstand().addLast(new PetPlayerCouple(player, armorstand));
 					main.getHasPetEquiped().add(player);
 					
+					// active pet for player
+					main.getPets_from_name().get(PluginItems.silverfish_pet.getItemMeta().getDisplayName()).enablePetForPlayer(player);
+					
 					player.getOpenInventory().getTopInventory().setItem(13, new ItemManager.ItemBuilder(Material.LIME_DYE, 1, "§cPet équipé").build());
 					return;
 				}
@@ -84,7 +89,7 @@ public class PetMenuInteractionListener implements Listener {
 		for(PetRarity rarity : PetRarity.values()) {
 			if(rarity.getLabel().equals(lore)) return rarity;
 		}
-		return PetRarity.COMMUN;
+		return PetRarity.COMMON;
 		
 	}
 

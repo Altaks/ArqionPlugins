@@ -1,5 +1,6 @@
 package fr.altaks.arqionpets.pets;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
 public interface EquipablePet extends Listener {
@@ -16,6 +17,10 @@ public interface EquipablePet extends Listener {
 	public abstract String getHeadName();
 	
 	public abstract boolean isListener();
+	
+	public abstract void enablePetForPlayer(Player player);
+	
+	public abstract void disablePetForPlayer(Player player);
 	
 	public static enum PetRarity {
 		

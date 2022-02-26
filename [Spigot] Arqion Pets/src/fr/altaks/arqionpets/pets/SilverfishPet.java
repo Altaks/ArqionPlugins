@@ -36,6 +36,7 @@ public class SilverfishPet implements EquipablePet {
 				e.printStackTrace();
 			}
 		}
+		
 	}
 	
 	public String getPetFileName() {
@@ -57,7 +58,7 @@ public class SilverfishPet implements EquipablePet {
 				
 				for(Player player : players_who_enabled) {
 					
-					PetRarity rarity = pets_rarity.get(player.getUniqueId());
+					PetRarity rarity = Main.debugMode ? PetRarity.LEGENDARY : pets_rarity.get(player.getUniqueId());
 					
 					switch (rarity) {
 						case LEGENDARY:
@@ -79,12 +80,12 @@ public class SilverfishPet implements EquipablePet {
 				}
 				
 			}
-		}.runTaskTimer(main, 0, 40l);
+		}.runTaskTimer(main, 0, 20l);
 	}
 
 	@Override
 	public String getHeadName() {
-		return PluginItems.bat_pet.getItemMeta().getDisplayName();
+		return PluginItems.silverfish_pet.getItemMeta().getDisplayName();
 	}
 
 	@Override
@@ -92,23 +93,25 @@ public class SilverfishPet implements EquipablePet {
 		return false;
 	}
 	
+	@Override
 	public void enablePetForPlayer(Player player) {
-		if(pets_rarity.containsKey(player.getUniqueId())) {
+		//if(pets_rarity.containsKey(player.getUniqueId())) {
 			// le joueur possède le pet
 			
-			this.players_who_enabled.add(player);
+			players_who_enabled.add(player);
 			player.sendMessage(Main.PREFIX + "§eVous venez d'équiper votre silverfish");
 			
-		}
+		//}
 	}
 	
+	@Override
 	public void disablePetForPlayer(Player player) {
-		if(players_who_enabled.contains(player)) {
+		//if(players_who_enabled.contains(player)) {
 			// faire en sorte que le joueur déséquipe son pet
-			this.players_who_enabled.remove(player);
+			players_who_enabled.remove(player);
 			player.sendMessage(Main.PREFIX + "§eVous venez de déséquiper votre silverfish");
 			
-			PetRarity rarity = pets_rarity.get(player.getUniqueId());
+			PetRarity rarity = Main.debugMode ? PetRarity.LEGENDARY : pets_rarity.get(player.getUniqueId());
 			
 			// TODO : retirer les effets de popo
 			switch (rarity) {
@@ -127,7 +130,7 @@ public class SilverfishPet implements EquipablePet {
 			default:
 				return;
 			}
-		}
+		//}
 	}
 	
 	public boolean playerHasPet(UUID id) {
