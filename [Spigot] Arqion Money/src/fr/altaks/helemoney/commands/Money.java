@@ -30,10 +30,10 @@ public class Money implements CommandExecutor {
 				
 				Player player = (Player)sender;
 				try {
-					sender.sendMessage(MoneyUtil.API_PREFIX + "§6Vous avez actuellement §e" + MoneyUtil.formatAmount(main.getMoneyUtil().getMoneyOfPlayer(player.getUniqueId())) + "§6 sur vous et §e" +  MoneyUtil.formatAmount(main.getMoneyUtil().getMoneyOfPlayerBank(player.getUniqueId())) + "§6 en banque");
+					sender.sendMessage(MoneyUtil.API_PREFIX + "Â§6Vous avez actuellement Â§e" + MoneyUtil.formatAmount(main.getMoneyUtil().getMoneyOfPlayer(player.getUniqueId())) + "Â§6 sur vous et Â§e" +  MoneyUtil.formatAmount(main.getMoneyUtil().getMoneyOfPlayerBank(player.getUniqueId())) + "Â§6 en banque");
 					return true;
 				} catch (SQLException e) {
-					sender.sendMessage(MoneyUtil.API_PREFIX + "§cUne erreur est survenue, veuillez contacter le staff afin qu'il puisse régler ce problème au plus vite");
+					sender.sendMessage(MoneyUtil.API_PREFIX + "Â§cUne erreur est survenue, veuillez contacter le staff afin qu'il puisse rÃ©gler ce problÃ¨me au plus vite");
 					e.printStackTrace();
 				}
 				
@@ -41,10 +41,10 @@ public class Money implements CommandExecutor {
 				
 				OfflinePlayer player = Bukkit.getOfflinePlayer(args[0]);
 				try {
-					sender.sendMessage(MoneyUtil.API_PREFIX + "§e" + player.getName() + "§6 a actuellement §e" + MoneyUtil.formatAmount(main.getMoneyUtil().getMoneyOfPlayer(player.getUniqueId())) + "§6 sur lui et §e" +  MoneyUtil.formatAmount(main.getMoneyUtil().getMoneyOfPlayerBank(player.getUniqueId())) + "§6 en banque");
+					sender.sendMessage(MoneyUtil.API_PREFIX + "Â§e" + player.getName() + "Â§6 a actuellement Â§e" + MoneyUtil.formatAmount(main.getMoneyUtil().getMoneyOfPlayer(player.getUniqueId())) + "Â§6 sur lui et Â§e" +  MoneyUtil.formatAmount(main.getMoneyUtil().getMoneyOfPlayerBank(player.getUniqueId())) + "Â§6 en banque");
 					return true;
 				} catch (SQLException e) {
-					sender.sendMessage(MoneyUtil.API_PREFIX + "§cUne erreur est survenue, veuillez contacter le staff afin qu'il puisse régler ce problème au plus vite");
+					sender.sendMessage(MoneyUtil.API_PREFIX + "Â§cUne erreur est survenue, veuillez contacter le staff afin qu'il puisse rÃ©gler ce problÃ¨me au plus vite");
 					e.printStackTrace();
 				}
 				

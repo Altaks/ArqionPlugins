@@ -37,7 +37,7 @@ public class AdminBank implements TabExecutor {
 			
 			OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
 			if(target == null) {
-				sender.sendMessage(MoneyUtil.API_PREFIX + "§cLe joueur n'est jamais venu sur le serveur !");
+				sender.sendMessage(MoneyUtil.API_PREFIX + "Â§cLe joueur n'est jamais venu sur le serveur !");
 				return true;
 			}
 			
@@ -50,7 +50,7 @@ public class AdminBank implements TabExecutor {
 
 					
 					main.getMoneyUtil().addMoneyToPlayerBank(target.getUniqueId(), amount);
-					sender.sendMessage(MoneyUtil.API_PREFIX + "§6" + target.getName() + " a maintenant §e" + MoneyUtil.formatAmount(amount) + "§6 en plus en banque");
+					sender.sendMessage(MoneyUtil.API_PREFIX + "Â§6" + target.getName() + " a maintenant Â§e" + MoneyUtil.formatAmount(amount) + "Â§6 en plus en banque");
 					return true;
 					
 				case "take":
@@ -60,16 +60,16 @@ public class AdminBank implements TabExecutor {
 					
 					
 					main.getMoneyUtil().removeMoneyToPlayerBank(target.getUniqueId(), amount);
-					sender.sendMessage(MoneyUtil.API_PREFIX + "§6" + target.getName() + " a maintenant §e" + MoneyUtil.formatAmount(amount) + "§6 en moins en banque");
+					sender.sendMessage(MoneyUtil.API_PREFIX + "Â§6" + target.getName() + " a maintenant Â§e" + MoneyUtil.formatAmount(amount) + "Â§6 en moins en banque");
 					return true;
 					
 				case "set":
 					try {
 						
 						main.getMoneyUtil().setMoneyOfPlayerBank(target.getUniqueId(), amount);
-						sender.sendMessage(MoneyUtil.API_PREFIX + "§6" + target.getName() + " a maintenant §e" + MoneyUtil.formatAmount(amount) + "§6 en banque");
+						sender.sendMessage(MoneyUtil.API_PREFIX + "Â§6" + target.getName() + " a maintenant Â§e" + MoneyUtil.formatAmount(amount) + "Â§6 en banque");
 					} catch (SQLException e) {
-						sender.sendMessage(MoneyUtil.API_PREFIX + "Une erreur est survenue lors de la mise a jour dans la base de données");
+						sender.sendMessage(MoneyUtil.API_PREFIX + "Une erreur est survenue lors de la mise a jour dans la base de donnÃ©es");
 						e.printStackTrace();
 					}
 					return true;
@@ -84,12 +84,12 @@ public class AdminBank implements TabExecutor {
 
 				OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
 				if(target == null) {
-					sender.sendMessage(MoneyUtil.API_PREFIX + "§cLe joueur n'est jamais venu sur le serveur !");
+					sender.sendMessage(MoneyUtil.API_PREFIX + "Â§cLe joueur n'est jamais venu sur le serveur !");
 					return true;
 				}
 				
 				main.getMoneyUtil().resetMoneyOfPlayerBank(target.getUniqueId());
-				sender.sendMessage(MoneyUtil.API_PREFIX + "§e" + target.getName() + "§6 a maintenant §e0,00€§6 en banque");
+				sender.sendMessage(MoneyUtil.API_PREFIX + "Â§e" + target.getName() + "Â§6 a maintenant ï¿½e0,00â‚¬Â§6 en banque");
 				return true;
 				
 			}

@@ -29,26 +29,26 @@ public class Deposit implements CommandExecutor {
 				Player player = (Player)sender;
 				
 				if(main.getMoneyUtil().getMoneyOfPlayer(player.getUniqueId()) < amount) {
-					sender.sendMessage(MoneyUtil.API_PREFIX + "§cVous ne pouvez pas déposer autant d'argent dans votre banque, vous n'avez pas assez sur vous");
+					sender.sendMessage(MoneyUtil.API_PREFIX + "Â§cVous ne pouvez pas dÃ©poser autant d'argent dans votre banque, vous n'avez pas assez sur vous");
 					return true;
 				}
 				
 				if(main.getMoneyUtil().getMoneyOfPlayerBank(player.getUniqueId()) + amount > BankTier.getFromId(main.getMoneyUtil().getBankTier(player.getUniqueId())).max_storage) {
-					sender.sendMessage(MoneyUtil.API_PREFIX + "§cVous ne pouvez pas déposer autant d'argent dans votre banque, elle ne peut pas stocker autant, songez à l'améliorer !");
+					sender.sendMessage(MoneyUtil.API_PREFIX + "Â§cVous ne pouvez pas dÃ©poser autant d'argent dans votre banque, elle ne peut pas stocker autant, songez Ã  l'amÃ©liorer !");
 					return true;
 				}
 				
 				main.getMoneyUtil().removeMoneyToPlayer(player.getUniqueId(), amount);
 				main.getMoneyUtil().addMoneyToPlayerBank(player.getUniqueId(), amount);
-				sender.sendMessage(MoneyUtil.API_PREFIX + "§6Vous avez déposé §e" + MoneyUtil.formatAmount(amount) + "§6 dans votre banque !");
-				sender.sendMessage(MoneyUtil.API_PREFIX + "§6Vous avez maintenant §e" + MoneyUtil.formatAmount(main.getMoneyUtil().getMoneyOfPlayer(player.getUniqueId()) - amount) + "§6 sur vous");
+				sender.sendMessage(MoneyUtil.API_PREFIX + "Â§6Vous avez dÃ©posÃ© Â§e" + MoneyUtil.formatAmount(amount) + "Â§6 dans votre banque !");
+				sender.sendMessage(MoneyUtil.API_PREFIX + "Â§6Vous avez maintenant Â§e" + MoneyUtil.formatAmount(main.getMoneyUtil().getMoneyOfPlayer(player.getUniqueId()) - amount) + "Â§6 sur vous");
 				return true;
 				
 			} catch (NumberFormatException e) {
-				sender.sendMessage(MoneyUtil.API_PREFIX + "§cVeuillez entrer une valeur correcte !");
+				sender.sendMessage(MoneyUtil.API_PREFIX + "Â§cVeuillez entrer une valeur correcte !");
 				return false;
 			} catch (SQLException e) {
-				sender.sendMessage(MoneyUtil.API_PREFIX + "§cUne erreur est survenue lors de votre dépot, veuillez prévenir le staff pour qu'il puisse régler ce problème au plus vite");
+				sender.sendMessage(MoneyUtil.API_PREFIX + "Â§cUne erreur est survenue lors de votre dÃ©pot, veuillez prÃ©venir le staff pour qu'il puisse rÃ©gler ce problÃ¨me au plus vite");
 				e.printStackTrace();
 			}
 			

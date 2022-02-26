@@ -28,21 +28,21 @@ public class Withdraw implements CommandExecutor {
 				Player player = (Player)sender;
 				
 				if(main.getMoneyUtil().getMoneyOfPlayerBank(player.getUniqueId()) < amount) {
-					sender.sendMessage(MoneyUtil.API_PREFIX + "§cVous ne pouvez pas récupérer autant d'argent depuis votre banque, vous n'avez pas assez sur votre compte");
+					sender.sendMessage(MoneyUtil.API_PREFIX + "Â§cVous ne pouvez pas rÃ©cupÃ©rer autant d'argent depuis votre banque, vous n'avez pas assez sur votre compte");
 					return true;
 				}
 				
 				main.getMoneyUtil().removeMoneyToPlayerBank(player.getUniqueId(), amount);
 				main.getMoneyUtil().addMoneyToPlayer(player.getUniqueId(), amount);
-				sender.sendMessage(MoneyUtil.API_PREFIX + "§6Vous avez récupéré §e" + MoneyUtil.formatAmount(amount) + "§6 depuis votre banque !");
-				sender.sendMessage(MoneyUtil.API_PREFIX + "§6Vous avez maintenant §e" + MoneyUtil.formatAmount(main.getMoneyUtil().getMoneyOfPlayer(player.getUniqueId()) + amount) + "§6 sur vous");
+				sender.sendMessage(MoneyUtil.API_PREFIX + "Â§6Vous avez rÃ©cupÃ©rÃ© Â§e" + MoneyUtil.formatAmount(amount) + "Â§6 depuis votre banque !");
+				sender.sendMessage(MoneyUtil.API_PREFIX + "Â§6Vous avez maintenant Â§e" + MoneyUtil.formatAmount(main.getMoneyUtil().getMoneyOfPlayer(player.getUniqueId()) + amount) + "Â§6 sur vous");
 				return true;
 				
 			} catch (NumberFormatException e) {
-				sender.sendMessage(MoneyUtil.API_PREFIX + "§cVeuillez entrer une valeur correcte !");
+				sender.sendMessage(MoneyUtil.API_PREFIX + "Â§cVeuillez entrer une valeur correcte !");
 				return false;
 			} catch (SQLException e) {
-				sender.sendMessage(MoneyUtil.API_PREFIX + "§cUne erreur est survenue lors de votre dépot, veuillez prévenir le staff pour qu'il puisse régler ce problème au plus vite");
+				sender.sendMessage(MoneyUtil.API_PREFIX + "Â§cUne erreur est survenue lors de votre dÃ©pot, veuillez prÃ©venir le staff pour qu'il puisse rÃ©gler ce problÃ¨me au plus vite");
 				e.printStackTrace();
 			}
 			

@@ -20,7 +20,7 @@ import fr.altaks.helemoney.util.ItemBuilder;
 
 public class Bank implements CommandExecutor {
 	
-	private ItemStack returnBarrier = new ItemBuilder(Material.BARRIER, 1, (short)0, "§cQuitter le menu").build(), glasspane = new ItemBuilder(Material.BLACK_STAINED_GLASS_PANE, 1, (short)0, " ").build();
+	private ItemStack returnBarrier = new ItemBuilder(Material.BARRIER, 1, (short)0, "Â§cQuitter le menu").build(), glasspane = new ItemBuilder(Material.BLACK_STAINED_GLASS_PANE, 1, (short)0, " ").build();
 	private Main main;
 	
 	public Bank(Main main) {
@@ -36,7 +36,7 @@ public class Bank implements CommandExecutor {
 				player.openInventory(getBankUpgradeInv(player.getUniqueId()));
 				return true;
 			} catch (SQLException e) {
-				sender.sendMessage(MoneyUtil.API_PREFIX + "§cUne erreur est survenue, veuillez prévenir le staff afin qu'il puisse régler ce problème au plus vite");
+				sender.sendMessage(MoneyUtil.API_PREFIX + "Â§cUne erreur est survenue, veuillez prÃ©venir le staff afin qu'il puisse rÃ©gler ce problÃ¨me au plus vite");
 				e.printStackTrace();
 			}
 			
@@ -46,14 +46,14 @@ public class Bank implements CommandExecutor {
 	
 	public Inventory getBankUpgradeInv(UUID id) throws SQLException {
 		
-		final ItemBuilder bank1 = new ItemBuilder(Material.GOLD_INGOT, 1, (short)0, "§aBanque tier 1")		.setLore("§eBanque de niveau 1","§6Prix : §b0€",		"§r§6Capacité Max: §b250k€").addItemFlag(ItemFlag.HIDE_ENCHANTS);
-		final ItemBuilder bank2 = new ItemBuilder(Material.GOLD_BLOCK, 1, (short)0, "§aBanque tier 2")		.setLore("§eBanque de niveau 2","§6Prix : §b175k€",		"§r§6Capacité Max: §b250k€").addItemFlag(ItemFlag.HIDE_ENCHANTS);
-		final ItemBuilder bank3 = new ItemBuilder(Material.DIAMOND, 1, (short)0, "§aBanque tier 3")			.setLore("§eBanque de niveau 3","§6Prix : §b500k€",		"§r§6Capacité Max: §b2M€").addItemFlag(ItemFlag.HIDE_ENCHANTS);
-		final ItemBuilder bank4 = new ItemBuilder(Material.DIAMOND_BLOCK, 1, (short)0, "§aBanque tier 4")		.setLore("§eBanque de niveau 4","§6Prix : §b1M€",		"§r§6Capacité Max: §b4M€").addItemFlag(ItemFlag.HIDE_ENCHANTS);
-		final ItemBuilder bank5 = new ItemBuilder(Material.EMERALD, 1, (short)0, "§aBanque tier 5")			.setLore("§eBanque de niveau 5","§6Prix : §b2.5M€",		"§r§6Capacité Max: §b9M€").addItemFlag(ItemFlag.HIDE_ENCHANTS);
-		final ItemBuilder bank6 = new ItemBuilder(Material.EMERALD_BLOCK, 1, (short)0, "§aBanque tier 6")		.setLore("§eBanque de niveau 6","§6Prix : §b5.75M€",	"§r§6Capacité Max: §b15M€").addItemFlag(ItemFlag.HIDE_ENCHANTS);
+		final ItemBuilder bank1 = new ItemBuilder(Material.GOLD_INGOT, 1, (short)0, "Â§aBanque tier 1")		.setLore("Â§eBanque de niveau 1","Â§6Prix : Â§b0Â§",		"Â§rÂ§6CapacitÃ© Max: Â§b250kâ‚¬").addItemFlag(ItemFlag.HIDE_ENCHANTS);
+		final ItemBuilder bank2 = new ItemBuilder(Material.GOLD_BLOCK, 1, (short)0, "Â§aBanque tier 2")		.setLore("Â§eBanque de niveau 2","Â§6Prix : Â§b175kÂ§",		"Â§rÂ§6CapacitÃ© Max: Â§b250kâ‚¬").addItemFlag(ItemFlag.HIDE_ENCHANTS);
+		final ItemBuilder bank3 = new ItemBuilder(Material.DIAMOND, 1, (short)0, "Â§aBanque tier 3")			.setLore("Â§eBanque de niveau 3","Â§6Prix : Â§b500kÂ§",		"Â§rÂ§6CapacitÃ© Max: Â§b2Mâ‚¬").addItemFlag(ItemFlag.HIDE_ENCHANTS);
+		final ItemBuilder bank4 = new ItemBuilder(Material.DIAMOND_BLOCK, 1, (short)0, "Â§aBanque tier 4")		.setLore("Â§eBanque de niveau 4","Â§6Prix : Â§b1MÂ§",		"Â§rÂ§6CapacitÃ© Max: Â§b4Mâ‚¬").addItemFlag(ItemFlag.HIDE_ENCHANTS);
+		final ItemBuilder bank5 = new ItemBuilder(Material.EMERALD, 1, (short)0, "Â§aBanque tier 5")			.setLore("Â§eBanque de niveau 5","Â§6Prix : Â§b2.5MÂ§",		"Â§rÂ§6CapacitÃ© Max: Â§b9Mâ‚¬").addItemFlag(ItemFlag.HIDE_ENCHANTS);
+		final ItemBuilder bank6 = new ItemBuilder(Material.EMERALD_BLOCK, 1, (short)0, "Â§aBanque tier 6")		.setLore("Â§eBanque de niveau 6","Â§6Prix : Â§b5.75MÂ§",	"Â§rÂ§6CapacitÃ© Max: Â§b15Mâ‚¬").addItemFlag(ItemFlag.HIDE_ENCHANTS);
 		
-		Inventory inv = Bukkit.createInventory(null, 6*9, "§cAmélioration de banque \u00BB");
+		Inventory inv = Bukkit.createInventory(null, 6*9, "Â§cAmÃ©lioration de banque \u00BB");
 		
 		switch(main.getMoneyUtil().getBankTier(id)) {
 			case 6:

@@ -35,7 +35,7 @@ public class PlayerJoinListener implements Listener {
 					insertPlayerInBDD(player.getUniqueId());
 				}
 			} catch (SQLException e) {
-				player.sendMessage(MoneyUtil.API_PREFIX + "§cUne erreur est survenue lors de votre ajout en base de donnée, ceci va nuire a votre expérience de jeu. Veuillez prévenir le staff afin qu'il puisse régler ce problème au plus vite");
+				player.sendMessage(MoneyUtil.API_PREFIX + "Â§cUne erreur est survenue lors de votre ajout en base de donnÃ©e, ceci va nuire a votre expÃ©rience de jeu. Veuillez prÃ©venir le staff afin qu'il puisse rÃ©gler ce problÃ¨me au plus vite");
 				e.printStackTrace();
 			}
 			

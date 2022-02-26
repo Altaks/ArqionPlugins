@@ -25,7 +25,7 @@ public class BankUpgradeListener implements Listener {
 		
 		if(event.getInventory() == null || event.getClickedInventory() == null) return;
 		
-		if(event.getView().getTitle().equals("§cAmélioration de banque \u00BB") && event.getClickedInventory().contains(Material.BARRIER)) {
+		if(event.getView().getTitle().equals("Â§cAmÃ©lioration de banque \u00BB") && event.getClickedInventory().contains(Material.BARRIER)) {
 			
 			Player player = (Player) event.getWhoClicked();
 			int slot = event.getSlot();
@@ -61,7 +61,7 @@ public class BankUpgradeListener implements Listener {
 				try {
 					tryToUpgradeToTier(player, tier);
 				} catch (SQLException e) {
-					player.sendMessage(MoneyUtil.API_PREFIX + "§cUne erreur est survenue, veuillez prévenir le staff afin qu'il règle ce problème au plus vite");
+					player.sendMessage(MoneyUtil.API_PREFIX + "Â§cUne erreur est survenue, veuillez prÃ©venir le staff afin qu'il rÃ¨gle ce problÃ¨me au plus vite");
 					e.printStackTrace();
 				}
 				
@@ -74,17 +74,17 @@ public class BankUpgradeListener implements Listener {
 		
 		int actualTier = main.getMoneyUtil().getBankTier(player.getUniqueId());
 		if(actualTier < tier-1) {
-			player.sendMessage(MoneyUtil.API_PREFIX + "§cVous devez d'abord avoir le tier §e" + (tier-1) + " avant d'acquérir le tier §e" + tier + " §c!");
+			player.sendMessage(MoneyUtil.API_PREFIX + "Â§cVous devez d'abord avoir le tier Â§e" + (tier-1) + " avant d'acquÃ©rir le tier Â§e" + tier + "Â§c!");
 			return;
 		} else if(actualTier >= tier) {
-			player.sendMessage(MoneyUtil.API_PREFIX + "§cVous possédez déjà le tier §e" + tier + "§c!");
+			player.sendMessage(MoneyUtil.API_PREFIX + "Â§cVous possÃ©dez dÃ©jÃ  le tier Â§e" + tier + "Â§c!");
 		} else {
 			if(BankTier.getFromId(tier).price <= main.getMoneyUtil().getMoneyOfPlayer(player.getUniqueId())) {
 				main.getMoneyUtil().updateBankTier(player.getUniqueId(), tier);
 				main.getMoneyUtil().removeMoneyToPlayer(player.getUniqueId(), BankTier.getFromId(tier).price);
-				player.sendMessage(MoneyUtil.API_PREFIX + "§6Vous venez d'acheter la banque de tier " + tier);
+				player.sendMessage(MoneyUtil.API_PREFIX + "Â§6Vous venez d'acheter la banque de tier " + tier);
 			} else {
-				player.sendMessage(MoneyUtil.API_PREFIX + "§cVous n'avez pas l'argent requis pour acheter ceci !");
+				player.sendMessage(MoneyUtil.API_PREFIX + "Â§cVous n'avez pas l'argent requis pour acheter ceci !");
 				return;
 			}
 		}
