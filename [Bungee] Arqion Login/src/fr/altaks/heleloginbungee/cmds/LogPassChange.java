@@ -29,13 +29,13 @@ public class LogPassChange extends Command {
 				try {
 					changePasswordOfPlayer(first, args[2]);
 				} catch (SQLException e) {
-					sender.sendMessage(new TextComponent(Main.PREFIX + "§cUne erreur est survenue lors du changement du mot de passe du joueur, l'erreur est affichée en console."));
+					sender.sendMessage(new TextComponent(Main.PREFIX + "Â§cUne erreur est survenue lors du changement du mot de passe du joueur, l'erreur est affichÃ©e en console."));
 					e.printStackTrace();
 					return;
 				}
-				sender.sendMessage(new TextComponent(Main.PREFIX + "§6Le mot de passe du compte §e" + args[2] + " §6est maintenant changé !"));
+				sender.sendMessage(new TextComponent(Main.PREFIX + "Â§6Le mot de passe du compte Â§e" + args[2] + " Â§6est maintenant changï¿½ !"));
 			} else {
-				sender.sendMessage(new TextComponent(Main.PREFIX + "§cLes mots de passe ne correspondent pas !"));
+				sender.sendMessage(new TextComponent(Main.PREFIX + "Â§cLes mots de passe ne correspondent pas !"));
 			}
 			
 		}

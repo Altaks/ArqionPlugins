@@ -27,12 +27,12 @@ public class LogPassSee extends Command {
 			String playername = args[0];
 			try {
 				String password = getPasswordFromPlayerName(playername);
-				sender.sendMessage(new TextComponent(Main.PREFIX + "§6Le mot de passe du joueur §e" + playername + "§6 est : §e" + password +"§6."));
+				sender.sendMessage(new TextComponent(Main.PREFIX + "Â§6Le mot de passe du joueur Â§e" + playername + "Â§6 est : Â§e" + password +"Â§6."));
 			} catch (NullPointerException e) {
-				sender.sendMessage(new TextComponent(Main.PREFIX + "§cLe compte de ce joueur n'existe pas dans la base de données !"));
+				sender.sendMessage(new TextComponent(Main.PREFIX + "Â§cLe compte de ce joueur n'existe pas dans la base de donnÃ©es !"));
 				e.printStackTrace();
 			} catch (SQLException e) {
-				sender.sendMessage(new TextComponent(Main.PREFIX + "§cUne erreur est survenue du côté de la base de donnée, l'erreur est affichée en console"));
+				sender.sendMessage(new TextComponent(Main.PREFIX + "Â§cUne erreur est survenue du cÃ´tÃ© de la base de donnÃ©e, l'erreur est affichÃ©e en console"));
 				e.printStackTrace();
 			}
 			

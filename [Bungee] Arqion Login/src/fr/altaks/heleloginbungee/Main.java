@@ -11,7 +11,7 @@ public class Main extends Plugin {
 	
 	private DatabaseManager dbManager;
 	
-	public static final String PREFIX = "§7[§6HeleLogin§7] \u00BB ";
+	public static final String PREFIX = "Â§7[Â§6HeleLoginÂ§7] \u00BB ";
 
 	
 	@Override
