@@ -25,6 +25,7 @@ import fr.altaks.arqionpets.listeners.ItemStackBurningListener;
 import fr.altaks.arqionpets.listeners.PetInfuserInteractionListener;
 import fr.altaks.arqionpets.listeners.PetMenuInteractionListener;
 import fr.altaks.arqionpets.listeners.RecipeGive;
+import fr.altaks.arqionpets.pets.BatPet;
 import fr.altaks.arqionpets.pets.EquipablePet;
 import fr.altaks.arqionpets.pets.SilverfishPet;
 import fr.altaks.arqionpets.task.PetLocationUpdateTask;
@@ -64,7 +65,7 @@ public class Main extends JavaPlugin {
 		new PetLocationUpdateTask(this).runTaskTimerAsynchronously(this, 0, 1);
 		loadCrafts();
 		
-		for(EquipablePet petclass : new EquipablePet[] { new SilverfishPet(this) }) {
+		for(EquipablePet petclass : new EquipablePet[] { new SilverfishPet(this), new BatPet(this) }) {
 			
 			this.pets_from_name.put(petclass.getHeadName(), petclass);
 			if(petclass.isListener()) Bukkit.getPluginManager().registerEvents(petclass, this);
