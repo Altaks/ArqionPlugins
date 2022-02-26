@@ -29,7 +29,7 @@ public class Unbanip extends Command {
 			try {
 				String ip = getIp(pseudo);
 				unbanIp(ip);
-				sender.sendMessage(new TextComponent(Main.PREFIX + " §6L'adresse ip : §e" + ip + "§6 a bien été débannie §r("+pseudo+")"));
+				sender.sendMessage(new TextComponent(Main.PREFIX + " Â§6L'adresse ip : Â§e" + ip + "Â§6 a bien Ã©tÃ© dÃ©bannie Â§r("+pseudo+")"));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

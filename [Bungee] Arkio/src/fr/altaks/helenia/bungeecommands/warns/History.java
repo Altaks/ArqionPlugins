@@ -86,33 +86,33 @@ public class History extends Command {
 				// Date 
 				// Raison
 				
-				TextComponent playercomp = new TextComponent("§e"+player +" ");
+				TextComponent playercomp = new TextComponent("Â§e"+player +" ");
 				playercomp.setClickEvent(new ClickEvent(Action.COPY_TO_CLIPBOARD, player));
-				playercomp.setHoverEvent(new HoverEvent(net.md_5.bungee.api.chat.HoverEvent.Action.SHOW_TEXT, new BaseComponent[]{new TextComponent("§eCliques ici pour copier !")}));
+				playercomp.setHoverEvent(new HoverEvent(net.md_5.bungee.api.chat.HoverEvent.Action.SHOW_TEXT, new BaseComponent[]{new TextComponent("Â§eCliques ici pour copier !")}));
 				
-				TextComponent moderatorcomp = new TextComponent("§e"+moderator+ " ");
+				TextComponent moderatorcomp = new TextComponent("Â§e"+moderator+ " ");
 				moderatorcomp.setClickEvent(new ClickEvent(Action.COPY_TO_CLIPBOARD, moderator));
-				moderatorcomp.setHoverEvent(new HoverEvent(net.md_5.bungee.api.chat.HoverEvent.Action.SHOW_TEXT, new BaseComponent[]{new TextComponent("§eCliques ici pour copier !")}));
+				moderatorcomp.setHoverEvent(new HoverEvent(net.md_5.bungee.api.chat.HoverEvent.Action.SHOW_TEXT, new BaseComponent[]{new TextComponent("Â§eCliques ici pour copier !")}));
 				
-				TextComponent playeridcomp = new TextComponent("§7[ID]§r");
+				TextComponent playeridcomp = new TextComponent("Â§7[ID]Â§r");
 				playeridcomp.setClickEvent(new ClickEvent(Action.COPY_TO_CLIPBOARD, playerid));
-				playeridcomp.setHoverEvent(new HoverEvent(net.md_5.bungee.api.chat.HoverEvent.Action.SHOW_TEXT, new BaseComponent[]{new TextComponent("§eCliques ici pour copier !")}));
+				playeridcomp.setHoverEvent(new HoverEvent(net.md_5.bungee.api.chat.HoverEvent.Action.SHOW_TEXT, new BaseComponent[]{new TextComponent("Â§eCliques ici pour copier !")}));
 				
-				TextComponent moderatoridcomp = new TextComponent("§7[ID]§r");
+				TextComponent moderatoridcomp = new TextComponent("Â§7[ID]Â§r");
 				moderatoridcomp.setClickEvent(new ClickEvent(Action.COPY_TO_CLIPBOARD, moderatorid));
-				moderatoridcomp.setHoverEvent(new HoverEvent(net.md_5.bungee.api.chat.HoverEvent.Action.SHOW_TEXT, new BaseComponent[]{new TextComponent("§eCliques ici pour copier !")}));
+				moderatoridcomp.setHoverEvent(new HoverEvent(net.md_5.bungee.api.chat.HoverEvent.Action.SHOW_TEXT, new BaseComponent[]{new TextComponent("Â§eCliques ici pour copier !")}));
 
 				
 				Date date = Date.from(timestamp.toInstant());
 				DateFormat format = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy", Locale.FRANCE);
 				TextComponent datecomp = new TextComponent(format.format(date));
 				datecomp.setClickEvent(new ClickEvent(Action.COPY_TO_CLIPBOARD, format.format(date)));
-				datecomp.setHoverEvent(new HoverEvent(net.md_5.bungee.api.chat.HoverEvent.Action.SHOW_TEXT, new BaseComponent[]{new TextComponent("§eCliques ici pour copier !")}));
+				datecomp.setHoverEvent(new HoverEvent(net.md_5.bungee.api.chat.HoverEvent.Action.SHOW_TEXT, new BaseComponent[]{new TextComponent("Â§eCliques ici pour copier !")}));
 
 				
 				TextComponent reasoncomp = new TextComponent(reason);
 				reasoncomp.setClickEvent(new ClickEvent(Action.COPY_TO_CLIPBOARD, reason));
-				reasoncomp.setHoverEvent(new HoverEvent(net.md_5.bungee.api.chat.HoverEvent.Action.SHOW_TEXT, new BaseComponent[]{new TextComponent("§eCliques ici pour copier !")}));
+				reasoncomp.setHoverEvent(new HoverEvent(net.md_5.bungee.api.chat.HoverEvent.Action.SHOW_TEXT, new BaseComponent[]{new TextComponent("Â§eCliques ici pour copier !")}));
 				
 				TextComponent total = new TextComponent(Main.PREFIX + "\n");
 				
@@ -124,14 +124,14 @@ public class History extends Command {
 				total.addExtra(moderatorcomp);
 				total.addExtra(moderatoridcomp);
 				
-				total.addExtra(" sur §e");
+				total.addExtra(" sur Â§e");
 				total.addExtra(playerserver);
-				total.addExtra("§r\n");
+				total.addExtra("Â§r\n");
 				
-				total.addExtra("§6Date : §e");
+				total.addExtra("Â§6Date : Â§e");
 				total.addExtra(datecomp);
 				
-				total.addExtra("\n§6Raison : §e");
+				total.addExtra("\nï¿½6Raison : Â§e");
 				total.addExtra(reasoncomp);
 
 				list.add(total);
@@ -140,7 +140,7 @@ public class History extends Command {
 		} else {
 			// dire qu'il n'y a pas d'historique
 			
-			list.add(new TextComponent(Main.PREFIX + " Aucun historique trouvé"));
+			list.add(new TextComponent(Main.PREFIX + " Aucun historique trouvÃ©"));
 		}
 		return list;
 	}

@@ -46,10 +46,10 @@ public class Ban extends Command {
 			
 			try {
 				banPlayerNow(target.getUniqueId(), reason);
-				target.disconnect(new TextComponent(Main.PREFIX + "§cVous avez été banni par §6" + sender.getName() + " §c!"));
+				target.disconnect(new TextComponent(Main.PREFIX + "Â§cVous avez Ã©tÃ©banni par Â§6" + sender.getName() + " Â§c!"));
 			} catch (SQLException e) {
 				e.printStackTrace();
-				sender.sendMessage(new TextComponent(Main.PREFIX + "§c Une erreur est survenue lors de la commande : SQLException."));
+				sender.sendMessage(new TextComponent(Main.PREFIX + "Â§c Une erreur est survenue lors de la commande : SQLException."));
 			}
 		}
 		

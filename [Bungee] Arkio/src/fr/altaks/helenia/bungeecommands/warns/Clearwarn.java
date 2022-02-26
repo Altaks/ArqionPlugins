@@ -33,7 +33,7 @@ public class Clearwarn extends Command {
 			
 			try {
 				clearwarnPlayer(player.getUniqueId());
-				sender.sendMessage(new TextComponent(Main.PREFIX + " " + playername + " a été clearwarn"));
+				sender.sendMessage(new TextComponent(Main.PREFIX + " " + playername + " a Ã©tÃ© clearwarn"));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

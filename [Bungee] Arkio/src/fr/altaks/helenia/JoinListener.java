@@ -41,10 +41,10 @@ public class JoinListener implements Listener {
 				
 				// test joueur banni ou alors tempban timestamp < systemtime -> refus de connexion
 				if(isCurrentlyBanned(player)) {
-					event.getPlayer().disconnect(new TextComponent(Main.PREFIX + "§cVous êtes banni de ce serveur !"));
+					event.getPlayer().disconnect(new TextComponent(Main.PREFIX + "Â§cVous Ãªtes banni de ce serveur !"));
 					return;
 				} else {
-					event.getPlayer().sendMessage(new TextComponent(Main.PREFIX + "§6Bienvenue à toi sur Helenium, cher\u00B7e " + player.getName()));
+					event.getPlayer().sendMessage(new TextComponent(Main.PREFIX + "Â§6Bienvenue Ã  toi sur Helenium, cher\u00B7e " + player.getName()));
 					return;
 				}
 			}
@@ -72,7 +72,7 @@ public class JoinListener implements Listener {
 		statement.setBoolean(2, false); // muted
 		statement.setBoolean(3, false); // banned
 		
-		statement.setString(4, "Aucun bannissement à ce jour..."); // lastbanreason
+		statement.setString(4, "Aucun bannissement Ã  ce jour..."); // lastbanreason
 		
 		statement.setTimestamp(5, null); // tempban timestamp
 		statement.setTimestamp(6, null); // temp ip ban timestamp

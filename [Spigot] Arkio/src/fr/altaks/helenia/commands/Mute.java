@@ -36,10 +36,10 @@ public class Mute implements CommandExecutor {
 			try {
 				mutePlayerNow(target.getUniqueId());
 				main.getMutingTimestamps().put(target.getUniqueId(), Long.MAX_VALUE);
-				sender.sendMessage(Main.PREFIX + " งe" + targetname + "ง6 est maintenant muet/muette");
+				sender.sendMessage(Main.PREFIX + " ยงe" + targetname + "ยง6 est maintenant muet/muette");
 			} catch (SQLException e) {
 				e.printStackTrace();
-				sender.sendMessage(Main.PREFIX + "งc Une erreur est survenue lors de la commande : SQLException.");
+				sender.sendMessage(Main.PREFIX + "ยงc Une erreur est survenue lors de la commande : SQLException.");
 			}
 			
 			return true;

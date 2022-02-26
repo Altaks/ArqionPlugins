@@ -49,16 +49,16 @@ public class ServerGuardListener implements Listener {
 			
 			if(infos.tempban == null) {
 				
-				// refuser avec un temps de ban définitif
-				event.disallow(Result.KICK_BANNED, Main.PREFIX + " §rVous êtes banni du serveur définitivement");
+				// refuser avec un temps de ban dï¿½finitif
+				event.disallow(Result.KICK_BANNED, Main.PREFIX + " Â§rVous Ãªtes banni du serveur dÃ©finitivement");
 				
 			} else {
 				
-				// refuser en affichant jusqu'à quand il est ban
+				// refuser en affichant jusqu'ï¿½ quand il est ban
 				if(Instant.now().toEpochMilli() > infos.tempban.toInstant().toEpochMilli()) {
-					// il n'est plus banni, il faut déban bdd
+					// il n'est plus banni, il faut dï¿½ban bdd
 					event.allow();
-					// déban bdd
+					// dï¿½ban bdd
 					try {
 						unbanFromBDD(event.getUniqueId());
 					} catch (SQLException e) {
@@ -72,16 +72,16 @@ public class ServerGuardListener implements Listener {
 					Date date = Date.from(Instant.ofEpochMilli(infos.tempban.getTime()));
 					DateFormat format = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy", Locale.FRANCE);
 					
-					event.disallow(Result.KICK_BANNED,"\n"+ Main.PREFIX + " §rVous êtes banni du serveur jusqu'à : " + format.format(date));
+					event.disallow(Result.KICK_BANNED,"\n"+ Main.PREFIX + " Â§rVous Ãªtes banni du serveur jusqu'Ã  : " + format.format(date));
 				}
 				
 			}
-			
+	
 		} else if(infos.ismuted){
 			
 			if(infos.tempmute == null) {
 				
-				// mute définitif
+				// mute dï¿½finitif
 				this.main.getMutingTimestamps().put(event.getUniqueId(), Long.MAX_VALUE);
 				
 			} else {
@@ -164,7 +164,7 @@ public class ServerGuardListener implements Listener {
 			statement.setBoolean(2, false); // muted
 			statement.setBoolean(3, false); // banned
 			
-			statement.setString(4, "Aucun bannissement à ce jour..."); // lastbanreason
+			statement.setString(4, "Aucun bannissement Ã  ce jour..."); // lastbanreason
 			
 			statement.setTimestamp(5, Timestamp.from(Instant.ofEpochSecond(0l))); // tempban timestamp
 			statement.setTimestamp(6, Timestamp.from(Instant.ofEpochSecond(0l))); // temp ip ban timestamp

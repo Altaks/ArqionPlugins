@@ -16,15 +16,15 @@ public class Modhelp extends Command {
 		
 		sender.sendMessage(
 				new TextComponent(
-						Main.PREFIX+"\n§r"+
-						"/ban <joueur> <raison> §rBannir un joueur\n§r"+
-						"/unban <joueur §rDébannir un joueur\n§r"+
-						"/tempban <joueur> <durée> <raison> §rBannir temporairement un joueur\n§r"+
-						"/find <joueur> §rSe rendre sur le serveur du joueur\n§r"+
-						"/warn <joueur> <raison>§r Donner une sanction a un joueur\n§r"+
-						"/unwarn <joueur> §rRetirer la dernière sanction a un joueur\n§r"+
-						"/clearwarn <joueur> §rRetirer toutes les sanctions d'un joueur\n§r"+
-						"/history <joueur> §rAccéder a la liste des sanctions d'un joueur"
+						Main.PREFIX+"\nÂ§r"+
+						"/ban <joueur> <raison> Â§rBannir un joueur\nÂ§r"+
+						"/unban <joueur Â§rDÃ©bannir un joueur\nÂ§r"+
+						"/tempban <joueur> <durÃ©e> <raison> Â§rBannir temporairement un joueur\nÂ§r"+
+						"/find <joueur> Â§rSe rendre sur le serveur du joueur\nÂ§r"+
+						"/warn <joueur> <raison>Â§r Donner une sanction a un joueur\nÂ§r"+
+						"/unwarn <joueur> Â§rRetirer la derniÃ¨re sanction a un joueur\nÂ§r"+
+						"/clearwarn <joueur> Â§rRetirer toutes les sanctions d'un joueur\nÂ§r"+
+						"/history <joueur> Â§rAccÃ©der a la liste des sanctions d'un joueur"
 				)
 		);
 	}

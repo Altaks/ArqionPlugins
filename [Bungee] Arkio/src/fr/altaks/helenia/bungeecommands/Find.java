@@ -24,13 +24,13 @@ public class Find extends Command {
 			
 			ProxiedPlayer target = main.getProxy().getPlayer(targetname);
 			if(target == null) {
-				sender.sendMessage(Main.PREFIX + "Joueur non trouvé");
+				sender.sendMessage(Main.PREFIX + "Joueur non trouvÃ©");
 			} else {
 				ProxiedPlayer proxiedsender = (ProxiedPlayer)sender;
 				proxiedsender.connect(target.getServer().getInfo());
-				proxiedsender.sendMessage(Main.PREFIX + "§6Vous avez été téléporté vers §e" + target.getDisplayName());
+				proxiedsender.sendMessage(Main.PREFIX + "Â§6Vous avez Ã©tÃ© tÃ©lÃ©portÃ© vers Â§e" + target.getDisplayName());
 			}
-		} else sender.sendMessage(Main.PREFIX + "Vous ne pouvez pas exécuter cette commande si vous n'êtes pas un joueur !");
+		} else sender.sendMessage(Main.PREFIX + "Vous ne pouvez pas exÃ©cuter cette commande si vous n'Ãªtes pas un joueur !");
 		
 	}
 

@@ -24,7 +24,7 @@ public class Unban extends Command {
 		if(args.length > 0) {
 			try {
 				unbanPlayer(args[0]);
-				sender.sendMessage(new TextComponent(Main.PREFIX + " " + args[0] + " à bien été débanni(e)"));
+				sender.sendMessage(new TextComponent(Main.PREFIX + " " + args[0] + " a bien Ã©tÃ© dÃ©banni(e)"));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

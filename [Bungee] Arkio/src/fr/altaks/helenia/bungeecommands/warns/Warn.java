@@ -35,7 +35,7 @@ public class Warn extends Command {
 			ProxiedPlayer player = ProxyServer.getInstance().getPlayer(playername);
 			
 			if(player == null) {
-				sender.sendMessage(new TextComponent(Main.PREFIX + " §e" + playername + "§c n'est pas présent"));
+				sender.sendMessage(new TextComponent(Main.PREFIX + " Â§e" + playername + "Â§c n'est pas prÃ©sent"));
 				return;
 			}
 			
@@ -57,7 +57,7 @@ public class Warn extends Command {
 			
 			try {
 				warnPlayer(moderatorid, playerid, moderatorname, playername, reason, now, playerserver);
-				sender.sendMessage(new TextComponent(Main.PREFIX + "§e" + playername + " §6a été warn pour : §e" + reason));
+				sender.sendMessage(new TextComponent(Main.PREFIX + "Â§e" + playername + " Â§6a Ã©tÃ© warn pour : Â§e" + reason));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

@@ -15,7 +15,7 @@ import net.md_5.bungee.api.plugin.PluginManager;
 
 public class Main extends Plugin {
 	
-	public static final String PREFIX = "§7[§cArkio§7]§c \u00BB ";
+	public static final String PREFIX = "Â§7[Â§cArkioÂ§7]Â§c \u00BB ";
 	
 	private DatabaseManager dbManager;
 	

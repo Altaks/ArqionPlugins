@@ -38,7 +38,7 @@ public class BanIp extends Command {
 			try {
 				String ip = getIp(pseudo);
 				banip(ip, reason.toString());
-				sender.sendMessage(new TextComponent(Main.PREFIX + "ง6Adresse IP งe" + ip + "ง6 bannie du serveur งr(" + pseudo + ")"));
+				sender.sendMessage(new TextComponent(Main.PREFIX + "ยง6Adresse IP ยงe" + ip + "ยง6 bannie du serveur ยงr(" + pseudo + ")"));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

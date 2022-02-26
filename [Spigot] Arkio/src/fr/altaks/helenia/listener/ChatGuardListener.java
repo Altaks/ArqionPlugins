@@ -36,7 +36,7 @@ public class ChatGuardListener implements Listener {
 				main.getMutingTimestamps().remove(player.getUniqueId());
 			} else {
 				event.setCancelled(true);
-				player.sendMessage(Main.PREFIX + " Vous êtes muet pour le moment, vous ne pouvez pas parler.");
+				player.sendMessage(Main.PREFIX + " Vous Ãªtes muet pour le moment, vous ne pouvez pas parler.");
 			}
 		} 
 	}

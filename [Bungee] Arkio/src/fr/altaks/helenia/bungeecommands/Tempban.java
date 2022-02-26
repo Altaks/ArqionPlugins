@@ -58,8 +58,8 @@ public class Tempban extends Command {
 				banPlayerNow(target.getUniqueId(), reason, newTempbanTimestamp);
 				Date date = Date.from(newTempbanTimestamp.toInstant());
 				DateFormat format = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy", Locale.FRANCE);
-				target.disconnect(new TextComponent(Main.PREFIX + " Vous avez temporairement été banni par " + sender.getName() + " jusqu'à " + format.format(date)));
-				sender.sendMessage(new TextComponent(Main.PREFIX + " Bannissement effectué !"));
+				target.disconnect(new TextComponent(Main.PREFIX + " Vous avez temporairement Ã©tÃ© banni par " + sender.getName() + " jusqu'Ã  " + format.format(date)));
+				sender.sendMessage(new TextComponent(Main.PREFIX + " Bannissement effectuÃ© !"));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

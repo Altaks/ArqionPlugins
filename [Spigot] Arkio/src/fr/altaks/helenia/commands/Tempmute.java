@@ -42,7 +42,7 @@ public class Tempmute implements CommandExecutor {
 			try {
 				mutePlayerNow(target.getUniqueId(), newTempbanTimestamp);
 				main.getMutingTimestamps().put(target.getUniqueId(), System.currentTimeMillis() + diffInMillis);
-				sender.sendMessage(Main.PREFIX + " §e" + targetname + "§6 a été rendu muet/te temporairement");
+				sender.sendMessage(Main.PREFIX + " Â§e" + targetname + "Â§6 a Ã©tÃ© rendu muet/te temporairement");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

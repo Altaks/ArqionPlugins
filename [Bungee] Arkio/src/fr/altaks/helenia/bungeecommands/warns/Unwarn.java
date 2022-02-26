@@ -33,7 +33,7 @@ public class Unwarn extends Command {
 			
 			try {
 				unwarnPlayer(player.getUniqueId());
-				sender.sendMessage(new TextComponent(Main.PREFIX + " " + playername + " a été unwarn"));
+				sender.sendMessage(new TextComponent(Main.PREFIX + " " + playername + " a Ã©tÃ© unwarn"));
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

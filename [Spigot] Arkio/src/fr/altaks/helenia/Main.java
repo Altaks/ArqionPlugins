@@ -18,7 +18,7 @@ public class Main extends JavaPlugin {
 	
 	private HashMap<UUID, Long> mutingTimestamps = new HashMap<UUID, Long>();
 	
-	public static final String PREFIX = "§7[§cArkio§7] \u00BB", NOTFOUND = "§7[§6Système§7] \u00BB ";
+	public static final String PREFIX = "Â§7[Â§cArkioÂ§7] \u00BB", NOTFOUND = "Â§7[Â§6SystÃ¨meÂ§7] \u00BB ";
 	
 	private DatabaseManager dbManager = new DatabaseManager();
 	
