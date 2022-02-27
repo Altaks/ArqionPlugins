@@ -71,9 +71,9 @@ public class CompressorListener implements Listener {
 					// si les 4 slots sont full
 					// verif le material et si c'est le même pour les 4
 				
-				if(clickedInv.getItem(0).equals(clickedInv.getItem(9))) {
-					if(clickedInv.getItem(9).equals(clickedInv.getItem(18))) {
-						if(clickedInv.getItem(18).equals(clickedInv.getItem(27))) {
+				if(clickedInv.getItem(0).getType().equals(clickedInv.getItem(9).getType())) {
+					if(clickedInv.getItem(9).getType().equals(clickedInv.getItem(18).getType())) {
+						if(clickedInv.getItem(18).getType().equals(clickedInv.getItem(27).getType())) {
 							if(clickedInv.getItem(0).getType() == Material.COBBLESTONE || clickedInv.getItem(0).getType() == Material.FEATHER || clickedInv.getItem(0).getType() == Material.SLIME_BLOCK) {
 								// verif si c'est des stacks
 								// si oui:
