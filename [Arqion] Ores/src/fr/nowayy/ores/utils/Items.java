@@ -30,7 +30,9 @@ public class Items {
 							compressCobble = new ItemManager.ItemBuilder(Material.COBBLESTONE, 1, "Compressed Cobblestone").addFakeEnchant().build(),
 							cable = new ItemManager.ItemBuilder(Material.LEAD, 1, "Cable").addFakeEnchant(Enchantment.SILK_TOUCH, 5).build(),
 							compressFeather = new ItemManager.ItemBuilder(Material.FEATHER, 1, "Compressed Feather").build(),
-							compressSlimeBlock = new ItemManager.ItemBuilder(Material.SLIME_BLOCK, 1, "Compressed Slime Block").build();
+							compressSlimeBlock = new ItemManager.ItemBuilder(Material.SLIME_BLOCK, 1, "Compressed Slime Block").build(),
+							compressPetDust = new ItemManager.ItemBuilder(Material.GUNPOWDER, 1, "§ePoudre de pet compressée").addFakeEnchant().build(),
+							pet_dust = new ItemManager.ItemBuilder(Material.GUNPOWDER, 1, "§ePoudre de pet").build();
 	
 							
 

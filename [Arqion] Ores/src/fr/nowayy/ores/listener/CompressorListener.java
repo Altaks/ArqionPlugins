@@ -49,7 +49,7 @@ public class CompressorListener implements Listener {
         	Inventory compressorInv = Bukkit.createInventory(null, 9 * 4, "§8Compressor");
     		
     		for(int x = 0; x < compressorInv.getSize(); x++) compressorInv.setItem(x, PrebuiltItems.inventoryFillingGlassPane);
-    		for(int x : new int[] {11, 12, 13, 14, 20, 21, 22, 23}) compressorInv.setItem(x, new ItemManager.ItemBuilder(Material.WHITE_STAINED_GLASS).build());
+    		for(int x : new int[] {11, 12, 13, 14, 20, 21, 22, 23}) compressorInv.setItem(x, new ItemManager.ItemBuilder(Material.WHITE_STAINED_GLASS, 1, "").build());
     		for(int z : new int[] {0, 9, 18, 27, 25}) compressorInv.setItem(z, null);
     		
     		event.getPlayer().openInventory(compressorInv);
@@ -63,30 +63,34 @@ public class CompressorListener implements Listener {
 		
 		if(event.getView().getTitle().equals("§8Compressor")) {
 			if(event.getView().getTopInventory().equals(clickedInv)) {
-				if(event.getCurrentItem() == PrebuiltItems.inventoryFillingGlassPane) {
-					event.setCancelled(true);
-					return;
+				if(event.getSlot() == 25 && clickedInv.getItem(25) == null) { event.setCancelled(true); return; }
+				if(event.getCurrentItem() != null) if(event.getCurrentItem().getType().toString().contains("STAINED_GLASS")) { event.setCancelled(true); return; }
+				
+				// si les 4 slots sont full
+				// verif le material et si c'est le même pour les 4
+				System.out.println("aaaaaaaaa");
+				for(int i : new int[] {0, 9, 18, 27}) {
+					if(clickedInv.getItem(i) == null) return;
 				}
-				
-					// si les 4 slots sont full
-					// verif le material et si c'est le même pour les 4
-				
-				if(clickedInv.getItem(0).getType().equals(clickedInv.getItem(9).getType())) {
-					if(clickedInv.getItem(9).getType().equals(clickedInv.getItem(18).getType())) {
-						if(clickedInv.getItem(18).getType().equals(clickedInv.getItem(27).getType())) {
-							if(clickedInv.getItem(0).getType() == Material.COBBLESTONE || clickedInv.getItem(0).getType() == Material.FEATHER || clickedInv.getItem(0).getType() == Material.SLIME_BLOCK) {
+				if(clickedInv.getItem(0).equals(clickedInv.getItem(9))) {
+					if(clickedInv.getItem(9).equals(clickedInv.getItem(18))) {
+						if(clickedInv.getItem(18).equals(clickedInv.getItem(27))) {
+							System.out.println("ok");
+							if(clickedInv.getItem(0).getType() == Material.COBBLESTONE || 
+									clickedInv.getItem(0).getType() == Material.FEATHER || 
+									clickedInv.getItem(0).getType() == Material.SLIME_BLOCK) {
 								// verif si c'est des stacks
 								// si oui:
-								if(clickedInv.getItem(10).getAmount() == 64) {
-									
+								if(clickedInv.getItem(0).getAmount() == 64) {
+									event.getWhoClicked().sendMessage("ok");
 									new BukkitRunnable() {
-										private int seconds = 0;
+										private int counter = 0;
 										
 										@Override
 										public void run() {
-											if(seconds == 20) cancel();
+											if(counter == 20) cancel();
 											
-											int progress = seconds/20*100;
+											int progress = counter/20*100;
 											ItemStack progressGlass = new ItemManager.ItemBuilder(Material.RED_STAINED_GLASS, 1, generateProgressBar(progress, 50)).build();
 											
 											// mettre à jour les verres en fonction de la progression
@@ -95,35 +99,28 @@ public class CompressorListener implements Listener {
 											if(progress >= 75) progressGlass.setType(Material.LIME_STAINED_GLASS);
 											if(progress == 100) {
 												progressGlass.setType(Material.LIGHT_BLUE_STAINED_GLASS);
-												switch(clickedInv.getItem(0).getType()) {
 												
-													case COBBLESTONE:
-														clickedInv.setItem(25, items.compressCobble);
-														break;
-													case FEATHER:
-														clickedInv.setItem(25, items.compressFeather);
-														break;
-													case SLIME_BLOCK:
-														clickedInv.setItem(25, items.compressSlimeBlock);
-														break;
-												//	case PET_DUST:
-												//		break;
-												default: break;
-												}
+												if(clickedInv.getItem(0).getType() == Material.COBBLESTONE) clickedInv.setItem(25, items.compressCobble);
+												if(clickedInv.getItem(0).getType() == Material.FEATHER) clickedInv.setItem(25, items.compressFeather);
+												if(clickedInv.getItem(0).getType() == Material.SLIME_BLOCK) clickedInv.setItem(25, items.compressSlimeBlock);
+												if(clickedInv.getItem(0).equals(items.pet_dust)) clickedInv.setItem(25, items.compressPetDust);
+												
 											}
 											for(int x : new int[] {11, 12, 13, 14, 20, 21, 22, 23}) clickedInv.setItem(x, progressGlass);
-											seconds++;
+											System.out.println(counter);
+											counter++;
 										}
 									}.runTaskTimer(main, 0, 20);
 									
 									
 									
 								}
-							} else return;
-						} else return;
-					} else return;
+							}
+						}
+					}
 				}
 			}
+		
 		}
 	}
 	
