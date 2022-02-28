@@ -45,9 +45,29 @@ public class Main extends JavaPlugin {
 	
 	private Collection<NamespacedKey> recipeskeys = new ArrayList<NamespacedKey>();
 	
+	private SpecialChickenListener specialChickenListener = new SpecialChickenListener(this); 
+
 	public Listener[] listeners = {
-			new ItemStackBurningListener(), new PetInfuserInteractionListener(), new PetMenuInteractionListener(this), new RecipeGive(this), new EntityDropItemsListener()
-	};				 
+			new ItemStackBurningListener(), 
+			new PetInfuserInteractionListener(), 
+			new PetMenuInteractionListener(this), 
+			new RecipeGive(this), 
+			new EntityDropItemsListener(),
+			specialChickenListener;
+	};
+
+	public EquipablePet[] pets = { 
+			
+				new SilverfishPet(this), 
+				new BatPet(this), 
+				new SlimePet(this), 
+				new EnderDragonPet(this), 
+				new ParrotPet(this),
+				new PigPet(this),
+				new ChickenPet(this),
+				new PhantomPet(this)
+			
+	};			 
 	
 	@Override
 	public void onEnable() {
@@ -68,18 +88,7 @@ public class Main extends JavaPlugin {
 		new PetLocationUpdateTask(this).runTaskTimerAsynchronously(this, 0, 1);
 		loadCrafts();
 		
-		for(EquipablePet petclass : new EquipablePet[] { 
-			
-				new SilverfishPet(this), 
-				new BatPet(this), 
-				new SlimePet(this), 
-				new EnderDragonPet(this), 
-				new ParrotPet(this),
-				new PigPet(this),
-				new ChickenPet(this),
-				new PhantomPet(this)
-			
-			}) {
+		for(EquipablePet petclass : pets) {
 			
 			this.pets_from_name.put(petclass.getHeadName(), petclass);
 			if(petclass.isListener()) Bukkit.getPluginManager().registerEvents(petclass, this);
@@ -96,6 +105,7 @@ public class Main extends JavaPlugin {
 		petsArmorstand.clear();
 		hasPetEquiped.clear();
 		
+		dragonEggListener.flushEntities();
 	}
 	
 	@SuppressWarnings("deprecation")
