@@ -64,9 +64,6 @@ public class PigPet implements EquipablePet {
             PetRarity rarity = Main.debugMode ? PetRarity.LEGENDARY : pets_rarity.get(player.getUniqueId());
 
             switch(rarity){
-                case LEGENDARY:
-                    event.getPlayer().setFoodLevel(event.getPlayer().getFoodLevel() + 10);
-                    break;
                 case EPIC:
                     event.getPlayer().setFoodLevel(event.getPlayer().getFoodLevel() + 5);
                     break;
