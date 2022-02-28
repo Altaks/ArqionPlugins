@@ -10,13 +10,10 @@ import java.util.UUID;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
-import org.bukkit.event.player.PlayerItemHeldEvent;
-import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -58,10 +55,11 @@ public class PigPet implements EquipablePet {
         if(event.getItem().getType().isEdible() && event.getItem().getType() != Material.POTION){
 
 			// oof faut pas manger du porc si tu as un porcinet en pet t'es fouS
-			if(event.getItem.getType() == Material.PORKSHOP || event.getItem().getType() == Material.COOKED_PORKSHOP){
-				event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA, 60, 255), true);
+			if(event.getItem().getType() == Material.PORKCHOP || event.getItem().getType() == Material.COOKED_PORKCHOP){
+				event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 60, 255), true);
 				return;
 			}
+			Player player = event.getPlayer();
             PetRarity rarity = Main.debugMode ? PetRarity.LEGENDARY : pets_rarity.get(player.getUniqueId());
 
             // augmenter la saturation 
@@ -83,7 +81,9 @@ public class PigPet implements EquipablePet {
 
 	@EventHandler
     public void onPlayerLoosehHungerEvent(FoodLevelChangeEvent event){
-		if(!this.players_who_enabled.contains(event.getPlayer())) return;
+		if(!(event.getEntity() instanceof Player)) return;
+		Player player = (Player)event.getEntity();
+		if(!this.players_who_enabled.contains(player)) return;
 		if(Main.debugMode || pets_rarity.get(player.getUniqueId()) == PetRarity.LEGENDARY){
 			event.setCancelled(true);
 		}

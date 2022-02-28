@@ -10,18 +10,14 @@ import java.util.UUID;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.player.PlayerItemConsumeEvent;
-import org.bukkit.event.player.PlayerItemHeldEvent;
-import org.bukkit.inventory.meta.PotionMeta;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PluginItems;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 
 public class PhantomPet implements EquipablePet {
 
@@ -54,16 +50,17 @@ public class PhantomPet implements EquipablePet {
 
         new BukkitRunnable(){
 
-            @Override
+            @SuppressWarnings("deprecation")
+			@Override
             public void run(){
 
-                for(Player player : this.players_who_enabled){
-                    if(this.pets_rarity.get(player.getUniqueId()) != PetRarity.LEGENDARY) continue;
+                for(Player player : players_who_enabled){
+                    if(pets_rarity.get(player.getUniqueId()) != PetRarity.LEGENDARY) continue;
                     if(player.getInventory().getChestplate().getType() == Material.ELYTRA){
 
                         ItemStack elytras = player.getInventory().getChestplate();
                         boolean isMaxDura = elytras.getDurability() == Material.ELYTRA.getMaxDurability();
-                        if(!isMaxDura) elytras.setDurability(elytras.getDurability() + 1);
+                        if(!isMaxDura) elytras.setDurability((short) (elytras.getDurability() + 1));
                         player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Main.PREFIX + "§7[Phantom] Tes élytras sont mieux comme ça !"));
                     }
 
@@ -76,16 +73,17 @@ public class PhantomPet implements EquipablePet {
 
         new BukkitRunnable(){
 
-            @Override
+            @SuppressWarnings("deprecation")
+			@Override
             public void run(){
 
-                for(Player player : this.players_who_enabled){
-                    if(this.pets_rarity.get(player.getUniqueId()) != PetRarity.EPIC) continue;
+                for(Player player : players_who_enabled){
+                    if(pets_rarity.get(player.getUniqueId()) != PetRarity.EPIC) continue;
                     if(player.getInventory().getChestplate().getType() == Material.ELYTRA){
 
                         ItemStack elytras = player.getInventory().getChestplate();
                         boolean isMaxDura = elytras.getDurability() == Material.ELYTRA.getMaxDurability();
-                        if(!isMaxDura) elytras.setDurability(elytras.getDurability() + 1);
+                        if(!isMaxDura) elytras.setDurability((short) (elytras.getDurability() + 1));
                         player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Main.PREFIX + "§7[Phantom] Tes élytras sont mieux comme ça !"));
 
                     }
@@ -99,17 +97,18 @@ public class PhantomPet implements EquipablePet {
 
         new BukkitRunnable(){
 
-            @Override
+            @SuppressWarnings("deprecation")
+			@Override
             public void run(){
 
-                for(Player player : this.players_who_enabled){
+                for(Player player : players_who_enabled){
                     
-                    if(this.pets_rarity.get(player.getUniqueId()) != PetRarity.RARE) continue;
+                    if(pets_rarity.get(player.getUniqueId()) != PetRarity.RARE) continue;
                     if(player.getInventory().getChestplate().getType() == Material.ELYTRA){
 
                         ItemStack elytras = player.getInventory().getChestplate();
                         boolean isMaxDura = elytras.getDurability() == Material.ELYTRA.getMaxDurability();
-                        if(!isMaxDura) elytras.setDurability(elytras.getDurability() + 1);
+                        if(!isMaxDura) elytras.setDurability((short) (elytras.getDurability() + 1));
                         player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(Main.PREFIX + "§7[Phantom] Tes élytras sont mieux comme ça !"));
 
                     }
