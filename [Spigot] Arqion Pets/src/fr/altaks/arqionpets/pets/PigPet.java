@@ -52,17 +52,19 @@ public class PigPet implements EquipablePet {
 	@Override
 	public void init() {};
 
-    private List<Material> food = Arrays.asList(Material.PORKSHOP, ... // TODO)
-
     @EventHandler
     public void onPlayerEatEvent(PlayerItemConsumeEvent event){
+		if(!this.players_who_enabled.contains(event.getPlayer())) return;
+        if(event.getItem().getType().isEdible() && event.getItem().getType() != Material.POTION){
 
-        if(event.getItem().getType().isEdible()){
-
-            // augmenter la saturation 
-
+			// oof faut pas manger du porc si tu as un porcinet en pet t'es fouS
+			if(event.getItem.getType() == Material.PORKSHOP || event.getItem().getType() == Material.COOKED_PORKSHOP){
+				event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA, 60, 255), true);
+				return;
+			}
             PetRarity rarity = Main.debugMode ? PetRarity.LEGENDARY : pets_rarity.get(player.getUniqueId());
 
+            // augmenter la saturation 
             switch(rarity){
                 case EPIC:
                     event.getPlayer().setFoodLevel(event.getPlayer().getFoodLevel() + 5);
@@ -76,6 +78,15 @@ public class PigPet implements EquipablePet {
             }
 
         }
+
+    }
+
+	@EventHandler
+    public void onPlayerLoosehHungerEvent(FoodLevelChangeEvent event){
+		if(!this.players_who_enabled.contains(event.getPlayer())) return;
+		if(Main.debugMode || pets_rarity.get(player.getUniqueId()) == PetRarity.LEGENDARY){
+			event.setCancelled(true);
+		}
 
     }
 
