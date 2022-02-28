@@ -18,6 +18,7 @@ import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PluginItems;
@@ -54,39 +55,33 @@ public class ParrotPet implements EquipablePet {
 	@EventHandler
 	public void onPlayerDrinkPotionEvent(PlayerItemConsumeEvent event) {
 		
-		// get potion type
+		if(!this.players_who_enabled.contains(event.getPlayer())) return;
+		if(!(event.getItem().getType() != Material.POTION)) return;
+		// cancel event
 		
-		if(event.getItem().getType() != Material.POTION) return;
+		event.setCancelled(true);
 		
-		Player player = event.getPlayer();
+		// get potion types + durations + amplifiers
+		PotionMeta potMeta = ((PotionMeta)event.getItem().getItemMeta());
+		PotionEffectType basePotType = potMeta.getBasePotionData().getType().getEffectType();
+		int amplifier = potMeta.getBasePotionData().isUpgraded() ? 1 : 0;
+		int duration = potMeta.getBasePotionData().isExtended() ? 8 * 60 : 3 * 60;
+		// nullify item
 		
-		if(players_who_enabled.contains(player)) {
-			int multiplier = 1;
+		if(event.getPlayer().getInventory().getItemInMainHand().equals(event.getItem())) {
+			event.getPlayer().getInventory().setItemInMainHand(null);
+		} else event.getPlayer().getInventory().setItemInOffHand(null);
+		// add new effects
+		
+		event.getPlayer().addPotionEffect(new PotionEffect(basePotType, duration, amplifier));
+		
+		for(PotionEffect potEffect : potMeta.getCustomEffects()) {
 			
-			PetRarity rarity = Main.debugMode ? PetRarity.LEGENDARY : pets_rarity.get(player.getUniqueId());
+			PotionEffectType potType = potEffect.getType();
+			int amp = potMeta.getBasePotionData().isUpgraded() ? 1 : 0;
+			int dur = potMeta.getBasePotionData().isExtended() ? 8 * 60 : 3 * 60;
 			
-			switch (rarity) {
-				
-				case LEGENDARY:
-					multiplier = 10;
-					break;
-				case EPIC:
-					multiplier = 5;
-					break;
-				case RARE:
-					multiplier = 3;
-					break;
-				case COMMON:
-					multiplier = 2;
-					break;
-				default:
-					break;
-			}
-			
-			for(PotionEffect potEffect : ((PotionMeta)event.getItem().getItemMeta()).getCustomEffects()) {
-				player.removePotionEffect(potEffect.getType()); // remove effect
-				player.addPotionEffect(new PotionEffect(potEffect.getType(), potEffect.getDuration() * multiplier, potEffect.getAmplifier())); // add new effect w/ coeffs in funct° of rarity
-			}
+			event.getPlayer().addPotionEffect(new PotionEffect(potType, dur, amp));
 		}
 		
 	}

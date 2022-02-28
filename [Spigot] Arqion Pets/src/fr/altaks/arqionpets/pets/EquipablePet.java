@@ -22,15 +22,17 @@ public interface EquipablePet extends Listener {
 	
 	public static enum PetRarity {
 		
-		COMMON("§2[Commun]"), 
-		RARE("§9[Rare]"),
-		EPIC("§5[Épique]"),
-		LEGENDARY("§6[Légendaire]");
+		COMMON("§2[Commun]", 2), 
+		RARE("§9[Rare]", 3),
+		EPIC("§5[Épique]", 5),
+		LEGENDARY("§6[Légendaire]", 10);
 		
 		private String id, label;
+		private int potionMultiplier;
 		
-		private PetRarity(String label) {
+		private PetRarity(String label, int potionMultiplier) {
 			this.id = this.toString().toLowerCase();
+			this.potionMultiplier = potionMultiplier;
 			this.label = label;
 		}
 		
@@ -50,6 +52,10 @@ public interface EquipablePet extends Listener {
 
 		public String getLabel() {
 			return label;
+		}
+		
+		public int getPotionMultiplier() {
+			return potionMultiplier;
 		}
 		
 	}
