@@ -68,7 +68,16 @@ public class Main extends JavaPlugin {
 		new PetLocationUpdateTask(this).runTaskTimerAsynchronously(this, 0, 1);
 		loadCrafts();
 		
-		for(EquipablePet petclass : new EquipablePet[] { new SilverfishPet(this), new BatPet(this), new SlimePet(this), new EnderDragonPet(this), new ParrotPet(this)}) {
+		for(EquipablePet petclass : new EquipablePet[] { 
+			
+				new SilverfishPet(this), 
+				new BatPet(this), 
+				new SlimePet(this), 
+				new EnderDragonPet(this), 
+				new ParrotPet(this),
+				new PigPet(this)
+			
+			}) {
 			
 			this.pets_from_name.put(petclass.getHeadName(), petclass);
 			if(petclass.isListener()) Bukkit.getPluginManager().registerEvents(petclass, this);
