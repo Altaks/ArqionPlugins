@@ -75,7 +75,9 @@ public class Main extends JavaPlugin {
 				new SlimePet(this), 
 				new EnderDragonPet(this), 
 				new ParrotPet(this),
-				new PigPet(this)
+				new PigPet(this),
+				new ChickenPet(this),
+				new PhantomPet(this)
 			
 			}) {
 			
