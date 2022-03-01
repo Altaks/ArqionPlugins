@@ -124,7 +124,7 @@ public class BatPet implements EquipablePet {
 		if(players_who_enabled.contains(player) || Main.debugMode) {
 			// faire en sorte que le joueur déséquipe son pet
 			players_who_enabled.remove(player);
-			player.sendMessage(Main.PREFIX + "§eVous venez déséquiper votre chauve-souris");
+			player.sendMessage(Main.PREFIX + "§eVous venez déséquiper votre pet");
 			
 			PetRarity rarity = Main.debugMode ? PetRarity.LEGENDARY : pets_rarity.get(player.getUniqueId());
 			

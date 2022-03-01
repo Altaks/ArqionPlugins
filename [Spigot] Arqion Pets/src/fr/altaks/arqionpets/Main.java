@@ -49,15 +49,14 @@ public class Main extends JavaPlugin {
 	
 	private Collection<NamespacedKey> recipeskeys = new ArrayList<NamespacedKey>();
 	
-	private SpecialChickenListener specialChickenListener = new SpecialChickenListener(this); 
+	private SpecialChickenListener specialChickenListener;
 
 	public Listener[] listeners = {
 			new ItemStackBurningListener(), 
 			new PetInfuserInteractionListener(), 
 			new PetMenuInteractionListener(this), 
 			new RecipeGive(this), 
-			new EntityDropItemsListener(),
-			specialChickenListener
+			new EntityDropItemsListener()
 	};
 
 	public EquipablePet[] pets = { 
@@ -99,6 +98,9 @@ public class Main extends JavaPlugin {
 			petclass.init();
 			
 		}
+		
+		specialChickenListener = new SpecialChickenListener(this); 
+		Bukkit.getPluginManager().registerEvents(specialChickenListener, this);
 	}
 	
 	@Override
@@ -109,7 +111,7 @@ public class Main extends JavaPlugin {
 		petsArmorstand.clear();
 		hasPetEquiped.clear();
 		
-		dragonEggListener.flushEntities();
+		specialChickenListener.flushEntities();
 	}
 	
 	@SuppressWarnings("deprecation")

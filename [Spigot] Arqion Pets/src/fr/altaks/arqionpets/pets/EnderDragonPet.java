@@ -108,7 +108,7 @@ public class EnderDragonPet implements EquipablePet {
 		if(players_who_enabled.contains(player) || Main.debugMode) {
 			// faire en sorte que le joueur déséquipe son pet
 			players_who_enabled.remove(player);
-			player.sendMessage(Main.PREFIX + "§eVous venez déséquiper votre Ender dragon");
+			player.sendMessage(Main.PREFIX + "§eVous venez déséquiper votre pet");
 						
 			if(player.getGameMode() == GameMode.SURVIVAL) player.setAllowFlight(false);
 			

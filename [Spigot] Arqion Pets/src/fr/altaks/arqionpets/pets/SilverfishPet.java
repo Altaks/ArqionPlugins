@@ -94,7 +94,7 @@ public class SilverfishPet implements EquipablePet {
 			// le joueur possède le pet
 			
 			players_who_enabled.add(player);
-			player.sendMessage(Main.PREFIX + "§eVous venez d'équiper votre silverfish");
+			player.sendMessage(Main.PREFIX + "§eVous venez d'équiper votre poisson d'argent");
 			
 		}
 	}
@@ -104,7 +104,7 @@ public class SilverfishPet implements EquipablePet {
 		if(players_who_enabled.contains(player) || Main.debugMode) {
 			// faire en sorte que le joueur déséquipe son pet
 			players_who_enabled.remove(player);
-			player.sendMessage(Main.PREFIX + "§eVous venez de déséquiper votre silverfish");
+			player.sendMessage(Main.PREFIX + "§eVous venez de déséquiper votre pet");
 			
 			PetRarity rarity = Main.debugMode ? PetRarity.LEGENDARY : pets_rarity.get(player.getUniqueId());
 			
@@ -138,13 +138,13 @@ public class SilverfishPet implements EquipablePet {
 	}
 	
 	public void addPetForPlayer(Player player, PetRarity rarity) {
-		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet silverfish !");
+		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet poisson d'argent !");
 		getYml().set(player.getUniqueId().toString(), rarity.getId());
 		saveYml();
 	}
 	
 	public void removePetForPlayer(Player player) {
-		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet silverfish !");
+		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet poisson d'argent !");
 		getYml().set(player.getUniqueId().toString(), null);
 		saveYml();
 	}

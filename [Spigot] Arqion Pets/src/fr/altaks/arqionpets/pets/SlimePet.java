@@ -100,7 +100,7 @@ public class SlimePet implements EquipablePet {
 		if(players_who_enabled.contains(player) || Main.debugMode) {
 			// faire en sorte que le joueur déséquipe son pet
 			players_who_enabled.remove(player);
-			player.sendMessage(Main.PREFIX + "§eVous venez de déséquiper votre slime");
+			player.sendMessage(Main.PREFIX + "§eVous venez de déséquiper votre pet");
 			
 			if(player.hasPotionEffect(PotionEffectType.JUMP)) 	player.removePotionEffect(PotionEffectType.JUMP);
 		}

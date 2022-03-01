@@ -97,7 +97,7 @@ public class ChickenPet implements EquipablePet {
 			// le joueur possède le pet
 			
 			players_who_enabled.add(player);
-			player.sendMessage(Main.PREFIX + "§eVous venez d'équiper votre perroquet");
+			player.sendMessage(Main.PREFIX + "§eVous venez d'équiper votre poulet");
 			
 		}
 	}
@@ -107,7 +107,7 @@ public class ChickenPet implements EquipablePet {
 		if(players_who_enabled.contains(player) || Main.debugMode) {
 			// faire en sorte que le joueur déséquipe son pet
 			players_who_enabled.remove(player);
-			player.sendMessage(Main.PREFIX + "§eVous venez déséquiper votre perroquet");
+			player.sendMessage(Main.PREFIX + "§eVous venez déséquiper votre pet");
 		}
 	}
 	
