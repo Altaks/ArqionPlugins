@@ -1,5 +1,7 @@
 package fr.nowayy.ores.listener;
 
+import java.util.Arrays;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -7,10 +9,12 @@ import org.bukkit.craftbukkit.v1_15_R1.CraftWorld;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import fr.nowayy.ores.Main;
 import fr.nowayy.ores.utils.ItemManager;
@@ -24,7 +28,6 @@ import net.minecraft.server.v1_15_R1.TileEntitySkull;
  *
  */
 public class CompressorListener implements Listener {
-	PrebuiltItems im = new ItemManager.PrebuiltItems();
 	Items items = new Items();
 	
 	private Main main;
@@ -36,7 +39,7 @@ public class CompressorListener implements Listener {
 	@SuppressWarnings("deprecation")
 	@EventHandler
     public void onSkullClick(PlayerInteractEvent event) {
-        
+		if(event.getPlayer().isSneaking()) return;
         if(!event.hasBlock()) return;
         if(event.getPlayer().getItemInHand() != null && event.getClickedBlock() == items.compressor) event.setCancelled(true);
         if(event.getClickedBlock().getType() != Material.PLAYER_HEAD) return;
@@ -48,7 +51,7 @@ public class CompressorListener implements Listener {
         if(tileSkull.gameProfile == null) return;
         
         if(tileSkull.gameProfile.getProperties().get("textures").iterator().next().getValue().equals("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTQ4MzM3ZjdlZGUxNWMzYjJmOGRjNmE2M2JkOTI4NzRjZGY3NGVjODYyYjQxMThjN2UzNTU1OWNlOGI0ZCJ9fX0=")) {
-
+        	event.setCancelled(true);
         	Inventory compressorInv = Bukkit.createInventory(null, 9 * 4, "§8Compressor");
     		
     		for(int x = 0; x < compressorInv.getSize(); x++) compressorInv.setItem(x, PrebuiltItems.inventoryFillingGlassPane);
@@ -64,119 +67,94 @@ public class CompressorListener implements Listener {
 
 	@EventHandler
 	public void onInteract(InventoryClickEvent event) {
-		
-		Inventory clickedInv = event.getClickedInventory();
-		Inventory inv = event.getWhoClicked().getInventory();
-		ItemStack current = event.getCurrentItem();
-		
-		if(current != null) if(current.getType().toString().contains("STAINED_GLASS")) { event.setCancelled(true); return; }
-		if(current == null) return;
-		
-		
-		
 		if(event.getView().getTitle().equals("§8Compressor")) {
+			Inventory 	clickedInv = event.getClickedInventory(),
+						inv = event.getWhoClicked().getInventory(),
+						topInv = event.getView().getTopInventory(); 
+			
+			ItemStack current = event.getCurrentItem();
+			
+			if(event.getSlot() == 25 && topInv.getItem(25).getType() != Material.BARRIER) {
+				event.setCancelled(true);
+				inv.addItem(topInv.getItem(25));
+				for(int x : new int[] {11, 12, 13, 14, 20, 21, 22, 23}) topInv.setItem(x, new ItemManager.ItemBuilder(Material.WHITE_STAINED_GLASS, 1, "§cCompression non lancée").build());
+				topInv.setItem(25, new ItemManager.ItemBuilder(Material.BARRIER, 1, " ").build());
+				
+				return;
+			}
 			event.setCancelled(true);
+			if(topInv.getItem(11).getType() != Material.WHITE_STAINED_GLASS) return;
+			
+			if(current != null) if(current.getType().toString().contains("STAINED_GLASS")) { event.setCancelled(true); return; }
+			if(current == null) return;
+		
+		
 			if(current.getAmount() == 64) {
 				
-				if(current.getType() == Material.COBBLESTONE || current.getType() == Material.FEATHER || current.getType() == Material.SLIME_BLOCK) {
+				if(Arrays.asList(Material.COBBLESTONE, Material.FEATHER, Material.SLIME_BLOCK).contains(current.getType())) {
 					
 					clickedInv.removeItem(current);
 					if(clickedInv.equals(event.getView().getBottomInventory())) {
-						event.getView().getTopInventory().addItem(current);
+						topInv.addItem(current);
 					} else inv.addItem(current);
+					
+					if(isSimilar(topInv, 0, 9, 18, 27)) { // tu peux mettre le nb de slots que tu veux
+						
+						new BukkitRunnable() {
+							private int counter = 0;
+							ItemStack progressGlass = new ItemManager.ItemBuilder(Material.RED_STAINED_GLASS, 1, generateProgressBar(0, 50)).build();
+							
+							@Override
+							public void run() {
+								
+								
+								if(counter == 21) return;
+								
+								if(counter == 5)  progressGlass = new ItemManager.ItemBuilder(Material.ORANGE_STAINED_GLASS, 1, generateProgressBar(25, 50)).build();
+								if(counter == 10) progressGlass = new ItemManager.ItemBuilder(Material.GREEN_STAINED_GLASS, 1, generateProgressBar(50, 50)).build();
+								if(counter == 15) progressGlass = new ItemManager.ItemBuilder(Material.LIME_STAINED_GLASS, 1, generateProgressBar(75, 50)).build();
+								
+								if(counter == 20) {
+									progressGlass = new ItemManager.ItemBuilder(Material.LIGHT_BLUE_STAINED_GLASS, 1, generateProgressBar(100, 50)).build();
+									
+									if(topInv.getItem(0).getType() == Material.COBBLESTONE) topInv.setItem(25, items.compressCobble);
+									if(topInv.getItem(0).getType() == Material.FEATHER) topInv.setItem(25, items.compressFeather);
+									if(topInv.getItem(0).getType() == Material.SLIME_BLOCK) topInv.setItem(25, items.compressSlimeBlock);
+									
+									for(int x : new int[] {0, 9, 18, 27}) topInv.setItem(x, null);
+								
+									
+								}
+								
+								for(int x : new int[] {11, 12, 13, 14, 20, 21, 22, 23}) topInv.setItem(x, progressGlass);
+								counter++;
+							}
+						}.runTaskTimer(main, 0, 20);
+						
+					}
+					
+					
+					
 				}
 					
 				
 			}
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-//		Inventory clickedInv = event.getClickedInventory();
-//		ItemStack current = event.getCurrentItem();
-//		List<Integer> clickedIndexes = new LinkedList<Integer>();
-//		for(int x : new int[] {0, 9, 18, 27}) clickedIndexes.add(x);
-//		
-//		if(event.getView().getTitle().equals("§8Compressor")) {
-//			if(event.getView().getTopInventory().equals(clickedInv)) {
-//				if(event.getSlot() == 25 && clickedInv.getItem(25) == null) { event.setCancelled(true); return; }
-//				if(current != null) if(current.getType().toString().contains("STAINED_GLASS")) { event.setCancelled(true); return; }
-//				if(current != null) return;
-//				if(event.getWhoClicked().getItemOnCursor() == null) return;
-//				clickedIndexes.remove(Integer.valueOf(event.getSlot()));
-//				// verif si c'est des stacks
-//				// si oui:
-//				if(event.getCursor().getAmount() == 64) {
-//					System.out.println(clickedIndexes);
-//					// si les 4 slots sont full
-//					// verif le material et si c'est le même pour les 4
-//					System.out.println("ok1");
-//					if(clickedInv.getItem(clickedIndexes.get(0)) == clickedInv.getItem(clickedIndexes.get(1))) {
-//						System.out.println("1st");
-//						if(clickedInv.getItem(clickedIndexes.get(1)) == clickedInv.getItem(clickedIndexes.get(2))) {
-//							System.out.println("2nd");
-//							if(clickedInv.getItem(clickedIndexes.get(2)) == event.getCursor()) {
-//								System.out.println("ok");
-//								if(clickedInv.getItem(clickedIndexes.get(0)).getType() == Material.COBBLESTONE || 
-//										clickedInv.getItem(clickedIndexes.get(0)).getType() == Material.FEATHER || 
-//										clickedInv.getItem(clickedIndexes.get(0)).getType() == Material.SLIME_BLOCK) {
-//									
-//									new BukkitRunnable() {
-//										private int counter = 0;
-//										private int max = 20;
-//										
-//										@Override
-//										public void run() {
-//											if(counter == max) cancel();
-//											
-//											// counter = 1 -> 1/20 = 0.05
-//											// counter = 2 -> 2/20 = 0.1
-//											// 3 -> 0.15
-//											// 4 -> 0.2
-//											// 5 -> 0.25
-//											// ...
-//
-//											int progress = counter/max*100;
-//											ItemStack progressGlass = new ItemManager.ItemBuilder(Material.RED_STAINED_GLASS, 1, generateProgressBar(progress, 50)).build();
-//											
-//											// mettre à jour les verres en fonction de la progression
-//											if(progress == 25) {progressGlass.setType(Material.ORANGE_STAINED_GLASS); System.out.println("orange");}
-//											if(progress == 5) {progressGlass.setType(Material.GREEN_STAINED_GLASS); System.out.println("vert");}
-//											if(progress == 75) {progressGlass.setType(Material.LIME_STAINED_GLASS); System.out.println("lime");}
-//											if(progress == 100) {
-//												
-//												if(clickedInv.getItem(0).getType() == Material.COBBLESTONE) clickedInv.setItem(25, items.compressCobble);
-//												progressGlass.setType(Material.LIGHT_BLUE_STAINED_GLASS);
-//												if(clickedInv.getItem(0).getType() == Material.FEATHER) clickedInv.setItem(25, items.compressFeather);
-//												if(clickedInv.getItem(0).getType() == Material.SLIME_BLOCK) clickedInv.setItem(25, items.compressSlimeBlock);
-//												if(clickedInv.getItem(0).equals(items.pet_dust)) clickedInv.setItem(25, items.compressPetDust);
-//												
-//											}
-//										
-//											for(int x : new int[] {11, 12, 13, 14, 20, 21, 22, 23}) clickedInv.setItem(x, progressGlass);
-//											System.out.println(counter);
-//											counter++;
-//										}
-//									}.runTaskTimer(main, 0, 20);
-//										
-//										
-//										
-//								}
-//							}
-//						}
-//					}
-//				}
-//			}
-//		
-//		}
+		}		
 	}
 	
+	@EventHandler
+	public void onBreak(BlockBreakEvent event) {
+		event.setDropItems(false);
+		
+		Block skullBlock = event.getBlock();
+	        
+        TileEntitySkull tileSkull = (TileEntitySkull)((CraftWorld)skullBlock.getWorld()).getHandle().getTileEntity(new BlockPosition(skullBlock.getX(), skullBlock.getY(), skullBlock.getZ()));
+        if(tileSkull.gameProfile == null) return;
+        
+        if(tileSkull.gameProfile.getProperties().get("textures").iterator().next().getValue().equals("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTQ4MzM3ZjdlZGUxNWMzYjJmOGRjNmE2M2JkOTI4NzRjZGY3NGVjODYyYjQxMThjN2UzNTU1OWNlOGI0ZCJ9fX0=")) {
+        	event.getPlayer().getInventory().addItem(items.compressor);
+        }
+	}
 	
 	public static String generateProgressBar(int progress, int bar_lenght){
         progress = bar_lenght * progress / 100;
@@ -195,5 +173,22 @@ public class CompressorListener implements Listener {
 
         return barBuilder.toString();
 	}
+
+	/**
+	Permet de déterminer si tous les items situés aux slots indiqués sont similaires
+	@param inv : l'inventaire en question
+	@param slots : la liste des slots
+	@return si tous les items sont similaires
+	*/
+	public static boolean isSimilar(Inventory inv, int...slots) { // tableau sans limite de taille, c'est un argument sans limite
+		for(int i = 1; i < slots.length; i++){
+			if(inv.getItem(slots[i]) == null) return false;
+			if(!inv.getItem(slots[i]).equals(inv.getItem(slots[i-1]))) return false; 
+		}
+
+		return true;
+	}
+	
+	
 		
 }
