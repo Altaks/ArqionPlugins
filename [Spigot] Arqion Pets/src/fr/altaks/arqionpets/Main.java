@@ -20,6 +20,11 @@ import fr.altaks.arqionpets.commands.GiveItems;
 import fr.altaks.arqionpets.commands.Pet;
 import fr.altaks.arqionpets.commands.SpawnPet;
 import fr.altaks.arqionpets.commands.SpawnPet.PetPlayerCouple;
+import fr.altaks.arqionpets.listeners.EntityDropItemsListener;
+import fr.altaks.arqionpets.listeners.ItemStackBurningListener;
+import fr.altaks.arqionpets.listeners.PetInfuserInteractionListener;
+import fr.altaks.arqionpets.listeners.PetMenuInteractionListener;
+import fr.altaks.arqionpets.listeners.RecipeGive;
 import fr.altaks.arqionpets.listeners.SpecialChickenListener;
 import fr.altaks.arqionpets.pets.BatPet;
 import fr.altaks.arqionpets.pets.ChickenPet;
@@ -52,7 +57,7 @@ public class Main extends JavaPlugin {
 			new PetMenuInteractionListener(this), 
 			new RecipeGive(this), 
 			new EntityDropItemsListener(),
-			specialChickenListener;
+			specialChickenListener
 	};
 
 	public EquipablePet[] pets = { 
