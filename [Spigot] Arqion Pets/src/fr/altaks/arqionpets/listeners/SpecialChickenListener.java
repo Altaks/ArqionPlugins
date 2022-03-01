@@ -45,7 +45,7 @@ public class SpecialChickenListener implements Listener {
         if(this.spawnedChickens.contains(event.getEntity())){
             // c'est un poulet spawné
             float chance = new Random().nextFloat() * 100;
-            if(chance < 5){
+            if(chance < 5) {
                 event.getEntity().getWorld().dropItem(event.getEntity().getLocation(), new ItemStack(Material.DRAGON_EGG));
             }
             this.spawnedChickens.remove(event.getEntity());
