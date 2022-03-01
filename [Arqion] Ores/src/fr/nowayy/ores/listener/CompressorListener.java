@@ -11,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -154,6 +155,16 @@ public class CompressorListener implements Listener {
         if(tileSkull.gameProfile.getProperties().get("textures").iterator().next().getValue().equals("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTQ4MzM3ZjdlZGUxNWMzYjJmOGRjNmE2M2JkOTI4NzRjZGY3NGVjODYyYjQxMThjN2UzNTU1OWNlOGI0ZCJ9fX0=")) {
         	event.getPlayer().getInventory().addItem(items.compressor);
         }
+	}
+	
+	@EventHandler
+	public void onInvClose(InventoryCloseEvent event) {
+		if(event.getView().getTitle().equals("§8Compressor")) {
+			for(int x : new int[] {0, 9, 18, 27}) {
+				if(event.getInventory().getItem(x) != null)
+					event.getPlayer().getInventory().addItem(event.getInventory().getItem(x));
+			}
+		}
 	}
 	
 	public static String generateProgressBar(int progress, int bar_lenght){
