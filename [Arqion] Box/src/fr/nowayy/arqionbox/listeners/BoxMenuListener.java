@@ -39,7 +39,7 @@ public class BoxMenuListener implements Listener {
 			
 				// cancel l'event
 				event.setCancelled(true);
-				// on verif si il clique sur une des cl�s
+				// on verif si il clique sur une des clés
 				ItemStack clickedItem = event.getCurrentItem();
 				for(BoxType box : BoxType.values()) {
 					if(box.getSymbolItem().equals(clickedItem)){
@@ -85,7 +85,7 @@ public class BoxMenuListener implements Listener {
 			
 		}
 		
-		// on verif si le joueur a cliqu� sur l'inv du haut
+		// on verif si le joueur a cliqué sur l'inv du haut
 		
 		
 	
