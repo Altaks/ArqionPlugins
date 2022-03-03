@@ -121,12 +121,14 @@ public class ChickenPet implements EquipablePet {
 		}
 	}
 	
+	@Override
 	public void addPetForPlayer(Player player, PetRarity rarity) {
 		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet poulet !");
 		getYml().set(player.getUniqueId().toString(), rarity.getId());
 		saveYml();
 	}
 	
+	@Override
 	public void removePetForPlayer(Player player) {
 		player.sendMessage(Main.PREFIX + "§cVous venez de perdre votre poulet !");
 		getYml().set(player.getUniqueId().toString(), null);

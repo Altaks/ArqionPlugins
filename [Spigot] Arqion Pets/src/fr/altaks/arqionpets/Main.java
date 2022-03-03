@@ -53,7 +53,7 @@ public class Main extends JavaPlugin {
 
 	public Listener[] listeners = {
 			new ItemStackBurningListener(), 
-			new PetInfuserInteractionListener(), 
+			new PetInfuserInteractionListener(this), 
 			new PetMenuInteractionListener(this), 
 			new RecipeGive(this), 
 			new EntityDropItemsListener()

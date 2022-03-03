@@ -132,12 +132,14 @@ public class PigPet implements EquipablePet {
 		}
 	}
 	
+	@Override
 	public void addPetForPlayer(Player player, PetRarity rarity) {
 		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet cochon !");
 		getYml().set(player.getUniqueId().toString(), rarity.getId());
 		saveYml();
 	}
 	
+	@Override
 	public void removePetForPlayer(Player player) {
 		player.sendMessage(Main.PREFIX + "§cVous venez de perdre votre cochon !");
 		getYml().set(player.getUniqueId().toString(), null);

@@ -126,12 +126,14 @@ public class EnderDragonPet implements EquipablePet {
 		}
 	}
 	
+	@Override
 	public void addPetForPlayer(Player player, PetRarity rarity) {
 		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet Ender dragon !");
 		getYml().set(player.getUniqueId().toString(), rarity.getId());
 		saveYml();
 	}
 	
+	@Override
 	public void removePetForPlayer(Player player) {
 		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet Ender Dragon !");
 		getYml().set(player.getUniqueId().toString(), null);
