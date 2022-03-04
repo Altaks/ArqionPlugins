@@ -80,6 +80,8 @@ public class EntityDropItemsListener implements Listener {
 			// on modif le wither
 			wither.setMaxHealth(500.0d);
 			wither.setHealth(500.0d);
+			wither.setCustomName("§5Wither converti");
+			wither.setCustomNameVisible(true);
 			
 			Bossbar witherBossbar = wither.getBossbar();
 
