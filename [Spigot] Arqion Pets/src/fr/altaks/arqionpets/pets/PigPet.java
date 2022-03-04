@@ -50,7 +50,8 @@ public class PigPet implements EquipablePet {
 	@Override
 	public void init() {};
 
-    @EventHandler
+    @SuppressWarnings("deprecation")
+	@EventHandler
     public void onPlayerEatEvent(PlayerItemConsumeEvent event){
 		if(!this.players_who_enabled.contains(event.getPlayer())) return;
         if(event.getItem().getType().isEdible() && event.getItem().getType() != Material.POTION){

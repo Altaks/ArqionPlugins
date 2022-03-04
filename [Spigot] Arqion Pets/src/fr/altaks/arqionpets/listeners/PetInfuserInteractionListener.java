@@ -24,12 +24,6 @@ import net.minecraft.server.v1_15_R1.BlockPosition;
 import net.minecraft.server.v1_15_R1.TileEntitySkull;
 
 public class PetInfuserInteractionListener implements Listener {
-	
-	private Main main;
-	
-	public PetInfuserInteractionListener(Main main) {
-		this.main = main;
-	}
 		
 	@EventHandler(ignoreCancelled = true)
 	public void onSkullClick(PlayerInteractEvent event) {

@@ -26,6 +26,7 @@ public class SpawnPet implements TabExecutor {
 		return Arrays.asList("enderdrag");
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if(cmd.getName().equalsIgnoreCase("spawnpet") && sender instanceof Player && args.length > 0) {
@@ -36,7 +37,7 @@ public class SpawnPet implements TabExecutor {
 			ArmorStand armorstand = (ArmorStand) player.getWorld().spawnEntity(player.getLocation().add(1.5d,-0.4d,1.5d), EntityType.ARMOR_STAND);
 			
 			armorstand.setGravity(false);
-			armorstand.setCustomName("§5\u00BB Enderdragon \u00AB");
+			armorstand.setCustomName("ï¿½5\u00BB Enderdragon \u00AB");
 			armorstand.setCustomNameVisible(true);
 			armorstand.setBasePlate(false);
 			armorstand.setInvulnerable(true);
@@ -54,7 +55,7 @@ public class SpawnPet implements TabExecutor {
 			
 			main.getPetsArmorstand().addLast(new PetPlayerCouple(player, armorstand));
 			main.getHasPetEquiped().add(player);
-			player.sendMessage(Main.PREFIX + "§6Pet spawné : §e" + petname);
+			player.sendMessage(Main.PREFIX + "Â§6Pet spawnÂ§r : Â§ee" + petname);
 			return true;
 		}
 		return false;
