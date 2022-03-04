@@ -24,6 +24,7 @@ import fr.altaks.arqionpets.listeners.EntityDropItemsListener;
 import fr.altaks.arqionpets.listeners.ItemStackBurningListener;
 import fr.altaks.arqionpets.listeners.PetInfuserInteractionListener;
 import fr.altaks.arqionpets.listeners.PetMenuInteractionListener;
+import fr.altaks.arqionpets.listeners.PlayerEnablePetListener;
 import fr.altaks.arqionpets.listeners.RecipeGive;
 import fr.altaks.arqionpets.listeners.SpecialChickenListener;
 import fr.altaks.arqionpets.pets.BatPet;
@@ -53,10 +54,11 @@ public class Main extends JavaPlugin {
 
 	public Listener[] listeners = {
 			new ItemStackBurningListener(), 
-			new PetInfuserInteractionListener(this), 
+			new PetInfuserInteractionListener(), 
 			new PetMenuInteractionListener(this), 
 			new RecipeGive(this), 
-			new EntityDropItemsListener()
+			new EntityDropItemsListener(),
+			new PlayerEnablePetListener(this)
 	};
 
 	public EquipablePet[] pets = { 

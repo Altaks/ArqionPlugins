@@ -37,6 +37,8 @@ public class ChickenPet implements EquipablePet {
 			}
 		}
 		
+		loadPetList();
+		
 	}
 	
 	public String getPetFileName() {

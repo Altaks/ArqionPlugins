@@ -38,6 +38,8 @@ public class EnderDragonPet implements EquipablePet {
 			}
 		}
 		
+		loadPetList();
+		
 	}
 	
 	public String getPetFileName() {

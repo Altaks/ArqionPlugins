@@ -3,8 +3,10 @@ package fr.altaks.arqionpets.listeners;
 import java.util.Arrays;
 import java.util.Random;
 
+import org.bukkit.boss.BarStyle;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Wither;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -53,38 +55,44 @@ public class EntityDropItemsListener implements Listener {
 		
 			if(event.getEntity().getName().equalsIgnoreCase("§5Wither converti")) {
 				
-				// TODO faire le drop
 				event.setCancelled(true);
 				event.getEntity().remove();
 				
 				float dropRate = new Random().nextFloat() * 100;
-				
-				ItemManager.ItemBuilder cloned_pet_core = new ItemManager.ItemBuilder(PluginItems.pet_core.clone());
-				
-				if(dropRate <= 2.5) {
-					
-					cloned_pet_core.setLore("§r§6[Légendaire]");
-					
-				} else if(dropRate <= 10) {
-					
-					cloned_pet_core.setLore("§r§5[Épique]");
-					
-				} else if(dropRate <= 25) {
-					
-					cloned_pet_core.setLore("§r§9[Rare]");
-					
-				} else if(dropRate <= 62.5) {
-					
-					cloned_pet_core.setLore("§r§a[Commun]");
-				}
-				
-				event.getEntity().getWorld().dropItem(event.getEntity().getLocation(), cloned_pet_core.build());
+							
+				event.getEntity().getWorld().dropItem(event.getEntity().getLocation(), PluginItems.pet_core.clone());
 				return;
 				
 			}
 			
 		}
 		
+	}
+
+	@EventHandler
+	public void onPlayerApplyWitherConverter(EntityInteractAtEntityEvent event){
+
+		if(!event.getPlayer().getInventory().getItemInMainHand().equals(PluginItems.wither_pet_converter)) return;
+		if(!(event.getClickedEntity() instanceof Wither)) return;
+		Wither wither = (Wither) event.getClickedEntity();
+		if(wither.isInvulnerable()) { // peut etre besoin de remplacer par un get des ticks de vie
+
+			// on modif le wither
+			wither.setMaxHealth(500.0d);
+			wither.setHealth(500.0d);
+			wither.setCustomName("§5Wither converti");
+			wither.setCustomNameVisible(true);
+			
+			Bossbar witherBossbar = wither.getBossbar();
+
+			witherBossBar.setColor(BarColor.LIME);
+			witherBossBar.setStyle(BarStyle.SEGMENTED_10);
+
+			event.getPlayer().setItemInMainHand(null);
+
+		}
+
+
 	}
 
 }

@@ -39,6 +39,7 @@ public class PhantomPet implements EquipablePet {
 			}
 		}
 		
+		loadPetList();
 	}
 	
 	public String getPetFileName() {

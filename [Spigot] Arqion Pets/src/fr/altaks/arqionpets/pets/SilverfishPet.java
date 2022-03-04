@@ -37,6 +37,7 @@ public class SilverfishPet implements EquipablePet {
 			}
 		}
 		
+		loadPetList();
 	}
 	
 	public String getPetFileName() {

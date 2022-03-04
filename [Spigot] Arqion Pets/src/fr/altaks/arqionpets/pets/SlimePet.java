@@ -37,6 +37,8 @@ public class SlimePet implements EquipablePet {
 			}
 		}
 		
+		loadPetList();
+		
 	}
 	
 	public String getPetFileName() {

@@ -38,6 +38,8 @@ public class BatPet implements EquipablePet {
 			}
 		}
 		
+		loadPetList();
+		
 	}
 	
 	public String getPetFileName() {
