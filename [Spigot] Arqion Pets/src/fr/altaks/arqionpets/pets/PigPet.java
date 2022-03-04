@@ -54,7 +54,7 @@ public class PigPet implements EquipablePet {
 		if(!this.players_who_enabled.contains(event.getPlayer())) return;
         if(event.getItem().getType().isEdible() && event.getItem().getType() != Material.POTION){
 
-			// oof faut pas manger du porc si tu as un porcinet en pet t'es fouS
+			// oof faut pas manger du porc si tu as un porcinet en pet t'es fou
 			if(event.getItem().getType() == Material.PORKCHOP || event.getItem().getType() == Material.COOKED_PORKCHOP){
 				event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 60, 255), true);
 				return;
