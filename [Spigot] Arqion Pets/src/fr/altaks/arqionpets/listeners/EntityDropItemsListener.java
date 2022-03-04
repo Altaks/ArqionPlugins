@@ -55,7 +55,6 @@ public class EntityDropItemsListener implements Listener {
 		
 			if(event.getEntity().getName().equalsIgnoreCase("§5Wither converti")) {
 				
-				// TODO faire le drop
 				event.setCancelled(true);
 				event.getEntity().remove();
 				
