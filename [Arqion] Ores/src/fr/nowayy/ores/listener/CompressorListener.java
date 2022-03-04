@@ -163,6 +163,7 @@ public class CompressorListener implements Listener {
 			for(int x : new int[] {0, 9, 18, 27}) {
 				if(event.getInventory().getItem(x) != null)
 					event.getPlayer().getInventory().addItem(event.getInventory().getItem(x));
+				
 			}
 		}
 	}
