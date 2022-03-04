@@ -112,15 +112,5 @@ public class PetInfuserInteractionListener implements Listener {
 		
 		
 	}
-	
-	@EventHandler
-	public void onPlayerEnablePet(PlayerInteractEvent event) {
-		
-		if(event.hasBlock()) return;
-		if(!event.hasItem()) return;
-		
-		
-		
-	}
 
 }

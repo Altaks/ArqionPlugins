@@ -43,6 +43,8 @@ public class ParrotPet implements EquipablePet {
 			}
 		}
 		
+		loadPetList();
+		
 	}
 	
 	public String getPetFileName() {

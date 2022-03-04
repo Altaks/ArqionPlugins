@@ -40,6 +40,7 @@ public class PigPet implements EquipablePet {
 			}
 		}
 		
+		loadPetList();
 	}
 	
 	public String getPetFileName() {
