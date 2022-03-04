@@ -1,16 +1,12 @@
 package fr.nowayy.helecore.Commands;
 
 import java.io.File;
-import java.io.IOException;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
 import fr.nowayy.helecore.Main;
 
@@ -29,7 +25,7 @@ public class KitCommand implements CommandExecutor {
 		
 			if (cmd.getName().equalsIgnoreCase("kit") && sender instanceof Player) {
 				if (args.length == 0) {
-					sender.sendMessage(Main.prefix + "§cMauvaise uilisation de la commande (/kit <kit souhaité>)!");
+					sender.sendMessage(Main.prefix + "ï¿½cMauvaise uilisation de la commande (/kit <kit souhaitï¿½>)!");
 					return false;
 				}
 				
@@ -37,7 +33,7 @@ public class KitCommand implements CommandExecutor {
 				this.kits_yml = YamlConfiguration.loadConfiguration(kits_file);
 				
 				if (!kits_file.exists()) {
-						sender.sendMessage(Main.prefix + "§6Ce kit n'existe pas !");
+						sender.sendMessage(Main.prefix + "ï¿½6Ce kit n'existe pas !");
 						return false;
 					}
 				

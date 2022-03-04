@@ -28,6 +28,7 @@ public class PetMenuInteractionListener implements Listener {
 		this.main = main;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onPlayerInteractMenu(InventoryClickEvent event) {
 		
@@ -87,7 +88,7 @@ public class PetMenuInteractionListener implements Listener {
 		
 		String lore = head.getItemMeta().getLore().get(0);
 		for(PetRarity rarity : PetRarity.values()) {
-			if(rarity.getLabel().equals(lore)) return rarity;
+			if(rarity.getRarityLore().equals(lore)) return rarity;
 		}
 		return PetRarity.COMMON;
 		

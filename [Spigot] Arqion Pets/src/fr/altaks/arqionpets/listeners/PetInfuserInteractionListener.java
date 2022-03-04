@@ -1,6 +1,7 @@
 package fr.altaks.arqionpets.listeners;
 
 import java.util.Arrays;
+import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -14,8 +15,10 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import fr.altaks.arqionpets.Main;
+import fr.altaks.arqionpets.pets.EquipablePet.PetRarity;
 import fr.altaks.arqionpets.utils.ItemManager;
 import net.minecraft.server.v1_15_R1.BlockPosition;
 import net.minecraft.server.v1_15_R1.TileEntitySkull;
@@ -81,6 +84,18 @@ public class PetInfuserInteractionListener implements Listener {
 					// si c'est l'output on clear la grid
 					for(int i : Arrays.asList(10, 11, 12, 19, 20, 21, 28, 29, 30)) event.getView().getTopInventory().setItem(i, null);
 					((Player)event.getWhoClicked()).updateInventory();
+					
+					// changer le lore du pet droppé
+					PetRarity rarity = PetRarity.COMMON;
+					float dropRate = new Random().nextFloat() * 100;
+					if(dropRate < 2.5) {
+						rarity = PetRarity.LEGENDARY;
+					} else if(dropRate < 10) {
+						rarity = PetRarity.EPIC;
+					} else if(dropRate < 25) rarity = PetRarity.RARE;
+					
+					ItemMeta meta = event.getCurrentItem().getItemMeta();
+					meta.setLore(Arrays.asList(rarity.getRarityLore())); // mise du lore en fonction de la rarity
 					break;
 				}
 				break;

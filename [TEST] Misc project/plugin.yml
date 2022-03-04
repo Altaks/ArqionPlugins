@@ -1,0 +1,6 @@
+name: GraplingHook
+author: NoWay_y
+version: 1.0
+api: spigot
+api-version: 1.15
+main: fr.altaks.testpl.GraplingHook

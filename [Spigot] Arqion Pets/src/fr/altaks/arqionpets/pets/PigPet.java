@@ -40,6 +40,7 @@ public class PigPet implements EquipablePet {
 			}
 		}
 		
+		loadPetList();
 	}
 	
 	public String getPetFileName() {
@@ -49,7 +50,8 @@ public class PigPet implements EquipablePet {
 	@Override
 	public void init() {};
 
-    @EventHandler
+    @SuppressWarnings("deprecation")
+	@EventHandler
     public void onPlayerEatEvent(PlayerItemConsumeEvent event){
 		if(!this.players_who_enabled.contains(event.getPlayer())) return;
         if(event.getItem().getType().isEdible() && event.getItem().getType() != Material.POTION){
@@ -132,12 +134,14 @@ public class PigPet implements EquipablePet {
 		}
 	}
 	
+	@Override
 	public void addPetForPlayer(Player player, PetRarity rarity) {
 		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet cochon !");
 		getYml().set(player.getUniqueId().toString(), rarity.getId());
 		saveYml();
 	}
 	
+	@Override
 	public void removePetForPlayer(Player player) {
 		player.sendMessage(Main.PREFIX + "§cVous venez de perdre votre cochon !");
 		getYml().set(player.getUniqueId().toString(), null);

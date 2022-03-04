@@ -37,6 +37,7 @@ public class SilverfishPet implements EquipablePet {
 			}
 		}
 		
+		loadPetList();
 	}
 	
 	public String getPetFileName() {
@@ -137,12 +138,14 @@ public class SilverfishPet implements EquipablePet {
 		}
 	}
 	
+	@Override
 	public void addPetForPlayer(Player player, PetRarity rarity) {
 		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet poisson d'argent !");
 		getYml().set(player.getUniqueId().toString(), rarity.getId());
 		saveYml();
 	}
 	
+	@Override
 	public void removePetForPlayer(Player player) {
 		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet poisson d'argent !");
 		getYml().set(player.getUniqueId().toString(), null);

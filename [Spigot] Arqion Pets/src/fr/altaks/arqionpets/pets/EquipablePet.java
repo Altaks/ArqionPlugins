@@ -20,6 +20,10 @@ public interface EquipablePet extends Listener {
 	
 	public abstract void disablePetForPlayer(Player player);
 	
+	public abstract void addPetForPlayer(Player player, PetRarity rarity);
+	
+	public abstract void removePetForPlayer(Player player);
+	
 	public static enum PetRarity {
 		
 		COMMON("§2[Commun]", 2), 
@@ -27,13 +31,13 @@ public interface EquipablePet extends Listener {
 		EPIC("§5[Épique]", 5),
 		LEGENDARY("§6[Légendaire]", 10);
 		
-		private String id, label;
+		private String id, rarityLore;
 		private int potionMultiplier;
 		
 		private PetRarity(String label, int potionMultiplier) {
 			this.id = this.toString().toLowerCase();
 			this.potionMultiplier = potionMultiplier;
-			this.label = label;
+			this.rarityLore = label;
 		}
 		
 		public static PetRarity fromString(String value) {
@@ -41,8 +45,8 @@ public interface EquipablePet extends Listener {
 			return PetRarity.COMMON;
 		}
 		
-		public static PetRarity fromLabel(String value) {
-			for(PetRarity rarity : PetRarity.values()) if(rarity.label.equals(value)) return rarity;
+		public static PetRarity fromRarityLore(String value) {
+			for(PetRarity rarity : PetRarity.values()) if(rarity.rarityLore.equals(value)) return rarity;
 			return PetRarity.COMMON;
 		}
 
@@ -50,8 +54,8 @@ public interface EquipablePet extends Listener {
 			return id;
 		}
 
-		public String getLabel() {
-			return label;
+		public String getRarityLore() {
+			return rarityLore;
 		}
 		
 		public int getPotionMultiplier() {

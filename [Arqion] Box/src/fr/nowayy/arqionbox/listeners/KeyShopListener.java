@@ -32,7 +32,7 @@ public class KeyShopListener implements Listener {
 		
 		// on verif si c'est le bon inv
 		
-		if(!event.getView().getTitle().equals("�§ArqionBox - §cClés")) {
+		if(!event.getView().getTitle().equals("ArqionBox - §cClés")) {
 			return;
 		}
 		
