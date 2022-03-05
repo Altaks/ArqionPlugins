@@ -3,7 +3,9 @@ package fr.altaks.arqionpets.listeners;
 import java.util.Arrays;
 import java.util.Random;
 
+import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
+import org.bukkit.boss.BossBar;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Wither;
@@ -11,9 +13,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 
 import fr.altaks.arqionpets.PluginItems;
-import fr.altaks.arqionpets.utils.ItemManager;
 
 public class EntityDropItemsListener implements Listener {
 	
@@ -57,8 +59,6 @@ public class EntityDropItemsListener implements Listener {
 				
 				event.setCancelled(true);
 				event.getEntity().remove();
-				
-				float dropRate = new Random().nextFloat() * 100;
 							
 				event.getEntity().getWorld().dropItem(event.getEntity().getLocation(), PluginItems.pet_core.clone());
 				return;
@@ -69,12 +69,13 @@ public class EntityDropItemsListener implements Listener {
 		
 	}
 
+	@SuppressWarnings("deprecation")
 	@EventHandler
-	public void onPlayerApplyWitherConverter(EntityInteractAtEntityEvent event){
+	public void onPlayerApplyWitherConverter(PlayerInteractAtEntityEvent event){
 
 		if(!event.getPlayer().getInventory().getItemInMainHand().equals(PluginItems.wither_pet_converter)) return;
-		if(!(event.getClickedEntity() instanceof Wither)) return;
-		Wither wither = (Wither) event.getClickedEntity();
+		if(!(event.getRightClicked() instanceof Wither)) return;
+		Wither wither = (Wither) event.getRightClicked();
 		if(wither.isInvulnerable()) { // peut etre besoin de remplacer par un get des ticks de vie
 
 			// on modif le wither
@@ -83,12 +84,12 @@ public class EntityDropItemsListener implements Listener {
 			wither.setCustomName("§5Wither converti");
 			wither.setCustomNameVisible(true);
 			
-			Bossbar witherBossbar = wither.getBossbar();
+			BossBar witherBossbar = wither.getBossBar();
 
-			witherBossBar.setColor(BarColor.LIME);
-			witherBossBar.setStyle(BarStyle.SEGMENTED_10);
+			witherBossbar.setColor(BarColor.GREEN);
+			witherBossbar.setStyle(BarStyle.SEGMENTED_10);
 
-			event.getPlayer().setItemInMainHand(null);
+			event.getPlayer().getInventory().setItemInMainHand(null);
 
 		}
 

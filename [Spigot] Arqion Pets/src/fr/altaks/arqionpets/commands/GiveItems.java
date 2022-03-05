@@ -19,7 +19,7 @@ public class GiveItems implements TabExecutor {
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
 		if(args.length <= 1) return Arrays.asList("pet_infuser", "dummy_head", "bat_pet", "silverfish_pet", "parrot_pet", "slime_pet",
-				"enderdrag_pet", "pig_pet", "chicken_pet", "ores", "cables", "processor", "witherconv", "alim").stream().filter(e -> e.toLowerCase().startsWith(args[0])).collect(Collectors.toList());
+				"enderdrag_pet", "pig_pet", "chicken_pet", "ores", "cables", "processor", "witherconv", "pet_core", "alim", "pet_dust").stream().filter(e -> e.toLowerCase().startsWith(args[0])).collect(Collectors.toList());
 		return null;
 	}
 
@@ -41,6 +41,9 @@ public class GiveItems implements TabExecutor {
 				case "parrot_pet":
 					item = PluginItems.parrot_pet;
 					break;
+				case "pet_core":
+					item = PluginItems.pet_core;
+					break;
 				case "slime_pet":
 					item = PluginItems.slime_pet;
 					break;
@@ -54,7 +57,7 @@ public class GiveItems implements TabExecutor {
 					item = PluginItems.chicken_pet;
 					break;
 				case "dummy_head":
-					item = new ItemManager.SkullBuilder(1, "§cDummy Head").setOwner((OfflinePlayer) sender).build();
+					item = new ItemManager.SkullBuilder(1, "ï¿½cDummy Head").setOwner((OfflinePlayer) sender).build();
 					break;
 				case "ores":
 					for(int i = 0; i < 16; i++) {
@@ -87,8 +90,11 @@ public class GiveItems implements TabExecutor {
 				case "alim":
 					item = PluginItems.alimentation;
 					break;
+				case "pet_dust":
+					item = new ItemManager.ItemBuilder(PluginItems.pet_dust.clone()).setAmount(64).build();
+					break;
 			default:
-				sender.sendMessage("Désolé mais votre commande est erronée");
+				sender.sendMessage("Dï¿½solï¿½ mais votre commande est erronï¿½e");
 				return false;
 			}
 

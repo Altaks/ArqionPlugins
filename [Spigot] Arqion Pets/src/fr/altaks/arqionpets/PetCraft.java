@@ -18,19 +18,21 @@ public class PetCraft {
 	
 	public boolean matchRecipe(Inventory petInfuserInv) {
 		
-		// collect matrix
-		ItemStack[][] items = new ItemStack[3][3];
-		for(int line = 0; line < 3; line++) for(int row = 0; row < 3; row++) {
-			items[line][row] = petInfuserInv.getItem(/*11 est l'offset de l'inv*/ 11 + (int)(line*9 + row));
-		}
+		return true;
 		
-		for(int line = 0; line < 3; line++) for(int row = 0; row < 3; row++) { // on check entre les deux matrix de crafts
-			if(items[line][row] == null) return false;
-			if(!new ItemManager().compare(this.components[line][row], items[line][row]) && this.components[line][row].getAmount() == items[line][row].getAmount()) return false;
-		}
+//		// collect matrix
+//		ItemStack[][] items = new ItemStack[3][3];
+//		for(int line = 0; line < 3; line++) for(int row = 0; row < 3; row++) {
+//			items[line][row] = petInfuserInv.getItem(/*11 est l'offset de l'inv*/ 10 + (int)(line*9 + row));
+//		}
+//		
+//		for(int line = 0; line < 3; line++) for(int row = 0; row < 3; row++) { // on check entre les deux matrix de crafts
+//			if(items[line][row] == null) return false;
+//			if(!this.components[line][row].equals(items[line][row]) || this.components[line][row].getAmount() != items[line][row].getAmount()) return false;
+//		}
 		
 		// si il n'y a rien qui bloque, la recipe matche
-		return true;
+//		return true;
 	}
 	
 	public ItemStack getOutput() {
@@ -41,22 +43,6 @@ public class PetCraft {
 		return components;
 	}
 	
-}
-
-class PetCrafts {
-	
-	public static final PetCraft bat = new PetCraft(PluginItems.bat_pet, PetComponents.bat_components);
-	public static final PetCraft silverfish = new PetCraft(PluginItems.silverfish_pet, PetComponents.silverfish_components);
-	public static final PetCraft parrot = new PetCraft(PluginItems.parrot_pet, PetComponents.parrot_components);
-	public static final PetCraft phantom = new PetCraft(PluginItems.phantom_pet, PetComponents.phantom_components);
-	public static final PetCraft slime = new PetCraft(PluginItems.slime_pet, PetComponents.slime_components);
-	public static final PetCraft pig = new PetCraft(PluginItems.pig_pet, PetComponents.pig_components);
-	public static final PetCraft edrag = new PetCraft(PluginItems.ender_drag_pet, PetComponents.edrag_components);
-	public static final PetCraft chicken = new PetCraft(PluginItems.chicken_pet, PetComponents.chicken_components);
-	
-	public static final PetCraft[] all_pets_crafts = {
-		bat, silverfish, parrot, phantom, slime, pig, edrag, chicken	
-	};
 }
 
 class PetComponents {
