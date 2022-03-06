@@ -1,7 +1,6 @@
 package fr.nowayy.ores;
 
 import java.util.HashMap;
-import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -17,7 +16,7 @@ public class Main extends JavaPlugin {
 	
 	public static final String PREFIX = "§7[§6ArqionOres§7]§r";
 	
-	public HashMap<UUID, HashMap<Location, Integer>> cobbleGeneratorUpgrades = new HashMap<UUID, HashMap<Location, Integer>>();
+	public HashMap<Location, Integer> cobbleGeneratorUpgrades = new HashMap<Location, Integer>();
 	
 	@Override
 	public void onEnable() {
@@ -29,7 +28,7 @@ public class Main extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new CompressorListener(this), this);
 		Bukkit.getPluginManager().registerEvents(new CrushingHammerListener(), this);
 		Bukkit.getPluginManager().registerEvents(new RockBreakerListener(), this);
-		Bukkit.getPluginManager().registerEvents(new CobbleGeneratorListener(), this);
+		Bukkit.getPluginManager().registerEvents(new CobbleGeneratorListener(this), this);
 		getCommand("giveitem").setExecutor(new GiveOresCommand());
 	}
 

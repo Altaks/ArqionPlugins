@@ -55,7 +55,7 @@ public class GraplingHook extends JavaPlugin implements Listener {
 						}
 						
 					}.runTaskTimer(this, 0, 20);
-				} else player.sendMessage("attends salope");
+				} else player.sendMessage("attends");
 				
 				
 			}
