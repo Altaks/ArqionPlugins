@@ -27,8 +27,8 @@ public class PetMenuInteractionListener implements Listener {
 	public PetMenuInteractionListener(Main main) {
 		this.main = main;
 	}
-	
-	@SuppressWarnings("deprecation")
+
+
 	@EventHandler
 	public void onPlayerInteractMenu(InventoryClickEvent event) {
 		
