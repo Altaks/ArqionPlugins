@@ -15,8 +15,37 @@ public class CrushingHammerListener implements Listener {
 		Block block = event.getBlock();
 		if(block.getType() == Material.COBBLESTONE) {
 			Random random = new Random();
-			float rdmOre = random.nextInt(1);
-			if(rdmOre <= 0.5) {
+			float isDropping = random.nextFloat(1);
+			// si ça drop quelque chose
+			if(isDropping <= 0.5) {
+				
+				float droppedItem = random.nextFloat(1);
+				
+//				
+//				 drop rates:
+//				 	coal : 100%
+//					iron nugget : 50%
+//					redstone : 45%
+//					lapis : 40%
+//				 	gold nugget : 37.5%
+//					quartz : 35%
+//			 		diamond : 30%
+//			 		emerald : 25%
+//					aluminium nugget : 20%
+//					copper nugget : 15%
+//				 	cobalt nugget : 10%
+//				 	platinium nugget : 5%
+//				 	actinium nugget : 2%
+
+				switch((int)droppedItem*100) {
+				
+				
+				
+					
+				
+					default: break;
+				}
+				
 				
 			}
 		}
