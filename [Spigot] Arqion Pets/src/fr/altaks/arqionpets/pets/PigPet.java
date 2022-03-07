@@ -25,13 +25,10 @@ public class PigPet implements EquipablePet {
 	private List<Player> players_who_enabled = new ArrayList<Player>();
 	private HashMap<UUID, PetRarity> pets_rarity = new HashMap<UUID, EquipablePet.PetRarity>();
 	
-	private Main main;
-	
 	private File file;
 	private FileConfiguration yml;
 	
 	public PigPet(Main main) {
-		this.main = main;
 		
 		// check if file exist if not, create
 		File file = new File(main.getDataFolder() + File.separator + "pig_pet_owners.yml");

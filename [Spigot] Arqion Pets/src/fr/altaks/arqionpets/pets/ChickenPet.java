@@ -22,13 +22,10 @@ public class ChickenPet implements EquipablePet {
 	private List<Player> players_who_enabled = new ArrayList<Player>();
 	private HashMap<UUID, PetRarity> pets_rarity = new HashMap<UUID, EquipablePet.PetRarity>();
 	
-	private Main main;
-	
 	private File file;
 	private FileConfiguration yml;
 	
 	public ChickenPet(Main main) {
-		this.main = main;
 		
 		// check if file exist if not, create
 		file = new File(main.getDataFolder() + File.separator + "chicken_pet_owners.yml");
