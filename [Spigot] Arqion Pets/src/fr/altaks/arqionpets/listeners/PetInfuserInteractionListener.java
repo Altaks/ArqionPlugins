@@ -77,46 +77,58 @@ public class PetInfuserInteractionListener implements Listener {
 			}
 		}
 		
-		if(Main.debugMode) event.getWhoClicked().sendMessage(event.getSlot()+"");
-		
-		// si c'est un pickup dans le dernier slot et qu'il n'est pas vide alors on clear la grid
-		if(event.getSlot() == 25 && event.getClickedInventory().getItem(25) != null && pickupAction.contains(event.getAction())) {
-			// clear de grid
-			for(int i : gridSlots) {
-				if(i == 25) continue;
-				event.getClickedInventory().setItem(i, null);
-				((Player)event.getWhoClicked()).updateInventory();
-			}
-			return;
-		} else if(event.getSlot() == 25) {
-			event.setCancelled(true);
-			return;
-		}
-		
-		if(Main.debugMode) event.getWhoClicked().sendMessage(event.getAction().toString());
-		
-		if(gridSlots.contains(event.getSlot())) {
-			if(event.getClickedInventory().getItem(41) == null) return;
-			if(event.getClickedInventory().getItem(41).getAmount() != 64) return;
-			if(event.getClickedInventory().getItem(41).getType() != Material.ROTTEN_FLESH) return;
-			
-			PetCraft craft = null;
-			for(PetCraft petCraft : PetCrafts.all_pets_crafts) {
-				if(petCraft.matchRecipe(event.getClickedInventory())) {
-					// c'est le bon pet
-					craft = petCraft;
-					break;
-				}
-			}
-			if(craft == null) {
+		// si c'est un pick : -
+			// si c'est dans le slot 25 et que l'item n'est pas null-
+				// annuler le clic-
+				// donner l'output au joueur-
+				// clear la grid-
+		// si c'est un place :-
+			// si c'est dans le slot 25 on annule-
+			// si dans le slot 41 on a pas 64 rotten : return- 
+			// si on a toutes les rotten-  
+				// on cherche la recipe
+				// si la recipe n'est pas null on affiche un output
+
+		if(pickupAction.contains(event.getAction())){
+
+			if(event.getSlot() == 25 && event.getClickedInventory().getItem(25) != null){
+
+				event.setCancelled(true);
+				event.getPlayer().getInventory().addItem(event.getClickedInventory().getItem(25));
+				for(int slot : gridSlots) event.getClickedInventory().setItem(slot, null);
 				return;
 			}
-			
-			event.getClickedInventory().setItem(25, craft.getOutput());
-			((Player)event.getWhoClicked()).updateInventory();
-			return;
+
+		} else if(placingAction.contains(event.getAction())){
+
+			if(event.getSlot() == 25) {
+				event.setCancelled(true);
+				return;
+			}
+
+			if(event.getClickedInventory().getItem(41) != null){
+				
+				ItemStack fleshStack = event.getClickedInventory().getItem();
+				if(!(fleshStack.getType() == Material.ROTTEN_FLESH && fleshStack.getAmount() == 64)) return;
+
+				// on cherche la recipe
+				PetCraft craft = null;
+				for(PetCraft search : PetCrafts.all_pets_crafts){
+					if(search.matchRecipe(event.getClickedInventory())){
+						craft = search;
+						break;
+					}
+				}
+				if(craft != null){
+					// si le craft n'est pas null alors on montre l'output
+					event.getClickedInventory().setItem(25, craft.getOutput());
+					return;
+				}
+
+			}
+
 		}
-		
+
 	}
 
 }
