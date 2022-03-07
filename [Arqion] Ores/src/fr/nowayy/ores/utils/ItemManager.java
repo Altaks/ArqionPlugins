@@ -50,31 +50,31 @@ public class ItemManager {
     
     public static class PrebuiltItems {
         
-        public static final ItemStack previousArrow = new ItemBuilder(Material.ARROW, 1, "§cPrevious").build();
-        public static final ItemStack nextArrow = new ItemBuilder(Material.ARROW, 1, "§cNext").build();
+        public static final ItemStack previousArrow = new ItemBuilder(Material.ARROW, 1, "Â§cPrevious").build();
+        public static final ItemStack nextArrow = new ItemBuilder(Material.ARROW, 1, "Â§cNext").build();
         public static final ItemStack inventoryFillingGlassPane = new ItemBuilder(Material.BLACK_STAINED_GLASS_PANE, 1, " ").build();
         
-        public static final ItemStack hubAndLobbyCompass = new ItemBuilder(Material.COMPASS, 1, "§6Teleport").build();
+        public static final ItemStack hubAndLobbyCompass = new ItemBuilder(Material.COMPASS, 1, "Â§6Teleport").build();
         
-        public static final ItemStack     	aluminium_block = new ItemManager.ItemBuilder(Material.IRON_BLOCK, 1, "§8Bloc d'aluminium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
-							                aluminium_ingot = new ItemManager.ItemBuilder(Material.IRON_INGOT, 1, "§8Lingot d'aluminium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
-							                aluminium_nugget = new ItemManager.ItemBuilder(Material.IRON_NUGGET, 1, "§8Pépite d'aluminium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
+        public static final ItemStack     	aluminium_block = new ItemManager.ItemBuilder(Material.IRON_BLOCK, 1, "Â§8Bloc d'aluminium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
+							                aluminium_ingot = new ItemManager.ItemBuilder(Material.IRON_INGOT, 1, "Â§8Lingot d'aluminium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
+							                aluminium_nugget = new ItemManager.ItemBuilder(Material.IRON_NUGGET, 1, "Â§8PÃ©pite d'aluminium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
 							                
-							                copper_block = new ItemManager.ItemBuilder(Material.GOLD_BLOCK, 1, "§6Bloc de cuivre").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
-							                copper_ingot = new ItemManager.ItemBuilder(Material.GOLD_INGOT, 1, "§6Lingot de cuivre").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
-							                copper_nugget = new ItemManager.ItemBuilder(Material.GOLD_NUGGET, 1, "§6Pépite de cuivre").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
+							                copper_block = new ItemManager.ItemBuilder(Material.GOLD_BLOCK, 1, "Â§6Bloc de cuivre").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
+							                copper_ingot = new ItemManager.ItemBuilder(Material.GOLD_INGOT, 1, "Â§6Lingot de cuivre").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
+							                copper_nugget = new ItemManager.ItemBuilder(Material.GOLD_NUGGET, 1, "Â§6PÃ©pite de cuivre").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
 							                
-							                cobalt_block = new ItemManager.ItemBuilder(Material.PRISMARINE_BRICKS, 1, "§1Bloc de cobalt").addFakeEnchant().build(),
-							                cobalt_ingot = new ItemManager.ItemBuilder(Material.PRISMARINE_SHARD, 1, "§1Crystal de cobalt").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
-							                cobalt_nugget = new ItemManager.ItemBuilder(Material.PRISMARINE_CRYSTALS, 1, "§1Morceaux de cobalt").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
+							                cobalt_block = new ItemManager.ItemBuilder(Material.PRISMARINE_BRICKS, 1, "Â§1Bloc de cobalt").addFakeEnchant().build(),
+							                cobalt_ingot = new ItemManager.ItemBuilder(Material.PRISMARINE_SHARD, 1, "Â§1Crystal de cobalt").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
+							                cobalt_nugget = new ItemManager.ItemBuilder(Material.PRISMARINE_CRYSTALS, 1, "Â§1Morceaux de cobalt").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
 							                
-							                platinium_block = new ItemManager.ItemBuilder(Material.DIAMOND_BLOCK, 1, "§bBloc de platine").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
-							                platinium_ingot = new ItemManager.ItemBuilder(Material.DIAMOND, 1, "§bLingot de platine").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
-							                platinium_nugget = new ItemManager.ItemBuilder(Material.BLUE_DYE, 1, "§bPoudre de platine").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
+							                platinium_block = new ItemManager.ItemBuilder(Material.DIAMOND_BLOCK, 1, "Â§bBloc de platine").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
+							                platinium_ingot = new ItemManager.ItemBuilder(Material.DIAMOND, 1, "Â§bLingot de platine").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
+							                platinium_nugget = new ItemManager.ItemBuilder(Material.BLUE_DYE, 1, "Â§Poudre de platine").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
 							                
-							                actinium_block = new ItemManager.ItemBuilder(Material.BEACON, 1, "§cBloc d'actinium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
-							                actinium_ingot = new ItemManager.ItemBuilder(Material.NETHER_STAR, 1, "§cLingot d'actinium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
-							                actinium_nugget = new ItemManager.ItemBuilder(Material.GHAST_TEAR, 1, "§cPépite d'actinium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build();
+							                actinium_block = new ItemManager.ItemBuilder(Material.BEACON, 1, "Bloc d'actinium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
+							                actinium_ingot = new ItemManager.ItemBuilder(Material.NETHER_STAR, 1, "Â§cLingot d'actinium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
+							                actinium_nugget = new ItemManager.ItemBuilder(Material.GHAST_TEAR, 1, "Â§cPÃ©pite d'actinium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build();
         
     }
     
@@ -89,7 +89,7 @@ public class ItemManager {
                 if((firstMeta.hasDisplayName() && !secondMeta.hasDisplayName()) || (!firstMeta.hasDisplayName() && secondMeta.hasDisplayName())) return false;
  
             }
-            // vérif si les un des deux a un meta et pas l'autre
+            // vï¿½rif si les un des deux a un meta et pas l'autre
             if((firstItem.hasItemMeta() && !secondItem.hasItemMeta()) || (!firstItem.hasItemMeta() && secondItem.hasItemMeta())) return false;
         } else return false;
         return true;
@@ -115,7 +115,7 @@ public class ItemManager {
                 if((firstMeta.hasDisplayName() && !secondMeta.hasDisplayName()) || (!firstMeta.hasDisplayName() && secondMeta.hasDisplayName())) return false;
  
             }
-            // vérif si les un des deux a un meta et pas l'autre
+            // vï¿½rif si les un des deux a un meta et pas l'autre
             if((firstItem.hasItemMeta() && !secondItem.hasItemMeta()) || (!firstItem.hasItemMeta() && secondItem.hasItemMeta())) return false;
         } else return false;
         return true;
@@ -141,7 +141,7 @@ public class ItemManager {
                 if((firstMeta.hasDisplayName() && !secondMeta.hasDisplayName()) || (!firstMeta.hasDisplayName() && secondMeta.hasDisplayName())) return false;
  
             }
-            // vérif si les un des deux a un meta et pas l'autre
+            // vï¿½rif si les un des deux a un meta et pas l'autre
             if((firstItem.hasItemMeta() && !secondItem.hasItemMeta()) || (!firstItem.hasItemMeta() && secondItem.hasItemMeta())) return false;
             
             ItemBuilder firstBuilder = new ItemBuilder(firstItem);
@@ -382,7 +382,7 @@ public class ItemManager {
         }
         
         public ItemBuilder removeItemName() {
-            this.meta.setDisplayName("§4 ");
+            this.meta.setDisplayName("ï¿½4 ");
             return this;
         }
         
