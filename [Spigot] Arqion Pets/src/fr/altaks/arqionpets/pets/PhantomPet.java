@@ -26,11 +26,14 @@ public class PhantomPet implements EquipablePet {
 	
 	private Main main;
 	
+	private File file;
+	private FileConfiguration yml;
+	
 	public PhantomPet(Main main) {
 		this.main = main;
 		
 		// check if file exist if not, create
-		File file = new File(main.getDataFolder() + File.separator + "phantom_pet_owners.yml");
+		file = new File(main.getDataFolder() + File.separator + "phantom_pet_owners.yml");
 		if(!file.exists()) {
 			try {
 				file.createNewFile();
@@ -38,6 +41,8 @@ public class PhantomPet implements EquipablePet {
 				e.printStackTrace();
 			}
 		}
+		
+		yml = YamlConfiguration.loadConfiguration(file);
 		
 		loadPetList();
 	}
@@ -158,36 +163,28 @@ public class PhantomPet implements EquipablePet {
 	}
 	
 	public void loadPetList() {
-		for(String uuidPath : getYml().getKeys(false)) {
-			this.pets_rarity.put(UUID.fromString(uuidPath), PetRarity.fromString(getYml().getString(uuidPath)));
+		for(String uuidPath : yml.getKeys(false)) {
+			this.pets_rarity.put(UUID.fromString(uuidPath), PetRarity.fromString(yml.getString(uuidPath)));
 		}
 	}
 	
 	@Override
 	public void addPetForPlayer(Player player, PetRarity rarity) {
 		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet phantom !");
-		getYml().set(player.getUniqueId().toString(), rarity.getId());
+		yml.set(player.getUniqueId().toString(), rarity.getId());
 		saveYml();
 	}
 	
 	@Override
 	public void removePetForPlayer(Player player) {
 		player.sendMessage(Main.PREFIX + "§cVous venez de perdre votre phantom !");
-		getYml().set(player.getUniqueId().toString(), null);
+		yml.set(player.getUniqueId().toString(), null);
 		saveYml();
-	}
-	
-	public File getFile() {
-		return new File(main.getDataFolder() + File.separator + getPetFileName() + ".yml");
-	}
-	
-	public FileConfiguration getYml() {
-		return YamlConfiguration.loadConfiguration(getFile());
 	}
 	
 	public void saveYml() {
 		try {
-			getYml().save(getFile());
+			yml.save(file);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
