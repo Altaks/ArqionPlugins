@@ -18,21 +18,20 @@ public class PetCraft {
 	
 	public boolean matchRecipe(Inventory petInfuserInv) {
 		
-		return true;
+		// collect matrix
+		ItemStack[][] items = new ItemStack[3][3];
+		for(int line = 0; line < 3; line++) for(int row = 0; row < 3; row++) {
+			ItemStack itemFromInv = petInfuserInv.getItem(/*11 est l'offset de l'inv*/ 10 + (int)(line*9 + row));
+			if(itemFromInv == null) return false;
+			items[line][row] = itemFromInv;
+		}
 		
-//		// collect matrix
-//		ItemStack[][] items = new ItemStack[3][3];
-//		for(int line = 0; line < 3; line++) for(int row = 0; row < 3; row++) {
-//			items[line][row] = petInfuserInv.getItem(/*11 est l'offset de l'inv*/ 10 + (int)(line*9 + row));
-//		}
-//		
-//		for(int line = 0; line < 3; line++) for(int row = 0; row < 3; row++) { // on check entre les deux matrix de crafts
-//			if(items[line][row] == null) return false;
-//			if(!this.components[line][row].equals(items[line][row]) || this.components[line][row].getAmount() != items[line][row].getAmount()) return false;
-//		}
+		for(int line = 0; line < 3; line++) for(int row = 0; row < 3; row++) { // on check entre les deux matrix de crafts
+			if(!this.components[line][row].equals(items[line][row]) || this.components[line][row].getAmount() != items[line][row].getAmount()) return false;
+		}
 		
 		// si il n'y a rien qui bloque, la recipe matche
-//		return true;
+		return true;
 	}
 	
 	public ItemStack getOutput() {
