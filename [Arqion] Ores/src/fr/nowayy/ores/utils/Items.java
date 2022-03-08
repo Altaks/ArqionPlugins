@@ -32,7 +32,20 @@ public class Items {
 							compressFeather = new ItemManager.ItemBuilder(Material.FEATHER, 1, "Compressed Feather").build(),
 							compressSlimeBlock = new ItemManager.ItemBuilder(Material.SLIME_BLOCK, 1, "Compressed Slime Block").build(),
 							compressPetDust = new ItemManager.ItemBuilder(Material.GUNPOWDER, 1, "§ePoudre de pet compressée").addFakeEnchant().build(),
-							pet_dust = new ItemManager.ItemBuilder(Material.GUNPOWDER, 1, "§ePoudre de pet").build();
+							pet_dust = new ItemManager.ItemBuilder(Material.GUNPOWDER, 1, "§ePoudre de pet").build(),
+							
+							coal = new ItemManager.ItemBuilder(Material.COAL).build(),
+							iron_nugget = new ItemManager.ItemBuilder(Material.IRON_NUGGET).build(),
+							gold_nugget = new ItemManager.ItemBuilder(Material.GOLD_NUGGET).build(),
+							redstone = new ItemManager.ItemBuilder(Material.REDSTONE).build(),
+							lapis = new ItemManager.ItemBuilder(Material.LAPIS_LAZULI).build(),
+							quartz = new ItemManager.ItemBuilder(Material.QUARTZ).build(),
+							diamond = new ItemManager.ItemBuilder(Material.DIAMOND).build(),
+							emerald = new ItemManager.ItemBuilder(Material.EMERALD).build();
+							
+	
+	
+							
 	
 							
 

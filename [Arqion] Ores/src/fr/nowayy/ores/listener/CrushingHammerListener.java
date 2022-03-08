@@ -8,6 +8,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
+import fr.nowayy.ores.utils.OresDropRates;
+
 public class CrushingHammerListener implements Listener {
 	
 	@EventHandler
@@ -37,13 +39,9 @@ public class CrushingHammerListener implements Listener {
 //				 	platinium nugget : 5%
 //				 	actinium nugget : 2%
 
-				switch((int)droppedItem*100) {
 				
-				
-				
+				for(OresDropRates ores : OresDropRates.values()) {
 					
-				
-					default: break;
 				}
 				
 				
