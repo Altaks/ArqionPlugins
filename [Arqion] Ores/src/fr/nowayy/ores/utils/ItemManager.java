@@ -74,7 +74,16 @@ public class ItemManager {
 							                
 							                actinium_block = new ItemManager.ItemBuilder(Material.BEACON, 1, "Bloc d'actinium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
 							                actinium_ingot = new ItemManager.ItemBuilder(Material.NETHER_STAR, 1, "§cLingot d'actinium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
-							                actinium_nugget = new ItemManager.ItemBuilder(Material.GHAST_TEAR, 1, "§cPépite d'actinium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build();
+							                actinium_nugget = new ItemManager.ItemBuilder(Material.GHAST_TEAR, 1, "§cPépite d'actinium").addNotSafeEnchant(Enchantment.DURABILITY, 1).addItemFlags(ItemFlag.HIDE_ENCHANTS).build(),
+							                
+					                		coal = new ItemManager.ItemBuilder(Material.COAL).build(),
+											iron_nugget = new ItemManager.ItemBuilder(Material.IRON_NUGGET).build(),
+											gold_nugget = new ItemManager.ItemBuilder(Material.GOLD_NUGGET).build(),
+											redstone = new ItemManager.ItemBuilder(Material.REDSTONE).build(),
+											lapis = new ItemManager.ItemBuilder(Material.LAPIS_LAZULI).build(),
+											quartz = new ItemManager.ItemBuilder(Material.QUARTZ).build(),
+											diamond = new ItemManager.ItemBuilder(Material.DIAMOND).build(),
+											emerald = new ItemManager.ItemBuilder(Material.EMERALD).build();
         
     }
     

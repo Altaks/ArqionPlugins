@@ -1,23 +1,24 @@
 package fr.nowayy.ores.utils;
 
-import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+
+import fr.nowayy.ores.utils.ItemManager.PrebuiltItems;
 
 public enum OresDropRates {
 	
-	COAL(Material.COAL, 100),
-	IRON_NUGGET(Material.IRON_NUGGET, 50),
-	REDSTONE(Material.REDSTONE, 45),
-	LAPIS(Material.LAPIS_LAZULI, 40),
-	GOLD_NUGGET(Material.GOLD_NUGGET, 37.5),
-	QUARTZ(Material.QUARTZ, 35),
-	DIAMOND(Material.DIAMOND, 30),
-	EMERALD(Material.EMERALD, 25),
-	ALUMINIUM_NUGGET(),
-	COPPER_NUGGET(),
-	COBALT_NUGGET(),
-	PlATINIUM_NUGGET(),
-	ACTINIUM_NUGGET();
+	COAL(PrebuiltItems.coal, 100),
+	IRON_NUGGET(PrebuiltItems.iron_nugget, 50),
+	REDSTONE(PrebuiltItems.redstone, 45),
+	LAPIS(PrebuiltItems.lapis, 40),
+	GOLD_NUGGET(PrebuiltItems.gold_nugget, 37.5),
+	QUARTZ(PrebuiltItems.quartz, 35),
+	DIAMOND(PrebuiltItems.diamond, 30),
+	EMERALD(PrebuiltItems.emerald, 25),
+	ALUMINIUM_NUGGET(PrebuiltItems.aluminium_nugget, 20),
+	COPPER_NUGGET(PrebuiltItems.copper_nugget, 15),
+	COBALT_NUGGET(PrebuiltItems.cobalt_nugget, 10),
+	PLATINIUM_NUGGET(PrebuiltItems.platinium_nugget, 5),
+	ACTINIUM_NUGGET(PrebuiltItems.actinium_nugget, 2);
 	
 	
 //	 drop rates:
@@ -35,16 +36,20 @@ public enum OresDropRates {
 //	 	platinium nugget : 5%
 //	 	actinium nugget : 2%
 
-	private Material material;
+	private ItemStack material;
 	private double dropRate;
 	
-	public OresDropRates(Material material, double dropRate) {
+	private OresDropRates(ItemStack material, double dropRate) {
 		this.material = material;
 		this.dropRate = dropRate;
 	}
 	
 	public ItemStack getItem() {
 		return this.material;
+	}
+	
+	public double getDropRate() {
+		return this.dropRate;
 	}
 	
 	
