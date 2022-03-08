@@ -1,5 +1,8 @@
 package fr.altaks.arqionpets;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -65,6 +68,16 @@ public class PluginItems {
 	ender_drag_pet = 		new ItemManager.SkullBuilder(1, "§eDragounet").setBase64Texture("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmZjZGFlNTg2YjUyNDAzYjkyYjE4NTdlZTQzMzFiYWM2MzZhZjA4YmFiOTJiYTU3NTBhNTRhODMzMzFhNjM1MyJ9fX0=").build(),
 	pig_pet = 				new ItemManager.SkullBuilder(1, "§ePeppa pig").setBase64Texture("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTgzZWIwNzMxM2MwZDJlZjcyNmMyNjdmMmIxMjg1ZmRhYmQwMjg2NDYwMzEwMjNmYWExYmQ0YzFlNmYwMWRmOCJ9fX0=").build(),
 	chicken_pet = 			new ItemManager.SkullBuilder(1, "§eCot Cot").setBase64Texture("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTZmZWEyMGY4NTI1MDFkYzJkYzk4ODc3YjhkODY5ODBiZDE2YTliY2I2ZGYzNTgzYjNhMmIzMjU0YTgzNWY1YiJ9fX0=").build();
-
+	
+	public static final List<String> pets_heads = Arrays.asList(
+		bat_pet.getItemMeta().getDisplayName(), 
+		silverfish_pet.getItemMeta().getDisplayName(), 
+		parrot_pet.getItemMeta().getDisplayName(), 
+		phantom_pet.getItemMeta().getDisplayName(), 
+		slime_pet.getItemMeta().getDisplayName(), 
+		ender_drag_pet.getItemMeta().getDisplayName(), 
+		pig_pet.getItemMeta().getDisplayName(), 
+		chicken_pet.getItemMeta().getDisplayName()
+	);
 	
 }

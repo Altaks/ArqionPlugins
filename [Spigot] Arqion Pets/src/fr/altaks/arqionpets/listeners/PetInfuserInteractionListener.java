@@ -10,6 +10,7 @@ import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.v1_15_R1.CraftWorld;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryAction;
@@ -18,9 +19,12 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scheduler.BukkitRunnable;
 
+import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PetCraft;
 import fr.altaks.arqionpets.PetCrafts;
+import fr.altaks.arqionpets.PluginItems;
 import fr.altaks.arqionpets.pets.EquipablePet.PetRarity;
 import fr.altaks.arqionpets.utils.ItemManager;
 import net.minecraft.server.v1_15_R1.BlockPosition;
@@ -42,6 +46,12 @@ public class PetInfuserInteractionListener implements Listener {
 			InventoryAction.PICKUP_ONE,
 			InventoryAction.PICKUP_SOME
 	);
+	
+	private Main main;
+	
+	public PetInfuserInteractionListener(Main main) {
+		this.main = main;
+	}
 		
 	@EventHandler(ignoreCancelled = true)
 	public void onSkullClick(PlayerInteractEvent event) {
@@ -68,7 +78,7 @@ public class PetInfuserInteractionListener implements Listener {
 	
 	// rotten flesh : 41 et output : 25
 	
-	@EventHandler
+	@EventHandler(priority = EventPriority.HIGH)
 	public void onPetCraftPrepare(InventoryClickEvent event) {
 		if(event.getClickedInventory() == null) return;
 		if(!event.getClickedInventory().equals(event.getView().getTopInventory())) return;
@@ -94,32 +104,45 @@ public class PetInfuserInteractionListener implements Listener {
 			// si on a toutes les rotten-  
 				// on cherche la recipe
 				// si la recipe n'est pas null on affiche un output
-
-		if(pickupAction.contains(event.getAction())){
+		
+		if(event.getSlot() == 25 && !pickupAction.contains(event.getAction())) {
+			event.setCancelled(true);
+			((Player)event.getWhoClicked()).updateInventory();
+			return;
+		} else if(pickupAction.contains(event.getAction())){
 
 			if(event.getSlot() == 25 && event.getClickedInventory().getItem(25) != null){
 
 				event.setCancelled(true);
 				
 				ItemStack petItem = event.getClickedInventory().getItem(25).clone();
-				float random = new Random().nextFloat() * 100;
 				
-				PetRarity rarity = PetRarity.COMMON;
-				
-				if(random < 2.5) {
-					rarity = PetRarity.LEGENDARY;
-				} else if(random < 10) {
-					rarity = PetRarity.EPIC;
-				} else if(random < 25) {
-					rarity = PetRarity.RARE;
+				if(!PluginItems.pets_heads.contains(petItem.getItemMeta().getDisplayName())) {
+					event.getClickedInventory().setItem(25, null);
+					event.setCancelled(true);
+					return;
 				}
 				
 				ItemMeta meta = petItem.getItemMeta();
-				meta.setLore(Arrays.asList(rarity.getRarityLore()));
-				petItem.setItemMeta(meta);
+				
+				if(!meta.hasLore()) {
+					float random = new Random().nextFloat() * 100;
+					
+					PetRarity rarity = PetRarity.COMMON;
+					
+					if(random < 2.5) {
+						rarity = PetRarity.LEGENDARY;
+					} else if(random < 10) {
+						rarity = PetRarity.EPIC;
+					} else if(random < 25) {
+						rarity = PetRarity.RARE;
+					}
+					
+					meta.setLore(Arrays.asList(rarity.getRarityLore()));
+					petItem.setItemMeta(meta);
+				}
 				
 				event.getWhoClicked().getInventory().addItem(petItem);
-				
 				
 				for(int slot : gridSlots) event.getClickedInventory().setItem(slot, null);
 				((Player)event.getWhoClicked()).updateInventory();
@@ -131,33 +154,33 @@ public class PetInfuserInteractionListener implements Listener {
 			if(!gridSlots.contains(event.getSlot())) {
 				event.setCancelled(true);
 				return;
-			}
-
-			if(event.getSlot() == 25) {
-				event.setCancelled(true);
-				((Player)event.getWhoClicked()).updateInventory();
-				return;
-			}
+			}			
 
 			if(event.getClickedInventory().getItem(41) != null){
 				
 				ItemStack fleshStack = event.getClickedInventory().getItem(41);
 				if(fleshStack.getType() != Material.ROTTEN_FLESH || fleshStack.getAmount() != 64) return;
 
-				// on cherche la recipe
-				PetCraft craft = null;
-				for(PetCraft search : PetCrafts.all_pets_crafts){
-					if(search.matchRecipe(event.getClickedInventory())){
-						craft = search;
-						break;
+				new BukkitRunnable() {
+					
+					@Override
+					public void run() {// on cherche la recipe
+						PetCraft craft = null;
+						for(PetCraft search : PetCrafts.all_pets_crafts){
+							if(search.matchRecipe(event.getClickedInventory())){
+								craft = search;
+								break;
+							}
+						}
+						if(craft != null){
+							// si le craft n'est pas null alors on montre l'output
+							event.getClickedInventory().setItem(25, craft.getOutput());
+							((Player)event.getWhoClicked()).updateInventory();
+							return;
+						}
 					}
-				}
-				if(craft != null){
-					// si le craft n'est pas null alors on montre l'output
-					event.getClickedInventory().setItem(25, craft.getOutput());
-					((Player)event.getWhoClicked()).updateInventory();
-					return;
-				}
+				}.runTaskLater(main, 1);
+				
 			}
 
 		}

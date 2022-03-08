@@ -1,5 +1,8 @@
 package fr.altaks.arqionpets.pets;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
@@ -48,6 +51,10 @@ public interface EquipablePet extends Listener {
 		public static PetRarity fromRarityLore(String value) {
 			for(PetRarity rarity : PetRarity.values()) if(rarity.rarityLore.equals(value)) return rarity;
 			return PetRarity.COMMON;
+		}
+		
+		public static List<String> getAllPossibleLores(){
+			return Arrays.asList(COMMON.rarityLore, RARE.rarityLore, EPIC.rarityLore, LEGENDARY.rarityLore);
 		}
 
 		public String getId() {
