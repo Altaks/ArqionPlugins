@@ -24,6 +24,9 @@ public class SilverfishPet implements EquipablePet {
 	
 	private Main main;
 	
+	private File file;
+	private FileConfiguration yml;
+	
 	public SilverfishPet(Main main) {
 		this.main = main;
 		
@@ -36,6 +39,9 @@ public class SilverfishPet implements EquipablePet {
 				e.printStackTrace();
 			}
 		}
+		
+		yml = YamlConfiguration.loadConfiguration(file);
+
 		
 		loadPetList();
 	}
@@ -133,36 +139,28 @@ public class SilverfishPet implements EquipablePet {
 	}
 	
 	public void loadPetList() {
-		for(String uuidPath : getYml().getKeys(false)) {
-			this.pets_rarity.put(UUID.fromString(uuidPath), PetRarity.fromString(getYml().getString(uuidPath)));
+		for(String uuidPath : yml.getKeys(false)) {
+			this.pets_rarity.put(UUID.fromString(uuidPath), PetRarity.fromString(yml.getString(uuidPath)));
 		}
 	}
 	
 	@Override
 	public void addPetForPlayer(Player player, PetRarity rarity) {
 		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet poisson d'argent !");
-		getYml().set(player.getUniqueId().toString(), rarity.getId());
+		yml.set(player.getUniqueId().toString(), rarity.getId());
 		saveYml();
 	}
 	
 	@Override
 	public void removePetForPlayer(Player player) {
 		player.sendMessage(Main.PREFIX + "§cVous venez d'obtenir le pet poisson d'argent !");
-		getYml().set(player.getUniqueId().toString(), null);
+		yml.set(player.getUniqueId().toString(), null);
 		saveYml();
-	}
-	
-	public File getFile() {
-		return new File(main.getDataFolder() + File.separator + getPetFileName() + ".yml");
-	}
-	
-	public FileConfiguration getYml() {
-		return YamlConfiguration.loadConfiguration(getFile());
 	}
 	
 	public void saveYml() {
 		try {
-			getYml().save(getFile());
+			yml.save(file);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

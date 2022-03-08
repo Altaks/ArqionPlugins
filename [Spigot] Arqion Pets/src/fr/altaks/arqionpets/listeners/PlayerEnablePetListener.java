@@ -7,6 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.pets.EquipablePet;
@@ -41,16 +42,24 @@ public class PlayerEnablePetListener implements Listener {
 				
 				EquipablePet pet = mapEntry.getValue();
 				
-				if(event.getPlayer().getInventory().getItemInMainHand().getType() == Material.PLAYER_HEAD) {
-					// on retire sur la main principale
-					event.getPlayer().getInventory().setItemInMainHand(null);
-				} else {
-					// on retire sur la main secondaire
-					event.getPlayer().getInventory().setItemInOffHand(null);
-				}
-				
 				pet.addPetForPlayer(event.getPlayer(), rarity);
 				event.getPlayer().sendMessage(Main.PREFIX + "Vous disposez maintenant du pet " + pet.getHeadName());
+				
+				new BukkitRunnable() {
+					
+					@Override
+					public void run() {
+						
+						if(event.getPlayer().getInventory().getItemInMainHand().getType() == Material.PLAYER_HEAD) {
+							// on retire sur la main principale
+							event.getPlayer().getInventory().setItemInMainHand(null);
+						} else {
+							// on retire sur la main secondaire
+							event.getPlayer().getInventory().setItemInOffHand(null);
+						}
+						
+					}
+				}.runTaskLater(main, 1);
 				
 				return;
 			}
