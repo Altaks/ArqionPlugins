@@ -53,15 +53,15 @@ class PetComponents {
 	};
 	
 	public static final ItemStack[][] silverfish_components = {
-			{ new ItemManager.ItemBuilder(Material.STONE, 64).build(),    new ItemManager.ItemBuilder(PluginItems.pet_dust).setAmount(64).build(), new ItemManager.ItemBuilder(Material.STONE, 64).build()},
-			{ new ItemManager.ItemBuilder(Material.DIORITE, 1).build(),   new ItemManager.ItemBuilder(PluginItems.pet_core).setAmount(1).build(),  new ItemManager.ItemBuilder(Material.DIORITE, 1).build()},
-			{ new ItemManager.ItemBuilder(Material.STONE, 64).build(),    new ItemManager.ItemBuilder(PluginItems.pet_dust).setAmount(64).build(), new ItemManager.ItemBuilder(Material.STONE, 64).build()},
+			{ new ItemManager.ItemBuilder(Material.STONE, 64).build(),    			new ItemManager.ItemBuilder(PluginItems.pet_dust).setAmount(64).build(), 			new ItemManager.ItemBuilder(Material.STONE, 64).build()},
+			{ new ItemManager.ItemBuilder(Material.POLISHED_DIORITE, 1).build(),   	new ItemManager.ItemBuilder(PluginItems.pet_core).setAmount(1).build(),  			new ItemManager.ItemBuilder(Material.POLISHED_DIORITE, 1).build()},
+			{ new ItemManager.ItemBuilder(Material.STONE, 64).build(),    			new ItemManager.ItemBuilder(PluginItems.pet_dust).setAmount(64).build(), 			new ItemManager.ItemBuilder(Material.STONE, 64).build()},
 	};
 	
 	public static final ItemStack[][] parrot_components = {
-			{ new ItemManager.ItemBuilder(Material.FEATHER, 64).build(), new ItemManager.ItemBuilder(PluginItems.pet_dust).setAmount(64).build(), new ItemManager.ItemBuilder(Material.COOKIE, 64).build()},
-			{ new ItemManager.ItemBuilder(PluginItems.flying_ring).setAmount(1).build(),   new ItemManager.ItemBuilder(PluginItems.pet_core).setAmount(1).build(),  new ItemManager.ItemBuilder(PluginItems.flying_ring).setAmount(1).build()},
-			{ new ItemManager.ItemBuilder(Material.COOKIE, 64).build(),  new ItemManager.ItemBuilder(PluginItems.pet_dust).setAmount(64).build(), new ItemManager.ItemBuilder(Material.FEATHER, 64).build()},
+			{ new ItemManager.ItemBuilder(Material.FEATHER, 64).build(),					new ItemManager.ItemBuilder(PluginItems.pet_dust).setAmount(64).build(), new ItemManager.ItemBuilder(Material.COOKIE, 64).build()},
+			{ new ItemManager.ItemBuilder(PluginItems.flying_ring).setAmount(1).build(),   	new ItemManager.ItemBuilder(PluginItems.pet_core).setAmount(1).build(),  new ItemManager.ItemBuilder(PluginItems.flying_ring).setAmount(1).build()},
+			{ new ItemManager.ItemBuilder(Material.COOKIE, 64).build(),  					new ItemManager.ItemBuilder(PluginItems.pet_dust).setAmount(64).build(), new ItemManager.ItemBuilder(Material.FEATHER, 64).build()},
 	};
 	
 	public static final ItemStack[][] phantom_components = {

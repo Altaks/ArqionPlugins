@@ -19,6 +19,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PluginItems;
+import fr.altaks.arqionpets.pets.EquipablePet.PetRarity;
 
 public class PigPet implements EquipablePet {
 
@@ -31,7 +32,7 @@ public class PigPet implements EquipablePet {
 	public PigPet(Main main) {
 		
 		// check if file exist if not, create
-		File file = new File(main.getDataFolder() + File.separator + "pig_pet_owners.yml");
+		file = new File(main.getDataFolder() + File.separator + "pig_pet_owners.yml");
 		if(!file.exists()) {
 			try {
 				file.createNewFile();
@@ -125,6 +126,7 @@ public class PigPet implements EquipablePet {
 		}
 	}
 	
+	@Override
 	public boolean playerHasPet(UUID id) {
 		return this.pets_rarity.keySet().contains(id);
 	}
@@ -155,6 +157,11 @@ public class PigPet implements EquipablePet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public PetRarity getRarityFromPlayerPet(Player player) {
+		return this.pets_rarity.get(player.getUniqueId());
 	}
 
 }

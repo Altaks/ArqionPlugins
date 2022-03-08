@@ -1,7 +1,9 @@
 package fr.altaks.arqionpets.pets;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -19,6 +21,10 @@ public interface EquipablePet extends Listener {
 	
 	public abstract boolean isListener();
 	
+	public abstract boolean playerHasPet(UUID id);
+	
+	public abstract PetRarity getRarityFromPlayerPet(Player player);
+	
 	public abstract void enablePetForPlayer(Player player);
 	
 	public abstract void disablePetForPlayer(Player player);
@@ -29,18 +35,19 @@ public interface EquipablePet extends Listener {
 	
 	public static enum PetRarity {
 		
-		COMMON("§2[Commun]", 2), 
-		RARE("§9[Rare]", 3),
-		EPIC("§5[Épique]", 5),
-		LEGENDARY("§6[Légendaire]", 10);
+		COMMON("§2[Commun]", 2, "Commun"), 
+		RARE("§9[Rare]", 3, "Rare"),
+		EPIC("§5[Épique]", 5, "Épique"),
+		LEGENDARY("§6[Légendaire]", 10, "Légendaire");
 		
-		private String id, rarityLore;
+		private String id, rarityLore, name;
 		private int potionMultiplier;
 		
-		private PetRarity(String label, int potionMultiplier) {
+		private PetRarity(String label, int potionMultiplier, String name) {
 			this.id = this.toString().toLowerCase();
 			this.potionMultiplier = potionMultiplier;
 			this.rarityLore = label;
+			this.name = name;
 		}
 		
 		public static PetRarity fromString(String value) {
@@ -56,6 +63,17 @@ public interface EquipablePet extends Listener {
 		public static List<String> getAllPossibleLores(){
 			return Arrays.asList(COMMON.rarityLore, RARE.rarityLore, EPIC.rarityLore, LEGENDARY.rarityLore);
 		}
+		
+		public static List<PetRarity> getAllUnderRarities(PetRarity rarity){
+			switch (rarity) {
+			
+				case LEGENDARY: return Arrays.asList(PetRarity.EPIC, PetRarity.RARE, PetRarity.COMMON);
+				case EPIC: return Arrays.asList(PetRarity.RARE, PetRarity.COMMON);
+				case RARE: return Arrays.asList(PetRarity.COMMON);
+				
+				default: return new ArrayList<PetRarity>();
+			}
+		}
 
 		public String getId() {
 			return id;
@@ -67,6 +85,10 @@ public interface EquipablePet extends Listener {
 		
 		public int getPotionMultiplier() {
 			return potionMultiplier;
+		}
+
+		public String getName() {
+			return name;
 		}
 		
 	}

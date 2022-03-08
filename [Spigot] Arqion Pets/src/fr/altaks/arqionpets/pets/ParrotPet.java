@@ -22,6 +22,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PluginItems;
+import fr.altaks.arqionpets.pets.EquipablePet.PetRarity;
 
 public class ParrotPet implements EquipablePet {
 
@@ -178,6 +179,7 @@ public class ParrotPet implements EquipablePet {
 		}
 	}
 	
+	@Override
 	public boolean playerHasPet(UUID id) {
 		return this.pets_rarity.keySet().contains(id);
 	}
@@ -208,6 +210,11 @@ public class ParrotPet implements EquipablePet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public PetRarity getRarityFromPlayerPet(Player player) {
+		return this.pets_rarity.get(player.getUniqueId());
 	}
 
 }

@@ -16,6 +16,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PluginItems;
+import fr.altaks.arqionpets.pets.EquipablePet.PetRarity;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 
@@ -158,6 +159,7 @@ public class PhantomPet implements EquipablePet {
 		}
 	}
 	
+	@Override
 	public boolean playerHasPet(UUID id) {
 		return this.pets_rarity.keySet().contains(id);
 	}
@@ -188,6 +190,11 @@ public class PhantomPet implements EquipablePet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public PetRarity getRarityFromPlayerPet(Player player) {
+		return this.pets_rarity.get(player.getUniqueId());
 	}
 
 }

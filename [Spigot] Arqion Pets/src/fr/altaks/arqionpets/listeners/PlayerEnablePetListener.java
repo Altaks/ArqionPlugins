@@ -42,8 +42,17 @@ public class PlayerEnablePetListener implements Listener {
 				
 				EquipablePet pet = mapEntry.getValue();
 				
+				if(pet.playerHasPet(event.getPlayer().getUniqueId())) {
+					if(!PetRarity.getAllUnderRarities(rarity).contains(pet.getRarityFromPlayerPet(event.getPlayer())) || rarity == PetRarity.COMMON) {
+						// on dispose d'une rareté plus haute ou équivalente
+						event.getPlayer().sendMessage(Main.PREFIX + "§cVous disposez déjà du pet " + pet.getHeadName() + "§c en rareté " + pet.getRarityFromPlayerPet(event.getPlayer()).getName());
+						event.setCancelled(true);
+						return;
+					}
+				}
+				
 				pet.addPetForPlayer(event.getPlayer(), rarity);
-				event.getPlayer().sendMessage(Main.PREFIX + "Vous disposez maintenant du pet " + pet.getHeadName());
+				event.getPlayer().sendMessage(Main.PREFIX + "§cVous disposez maintenant du pet " + pet.getHeadName() + "§6 en rareté " + rarity.getName());
 				
 				new BukkitRunnable() {
 					

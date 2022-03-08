@@ -16,6 +16,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PluginItems;
+import fr.altaks.arqionpets.pets.EquipablePet.PetRarity;
 
 public class SilverfishPet implements EquipablePet {
 	
@@ -31,7 +32,7 @@ public class SilverfishPet implements EquipablePet {
 		this.main = main;
 		
 		// check if file exist if not, create
-		File file = new File(main.getDataFolder() + File.separator + "silverfish_pet_owners.yml");
+		file = new File(main.getDataFolder() + File.separator + "silverfish_pet_owners.yml");
 		if(!file.exists()) {
 			try {
 				file.createNewFile();
@@ -41,7 +42,6 @@ public class SilverfishPet implements EquipablePet {
 		}
 		
 		yml = YamlConfiguration.loadConfiguration(file);
-
 		
 		loadPetList();
 	}
@@ -134,6 +134,7 @@ public class SilverfishPet implements EquipablePet {
 		}
 	}
 	
+	@Override
 	public boolean playerHasPet(UUID id) {
 		return this.pets_rarity.keySet().contains(id);
 	}
@@ -164,6 +165,11 @@ public class SilverfishPet implements EquipablePet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public PetRarity getRarityFromPlayerPet(Player player) {
+		return this.pets_rarity.get(player.getUniqueId());
 	}
 
 }

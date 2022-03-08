@@ -17,6 +17,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PluginItems;
+import fr.altaks.arqionpets.pets.EquipablePet.PetRarity;
 
 public class EnderDragonPet implements EquipablePet {
 
@@ -123,6 +124,7 @@ public class EnderDragonPet implements EquipablePet {
 		}
 	}
 	
+	@Override
 	public boolean playerHasPet(UUID id) {
 		return this.pets_rarity.keySet().contains(id);
 	}
@@ -153,6 +155,11 @@ public class EnderDragonPet implements EquipablePet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public PetRarity getRarityFromPlayerPet(Player player) {
+		return this.pets_rarity.get(player.getUniqueId());
 	}
 
 }
