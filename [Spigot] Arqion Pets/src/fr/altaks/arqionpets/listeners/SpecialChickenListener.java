@@ -1,5 +1,6 @@
 package fr.altaks.arqionpets.listeners;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,30 +26,52 @@ public class SpecialChickenListener implements Listener {
 
     private List<Entity> spawnedChickens = new ArrayList<Entity>(),
                          malusChicken = new ArrayList<Entity>();
-    private HashMap<Entity, Long> chickenMalusTimestamp = new HashMap<>();
+    
+    private List<Entity> spawnedChickenToRemoveFromList = new ArrayList<Entity>(),
+    					 malusChickenToRemoveFromList = new ArrayList<Entity>();
+    
+    private HashMap<Entity, Long> chickenMalusTimestamp = new HashMap<Entity, Long>();
 
     public SpecialChickenListener(Main main) {
 		new BukkitRunnable() {
 			
 			@Override
 			public void run() {
+				
+				for(Entity chicken : spawnedChickenToRemoveFromList) spawnedChickens.remove(chicken);
+				for(Entity chicken : malusChickenToRemoveFromList) malusChicken.remove(chicken);
+				spawnedChickenToRemoveFromList.clear();
+				malusChickenToRemoveFromList.clear();
+				
+				
 				for(Entity chicken : malusChicken){
 	                // get entities around
+					if(chicken.isDead()) {
+						malusChickenToRemoveFromList.add(chicken); // allows async removing from list to avoid getting Concurrent modification while iterating
+						continue;
+					}
 	                chicken.getWorld().getNearbyEntities(chicken.getLocation(), 3, 3, 3).forEach(entity -> {
 	                    if(entity instanceof LivingEntity) {
-	                    	LivingEntity livingE = (LivingEntity)entity;
+	                    	LivingEntity livingEntity = (LivingEntity)entity;
 	                    	// apply effect
-		                    livingE.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 10, 2));
-		                    livingE.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 10, 2));
-	                    	
+		                    if(!livingEntity.hasPotionEffect(PotionEffectType.BLINDNESS)) livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 100, 2));
+		                    if(!livingEntity.hasPotionEffect(PotionEffectType.WEAKNESS)) livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 100, 2));
 	                    }
 	                });
 	            }
 	            for(Entity chicken : spawnedChickens){
-	                if(chickenMalusTimestamp.get(chicken) > (System.currentTimeMillis() / 1000l)) {
+	            	
+	            	if(chicken.isDead()) {
+	            		malusChickenToRemoveFromList.add(chicken);
+	                    chickenMalusTimestamp.remove(chicken);
+						continue;
+					}
+	            	
+	                if(chickenMalusTimestamp.get(chicken) < Instant.now().getEpochSecond()) {
 	                    // rendre chicken malus
 	                    malusChicken.add(chicken);
 	                    chickenMalusTimestamp.remove(chicken);
+	                	spawnedChickenToRemoveFromList.add(chicken);
 	                }
 	            }
 				
@@ -75,15 +98,17 @@ public class SpecialChickenListener implements Listener {
         if(event.getEntity().getType() == EntityType.CHICKEN){
 
             float random = new Random().nextFloat() * 100;
-            if(random < 0.5){
+            if(random < 5){
                 Chicken chicken = (Chicken) event.getEntity();
 
                 spawnedChickens.add(chicken);
-                chickenMalusTimestamp.put(chicken, (System.currentTimeMillis() / 1000l) + (3 * 60));
+                chickenMalusTimestamp.put(chicken, Instant.now().getEpochSecond() + (3 * 60));
 
                 chicken.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1_000_000, 1));
-                chicken.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1_000_000, 1));
+                chicken.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 1_000_000, 1));
 
+                chicken.setCustomName("§cPoulet étrange");
+                chicken.setCustomNameVisible(true);
             }
 
         }
