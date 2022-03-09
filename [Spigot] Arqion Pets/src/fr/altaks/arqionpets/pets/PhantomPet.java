@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -16,6 +17,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PluginItems;
+import fr.altaks.arqionpets.events.PlayerKickDelayingEvent;
+import fr.altaks.arqionpets.events.PlayerKickUndelayingEvent;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 
@@ -141,9 +144,15 @@ public class PhantomPet implements EquipablePet {
 	@Override
 	public void enablePetForPlayer(Player player) {
 		if(pets_rarity.containsKey(player.getUniqueId()) || Main.debugMode) {
-			// le joueur possède le pet
-			
+			// le joueur possède le pet	
 			players_who_enabled.add(player);
+			
+			if(pets_rarity.get(player.getUniqueId()) != PetRarity.COMMON) {
+				
+				Bukkit.getPluginManager().callEvent(new PlayerKickDelayingEvent(player, pets_rarity.get(player.getUniqueId()).getAntiAfkDelay()));
+				
+			}
+			
 			player.sendMessage(Main.PREFIX + "§eVous venez d'équiper votre phantom");
 			
 		}
@@ -154,6 +163,13 @@ public class PhantomPet implements EquipablePet {
 		if(players_who_enabled.contains(player) || Main.debugMode) {
 			// faire en sorte que le joueur déséquipe son pet
 			players_who_enabled.remove(player);
+			
+			if(pets_rarity.get(player.getUniqueId()) != PetRarity.COMMON) {
+				
+				Bukkit.getPluginManager().callEvent(new PlayerKickUndelayingEvent(player));
+				
+			}
+			
 			player.sendMessage(Main.PREFIX + "§eVous venez déséquiper votre pet");
 		}
 	}
