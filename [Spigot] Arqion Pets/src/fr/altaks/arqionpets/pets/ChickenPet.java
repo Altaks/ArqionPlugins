@@ -16,7 +16,6 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PluginItems;
-import fr.altaks.arqionpets.pets.EquipablePet.PetRarity;
 
 public class ChickenPet implements EquipablePet {
 

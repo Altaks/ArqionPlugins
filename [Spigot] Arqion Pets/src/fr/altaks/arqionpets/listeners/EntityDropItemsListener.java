@@ -3,6 +3,7 @@ package fr.altaks.arqionpets.listeners;
 import java.util.Arrays;
 import java.util.Random;
 
+import org.bukkit.Material;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
@@ -14,6 +15,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
+import org.bukkit.inventory.ItemStack;
 
 import fr.altaks.arqionpets.PluginItems;
 
@@ -74,9 +76,10 @@ public class EntityDropItemsListener implements Listener {
 	public void onPlayerApplyWitherConverter(PlayerInteractAtEntityEvent event){
 
 		if(!event.getPlayer().getInventory().getItemInMainHand().equals(PluginItems.wither_pet_converter)) return;
-		if(!(event.getRightClicked() instanceof Wither)) return;
+		if(event.getRightClicked().getType() != EntityType.WITHER) return;
 		Wither wither = (Wither) event.getRightClicked();
-		if(wither.isInvulnerable()) { // peut etre besoin de remplacer par un get des ticks de vie
+
+		if(wither.getNoDamageTicks() < wither.getMaximumNoDamageTicks()) { // peut etre besoin de remplacer par un get des ticks de vie
 
 			// on modif le wither
 			wither.setMaxHealth(500.0d);
@@ -92,7 +95,6 @@ public class EntityDropItemsListener implements Listener {
 			event.getPlayer().getInventory().setItemInMainHand(null);
 
 		}
-
 
 	}
 

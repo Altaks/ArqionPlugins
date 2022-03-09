@@ -16,7 +16,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PluginItems;
-import fr.altaks.arqionpets.pets.EquipablePet.PetRarity;
 
 public class SilverfishPet implements EquipablePet {
 	

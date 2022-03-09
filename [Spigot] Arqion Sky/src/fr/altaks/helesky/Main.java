@@ -140,7 +140,7 @@ public class Main extends JavaPlugin {
 		if(debugMode) {
 			this.islandsFromId.values().forEach(island -> System.out.println(island.getName() + " " + island.getOwnerId().toString() + " "));
 		}
-		getCommand("testcommand").setExecutor(new TestClass());
+		
 		
 		Bukkit.getScheduler().runTaskTimerAsynchronously(this, () -> {
 			List<LevelingWither> withersToRemove = new ArrayList<>();

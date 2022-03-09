@@ -19,7 +19,6 @@ import org.bukkit.potion.PotionEffectType;
 
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PluginItems;
-import fr.altaks.arqionpets.pets.EquipablePet.PetRarity;
 
 public class PigPet implements EquipablePet {
 
