@@ -41,7 +41,9 @@ public class CrushingHammerListener implements Listener {
 
 				
 				for(OresDropRates ores : OresDropRates.values()) {
-					
+					if(droppedItem <= ores.getDropRate()) {
+						
+					}
 				}
 				
 				
