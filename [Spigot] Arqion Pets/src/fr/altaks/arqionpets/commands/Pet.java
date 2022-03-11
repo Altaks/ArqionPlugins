@@ -32,20 +32,29 @@ public class Pet implements CommandExecutor {
 
 			if(main.getHasPetEquiped().contains(player)) inv.setItem(13, new ItemManager.ItemBuilder(Material.LIME_DYE, 1, "§cPet équipé").build());
 
-			inv.setItem(29, PluginItems.bat_pet);
-			inv.setItem(30, PluginItems.silverfish_pet);
-			inv.setItem(31, PluginItems.parrot_pet);
-			inv.setItem(32, PluginItems.phantom_pet);
-			inv.setItem(33, PluginItems.slime_pet);
-			inv.setItem(39, PluginItems.pig_pet);
-			inv.setItem(40, PluginItems.ender_drag_pet);
-			inv.setItem(41, PluginItems.chicken_pet);
+			inv.setItem(29, setLoreToPetAccordingToOwning(PluginItems.bat_pet, player));
+			inv.setItem(30, setLoreToPetAccordingToOwning(PluginItems.silverfish_pet, player));
+			inv.setItem(31, setLoreToPetAccordingToOwning(PluginItems.parrot_pet, player));
+			inv.setItem(32, setLoreToPetAccordingToOwning(PluginItems.phantom_pet, player));
+			inv.setItem(33, setLoreToPetAccordingToOwning(PluginItems.slime_pet, player));
+			inv.setItem(39, setLoreToPetAccordingToOwning(PluginItems.pig_pet, player));
+			inv.setItem(40, setLoreToPetAccordingToOwning(PluginItems.ender_drag_pet, player));
+			inv.setItem(41, setLoreToPetAccordingToOwning(PluginItems.chicken_pet, player));
 			
 			player.openInventory(inv);
 			return true;
 			
 		}
 		return false;
+	}
+
+	public ItemStack setLoreToPetAccordingToOwning(ItemStack item, Player player){
+		EquipablePet associatedPet = main.getPets_from_name(item.getItemMeta().getDisplayName());
+		return new ItemManager.ItemBuilder(item.clone())
+				.setLore( 
+					associatedPet.playerHasPet( player.getUniqueId()) ? "§a \u2713 Possédé" : "§c\u2716 Non possédé"
+				)
+				.build();
 	}
 
 }
