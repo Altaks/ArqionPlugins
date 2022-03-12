@@ -7,9 +7,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import fr.altaks.arqionpets.Main;
 import fr.altaks.arqionpets.PluginItems;
+import fr.altaks.arqionpets.pets.EquipablePet;
 import fr.altaks.arqionpets.utils.ItemManager;
 
 public class Pet implements CommandExecutor {
@@ -49,7 +51,7 @@ public class Pet implements CommandExecutor {
 	}
 
 	public ItemStack setLoreToPetAccordingToOwning(ItemStack item, Player player){
-		EquipablePet associatedPet = main.getPets_from_name(item.getItemMeta().getDisplayName());
+		EquipablePet associatedPet = main.getPets_from_name().get(item.getItemMeta().getDisplayName());
 		return new ItemManager.ItemBuilder(item.clone())
 				.setLore( 
 					associatedPet.playerHasPet( player.getUniqueId()) ? "§a \u2713 Possédé" : "§c\u2716 Non possédé"

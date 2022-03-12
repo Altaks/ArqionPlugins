@@ -135,7 +135,7 @@ public class SilverfishPet implements EquipablePet {
 	
 	@Override
 	public boolean playerHasPet(UUID id) {
-		return this.pets_rarity.keySet().contains(id);
+		return this.pets_rarity.containsKey(id);
 	}
 	
 	public void loadPetList() {

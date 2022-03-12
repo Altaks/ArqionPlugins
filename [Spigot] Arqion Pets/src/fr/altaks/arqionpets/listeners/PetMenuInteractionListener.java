@@ -59,24 +59,33 @@ public class PetMenuInteractionListener implements Listener {
 					player.getOpenInventory().getTopInventory().setItem(13, ItemManager.PrebuiltItems.inventoryFillingGlassPane);
 					return;
 				} else {
-					// faire spawn le pet
-					ArmorStand armorstand = (ArmorStand) player.getWorld().spawnEntity(player.getLocation().add(1.5d, -0.4d, 1.5d).setDirection(new Vector()), EntityType.ARMOR_STAND);
 					
-					armorstand.setGravity(false);
-					armorstand.setCustomName("§e\u00BB "+ petname +" §e\u00AB");
-					armorstand.setCustomNameVisible(true);
-					armorstand.setBasePlate(false);
-					armorstand.setInvulnerable(true);
-					armorstand.setCollidable(false);
-					armorstand.setVisible(false);
-					armorstand.setHelmet(item);
-					main.getPetsArmorstand().addLast(new PetPlayerCouple(player, armorstand));
-					main.getHasPetEquiped().add(player);
+					EquipablePet petToEquip = main.getPets_from_name().get(item.getItemMeta().getDisplayName());
 					
-					// active pet for player
-					main.getPets_from_name().get(item.getItemMeta().getDisplayName()).enablePetForPlayer(player);
+					if(petToEquip.playerHasPet(player.getUniqueId())) {
+						// faire spawn le pet
+						ArmorStand armorstand = (ArmorStand) player.getWorld().spawnEntity(player.getLocation().add(1.5d, -0.4d, 1.5d).setDirection(new Vector()), EntityType.ARMOR_STAND);
+						
+						armorstand.setGravity(false);
+						armorstand.setCustomName("§e\u00BB "+ petname +" §e\u00AB");
+						armorstand.setCustomNameVisible(true);
+						armorstand.setBasePlate(false);
+						armorstand.setInvulnerable(true);
+						armorstand.setCollidable(false);
+						armorstand.setVisible(false);
+						armorstand.setHelmet(item);
+						main.getPetsArmorstand().addLast(new PetPlayerCouple(player, armorstand));
+						main.getHasPetEquiped().add(player);
+						
+						// active pet for player
+						petToEquip.enablePetForPlayer(player);					
+						player.getOpenInventory().getTopInventory().setItem(13, new ItemManager.ItemBuilder(Material.LIME_DYE, 1, "§cPet équipé").build());
+
+					} else {
+						player.sendMessage(Main.PREFIX + "§cVous ne disposez pas de ce pet !");
+					}
 					
-					player.getOpenInventory().getTopInventory().setItem(13, new ItemManager.ItemBuilder(Material.LIME_DYE, 1, "§cPet équipé").build());
+					
 					return;
 				}
 				
