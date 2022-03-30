@@ -1,5 +1,7 @@
 package fr.altaks.arqionitems;
 
+import org.bukkit.Bukkit;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -16,8 +18,9 @@ public class Main extends JavaPlugin {
 		SpecialItem[] items = {
 
 		};
-		for(SpecialItem item : items) if(item.hasListener()) Bukkit.getServer().getPluginManager().registerEvents(item, this)
-
+		for(SpecialItem item : items) if(item.isListener()) Bukkit.getServer().getPluginManager().registerEvents((Listener) item, this);
+		
+		
 		
 	}
 	
