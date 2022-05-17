@@ -1,0 +1,14 @@
+debug-mode: false
+nb-players-per-team: 2
+attackers-coordinates: "world/0/0/0"
+defenders-coordinates: "world/0/0/0"
+attackers-stuff:
+  item-1: "minecraft:diamond_sword///1///{}"
+  item-2: "minecraft:diamond_pickaxe///1///{}"
+  item-3: "minecraft:diamond_axe///1///{}"
+  item-4: "minecraft:diamond_shovel///1///{}"
+defenders-stuff:
+  item-1: "minecraft:diamond_sword///1///{}"
+  item-2: "minecraft:diamond_pickaxe///1///{}"
+  item-3: "minecraft:diamond_axe///1///{}"
+  item-4: "minecraft:diamond_shovel///1///{}"

@@ -1,0 +1,6 @@
+name: AssautPL
+version: '1.0.0'
+main: fr.altaks.assaut.Main
+author: 'Altaks'
+api: Spigot
+api-version: 1.15

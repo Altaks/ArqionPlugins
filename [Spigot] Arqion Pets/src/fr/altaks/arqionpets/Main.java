@@ -64,7 +64,7 @@ public class Main extends JavaPlugin {
 	public EquipablePet[] pets = { 
 			
 				new SilverfishPet(this), 
-				new BatPet(this), 
+				new BatPet(this),
 				new SlimePet(this), 
 				new EnderDragonPet(this), 
 				new ParrotPet(this),

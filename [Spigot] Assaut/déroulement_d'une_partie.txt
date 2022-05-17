@@ -1,0 +1,13 @@
+KeepInventory activé
+
+
+Un beacon est donné a un joueur aléatoire de l'équipe de défense
+Lorsque les défenseurs ont placé le beacon, la partie pvp commence
+
+Les attaquants disposent d'un trident, d'un full fer et d'un bouclier
+Un arc est donné a un joueur aléatoire de l'équipe d'attaque
+Les attaquants disposent chacun d'une pioche en diamant
+
+Les défenseurs disposent d'un demi-diamant, de potions de speed et d'un bouclier. Epee en fer sharp 2.
+Attaquants épée diams.
+

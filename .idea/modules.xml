@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/[Spigot] Assaut/[Spigot] Assaut.iml" filepath="$PROJECT_DIR$/[Spigot] Assaut/[Spigot] Assaut.iml" />
+      <module fileurl="file://$PROJECT_DIR$/workspace_helenium.iml" filepath="$PROJECT_DIR$/workspace_helenium.iml" />
+    </modules>
+  </component>
+</project>
