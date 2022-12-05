@@ -1,0 +1,9 @@
+name: BorderChanger
+version: "1.0.0"
+author: Altaks
+main: fr.altaks.borderchanger.Main
+api-version: 1.18
+api: Spigot
+commands:
+  getchanger:
+    description: "bloup"
